@@ -1,0 +1,9 @@
+body{
+    font-family: Roboto;
+}
+body, #table{
+    width: 100%;
+}
+.handsontable .htDimmed {
+    color: initial;
+}
