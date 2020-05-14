@@ -16,10 +16,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
 </head>
+<header>
 <h1>Birds of Kenya</h1>
 <p>The following interactive table (sort, filter) lists all species and subspecies of birds recorded in Kenya.</p>
-
-
+<div class="left-menu">
+    <button id="exportFile">Export View Table</button><br>
+    <a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya"><img width="60px" src="./GitHub_Logo.png" style="padding-top:5px;"></a>
+</div>
+</header>
+<div id="loader"></div>
 <div id="table"></div>
 
 <script type="text/javascript"  src="./script.js"></script>
+</html>
