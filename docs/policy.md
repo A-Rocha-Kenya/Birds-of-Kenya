@@ -2,8 +2,6 @@
 
 **Status:** Working draft. This document is a starting point for Bird Committee review and is not yet an approved policy.
 
-**Basis:** The *Checklist of the Birds of Kenya, Fifth Edition* (2019), especially its abbreviation key and “Some considerations in regard to this list” section. The 2019 edition remains the historical source and is preserved in `data/sources/`.
-
 ## 1. Purpose
 
 The Checklist of the Birds of Kenya records bird taxa that have been accepted as having occurred in Kenya. It is a country checklist, not a prediction of current presence, a range map, or a global taxonomic authority.
@@ -47,9 +45,11 @@ Only subspecies individually supported as occurring in Kenya are included. The p
 
 ### Unresolved taxonomy
 
-The 2019 checklist retained some observations without forcing a disputed species/subspecies conclusion. The new checklist retains this principle through an evidence or editorial note linked to the nearest accepted AviList concept.
+The checklist does not force a disputed species/subspecies conclusion. It handles this by using AviList as the required taxonomic frame. Every checklist row must have an `AvibaseID`; there are no free-floating unresolved names in the core checklist.
 
-**UNSET - Phase 0 decision:** Decide whether unresolved species complexes and hybrids appear in the main checklist, a separate appendix, or only in the internal evidence register.
+When a Kenyan record is discussed under a disputed species or subspecies treatment, or concerns a hybrid, the curator links it to the appropriate AviList concept where one exists and records the discussion, alternative treatment, evidence, and uncertainty in the Kenya-specific note column. The note preserves the editorial context without creating a parallel taxonomy.
+
+If no appropriate AviList concept exists for the record, it remains in the evidence and review records until the Committee can associate it with an AviList concept. It is not added to the core checklist without an `AvibaseID`.
 
 ## 5. Inclusion and exclusion
 
@@ -57,7 +57,7 @@ The 2019 checklist retained some observations without forcing a disputed species
 
 A taxon is included when the Bird Committee accepts that it has occurred in Kenya under this policy and the decision has supporting evidence.
 
-The 2019 checklist identifies two routes for a new inclusion:
+Two routes are recognised for a new inclusion:
 
 1. the East African Rarities Committee (EARC) has vetted and accepted the record; or
 2. a refereed publication documents the validity of including the taxon.
@@ -68,25 +68,23 @@ The Committee may record additional evidence types if it defines how they are as
 
 ### Exclusion principle
 
-A claimed record may be excluded when the evidence is materially doubtful, has not undergone appropriate scrutiny, or cannot be reliably separated from similar taxa. The 2019 decision to omit Matsudaira's Storm-petrel illustrates this precautionary approach.
+A claimed record may be excluded when the evidence is materially doubtful, has not undergone appropriate scrutiny, or cannot be reliably separated from similar taxa. Exclusion from the public checklist is a precautionary editorial decision, not deletion of the historical claim.
 
 An excluded or unconfirmed claim should remain in the curator's evidence and decision records with its reason. Exclusion from the public checklist is not deletion of the historical claim.
 
 ### Introduced and escaped birds
 
-The 2019 checklist marks some taxa as introduced but does not provide a complete admission rule.
-
 **UNSET - Phase 0 decision:** Define how the checklist treats introduced populations, established feral populations, escapees, and uncertain provenance.
 
 ## 6. Kenyan status classifications
 
-The following codes are retained from the 2019 checklist for the first AviList-based migration. Their meanings apply to Kenyan checklist interpretation, not to global taxonomy.
+The following codes apply to Kenyan checklist interpretation, not to global taxonomy.
 
 | Code | Meaning |
 | --- | --- |
 | `AM` | Afrotropical migrant. |
 | `AMR` | Afrotropical migrant and resident. |
-| `E` | Endemic species or race. |
+| `E` | Endemic species or subspecies. |
 | `EX` | Species thought to have become extinct in Kenya. |
 | `HIST` | No record for 50 years. |
 | `IO` / `VIO` | Visitor / vagrant from northwest Indian Ocean islands. |
@@ -101,41 +99,50 @@ The following codes are retained from the 2019 checklist for the first AviList-b
 | `VN` | Vagrant from the Nearctic region. |
 | `VSA` | Vagrant from southern Africa. |
 
-Lower-case migrant notation in the 2019 policy indicates that migrants may occur alongside resident, non-migratory, or other migrant individuals. Parentheses indicate that some Kenyan individuals might be migrants or wanderers from the stated region. The data design must preserve this distinction where it remains relevant.
+Lower-case migrant notation indicates that migrants may occur alongside resident, non-migratory, or other migrant individuals. Parentheses indicate that some Kenyan individuals might be migrants or wanderers from the stated region. The data design must preserve this distinction where it remains relevant.
 
 ### Rarity
 
 The EARC considers species with fewer than five records across Kenya, Uganda, Tanzania, Rwanda, and Burundi. `RAR` identifies a taxon included on the Kenya list with fewer than five EARC-list records at the relevant assessment date.
 
-The 2019 convention applies a vagrant category to taxa with more than four and fewer than ten records at publication. Vagrancy is separate from `RAR`; both may therefore apply to a taxon with five to nine records.
+The vagrant category applies to taxa with more than four and fewer than ten records at publication. Vagrancy is separate from `RAR`; both may therefore apply to a taxon with five to nine records.
 
 ### Historical and not-recently-recorded taxa
 
-`HIST` indicates no Kenyan record for 50 years. `NRR` was introduced for no record during the preceding 20 years. The 2019 abbreviation key expresses that period as 1969-1999, reflecting the publication date.
+`HIST` indicates no Kenyan record for 50 years. `NRR` indicates no record during the preceding 20 years.
 
-**UNSET - Phase 0 decision:** Decide whether `HIST` and `NRR` are rolling statuses and whether the Committee reassesses them at every release.
+`HIST` and `NRR` are rolling statuses. They must be reassessed for every new Kenya release using the latest accepted Kenyan record date available at the editorial cutoff. The status is a Committee-reviewed classification for that release; it is not silently changed by an automated calculation alone.
 
-### Endemicity
-
-The initial migration retains the 2019 meaning of `E`, “endemic species or race.”
-
-**UNSET - Phase 0 decision:** Confirm whether this definition is retained unchanged and how it applies to AviList subspecies.
+The project must therefore maintain a reliable latest-record date, or an explicitly documented reason why no later accepted record is available, for taxa carrying these statuses.
 
 ### Waterbirds
 
-**UNSET - Phase 0 decision:** Define the waterbird and strict-waterbird classifications and identify the authoritative source for each.
+The checklist uses the Ramsar functional concept of waterbirds: birds that are ecologically dependent on wetlands. For the operational checklist classification, the initial family set is the one used in *Waterfowl Population Estimates, Second Edition* (Rose & Scott, 1997):
+
+`Gaviidae`, `Podicipedidae`, `Pelecanidae`, `Phalacrocoracidae`, `Anhingidae`, `Ardeidae`, `Balaenicipitidae`, `Scopidae`, `Ciconiidae`, `Threskiornithidae`, `Phoenicopteridae`, `Anhimidae`, `Anatidae`, `Pedionomidae`, `Gruidae`, `Aramidae`, `Rallidae`, `Heliornithidae`, `Eurypygidae`, `Jacanidae`, `Rostratulidae`, `Dromadidae`, `Haematopodidae`, `Ibidorhynchidae`, `Recurvirostridae`, `Burhinidae`, `Glareolidae`, `Charadriidae`, `Scolopacidae`, `Thinocoridae`, `Laridae`, `Sternidae`, and `Rynchopidae`.
+
+The `water_bird` field is generated automatically from this rule and the AviList taxonomic hierarchy. It is not manually entered for individual rows. The build must maintain a versioned mapping from the operational family list to AviList families, because family treatment and names may change between AviList releases. Species and subspecies inherit the classification from their AviList family.
+
 
 ## 7. Kenya-specific names and conservation information
 
 ### Kenya English name
 
-**UNSET - Phase 0 decision:** Decide when a Kenya English name is required, who approves it, and when it may differ from the AviList English name.
+AviList provides the default English name for each taxon. The Kenya checklist may provide a Kenya-specific English name when the Bird Committee considers a different name to be the appropriate name used in Kenya.
+
+The core checklist should store a Kenya-specific name only when it intentionally differs from the AviList name. When there is no difference, the generated checklist uses the AviList name and leaves the Kenya-specific override blank. This avoids duplicating names while preserving the Committee's local nomenclature where it matters.
+
+The Kenya-specific name field represents the Committee's preferred English name, not an alternative taxonomic concept. The row must still use the relevant AviList `AvibaseID`, and any taxonomic or naming discussion is recorded in the Kenya-specific note field.
+
+eBird/Clements supports multiple regional and taxonomic English name sets ([eBird naming guidance](https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird)), so a difference between the Kenya name and the AviList name is valid and should be documented rather than treated as an error. The project should maintain a machine-readable list of approved Kenya-name overrides that can be shared with eBird/Clements for consideration in future Kenya name-set updates.
+
+**UNSET - Phase 0 decision:** Define the scope and approval process for Kenya English names: which taxa are eligible, what evidence or usage supports a proposed name, who approves it, how conflicts are resolved, and how approved names are submitted to external maintainers.
 
 ### Kenya vulnerability
 
-The 2019 edition intentionally did not present regional BirdLife/IUCN threat categories as Kenyan threat assessments. AviList-supplied global conservation fields may be displayed, but must remain clearly labelled as global source information.
+Regional BirdLife/IUCN threat categories are not Kenyan threat assessments. AviList-supplied global conservation fields may be displayed, but must remain clearly labelled as global source information.
 
-Appendix 2 of the 2019 edition is retained as a separate “2019 Kenya conservation watchlist.” It must not be silently replaced by global IUCN/BirdLife categories.
+Any Kenya conservation watchlist is a separate national classification. It must not be silently replaced by global IUCN/BirdLife categories.
 
 **UNSET - Phase 0 decision:** Decide whether the watchlist is republished unchanged, updated as a Kenyan assessment, or retained only as historical information. Define the authority and method for any new Kenya vulnerability assessment.
 
@@ -148,8 +155,6 @@ Each accepted or rejected editorial assertion should be traceable to:
 - the date of the Committee decision;
 - the decision outcome;
 - a short rationale where the outcome is not self-evident.
-
-**UNSET - Phase 0 decision:** Confirm the minimum evidence fields and the Committee's practical approval workflow.
 
 ## 9. Changes to the checklist
 
@@ -184,6 +189,4 @@ Before this policy becomes version 1.0, the curator should:
 
 - [ ] obtain Bird Committee decisions for every item marked `UNSET`;
 - [ ] record those decisions in the relevant sections;
-- [ ] test the rules against ordinary species, subspecies, historical taxa, rarities, introduced taxa, and ambiguous records;
-- [ ] publish the approved policy with the first AviList-based release;
-- [ ] preserve this draft and the 2019 source as part of the project history.
+- [ ] publish the approved policy with the first AviList-based release.
