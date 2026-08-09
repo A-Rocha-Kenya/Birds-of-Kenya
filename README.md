@@ -76,6 +76,19 @@ The site is read-only: filtering, column settings, and exports affect only the b
 | `VN` | Vagrant from the Nearctic region. |
 | `VSA` | Vagrant from southern Africa. |
 
+## KE-v2019b preparation
+
+`data/v2019.1/main.csv` is a corrected, reduced historical version of `data/v2019.0/main.csv`. It retains the published checklist fields, the historical order fields, waterbird fields, and `avibaseid`; it excludes external identifiers, external taxonomy mappings, range fields, and Red List/BirdLife status fields.
+
+Run the preparation and key validation with:
+
+```sh
+python3 scripts/migrate_2019_to_2019b.py
+python3 tests/validate_2019b.py
+```
+
+`data/v2019.1/repairs.csv` is keyed by the original `sort` value. Taxonomic and subspecies annotations are maintained separately in `data/v2019.1/taxon_notes.csv`, also keyed by `sort`, so they do not alter the historical main file. Validation writes any missing, duplicate, or malformed `sort` and `avibaseid` values to `data/v2019.1/audit_errors.csv`.
+
 ## Source documents
 
 The project includes the original source files:

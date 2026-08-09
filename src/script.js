@@ -70,7 +70,7 @@ const showError = message => {
 
 const tableHeight = () => Math.max(420, window.innerHeight - tableElement.getBoundingClientRect().top - 24);
 
-const dataUrl = window.location.pathname.includes('/src/') ? '../data/main.csv' : 'data/main.csv';
+const dataUrl = window.location.pathname.includes('/src/') ? '../data/v2019.1/main.csv' : 'data/v2019.1/main.csv';
 Papa.parse(dataUrl, {
   encoding: 'UTF-8',
   download: true,

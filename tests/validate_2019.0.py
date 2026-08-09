@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "main.csv"
+DATA = ROOT / "data" / "v2019.0" / "main.csv"
 REQUIRED = {
     "sort", "family_scientific", "family_english", "common_name", "scientific_name",
     "red_list", "status_birdlife", "water_bird", "strict_water_bird",
