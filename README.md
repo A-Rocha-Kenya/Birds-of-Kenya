@@ -25,24 +25,6 @@ The interactive table initially hides the scientific and English family columns,
 
 The site is read-only: filtering, column settings, and exports affect only the browser session and the downloaded file, never `data/main.csv`.
 
-## Run locally
-
-No package installation is required. Serve the repository directory over HTTP, then open [`src/index.html`](src/index.html) in a browser:
-
-```sh
-python3 -m http.server 8000
-```
-
-Open <http://localhost:8000/src/>. Serving over HTTP is required because the page fetches `data/main.csv` in the browser. The page uses pinned CDN-hosted copies of [Handsontable](https://handsontable.com/) and [Papa Parse](https://www.papaparse.com/), plus Google Fonts, so an internet connection is needed for the complete interface and styling.
-
-Validate data changes with:
-
-```sh
-python3 tests/validate_data.py
-```
-
-GitHub Pages is deployed automatically from `main` by [`.github/workflows/pages.yml`](.github/workflows/pages.yml). The workflow validates the CSV, assembles the static site, and deploys it with the official Pages artifact actions.
-
 ## Repository layout
 
 | Path | Purpose |
@@ -94,14 +76,6 @@ GitHub Pages is deployed automatically from `main` by [`.github/workflows/pages.
 | `VN` | Vagrant from the Nearctic region. |
 | `VSA` | Vagrant from southern Africa. |
 
-## Maintaining the site and data
-
-Edit `data/main.csv` to update the checklist. Keep its header row and UTF-8 encoding intact: `src/script.js` uses the field names to construct the table and its external links. Rows are expected to follow the value order defined by `sort`.
-
-To add a new external identifier link or modify a current one, update the matching field handling in [`src/script.js`](src/script.js). To change table tooltips or the set of hidden columns, update its configuration there.
-
-Before publishing a data change, run `python3 tests/validate_data.py`, then check that the table loads, filters work, the relevant identifier links resolve, and the export contains the intended view.
-
 ## Source documents
 
 The project includes the original source files:
@@ -110,9 +84,6 @@ The project includes the original source files:
 - [Word checklist](data/sources/2019%20Checklist%20of%20the%20Birds%20of%20Kenya%205th%20Edition%20%282019%29.doc)
 - [Excel checklist](data/sources/2019%20Checklist%20of%20the%20Birds%20of%20Kenya%205th%20Edition%20%282019%29.xlsx)
 
-## Contributing
-
-Please open an issue or pull request in the [A Rocha Kenya/Birds-of-Kenya repository](https://github.com/A-Rocha-Kenya/Birds-of-Kenya) with the source supporting any checklist, taxonomy, status, or identifier correction. Keep changes focused and explain the taxonomic authority or checklist reference used.
 
 ## License
 
