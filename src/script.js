@@ -68,6 +68,8 @@ const showError = message => {
   errorElement.textContent = message;
 };
 
+const tableHeight = () => Math.max(420, window.innerHeight - tableElement.getBoundingClientRect().top - 24);
+
 const dataUrl = window.location.pathname.includes('/src/') ? '../data/main.csv' : 'data/main.csv';
 Papa.parse(dataUrl, {
   encoding: 'UTF-8',
@@ -110,6 +112,9 @@ Papa.parse(dataUrl, {
     });
     hot = new Handsontable(tableElement, {
       data: tableRows,
+      width: '100%',
+      height: tableHeight(),
+      stretchH: 'all',
       colHeaders: columns,
       columns: columnDefinitions,
       readOnly: true,
@@ -134,6 +139,7 @@ Papa.parse(dataUrl, {
     exportPlugin = hot.getPlugin('exportFile');
     exportButton.disabled = false;
     loader.hidden = true;
+    window.addEventListener('resize', () => hot.updateSettings({ height: tableHeight() }));
   },
   error: () => showError('The checklist could not be loaded. Check your connection and reload the page.')
 });

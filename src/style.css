@@ -1,7 +1,8 @@
 :root { color-scheme: light; font-family: Roboto, system-ui, sans-serif; color: #243128; background: #f6f8f5; }
 * { box-sizing: border-box; }
 body { margin: 0; }
-.site-header, main, footer { max-width: 1600px; margin: 0 auto; padding-left: clamp(1rem, 3vw, 3rem); padding-right: clamp(1rem, 3vw, 3rem); }
+.site-header, footer { max-width: 1600px; margin: 0 auto; padding-left: clamp(1rem, 3vw, 3rem); padding-right: clamp(1rem, 3vw, 3rem); }
+main { width: 100%; padding-left: clamp(1rem, 3vw, 3rem); padding-right: clamp(1rem, 3vw, 3rem); }
 .site-header { display: flex; gap: 2rem; justify-content: space-between; align-items: flex-start; padding-top: 2rem; padding-bottom: 1.25rem; background: #fff; }
 .site-header h1 { margin: .15rem 0 .5rem; font-size: clamp(1.8rem, 4vw, 2.8rem); }
 .eyebrow { margin: 0; color: #287a4b; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -22,7 +23,7 @@ button:disabled { cursor: wait; opacity: .55; }
 .guide summary { cursor: pointer; font-weight: 700; }
 .message { margin: 1rem 0; padding: 1rem; border-radius: .35rem; }
 .error { color: #8a1f1f; background: #fce8e6; }
-#table { min-height: 22rem; overflow: hidden; background: #fff; }
+#table { width: 100%; min-height: 22rem; overflow: hidden; background: #fff; }
 #loader { display: flex; justify-content: center; align-items: center; gap: .7rem; min-height: 22rem; color: #526157; }
 #loader[hidden] { display: none; }
 .spinner { width: 1.4rem; height: 1.4rem; border: .2rem solid #dce5de; border-top-color: #287a4b; border-radius: 50%; animation: spin .8s linear infinite; }
