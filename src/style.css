@@ -24,6 +24,7 @@ button:disabled { cursor: wait; opacity: .55; }
 .error { color: #8a1f1f; background: #fce8e6; }
 #table { min-height: 22rem; overflow: hidden; background: #fff; }
 #loader { display: flex; justify-content: center; align-items: center; gap: .7rem; min-height: 22rem; color: #526157; }
+#loader[hidden] { display: none; }
 .spinner { width: 1.4rem; height: 1.4rem; border: .2rem solid #dce5de; border-top-color: #287a4b; border-radius: 50%; animation: spin .8s linear infinite; }
 footer { padding-top: 1.5rem; padding-bottom: 2rem; color: #526157; font-size: .85rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
