@@ -1,0 +1,61 @@
+{
+  "release_id": "2026-06.0",
+  "ebd_version": "2026-06",
+  "release_revision": 0,
+  "ebird_taxonomy_version": "2025",
+  "avilist_version": "v2025b",
+  "sources": {
+    "ebd_path": {
+      "path": "data/ebird/ebd_KE_relJun-2026.zip",
+      "sha256": "57ccfecad2d92b9afc3c5e496e32af01cd9e60d003a739e349a5c5bd68fa375c"
+    },
+    "avilist_path": {
+      "path": "data/avilist/AviList-v2025b-10Jun2026-extended.xlsx",
+      "sha256": "2e1fd3374e23af732b04115b033dd9d97fc53ba275c312d02ef5d12cfb85c988"
+    },
+    "ebird_taxonomy_path": {
+      "path": "data/ebird/eBird_taxonomy_v2025-4.csv",
+      "sha256": "38ae7e68a03b651e8056e2f4abfad898533a12dbd9343f0e01cb2723ec20aaeb"
+    },
+    "categories_path": {
+      "path": "data/curation/categories.csv",
+      "sha256": "1b99f8753de3c20dae66bda325ae3338ceb93a8c472d571101fde5e11bbeb2d9"
+    },
+    "ebird_avilist_overrides_path": {
+      "path": "data/curation/ebird_avilist_overrides.csv",
+      "sha256": "ce16bd34fae9191a940e8376ac98dfd008e29f42bd94c89a1070cd7432814a91"
+    },
+    "ebird_exotic_overrides_path": {
+      "path": "data/curation/ebird_exotic_overrides.csv",
+      "sha256": "2376a3d9f30456e17e5fe5996d53e2467c0ee4b540bd188573987cd9e9f8fdb4"
+    },
+    "sensitive_species_path": {
+      "path": "data/curation/sensitive_species.csv",
+      "sha256": "aac3571b63af713fc80a7496cb62d505a189f6e37c1c30cdcce9347c2f0c6d18"
+    }
+  },
+  "counts": {
+    "species": 1143,
+    "species_observation_records": 4636647,
+    "latest_records": 5446,
+    "taxonomic_entities": 12,
+    "taxonomic_entity_observation_records": 4559,
+    "taxonomic_entity_latest_records": 41,
+    "curated_ebird_avilist_overrides_used": 2,
+    "curated_exotic_code_overrides_used": 1,
+    "curated_exotic_code_observations": 24,
+    "curated_sensitive_species": 2,
+    "curated_sensitive_species_without_ebd_records": 2,
+    "species_by_exotic_status": {
+      "native": 1139,
+      "naturalized": 4
+    },
+    "taxonomic_entities_by_exotic_status": {
+      "escapee": 7,
+      "native": 4,
+      "naturalized": 1
+    },
+    "unmapped_reported_species_codes": 0,
+    "excluded_other_taxa": 200
+  }
+}

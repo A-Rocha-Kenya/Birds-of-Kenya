@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taxonomy changes · Birds of Kenya</title>
+  <meta name="description" content="Compare the corrected 2019.1 Birds of Kenya checklist with the current edition.">
+  <meta name="theme-color" content="#173e2e">
+  <link rel="icon" href="../assets/images/arocha_old_logo_small.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css?v=20260810-10">
+</head>
+<body data-site-root="../">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="../">Birds of Kenya</a>
+    <div class="nav-links"><a href="../checklist/">Checklist</a><a href="./" aria-current="page">Changes</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></div>
+  </nav>
+
+  <header class="page-hero changes-hero">
+    <div>
+      <p class="eyebrow">Birds of Kenya · Taxonomy review</p>
+      <h1>From 2019.1 to the 2026 checklist</h1>
+      <p class="lede">An ordered view of name and concept changes. Splits, lumps, replacements, and related taxa stay together as a single species complex.</p>
+      <div class="hero-links">
+        <a class="hero-link primary" data-download="comparison_csv" href="#">Download changes CSV <span aria-hidden="true">↓</span></a>
+        <a class="hero-link" data-download="comparison_pdf" href="#">Download comparison PDF <span aria-hidden="true">↓</span></a>
+        <a class="hero-link" data-download="checklist_pdf" href="#">Checklist PDF <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="changes-toolbar-wrap">
+    <div class="changes-toolbar">
+      <div class="top-controls"><label class="sr-only" for="changeSearch">Search taxonomy changes</label><input id="changeSearch" type="search" placeholder="Search names, families, or AviList IDs"><button class="clear-filters" id="clearChangeFilters" type="button">Clear filters</button></div>
+      <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div>
+      <div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div>
+    </div>
+  </div>
+
+  <main class="changes-main">
+    <div class="result-line"><span id="changeResultCount" role="status" aria-live="polite">Loading comparison…</span><span class="result-note">Ordered by current AviList sequence</span></div>
+    <div class="column-legend" aria-hidden="true"><span>2019.1 historical concept</span><span></span><span>2026 current concept</span></div>
+    <div id="changeError" class="message error" hidden></div>
+    <div id="changeReport"></div>
+  </main>
+
+  <footer class="site-footer"><p class="footer-title">Birds of Kenya · <span data-site="release.id">2026-06.0</span></p><nav aria-label="Footer navigation"><a href="../checklist/">Checklist</a><a href="./">Changes</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav></footer>
+  <script src="../assets/site.js"></script><script src="changes.js"></script>
+</body>
+</html>

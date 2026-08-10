@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checklist · Birds of Kenya</title>
+  <meta name="description" content="Search, filter, and export the current Birds of Kenya checklist.">
+  <meta name="theme-color" content="#173e2e">
+  <link rel="icon" href="../assets/images/arocha_old_logo_small.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@14.6.2/dist/handsontable.full.min.css">
+  <link rel="stylesheet" href="../assets/style.css?v=20260810-10">
+</head>
+<body class="checklist-page" data-site-root="../">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="../">Birds of Kenya</a>
+    <div class="nav-links"><a href="./" aria-current="page">Checklist</a><a href="../changes/">Changes</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></div>
+  </nav>
+
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Current release · <span data-site="release.id">2026-06.0</span></p>
+      <h1>The checklist</h1>
+      <p class="lede">Search and filter Kenya’s current species list, its AviList taxonomy, Kenya status categories, and observation evidence.</p>
+      <div class="hero-links">
+        <a class="hero-link primary" data-download="checklist_pdf" href="#">Download PDF <span aria-hidden="true">↓</span></a>
+        <button id="exportFile" class="hero-link export-button" type="button" disabled>Export current view <span aria-hidden="true">↓</span></button>
+        <a class="hero-link" data-gbif-link="doi_url" href="#" hidden>GBIF DOI <span aria-hidden="true">↗</span></a>
+        <a class="hero-link" data-gbif-link="dataset_url" href="#" hidden>GBIF dataset <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="checklist" aria-label="Species checklist">
+      <div class="toolbar" aria-label="Checklist controls">
+        <div class="search-wrap"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><label class="sr-only" for="search">Search the checklist</label><input id="search" type="search" placeholder="Search names, families, status, or IDs" autocomplete="off"><button id="clearSearch" class="clear-search" type="button" aria-label="Clear search" hidden>Clear</button></div>
+        <div class="filter-row" id="quickFilters" aria-label="Quick filters"><span class="filter-label">Show</span><button class="filter" type="button" data-filter="endemic" aria-pressed="false">Endemic <span class="count" id="endemicCount">—</span></button><button class="filter" type="button" data-filter="migrant" aria-pressed="false">Migrant <span class="count" id="migrantCount">—</span></button><button class="filter" type="button" data-filter="vagrant" aria-pressed="false">Vagrant <span class="count" id="vagrantCount">—</span></button><button class="filter" type="button" data-filter="visitor" aria-pressed="false">Visitor <span class="count" id="visitorCount">—</span></button><button class="filter" type="button" data-filter="historical" aria-pressed="false">Historical <span class="count" id="historicalCount">—</span></button><button class="filter" type="button" data-filter="rare" aria-pressed="false">Rare <span class="count" id="rareCount">—</span></button><button class="filter" type="button" data-filter="waterbird" aria-pressed="false">Waterbird <span class="count" id="waterbirdFilterCount">—</span></button><button id="clearFilters" class="clear-filters" type="button" hidden>Clear filters</button><button id="statusNotes" class="filter status-notes-button" type="button">Status codes</button></div>
+      </div>
+      <div class="result-line"><span id="resultCount" role="status" aria-live="polite">Loading checklist…</span><span class="result-note">Ordered by current AviList sequence</span></div>
+      <div id="loader" role="status" aria-live="polite"><span class="spinner" aria-hidden="true"></span>Loading checklist…</div><div id="error" class="message error" role="alert" hidden></div><div id="table" aria-label="Interactive Birds of Kenya checklist"></div>
+    </section>
+  </main>
+
+  <dialog id="statusDialog" class="status-dialog" aria-labelledby="statusDialogTitle">
+    <div class="dialog-header"><h2 id="statusDialogTitle">Checklist status codes and data notes</h2><button class="dialog-close" type="button" aria-label="Close status-code notes">×</button></div>
+    <div id="categoryLegend" class="category-legend" aria-live="polite"></div><p class="legend-note">Blank evidence for sensitive species is intentional; no observation details are inferred or published.</p>
+  </dialog>
+
+  <footer class="site-footer"><p class="footer-title">Birds of Kenya · <span data-site="release.id">2026-06.0</span></p><nav aria-label="Footer navigation"><a href="./">Checklist</a><a href="../changes/">Changes</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav></footer>
+  <script src="https://cdn.jsdelivr.net/npm/handsontable@14.6.2/dist/handsontable.full.min.js"></script><script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script><script src="../assets/site.js"></script><script src="checklist.js?v=20260810-9"></script>
+</body>
+</html>
