@@ -6,11 +6,13 @@ sort,action,replacement_avibaseid,note
 409,repair_id,avibase-38E24616,Correct malformed legacy Avibase ID.
 463,repair_id,avibase-56790B57,Correct malformed legacy Avibase ID.
 470,repair_id,avibase-7749C92B,Restore missing legacy Avibase ID.
+517.2,repair_id,avibase-2BD7F8B5,Correct Rock Kestrel to its Avibase taxonomic concept.
 531.1,repair_id,avibase-B46C6125,Correct Peregrine Falcon passage-migrant taxon to its Avibase taxonomic concept.
 541,repair_id,avibase-7B0E2F01,Restore missing legacy Avibase ID.
 591,repair_id,avibase-FBB58997,Correct malformed legacy Avibase ID.
 592,repair_id,avibase-0133C47B,Correct malformed legacy Avibase ID.
 685,repair_id,avibase-A31AC101,Correct malformed legacy Avibase ID.
+726,repair_id,avibase-BE3C45B5,Correct Red-headed Weaver to its Avibase taxonomic concept.
 756,repair_id,avibase-ECC40D44,Correct malformed legacy Avibase ID.
 774,repair_id,avibase-A61F55E3,Correct Rufous Sparrow to its Avibase taxonomic concept.
 775.1,repair_id,avibase-2F9F81C9,Correct Northern Grey-headed Sparrow subspecies to its Avibase taxonomic concept.
