@@ -6,9 +6,9 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "data" / "v2019.0" / "main.csv"
-REPAIRS = ROOT / "data" / "v2019.1" / "repairs.csv"
-OUTPUT = ROOT / "data" / "v2019.1" / "main.csv"
+SOURCE = ROOT / "data" / "legacy" / "2019.0" / "checklist.csv"
+REPAIRS = ROOT / "data" / "legacy" / "2019.1" / "repairs.csv"
+OUTPUT = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
 FIELDS = [
     "sort", "family_scientific", "family_english", "common_name", "scientific_name",
     "AM", "AMR", "E", "EX", "HIST", "IO", "MM", "N", "NR", "NRR", "OM", "PM", "PMR", "RAR", "RS", "SO", "VIO", "VM", "VN", "VO", "VP", "VSO", "VSA",

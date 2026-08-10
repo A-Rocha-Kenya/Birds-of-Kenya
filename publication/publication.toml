@@ -1,0 +1,85 @@
+schema_version = 1
+release_id = "2026-06.0"
+status = "draft"
+language = "en-KE"
+
+[document]
+title = "Checklist of the Birds of Kenya"
+short_title = "Birds of Kenya"
+edition = "Sixth edition"
+corporate_author = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+version_label = "2026-06.0"
+publication_date = ""
+editorial_cutoff_date = ""
+recommended_citation = "Bird Committee, Nature Kenya—the East Africa Natural History Society. (2026). Checklist of the Birds of Kenya (Sixth edition, version 2026-06.0). Nature Kenya—the East Africa Natural History Society."
+
+[gbif]
+dataset_url = ""
+doi = ""
+
+[ipt]
+resource_shortname = "birds-of-kenya-checklist"
+dataset_id = "https://github.com/A-Rocha-Kenya/Birds-of-Kenya"
+description = "A reproducible country checklist of bird species represented in Kenya, based on a pinned eBird Basic Dataset and AviList taxonomy."
+country = "Kenya"
+country_code = "KE"
+
+[publisher]
+name = "Nature Kenya—the East Africa Natural History Society"
+imprint = "Nature Kenya—the East Africa Natural History Society"
+address = "The Nature Kenya office is at the National Museums of Kenya, Museum Hill, Nairobi. Postal address: P. O. Box 44486, 00100 Nairobi, Kenya."
+telephone = "(+254) (0) 20 374 6090 or 374 9957"
+email = "office@naturekenya.org"
+website = "https://www.naturekenya.org"
+copyright_holder = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+copyright_year = "2026"
+licence = "https://creativecommons.org/licenses/by/4.0/"
+
+[history]
+previous_edition_years = [1981, 1986, 1996, 2009, 2019]
+supersedes_release = "v2019.1"
+edition_statement = "Sixth edition"
+
+[editorial]
+approving_body = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+data_curator = "Raphaël Nussbaumer"
+data_curator_orcid = "https://orcid.org/0000-0002-8185-1020"
+ebird_record_manager = "James Bradley"
+ebird_record_manager_email = "jalopyjamo@gmail.com"
+additional_contributor = "Richard Stratton Hatfield"
+additional_contributor_orcid = "https://orcid.org/0000-0001-8419-6589"
+
+[source_credits]
+ebird = "eBird Basic Dataset for Kenya, release 2026-06"
+avilist = "AviList v2025b"
+
+[scope]
+geographic_scope = "Kenya"
+sensitive_record_limitation = "Some sensitive records may be obscured in the source eBird data."
+
+[sources]
+release_directory = "dist/2026-06.0"
+policy = "docs/policy.md"
+category_definitions = "data/curation/category_definitions.csv"
+historical_edition = "data/legacy/2019.1/2019 Checklist of the Birds of Kenya 5th Edition (2019).pdf"
+
+[checklist]
+group_by = "family"
+family_order = "avilist_sequence"
+species_order = "avilist_sequence"
+show_family_english_name = true
+show_scientific_name = true
+show_checkboxes = true
+checkbox_count = 5
+show_category_legend = true
+category_display = "symbol_and_code"
+include_family_index = true
+include_notes_page = false
+include_references = false
+
+[render]
+format = "typst"
+paper_size = "a5"
+orientation = "portrait"
+pdf_standard = "a-2b"
+output_filename = "Checklist-of-the-Birds-of-Kenya-2026-06.0.pdf"

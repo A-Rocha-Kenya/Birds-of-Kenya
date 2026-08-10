@@ -1,0 +1,26 @@
+code,label,definition,display_group,display_token,display_order,authority,assessment_rule,status
+E,Endemic species,Species endemic to Kenya,Kenya status,E,10,Bird Committee,Geographic scope and endemicity assessments require approval,draft
+ES,Endemic subspecies,Subspecies endemic to Kenya,Kenya status,ES,11,Bird Committee,Geographic scope and endemicity assessments require approval,draft
+EX,Extinct in Kenya,Species thought to have become extinct in Kenya,Kenya status,EX,12,Bird Committee,Evidence threshold and reassessment schedule require approval,draft
+HIST,Historical occurrence,No Kenyan record for 50 years,Kenya status,HIST,13,Bird Committee,Confirm whether this is a rolling status assessed at every release,draft
+NRR,Not recently recorded,Species not recorded during the approved recent-record period,Kenya status,NRR,14,Bird Committee,Define the period and whether it rolls with each release,draft
+RAR,National rarity,Fewer than five records on the East African Rarities Committee list at the assessment date,Kenya status,RAR,15,Bird Committee,Confirm source list assessment date and approval workflow,draft
+AM,Afrotropical migrant,Afrotropical migrant,Regular movement,AM,20,Bird Committee,Definition and current assignments require approval,draft
+AMR,Afrotropical migrant and resident populations,Afrotropical migrants occur alongside resident or non-migratory individuals,Regular movement,AM+R,21,Bird Committee,Definition and current assignments require approval,draft
+MM,Malagasy migrant,Migrant from the Malagasy region,Regular movement,MM,22,Bird Committee,Definition and current assignments require approval,draft
+N,Nomadic or wandering,Nomadic or wandering species,Regular movement,N,23,Bird Committee,Definition and current assignments require approval,draft
+NR,Nomadic or wandering and resident populations,Nomadic or wandering individuals occur alongside resident individuals,Regular movement,N+R,24,Bird Committee,Definition and current assignments require approval,draft
+OM,Oriental migrant,Migrant from the Oriental region,Regular movement,OM,25,Bird Committee,Definition and current assignments require approval,draft
+PM,Palaearctic migrant,Migrant from the Palaearctic region,Regular movement,PM,26,Bird Committee,Definition and current assignments require approval,draft
+PMR,Palaearctic migrant and resident populations,Palaearctic migrants occur alongside resident or non-migratory individuals,Regular movement,PM+R,27,Bird Committee,Definition and current assignments require approval,draft
+IO,Northwest Indian Ocean visitor,Visitor from northwest Indian Ocean islands,Regional visitors,IO,30,Bird Committee,Definition and current assignments require approval,draft
+RS,Red Sea visitor,Visitor from the Red Sea,Regional visitors,RS,31,Bird Committee,Definition and current assignments require approval,draft
+SO,Southern Ocean visitor,Visitor from the Southern Ocean or Antarctica,Regional visitors,SO,32,Bird Committee,Definition and current assignments require approval,draft
+VIO,Northwest Indian Ocean vagrant,Vagrant from northwest Indian Ocean islands,Regional vagrants,VIO,40,Bird Committee,Define vagrant threshold and current assignments,draft
+VM,Malagasy vagrant,Vagrant from the Malagasy region,Regional vagrants,VM,41,Bird Committee,Define vagrant threshold and current assignments,draft
+VN,Nearctic vagrant,Vagrant from the Nearctic region,Regional vagrants,VN,42,Bird Committee,Define vagrant threshold and current assignments,draft
+VO,Oriental vagrant,Vagrant from the Oriental region,Regional vagrants,VO,43,Bird Committee,Define vagrant threshold and current assignments,draft
+VP,Palaearctic vagrant,Vagrant from the Palaearctic region,Regional vagrants,VP,44,Bird Committee,Define vagrant threshold and current assignments,draft
+VSO,Southern Ocean vagrant,Vagrant from the Southern Ocean or Antarctica,Regional vagrants,VSO,45,Bird Committee,Define vagrant threshold and current assignments,draft
+VSA,Southern African vagrant,Vagrant from southern Africa,Regional vagrants,VSA,46,Bird Committee,Define vagrant threshold and current assignments,draft
+water_bird,Waterbird,Derived from AviList family placement in the 33-family Ramsar Waterbird Population Estimates scope,Ecological association,W,50,Ramsar Convention SC63 Doc.20,Automatically assigned during each release build; not editable in categories.csv,approved

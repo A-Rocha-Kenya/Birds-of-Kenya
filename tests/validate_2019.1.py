@@ -8,8 +8,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "v2019.1" / "main.csv"
-AUDIT = ROOT / "data" / "v2019.1" / "audit_errors.csv"
+DATA = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
+AUDIT = ROOT / "data" / "legacy" / "2019.1" / "audit_errors.csv"
 AVIBASE_ID = re.compile(r"avibase-[0-9A-F]{8}$")
 
 
@@ -38,11 +38,11 @@ def main():
                 "value": value,
                 "error": error,
             })
-    with AUDIT.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["row", "sort", "entry_checklist_of_kenya", "field", "value", "error"], lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(errors)
     if errors:
+        with AUDIT.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["row", "sort", "entry_checklist_of_kenya", "field", "value", "error"], lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(errors)
         raise ValueError(f"Found {len(errors)} v2019.1 key errors; see {AUDIT.relative_to(ROOT)}")
     print(f"Validated {len(rows):,} v2019.1 records")
 
