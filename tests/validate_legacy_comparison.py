@@ -67,6 +67,11 @@ def main():
         raise ValueError("split and lump relationships were not derived from the minimal mapping")
     if current_only or len(audit) != 5:
         raise ValueError("comparison coverage or category audit is incomplete")
+    apostrophe_old = old_row("apostrophe", "Jouanin’s Petrel")
+    apostrophe_new = new_row("apostrophe", "Jouanin's Petrel")
+    apostrophe_old["scientific_name"] = apostrophe_new["scientific_name"] = "Bulweria fallax"
+    if comparison.changed_direct_relationship(apostrophe_old, apostrophe_new):
+        raise ValueError("typographic apostrophe variants must not be reported as name changes")
     print("Validated minimal legacy mapping, derived split/lump groups, and category propagation")
 
 

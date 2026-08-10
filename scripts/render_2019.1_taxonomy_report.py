@@ -45,8 +45,8 @@ def number(value):
     return float(value) if value else 0.0
 
 
-def normalized(values):
-    return {" ".join(value.split()).casefold() for value in values if value.strip()}
+def normalized(values, normalize_value=lambda value: value):
+    return {" ".join(normalize_value(value).split()).casefold() for value in values if value.strip()}
 
 
 def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
@@ -95,7 +95,9 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
         sort_order = number(new_rows[0]["sequence"]) if new_rows else estimated_sequence(old_rows)
         tags = []
         if old_rows and new_rows:
-            if normalized(row["common_name"] for row in old_rows) != normalized(row["english_name"] for row in new_rows):
+            if normalized(
+                (row["common_name"] for row in old_rows), comparison.normalized_english_name,
+            ) != normalized((row["english_name"] for row in new_rows), comparison.normalized_english_name):
                 tags.append("english_name")
             if normalized(row["scientific_name"] for row in old_rows) != normalized(row["scientific_name"] for row in new_rows):
                 tags.append("scientific_name")

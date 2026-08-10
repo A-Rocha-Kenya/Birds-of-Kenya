@@ -1,13 +1,13 @@
 {
   "from_release": "2019.1",
   "to_release": "2026-06.0",
-  "group_count": 887,
+  "group_count": 880,
   "relationship_counts": {
     "added": 23,
     "lump": 22,
     "many_to_many": 1,
     "replacement": 33,
-    "retained": 794,
+    "retained": 787,
     "split": 6,
     "unresolved": 8
   },
@@ -1875,7 +1875,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Fischer's Turaco",
@@ -1909,7 +1908,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name",
         "classification"
       ],
@@ -1944,7 +1942,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name",
         "classification"
       ],
@@ -2213,7 +2210,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Levaillant's Cuckoo",
@@ -3671,7 +3667,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Baillon's Crake",
@@ -4302,7 +4297,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name"
       ],
       "title": "Kittlitz's Plover",
@@ -4557,39 +4551,6 @@
           "sequence": 4107.0,
           "ebird_codes": [
             "redpha1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "stable-avibase-5ACF7FB3",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Temminck's Stint",
-      "sort_order": 4162.0,
-      "order": "Charadriiformes",
-      "family": "Scolopacidae",
-      "family_english": "Sandpipers and Allies",
-      "old": [
-        {
-          "id": "avibase-5ACF7FB3",
-          "english": "Temminck’s Stint",
-          "scientific": "Calidris temminckii",
-          "family": "Scolopacidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-5ACF7FB3",
-          "english": "Temminck's Stint",
-          "scientific": "Calidris temminckii",
-          "family": "Scolopacidae",
-          "sequence": 4162.0,
-          "ebird_codes": [
-            "temsti"
           ]
         }
       ]
@@ -5719,7 +5680,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Pallas's Gull",
@@ -6136,7 +6096,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Jouanin's Petrel",
@@ -7855,72 +7814,6 @@
       ]
     },
     {
-      "id": "stable-avibase-1E12D857",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Sabine's Spinetail",
-      "sort_order": 5870.0,
-      "order": "Apodiformes",
-      "family": "Apodidae",
-      "family_english": "Swifts",
-      "old": [
-        {
-          "id": "avibase-1E12D857",
-          "english": "Sabine’s Spinetail",
-          "scientific": "Rhaphidura sabini",
-          "family": "Apodidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-1E12D857",
-          "english": "Sabine's Spinetail",
-          "scientific": "Rhaphidura sabini",
-          "family": "Apodidae",
-          "sequence": 5870.0,
-          "ebird_codes": [
-            "sabspi1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "stable-avibase-45D3FD5A",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Forbes-Watson's Swift",
-      "sort_order": 6028.0,
-      "order": "Apodiformes",
-      "family": "Apodidae",
-      "family_english": "Swifts",
-      "old": [
-        {
-          "id": "avibase-45D3FD5A",
-          "english": "Forbes-Watson’s Swift",
-          "scientific": "Apus berliozi",
-          "family": "Apodidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-45D3FD5A",
-          "english": "Forbes-Watson's Swift",
-          "scientific": "Apus berliozi",
-          "family": "Apodidae",
-          "sequence": 6028.0,
-          "ebird_codes": [
-            "fowswi1"
-          ]
-        }
-      ]
-    },
-    {
       "id": "stable-avibase-B21A37E7",
       "relationship": "retained",
       "relationship_label": "Retained concept",
@@ -9021,7 +8914,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name",
         "classification"
       ],
@@ -9155,7 +9047,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Beaudouin's Snake Eagle",
@@ -9453,7 +9344,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Wahlberg's Eagle",
@@ -10222,7 +10112,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Montagu's Harrier",
@@ -16402,72 +16291,6 @@
       ]
     },
     {
-      "id": "stable-avibase-4E61514C",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Williams's Lark",
-      "sort_order": 21150.0,
-      "order": "Passeriformes",
-      "family": "Alaudidae",
-      "family_english": "Larks",
-      "old": [
-        {
-          "id": "avibase-4E61514C",
-          "english": "Williams’s Lark",
-          "scientific": "Mirafra williamsi",
-          "family": "Alaudidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-4E61514C",
-          "english": "Williams's Lark",
-          "scientific": "Mirafra williamsi",
-          "family": "Alaudidae",
-          "sequence": 21150.0,
-          "ebird_codes": [
-            "willar1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "stable-avibase-F22CCF78",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Friedmann's Lark",
-      "sort_order": 21151.0,
-      "order": "Passeriformes",
-      "family": "Alaudidae",
-      "family_english": "Larks",
-      "old": [
-        {
-          "id": "avibase-F22CCF78",
-          "english": "Friedmann’s Lark",
-          "scientific": "Mirafra pulpa",
-          "family": "Alaudidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-F22CCF78",
-          "english": "Friedmann's Lark",
-          "scientific": "Mirafra pulpa",
-          "family": "Alaudidae",
-          "sequence": 21151.0,
-          "ebird_codes": [
-            "frilar1"
-          ]
-        }
-      ]
-    },
-    {
       "id": "added-avibase-AB507233",
       "relationship": "added",
       "relationship_label": "New in 2026",
@@ -16809,7 +16632,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Kretschmer's Longbill",
@@ -17089,7 +16911,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name"
       ],
       "title": "Turner's Eremomela",
@@ -17561,39 +17382,6 @@
       ]
     },
     {
-      "id": "stable-avibase-B10AD127",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Upcher's Warbler",
-      "sort_order": 22221.0,
-      "order": "Passeriformes",
-      "family": "Acrocephalidae",
-      "family_english": "Reed Warblers and Allies",
-      "old": [
-        {
-          "id": "avibase-B10AD127",
-          "english": "Upcher’s Warbler",
-          "scientific": "Hippolais languida",
-          "family": "Acrocephalidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-B10AD127",
-          "english": "Upcher's Warbler",
-          "scientific": "Hippolais languida",
-          "family": "Acrocephalidae",
-          "sequence": 22221.0,
-          "ebird_codes": [
-            "upcwar1"
-          ]
-        }
-      ]
-    },
-    {
       "id": "stable-avibase-BAE527A2",
       "relationship": "retained",
       "relationship_label": "Retained concept",
@@ -17764,7 +17552,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Savi's Warbler",
@@ -20059,39 +19846,6 @@
       ]
     },
     {
-      "id": "stable-avibase-224B2B08",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "english_name"
-      ],
-      "title": "Hinde's Babbler",
-      "sort_order": 25095.0,
-      "order": "Passeriformes",
-      "family": "Leiothrichidae",
-      "family_english": "Laughingthrushes and Allies",
-      "old": [
-        {
-          "id": "avibase-224B2B08",
-          "english": "Hinde’s Babbler",
-          "scientific": "Turdoides hindei",
-          "family": "Leiothrichidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-224B2B08",
-          "english": "Hinde's Babbler",
-          "scientific": "Turdoides hindei",
-          "family": "Leiothrichidae",
-          "sequence": 25095.0,
-          "ebird_codes": [
-            "hipbab1"
-          ]
-        }
-      ]
-    },
-    {
       "id": "legacy-map-065",
       "relationship": "lump",
       "relationship_label": "Lump",
@@ -20541,7 +20295,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name",
         "classification"
       ],
@@ -20676,7 +20429,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Shelley's Starling",
@@ -21559,7 +21311,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Chapin's Flycatcher",
@@ -26444,7 +26195,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Jackson's Widowbird",
@@ -28160,7 +27910,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "scientific_name",
         "classification"
       ],
@@ -28652,7 +28401,6 @@
       "relationship": "retained",
       "relationship_label": "Retained concept",
       "tags": [
-        "english_name",
         "classification"
       ],
       "title": "Sharpe's Longclaw",

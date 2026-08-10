@@ -99,9 +99,13 @@ def category_fields(categories_path):
         return [field for field in csv.DictReader(handle).fieldnames or [] if field != "avilist_id"]
 
 
+def normalized_english_name(value):
+    return value.strip().translate(str.maketrans({"‘": "'", "’": "'"}))
+
+
 def changed_direct_relationship(old, new):
     names_changed = (
-        old["common_name"].strip() != new["english_name"].strip()
+        normalized_english_name(old["common_name"]) != normalized_english_name(new["english_name"])
         or old["scientific_name"].strip() != new["scientific_name"].strip()
     )
     classification_changed = (
