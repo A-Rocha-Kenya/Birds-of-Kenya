@@ -7015,12 +7015,6 @@
       "family_english": "Hyliotas",
       "old": [
         {
-          "id": "avibase-F840409E",
-          "english": "Southern Hyliota",
-          "scientific": "Hyliota australis",
-          "family": "Hyliotidae"
-        },
-        {
           "id": "avibase-F46C1803",
           "english": "Forest (Northern) Hyliota",
           "scientific": "Hyliota (australis) slatini",
