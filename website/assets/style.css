@@ -366,6 +366,8 @@ input[type="search"]:focus { border-color: var(--green); box-shadow: 0 0 0 3px r
 .taxon-names { min-width: 0; flex: 1; line-height: 1.32; }
 .taxon .english { font-weight: 800; }
 .taxon .scientific { margin-left: .24rem; color: #38463e; font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+.taxonomy-note { margin-top: .45rem; padding: .42rem .5rem; border-left: 3px solid var(--ochre); background: rgba(255, 255, 255, .48); color: var(--muted); font-size: .73rem; line-height: 1.4; }
+.taxonomy-note strong { display: block; margin-bottom: .12rem; color: var(--ink); font-size: .67rem; letter-spacing: .04em; text-transform: uppercase; }
 .source-links { display: flex; max-width: 48%; flex: 0 1 auto; flex-wrap: wrap; gap: .25rem; justify-content: flex-end; }
 .source-link { display: inline-block; border: 1px solid rgba(31, 104, 72, .22); border-radius: 999px; padding: .14rem .32rem; color: #416b58; background: rgba(255, 255, 255, .62); font: 750 .59rem/1.15 ui-monospace, SFMono-Regular, Menlo, monospace; text-decoration: none; white-space: nowrap; }
 .source-link:hover { color: var(--green); text-decoration: underline; }

@@ -48,7 +48,7 @@ REPORTED_FIELDS = [
 ]
 CHECKLIST_FIELDS = [
     "sequence", "avilist_id", "order", "family", "family_english_name",
-    "scientific_name", "english_name", "ebird_species_code", "source_avibase_ids",
+    "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
     "membership_source", "sensitive", "exotic_status", "observation_record_count",
     "first_observation_date", "last_observation_date",
 ]
@@ -630,6 +630,7 @@ def build(config_path, force_compaction=False):
             "family_english_name": taxon["Family_English_name"],
             "scientific_name": taxon["Scientific_name"],
             "english_name": taxon["English_name_AviList"],
+            "taxonomy_comment": taxon["Decision_summary"].strip(),
             "ebird_species_code": ";".join(sorted(evidence["codes"])),
             "source_avibase_ids": ";".join(sorted(evidence["source_ids"])),
             "membership_source": evidence["membership_source"],

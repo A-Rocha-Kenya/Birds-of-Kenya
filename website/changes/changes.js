@@ -28,7 +28,10 @@ const avibaseLink = id => {
 };
 
 const ebirdLinks = row => (row.ebird_codes || []).map(code => `<a class="source-link" href="https://ebird.org/species/${encodeURIComponent(code)}/KE" target="_blank" rel="noopener">eBird · ${escapeHtml(code)}</a>`).join('');
-const taxon = row => `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span></div><div class="source-links">${avibaseLink(row.id)}${ebirdLinks(row)}</div></div></div>`;
+const taxon = row => {
+  const note = row.taxonomy_comment ? `<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${escapeHtml(row.taxonomy_comment)}</div>` : '';
+  return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span></div><div class="source-links">${avibaseLink(row.id)}${ebirdLinks(row)}</div></div>${note}</div>`;
+};
 const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map(taxon).join('') : '<div class="empty">None listed</div>'}</div>`;
 
 const card = group => {
@@ -99,4 +102,3 @@ document.getElementById('clearChangeFilters').addEventListener('click', () => {
   document.querySelectorAll('.changes-toolbar .filter').forEach(button => button.setAttribute('aria-pressed', 'false'));
   renderChanges();
 });
-
