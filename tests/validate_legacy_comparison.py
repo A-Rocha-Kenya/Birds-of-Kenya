@@ -72,6 +72,11 @@ def main():
     apostrophe_old["scientific_name"] = apostrophe_new["scientific_name"] = "Bulweria fallax"
     if comparison.changed_direct_relationship(apostrophe_old, apostrophe_new):
         raise ValueError("typographic apostrophe variants must not be reported as name changes")
+    family_old = old_row("family", "Example")
+    family_new = new_row("family", "Example")
+    family_new["family"] = "Differentidae"
+    if comparison.changed_direct_relationship(family_old, family_new):
+        raise ValueError("family changes must not be reported as taxonomy changes")
     print("Validated minimal legacy mapping, derived split/lump groups, and category propagation")
 
 

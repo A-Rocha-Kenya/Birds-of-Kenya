@@ -108,16 +108,8 @@ def changed_direct_relationship(old, new):
         normalized_english_name(old["common_name"]) != normalized_english_name(new["english_name"])
         or old["scientific_name"].strip() != new["scientific_name"].strip()
     )
-    classification_changed = (
-        old["family_scientific"].strip() != new["family"].strip()
-        or old["family_english"].strip() != new["family_english_name"].strip()
-    )
-    if names_changed and classification_changed:
-        return "name_and_classification_change"
     if names_changed:
         return "name_change"
-    if classification_changed:
-        return "classification_change"
     return ""
 
 

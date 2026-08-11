@@ -97,826 +97,316 @@ legacy-map-065,lump,curated_mapping,avibase-42C9B9B1,Black-lored Babbler,Turdoid
 legacy-map-065,lump,curated_mapping,avibase-BE76A224,Black-lored (Mt. Kenya) Babbler,Turdoides (sharpei) vepres,avibase-7350FE4C,Black-lored Babbler,Turdoides sharpei
 legacy-map-066,lump,curated_mapping,avibase-060AF4FA,Pale Flycatcher,Bradornis pallidus pallidus,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
 legacy-map-066,lump,curated_mapping,avibase-CAC5AD6C,Bafirawar’s Flycatcher,Bradornis (pallidus) bafirawari,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
-legacy-map-067,replacement,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-6A1F6033,Red-cowled Widowbird,Euplectes laticauda
+legacy-map-067,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-6A1F6033,Red-cowled Widowbird,Euplectes laticauda
+legacy-map-067,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens
 legacy-map-068,replacement,curated_mapping,avibase-D029B521,Karamoja Apalis,Apalis karamojae,avibase-DCA0028B,Maasai Apalis,Apalis stronachi
 legacy-map-069,replacement,curated_mapping,avibase-6DA05B66,Tropical Shearwater,Puffinus bailloni,avibase-198120BB,Persian Shearwater,Puffinus persicus
-legacy-map-070,replacement,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-ECE36984,Red Weaver,Anaplectes jubaensis
-stable-avibase-00146574,classification_change,stable_avilist_id,avibase-00146574,African Green Pigeon,Treron calvus,avibase-00146574,African Green Pigeon,Treron calvus
-stable-avibase-0018A99B,name_and_classification_change,stable_avilist_id,avibase-0018A99B,Greyish Eagle Owl,Bubo (africanus) cinerascens,avibase-0018A99B,Greyish Eagle-Owl,Bubo cinerascens
-stable-avibase-002445CB,classification_change,stable_avilist_id,avibase-002445CB,Great Blue Turaco,Corythaeola cristata,avibase-002445CB,Great Blue Turaco,Corythaeola cristata
-stable-avibase-0059A2E0,classification_change,stable_avilist_id,avibase-0059A2E0,Scarlet-chested Sunbird,Chalcomitra senegalensis,avibase-0059A2E0,Scarlet-chested Sunbird,Chalcomitra senegalensis
-stable-avibase-00855728,classification_change,stable_avilist_id,avibase-00855728,Black-backed Puffback,Dryoscopus cubla,avibase-00855728,Black-backed Puffback,Dryoscopus cubla
-stable-avibase-00B07B12,classification_change,stable_avilist_id,avibase-00B07B12,White-headed Buffalo Weaver,Dinemellia dinemelli,avibase-00B07B12,White-headed Buffalo Weaver,Dinemellia dinemelli
-stable-avibase-0133C47B,classification_change,stable_avilist_id,avibase-0133C47B,East Coast Boubou,Laniarius sublacteus,avibase-0133C47B,East Coast Boubou,Laniarius sublacteus
-stable-avibase-01A3BE3C,classification_change,stable_avilist_id,avibase-01A3BE3C,Green-winged Pytilia,Pytilia melba,avibase-01A3BE3C,Green-winged Pytilia,Pytilia melba
-stable-avibase-01BFAE61,classification_change,stable_avilist_id,avibase-01BFAE61,Chestnut Weaver,Ploceus rubiginosus,avibase-01BFAE61,Chestnut Weaver,Ploceus rubiginosus
-stable-avibase-01C9752D,classification_change,stable_avilist_id,avibase-01C9752D,Brown-eared Woodpecker,Pardipicus caroli,avibase-01C9752D,Brown-eared Woodpecker,Pardipicus caroli
-stable-avibase-022798AB,classification_change,stable_avilist_id,avibase-022798AB,Black-crowned Tchagra,Tchagra senegalus,avibase-022798AB,Black-crowned Tchagra,Tchagra senegalus
-stable-avibase-023D6E38,name_and_classification_change,stable_avilist_id,avibase-023D6E38,Southern White-faced (Scops) Owl,Ptilopsis granti,avibase-023D6E38,Southern White-faced Owl,Ptilopsis granti
+legacy-map-070,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-ECE36984,Red Weaver,Anaplectes jubaensis
+legacy-map-070,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-4D19099B,Red-headed Weaver,Anaplectes rubriceps
+stable-avibase-0018A99B,name_change,stable_avilist_id,avibase-0018A99B,Greyish Eagle Owl,Bubo (africanus) cinerascens,avibase-0018A99B,Greyish Eagle-Owl,Bubo cinerascens
+stable-avibase-023D6E38,name_change,stable_avilist_id,avibase-023D6E38,Southern White-faced (Scops) Owl,Ptilopsis granti,avibase-023D6E38,Southern White-faced Owl,Ptilopsis granti
 stable-avibase-02428AC1,name_change,stable_avilist_id,avibase-02428AC1,Black-and-white Casqued Hornbill,Bycanistes subcylindricus,avibase-02428AC1,Black-and-white-casqued Hornbill,Bycanistes subcylindricus
-stable-avibase-02E56D98,classification_change,stable_avilist_id,avibase-02E56D98,Buff-spotted Woodpecker,Pardipicus nivosus,avibase-02E56D98,Buff-spotted Woodpecker,Pardipicus nivosus
-stable-avibase-034B2A6A,name_and_classification_change,stable_avilist_id,avibase-034B2A6A,Pel's Fishing-Owl,Scotopelia peli,avibase-034B2A6A,Pel's Fishing Owl,Scotopelia peli
-stable-avibase-03F9EB15,classification_change,stable_avilist_id,avibase-03F9EB15,Lesser Noddy,Anous tenuirostris,avibase-03F9EB15,Lesser Noddy,Anous tenuirostris
-stable-avibase-0405CA69,classification_change,stable_avilist_id,avibase-0405CA69,Compact Weaver,Pachyphantes superciliosus,avibase-0405CA69,Compact Weaver,Pachyphantes superciliosus
-stable-avibase-0419DDC2,classification_change,stable_avilist_id,avibase-0419DDC2,White-backed Vulture,Gyps africanus,avibase-0419DDC2,White-backed Vulture,Gyps africanus
-stable-avibase-0482FA7E,classification_change,stable_avilist_id,avibase-0482FA7E,Diederik Cuckoo,Chrysococcyx caprius,avibase-0482FA7E,Diederik Cuckoo,Chrysococcyx caprius
-stable-avibase-06D9A2C8,classification_change,stable_avilist_id,avibase-06D9A2C8,Black Kite,Milvus migrans,avibase-06D9A2C8,Black Kite,Milvus migrans
-stable-avibase-06DD9D95,classification_change,stable_avilist_id,avibase-06DD9D95,Common Redstart,Phoenicurus phoenicurus,avibase-06DD9D95,Common Redstart,Phoenicurus phoenicurus
+stable-avibase-034B2A6A,name_change,stable_avilist_id,avibase-034B2A6A,Pel's Fishing-Owl,Scotopelia peli,avibase-034B2A6A,Pel's Fishing Owl,Scotopelia peli
 stable-avibase-074251A3,name_change,stable_avilist_id,avibase-074251A3,African Wattled Plover,Vanellus senegallus,avibase-074251A3,African Wattled Lapwing,Vanellus senegallus
-stable-avibase-078BC0ED,classification_change,stable_avilist_id,avibase-078BC0ED,Desert Wheatear,Oenanthe deserti,avibase-078BC0ED,Desert Wheatear,Oenanthe deserti
-stable-avibase-07F940AA,name_and_classification_change,stable_avilist_id,avibase-07F940AA,Tropical Boubou,Laniarius (aethiopicus) major/ambiguus,avibase-07F940AA,Tropical Boubou,Laniarius major
-stable-avibase-086290D2,classification_change,stable_avilist_id,avibase-086290D2,Mbulu White-eye,Zosterops mbuluensis,avibase-086290D2,Mbulu White-eye,Zosterops mbuluensis
-stable-avibase-0868B50D,name_and_classification_change,stable_avilist_id,avibase-0868B50D,Slate-coloured Boubou,Laniarius funebris,avibase-0868B50D,Slate-colored Boubou,Laniarius funebris
-stable-avibase-0874B4D5,name_and_classification_change,stable_avilist_id,avibase-0874B4D5,Black-rumped Buttonquail,Turnix hottentottus,avibase-0874B4D5,Black-rumped Buttonquail,Turnix nanus
-stable-avibase-09A0F2EB,name_and_classification_change,stable_avilist_id,avibase-09A0F2EB,African Crake,Crex egregia,avibase-09A0F2EB,African Crake,Crecopsis egregia
-stable-avibase-0A241B83,classification_change,stable_avilist_id,avibase-0A241B83,Cardinal Woodpecker,Dendropicos fuscescens,avibase-0A241B83,Cardinal Woodpecker,Dendropicos fuscescens
-stable-avibase-0A4609D1,classification_change,stable_avilist_id,avibase-0A4609D1,Red-footed Booby,Sula sula,avibase-0A4609D1,Red-footed Booby,Sula sula
-stable-avibase-0AA15ACA,classification_change,stable_avilist_id,avibase-0AA15ACA,Lesser Blue-eared Starling,Lamprotornis chloropterus,avibase-0AA15ACA,Lesser Blue-eared Starling,Lamprotornis chloropterus
-stable-avibase-0B2F8058,classification_change,stable_avilist_id,avibase-0B2F8058,Collared Flycatcher,Ficedula albicollis,avibase-0B2F8058,Collared Flycatcher,Ficedula albicollis
-stable-avibase-0B4F3AA2,name_and_classification_change,stable_avilist_id,avibase-0B4F3AA2,Amani Sunbird,Anthodiaeta pallidigaster ,avibase-0B4F3AA2,Amani Sunbird,Hedydipna pallidigaster
-stable-avibase-0BC36521,name_and_classification_change,stable_avilist_id,avibase-0BC36521,Doherty's Bushshrike,Telephorus dohertyi,avibase-0BC36521,Doherty's Bushshrike,Telophorus dohertyi
-stable-avibase-0BD37CDF,classification_change,stable_avilist_id,avibase-0BD37CDF,White-tailed Ant Thrush,Neocossyphus poensis,avibase-0BD37CDF,White-tailed Ant Thrush,Neocossyphus poensis
+stable-avibase-07F940AA,name_change,stable_avilist_id,avibase-07F940AA,Tropical Boubou,Laniarius (aethiopicus) major/ambiguus,avibase-07F940AA,Tropical Boubou,Laniarius major
+stable-avibase-0868B50D,name_change,stable_avilist_id,avibase-0868B50D,Slate-coloured Boubou,Laniarius funebris,avibase-0868B50D,Slate-colored Boubou,Laniarius funebris
+stable-avibase-0874B4D5,name_change,stable_avilist_id,avibase-0874B4D5,Black-rumped Buttonquail,Turnix hottentottus,avibase-0874B4D5,Black-rumped Buttonquail,Turnix nanus
+stable-avibase-09A0F2EB,name_change,stable_avilist_id,avibase-09A0F2EB,African Crake,Crex egregia,avibase-09A0F2EB,African Crake,Crecopsis egregia
+stable-avibase-0B4F3AA2,name_change,stable_avilist_id,avibase-0B4F3AA2,Amani Sunbird,Anthodiaeta pallidigaster ,avibase-0B4F3AA2,Amani Sunbird,Hedydipna pallidigaster
+stable-avibase-0BC36521,name_change,stable_avilist_id,avibase-0BC36521,Doherty's Bushshrike,Telephorus dohertyi,avibase-0BC36521,Doherty's Bushshrike,Telophorus dohertyi
 stable-avibase-0C571D99,name_change,stable_avilist_id,avibase-0C571D99,Cinnamon-breasted Bunting,Fringillaria tahapisi,avibase-0C571D99,Cinnamon-breasted Bunting,Emberiza tahapisi
-stable-avibase-0CA903BB,classification_change,stable_avilist_id,avibase-0CA903BB,Harlequin Quail,Coturnix delegorguei,avibase-0CA903BB,Harlequin Quail,Coturnix delegorguei
-stable-avibase-0CEB2DA6,name_and_classification_change,stable_avilist_id,avibase-0CEB2DA6,Northern Grosbeak Canary,Crithagra donaldsoni,avibase-0CEB2DA6,Northern Grosbeak-Canary,Crithagra donaldsoni
-stable-avibase-0D419595,classification_change,stable_avilist_id,avibase-0D419595,Black-billed Barbet,Lybius guifsobalito,avibase-0D419595,Black-billed Barbet,Lybius guifsobalito
-stable-avibase-0D7CC717,name_and_classification_change,stable_avilist_id,avibase-0D7CC717,Grassland Pipit,Anthus cinnamomeus,avibase-0D7CC717,African Pipit,Anthus cinnamomeus
-stable-avibase-0D885A80,classification_change,stable_avilist_id,avibase-0D885A80,Slender-billed Prion,Pachyptila belcheri,avibase-0D885A80,Slender-billed Prion,Pachyptila belcheri
-stable-avibase-0D9BFED1,classification_change,stable_avilist_id,avibase-0D9BFED1,Yellow-throated Longclaw,Macronyx croceus,avibase-0D9BFED1,Yellow-throated Longclaw,Macronyx croceus
-stable-avibase-0DA8BB90,classification_change,stable_avilist_id,avibase-0DA8BB90,Common Buttonquail,Turnix sylvaticus,avibase-0DA8BB90,Common Buttonquail,Turnix sylvaticus
-stable-avibase-0DCD05BE,name_and_classification_change,stable_avilist_id,avibase-0DCD05BE,Lesser Whitethroat,Sylvia curruca,avibase-0DCD05BE,Lesser Whitethroat,Curruca curruca
+stable-avibase-0CEB2DA6,name_change,stable_avilist_id,avibase-0CEB2DA6,Northern Grosbeak Canary,Crithagra donaldsoni,avibase-0CEB2DA6,Northern Grosbeak-Canary,Crithagra donaldsoni
+stable-avibase-0D7CC717,name_change,stable_avilist_id,avibase-0D7CC717,Grassland Pipit,Anthus cinnamomeus,avibase-0D7CC717,African Pipit,Anthus cinnamomeus
+stable-avibase-0DCD05BE,name_change,stable_avilist_id,avibase-0DCD05BE,Lesser Whitethroat,Sylvia curruca,avibase-0DCD05BE,Lesser Whitethroat,Curruca curruca
 stable-avibase-0EA5F2E1,name_change,stable_avilist_id,avibase-0EA5F2E1,Ansorge's Greenbul,Eurillas ansorgei (race kavirondensis),avibase-0EA5F2E1,Ansorge's Greenbul,Eurillas ansorgei
-stable-avibase-0ECD9D58,name_and_classification_change,stable_avilist_id,avibase-0ECD9D58,Brown (Meyer’s) Parrot ,Poicephalus meyeri,avibase-0ECD9D58,Meyer's Parrot,Poicephalus meyeri
-stable-avibase-0EDEEB49,classification_change,stable_avilist_id,avibase-0EDEEB49,Red-bellied Paradise Flycatcher,Terpsiphone rufiventer,avibase-0EDEEB49,Red-bellied Paradise Flycatcher,Terpsiphone rufiventer
+stable-avibase-0ECD9D58,name_change,stable_avilist_id,avibase-0ECD9D58,Brown (Meyer’s) Parrot ,Poicephalus meyeri,avibase-0ECD9D58,Meyer's Parrot,Poicephalus meyeri
 stable-avibase-0F0DCC2F,name_change,stable_avilist_id,avibase-0F0DCC2F,Kittlitz’s Plover,Charadrius pecuarius,avibase-0F0DCC2F,Kittlitz's Plover,Anarhynchus pecuarius
 stable-avibase-0F14ECE4,name_change,stable_avilist_id,avibase-0F14ECE4,African Open-billed Stork,Anastomus lamelligerus,avibase-0F14ECE4,African Openbill,Anastomus lamelligerus
-stable-avibase-0F42F11A,name_and_classification_change,stable_avilist_id,avibase-0F42F11A,Eurasian (Great) Bittern,Botaurus stellaris,avibase-0F42F11A,Eurasian Bittern,Botaurus stellaris
-stable-avibase-105C306C,classification_change,stable_avilist_id,avibase-105C306C,Antarctic Prion,Pachyptila desolata,avibase-105C306C,Antarctic Prion,Pachyptila desolata
-stable-avibase-1066028B,classification_change,stable_avilist_id,avibase-1066028B,Fawn-breasted Waxbill,Estrilda paludicola,avibase-1066028B,Fawn-breasted Waxbill,Estrilda paludicola
-stable-avibase-10B14696,name_and_classification_change,stable_avilist_id,avibase-10B14696,Eastern Grey Plantain-eater,Crinifer zonurus,avibase-10B14696,Eastern Plantain-eater,Crinifer zonurus
-stable-avibase-115AF02D,classification_change,stable_avilist_id,avibase-115AF02D,Black Tern,Chlidonias niger,avibase-115AF02D,Black Tern,Chlidonias niger
-stable-avibase-115CB3F4,classification_change,stable_avilist_id,avibase-115CB3F4,West African Seedeater,Crithagra canicapilla,avibase-115CB3F4,West African Seedeater,Crithagra canicapilla
-stable-avibase-1192205B,name_and_classification_change,stable_avilist_id,avibase-1192205B,Crested (Oriental) Honey Buzzard,Pernis ptilorhynchus,avibase-1192205B,Crested Honey Buzzard,Pernis ptilorhynchus
+stable-avibase-0F42F11A,name_change,stable_avilist_id,avibase-0F42F11A,Eurasian (Great) Bittern,Botaurus stellaris,avibase-0F42F11A,Eurasian Bittern,Botaurus stellaris
+stable-avibase-10B14696,name_change,stable_avilist_id,avibase-10B14696,Eastern Grey Plantain-eater,Crinifer zonurus,avibase-10B14696,Eastern Plantain-eater,Crinifer zonurus
+stable-avibase-1192205B,name_change,stable_avilist_id,avibase-1192205B,Crested (Oriental) Honey Buzzard,Pernis ptilorhynchus,avibase-1192205B,Crested Honey Buzzard,Pernis ptilorhynchus
 stable-avibase-11FE7313,name_change,stable_avilist_id,avibase-11FE7313,Fork-tailed (Common) Drongo,Dicrurus adsimilis,avibase-11FE7313,Fork-tailed Drongo,Dicrurus adsimilis
-stable-avibase-126E0CFA,name_and_classification_change,stable_avilist_id,avibase-126E0CFA,Shelley’s Sparrow,Passer (cordofanicus) shelleyi,avibase-126E0CFA,Shelley's Sparrow,Passer shelleyi
-stable-avibase-131038AD,classification_change,stable_avilist_id,avibase-131038AD,Hooded Vulture,Necrosyrtes monachus,avibase-131038AD,Hooded Vulture,Necrosyrtes monachus
-stable-avibase-1327AC55,classification_change,stable_avilist_id,avibase-1327AC55,Osprey,Pandion haliaetus,avibase-1327AC55,Osprey,Pandion haliaetus
-stable-avibase-132E0773,name_and_classification_change,stable_avilist_id,avibase-132E0773,Uganda Woodland Warbler,Seicercus budongoensis,avibase-132E0773,Uganda Woodland Warbler,Phylloscopus budongoensis
-stable-avibase-1350773F,name_and_classification_change,stable_avilist_id,avibase-1350773F,Abbott’s Starling,Poeoptera femoralis ,avibase-1350773F,Abbott's Starling,Arizelopsar femoralis
-stable-avibase-1373D324,classification_change,stable_avilist_id,avibase-1373D324,Little Weaver,Ploceus luteolus,avibase-1373D324,Little Weaver,Ploceus luteolus
-stable-avibase-13967506,name_and_classification_change,stable_avilist_id,avibase-13967506,Striped Crake,Amaurornis marginalis,avibase-13967506,Striped Crake,Aenigmatolimnas marginalis
-stable-avibase-142E4CB7,classification_change,stable_avilist_id,avibase-142E4CB7,Bronze Mannikin,Spermestes cucullata,avibase-142E4CB7,Bronze Mannikin,Spermestes cucullata
-stable-avibase-1478AA79,classification_change,stable_avilist_id,avibase-1478AA79,Moustached Grass Warbler,Melocichla mentalis,avibase-1478AA79,Moustached Grass Warbler,Melocichla mentalis
-stable-avibase-14885C18,classification_change,stable_avilist_id,avibase-14885C18,Palm-nut Vulture,Gypohierax angolensis,avibase-14885C18,Palm-nut Vulture,Gypohierax angolensis
-stable-avibase-148F0B01,classification_change,stable_avilist_id,avibase-148F0B01,Black Crake,Zapornia flavirostra,avibase-148F0B01,Black Crake,Zapornia flavirostra
-stable-avibase-14AFBA82,name_and_classification_change,stable_avilist_id,avibase-14AFBA82,Common Whitethroat,Sylvia communis,avibase-14AFBA82,Common Whitethroat,Curruca communis
-stable-avibase-14B9664A,classification_change,stable_avilist_id,avibase-14B9664A,Long-crested Eagle,Lophaetus occipitalis,avibase-14B9664A,Long-crested Eagle,Lophaetus occipitalis
-stable-avibase-14F13C32,classification_change,stable_avilist_id,avibase-14F13C32,Verreaux's Eagle,Aquila verreauxii,avibase-14F13C32,Verreaux's Eagle,Aquila verreauxii
-stable-avibase-15B2DD49,classification_change,stable_avilist_id,avibase-15B2DD49,Brown-backed Scrub Robin,Cercotrichas hartlaubi,avibase-15B2DD49,Brown-backed Scrub Robin,Cercotrichas hartlaubi
-stable-avibase-15EE0D36,classification_change,stable_avilist_id,avibase-15EE0D36,Eurasian Wigeon,Mareca penelope,avibase-15EE0D36,Eurasian Wigeon,Mareca penelope
-stable-avibase-15F017B7,classification_change,stable_avilist_id,avibase-15F017B7,Blue-mantled Crested Flycatcher,Trochocercus cyanomelas,avibase-15F017B7,Blue-mantled Crested Flycatcher,Trochocercus cyanomelas
-stable-avibase-1611F295,name_and_classification_change,stable_avilist_id,avibase-1611F295,Collared Sunbird,Anthodiaeta collaris,avibase-1611F295,Collared Sunbird,Hedydipna collaris
-stable-avibase-16935B44,classification_change,stable_avilist_id,avibase-16935B44,Black-throated Wattle-eye,Platysteira peltata,avibase-16935B44,Black-throated Wattle-eye,Platysteira peltata
-stable-avibase-169B483C,classification_change,stable_avilist_id,avibase-169B483C,Yellow-fronted Canary,Crithagra mozambica,avibase-169B483C,Yellow-fronted Canary,Crithagra mozambica
-stable-avibase-16BD42DD,name_and_classification_change,stable_avilist_id,avibase-16BD42DD,White-browed Robin Chat,Cossypha heuglini,avibase-16BD42DD,White-browed Robin-Chat,Cossypha heuglini
-stable-avibase-16FEF081,name_and_classification_change,stable_avilist_id,avibase-16FEF081,Brown Parisoma,Sylvia lugens,avibase-16FEF081,Brown Parisoma,Curruca lugens
-stable-avibase-1725B07D,classification_change,stable_avilist_id,avibase-1725B07D,Sooty Shearwater,Ardenna grisea,avibase-1725B07D,Sooty Shearwater,Ardenna grisea
-stable-avibase-17310BF0,name_and_classification_change,stable_avilist_id,avibase-17310BF0,Little Tern,Sternula (albifrons) albifrons,avibase-17310BF0,Little Tern,Sternula albifrons
-stable-avibase-17DE4B1F,classification_change,stable_avilist_id,avibase-17DE4B1F,Tsavo Sunbird,Cinnyris tsavoensis,avibase-17DE4B1F,Tsavo Sunbird,Cinnyris tsavoensis
+stable-avibase-126E0CFA,name_change,stable_avilist_id,avibase-126E0CFA,Shelley’s Sparrow,Passer (cordofanicus) shelleyi,avibase-126E0CFA,Shelley's Sparrow,Passer shelleyi
+stable-avibase-132E0773,name_change,stable_avilist_id,avibase-132E0773,Uganda Woodland Warbler,Seicercus budongoensis,avibase-132E0773,Uganda Woodland Warbler,Phylloscopus budongoensis
+stable-avibase-1350773F,name_change,stable_avilist_id,avibase-1350773F,Abbott’s Starling,Poeoptera femoralis ,avibase-1350773F,Abbott's Starling,Arizelopsar femoralis
+stable-avibase-13967506,name_change,stable_avilist_id,avibase-13967506,Striped Crake,Amaurornis marginalis,avibase-13967506,Striped Crake,Aenigmatolimnas marginalis
+stable-avibase-14AFBA82,name_change,stable_avilist_id,avibase-14AFBA82,Common Whitethroat,Sylvia communis,avibase-14AFBA82,Common Whitethroat,Curruca communis
+stable-avibase-1611F295,name_change,stable_avilist_id,avibase-1611F295,Collared Sunbird,Anthodiaeta collaris,avibase-1611F295,Collared Sunbird,Hedydipna collaris
+stable-avibase-16BD42DD,name_change,stable_avilist_id,avibase-16BD42DD,White-browed Robin Chat,Cossypha heuglini,avibase-16BD42DD,White-browed Robin-Chat,Cossypha heuglini
+stable-avibase-16FEF081,name_change,stable_avilist_id,avibase-16FEF081,Brown Parisoma,Sylvia lugens,avibase-16FEF081,Brown Parisoma,Curruca lugens
+stable-avibase-17310BF0,name_change,stable_avilist_id,avibase-17310BF0,Little Tern,Sternula (albifrons) albifrons,avibase-17310BF0,Little Tern,Sternula albifrons
 stable-avibase-18A19380,name_change,stable_avilist_id,avibase-18A19380,Grey Phalarope,Phalaropus fulicarius,avibase-18A19380,Red Phalarope,Phalaropus fulicarius
-stable-avibase-18A968DB,classification_change,stable_avilist_id,avibase-18A968DB,African Shrike-flycatcher,Megabyas flammulatus,avibase-18A968DB,African Shrike-flycatcher,Megabyas flammulatus
-stable-avibase-18B10CF9,classification_change,stable_avilist_id,avibase-18B10CF9,Splendid Starling,Lamprotornis splendidus,avibase-18B10CF9,Splendid Starling,Lamprotornis splendidus
-stable-avibase-18ED7458,classification_change,stable_avilist_id,avibase-18ED7458,White-tailed Crested Flycatcher,Elminia albonotata,avibase-18ED7458,White-tailed Crested Flycatcher,Elminia albonotata
-stable-avibase-19489268,classification_change,stable_avilist_id,avibase-19489268,Sokoke Pipit,Anthus sokokensis,avibase-19489268,Sokoke Pipit,Anthus sokokensis
-stable-avibase-1953C1D6,classification_change,stable_avilist_id,avibase-1953C1D6,D'Arnaud's Barbet,Trachyphonus darnaudii,avibase-1953C1D6,D'Arnaud's Barbet,Trachyphonus darnaudii
-stable-avibase-19D053B3,name_and_classification_change,stable_avilist_id,avibase-19D053B3,Yellow-backed Weaver,Ploceus melanocephalus,avibase-19D053B3,Black-headed Weaver,Ploceus melanocephalus
-stable-avibase-1A0ECB6E,name_and_classification_change,stable_avilist_id,avibase-1A0ECB6E,Shikra,Accipiter badius,avibase-1A0ECB6E,Shikra,Tachyspiza badia
-stable-avibase-1A6B766A,name_and_classification_change,stable_avilist_id,avibase-1A6B766A,Green-backed Twinspot,Mandingoa nitidula,avibase-1A6B766A,Green Twinspot,Mandingoa nitidula
-stable-avibase-1AED683B,classification_change,stable_avilist_id,avibase-1AED683B,Banded Martin,Neophedina cincta,avibase-1AED683B,Banded Martin,Neophedina cincta
-stable-avibase-1B11690B,name_and_classification_change,stable_avilist_id,avibase-1B11690B,Scaly Francolin,Pternistis squamatus,avibase-1B11690B,Scaly Spurfowl,Pternistis squamatus
-stable-avibase-1B309CB5,classification_change,stable_avilist_id,avibase-1B309CB5,African Emerald Cuckoo,Chrysococcyx cupreus,avibase-1B309CB5,African Emerald Cuckoo,Chrysococcyx cupreus
-stable-avibase-1C2F4E80,classification_change,stable_avilist_id,avibase-1C2F4E80,Maccoa Duck,Oxyura maccoa,avibase-1C2F4E80,Maccoa Duck,Oxyura maccoa
-stable-avibase-1D25E0DB,classification_change,stable_avilist_id,avibase-1D25E0DB,Somali Sparrow,Passer castanopterus,avibase-1D25E0DB,Somali Sparrow,Passer castanopterus
-stable-avibase-1D446440,name_and_classification_change,stable_avilist_id,avibase-1D446440,Long-tailed Skua,Stercorarius longicaudus,avibase-1D446440,Long-tailed Jaeger,Stercorarius longicaudus
-stable-avibase-1E2EC99C,classification_change,stable_avilist_id,avibase-1E2EC99C,Red-headed Lovebird,Agapornis pullarius,avibase-1E2EC99C,Red-headed Lovebird,Agapornis pullarius
-stable-avibase-1E3B3515,classification_change,stable_avilist_id,avibase-1E3B3515,Crowned Eagle,Stephanoaetus coronatus,avibase-1E3B3515,Crowned Eagle,Stephanoaetus coronatus
-stable-avibase-1E5D636D,classification_change,stable_avilist_id,avibase-1E5D636D,Papyrus Gonolek,Laniarius mufumbiri,avibase-1E5D636D,Papyrus Gonolek,Laniarius mufumbiri
+stable-avibase-19D053B3,name_change,stable_avilist_id,avibase-19D053B3,Yellow-backed Weaver,Ploceus melanocephalus,avibase-19D053B3,Black-headed Weaver,Ploceus melanocephalus
+stable-avibase-1A0ECB6E,name_change,stable_avilist_id,avibase-1A0ECB6E,Shikra,Accipiter badius,avibase-1A0ECB6E,Shikra,Tachyspiza badia
+stable-avibase-1A6B766A,name_change,stable_avilist_id,avibase-1A6B766A,Green-backed Twinspot,Mandingoa nitidula,avibase-1A6B766A,Green Twinspot,Mandingoa nitidula
+stable-avibase-1B11690B,name_change,stable_avilist_id,avibase-1B11690B,Scaly Francolin,Pternistis squamatus,avibase-1B11690B,Scaly Spurfowl,Pternistis squamatus
+stable-avibase-1D446440,name_change,stable_avilist_id,avibase-1D446440,Long-tailed Skua,Stercorarius longicaudus,avibase-1D446440,Long-tailed Jaeger,Stercorarius longicaudus
 stable-avibase-1E7CADC2,name_change,stable_avilist_id,avibase-1E7CADC2,Miombo (Pale) Wren Warbler,Calamonastes undosus,avibase-1E7CADC2,Miombo Wren-Warbler,Calamonastes undosus
-stable-avibase-1EA60B94,name_and_classification_change,stable_avilist_id,avibase-1EA60B94,Barred Warbler,Sylvia nisoria,avibase-1EA60B94,Barred Warbler,Curruca nisoria
-stable-avibase-1EAFAD9F,classification_change,stable_avilist_id,avibase-1EAFAD9F,African Black Duck,Anas sparsa,avibase-1EAFAD9F,African Black Duck,Anas sparsa
+stable-avibase-1EA60B94,name_change,stable_avilist_id,avibase-1EA60B94,Barred Warbler,Sylvia nisoria,avibase-1EA60B94,Barred Warbler,Curruca nisoria
 stable-avibase-1EEE86B8,name_change,stable_avilist_id,avibase-1EEE86B8,Olive-breasted Mountain Greenbul,Arizelocichla (nigriceps) kikuyuensis,avibase-1EEE86B8,Kikuyu Mountain Greenbul,Arizelocichla kikuyuensis
-stable-avibase-1F21FFE9,classification_change,stable_avilist_id,avibase-1F21FFE9,Copper Sunbird,Cinnyris cupreus,avibase-1F21FFE9,Copper Sunbird,Cinnyris cupreus
-stable-avibase-1F2F7323,classification_change,stable_avilist_id,avibase-1F2F7323,Grey-crested Helmetshrike,Prionops poliolophus,avibase-1F2F7323,Grey-crested Helmetshrike,Prionops poliolophus
-stable-avibase-1FACD210,classification_change,stable_avilist_id,avibase-1FACD210,Klaas's Cuckoo,Chrysococcyx klaas,avibase-1FACD210,Klaas's Cuckoo,Chrysococcyx klaas
 stable-avibase-1FDDABDB,name_change,stable_avilist_id,avibase-1FDDABDB,Speckled Mousebird,Colius striatus (race kikuyuensis),avibase-1FDDABDB,Speckled Mousebird,Colius striatus
-stable-avibase-201E1243,classification_change,stable_avilist_id,avibase-201E1243,Pink-footed Puffback,Dryoscopus angolensis,avibase-201E1243,Pink-footed Puffback,Dryoscopus angolensis
-stable-avibase-20D915AD,classification_change,stable_avilist_id,avibase-20D915AD,Vieillot's Black Weaver,Ploceus nigerrimus,avibase-20D915AD,Vieillot's Black Weaver,Ploceus nigerrimus
 stable-avibase-214B3533,name_change,stable_avilist_id,avibase-214B3533,White-fronted Plover,Charadrius marginatus,avibase-214B3533,White-fronted Plover,Anarhynchus marginatus
-stable-avibase-215428B0,name_and_classification_change,stable_avilist_id,avibase-215428B0,Bare-faced Go-away-bird,Corythaixoides personatus,avibase-215428B0,Bare-faced Go-away-bird,Crinifer personatus
+stable-avibase-215428B0,name_change,stable_avilist_id,avibase-215428B0,Bare-faced Go-away-bird,Corythaixoides personatus,avibase-215428B0,Bare-faced Go-away-bird,Crinifer personatus
 stable-avibase-2247CB05,name_change,stable_avilist_id,avibase-2247CB05,Common Ostrich,Struthio camelus (race camelus),avibase-2247CB05,Common Ostrich,Struthio camelus
-stable-avibase-22647E26,classification_change,stable_avilist_id,avibase-22647E26,Pallid Harrier,Circus macrourus,avibase-22647E26,Pallid Harrier,Circus macrourus
-stable-avibase-22832FF4,name_and_classification_change,stable_avilist_id,avibase-22832FF4,African Swallow-tailed Kite,Chelictinia riocourii,avibase-22832FF4,Scissor-tailed Kite,Chelictinia riocourii
-stable-avibase-22952180,name_and_classification_change,stable_avilist_id,avibase-22952180,Schalow's Turaco,Tauraco Schalowi,avibase-22952180,Schalow's Turaco,Tauraco schalowi
-stable-avibase-22D1B4A2,classification_change,stable_avilist_id,avibase-22D1B4A2,Masked Booby,Sula dactylatra,avibase-22D1B4A2,Masked Booby,Sula dactylatra
-stable-avibase-230A0342,name_and_classification_change,stable_avilist_id,avibase-230A0342,White-starred Robin,Pogonocichla stellata (race macarthuri),avibase-230A0342,White-starred Robin,Pogonocichla stellata
-stable-avibase-2379E3EB,name_and_classification_change,stable_avilist_id,avibase-2379E3EB,Taveta Golden Weaver,Ploceus castaneiceps,avibase-2379E3EB,Taveta Weaver,Ploceus castaneiceps
-stable-avibase-23D5FC36,name_and_classification_change,stable_avilist_id,avibase-23D5FC36,Blue-spotted Wood-Dove,Turtur afer,avibase-23D5FC36,Blue-spotted Wood Dove,Turtur afer
-stable-avibase-240E3390,classification_change,stable_avilist_id,avibase-240E3390,House Sparrow,Passer domesticus,avibase-240E3390,House Sparrow,Passer domesticus
-stable-avibase-24208346,name_and_classification_change,stable_avilist_id,avibase-24208346,Rose-coloured Starling,Pastor roseus,avibase-24208346,Rosy Starling,Pastor roseus
-stable-avibase-2470FC01,name_and_classification_change,stable_avilist_id,avibase-2470FC01,Fan-tailed Grassbird,Schoenicola brevirostris,avibase-2470FC01,Fan-tailed Grassbird,Catriscus brevirostris
-stable-avibase-250123FB,name_and_classification_change,stable_avilist_id,avibase-250123FB,African Long-eared (Abyssinian) Owl,Asio abyssinicus,avibase-250123FB,Abyssinian Owl,Asio abyssinicus
-stable-avibase-250CDA58,classification_change,stable_avilist_id,avibase-250CDA58,Tawny Pipit,Anthus campestris,avibase-250CDA58,Tawny Pipit,Anthus campestris
-stable-avibase-25A648FE,classification_change,stable_avilist_id,avibase-25A648FE,Black-headed Heron,Ardea melanocephala,avibase-25A648FE,Black-headed Heron,Ardea melanocephala
-stable-avibase-25C26AB9,name_and_classification_change,stable_avilist_id,avibase-25C26AB9,Grey-winged Robin,Sheppardia polioptera,avibase-25C26AB9,Grey-winged Robin-Chat,Sheppardia polioptera
-stable-avibase-25DA0F41,classification_change,stable_avilist_id,avibase-25DA0F41,Cape Teal,Anas capensis,avibase-25DA0F41,Cape Teal,Anas capensis
+stable-avibase-22832FF4,name_change,stable_avilist_id,avibase-22832FF4,African Swallow-tailed Kite,Chelictinia riocourii,avibase-22832FF4,Scissor-tailed Kite,Chelictinia riocourii
+stable-avibase-22952180,name_change,stable_avilist_id,avibase-22952180,Schalow's Turaco,Tauraco Schalowi,avibase-22952180,Schalow's Turaco,Tauraco schalowi
+stable-avibase-230A0342,name_change,stable_avilist_id,avibase-230A0342,White-starred Robin,Pogonocichla stellata (race macarthuri),avibase-230A0342,White-starred Robin,Pogonocichla stellata
+stable-avibase-2379E3EB,name_change,stable_avilist_id,avibase-2379E3EB,Taveta Golden Weaver,Ploceus castaneiceps,avibase-2379E3EB,Taveta Weaver,Ploceus castaneiceps
+stable-avibase-23D5FC36,name_change,stable_avilist_id,avibase-23D5FC36,Blue-spotted Wood-Dove,Turtur afer,avibase-23D5FC36,Blue-spotted Wood Dove,Turtur afer
+stable-avibase-24208346,name_change,stable_avilist_id,avibase-24208346,Rose-coloured Starling,Pastor roseus,avibase-24208346,Rosy Starling,Pastor roseus
+stable-avibase-2470FC01,name_change,stable_avilist_id,avibase-2470FC01,Fan-tailed Grassbird,Schoenicola brevirostris,avibase-2470FC01,Fan-tailed Grassbird,Catriscus brevirostris
+stable-avibase-250123FB,name_change,stable_avilist_id,avibase-250123FB,African Long-eared (Abyssinian) Owl,Asio abyssinicus,avibase-250123FB,Abyssinian Owl,Asio abyssinicus
+stable-avibase-25C26AB9,name_change,stable_avilist_id,avibase-25C26AB9,Grey-winged Robin,Sheppardia polioptera,avibase-25C26AB9,Grey-winged Robin-Chat,Sheppardia polioptera
 stable-avibase-2624054E,name_change,stable_avilist_id,avibase-2624054E,Rufous-crowned Roller,Coracias naevius,avibase-2624054E,Purple Roller,Coracias naevius
 stable-avibase-264D0351,name_change,stable_avilist_id,avibase-264D0351,Caspian Plover,Charadrius asiaticus,avibase-264D0351,Caspian Plover,Anarhynchus asiaticus
-stable-avibase-2680F124,classification_change,stable_avilist_id,avibase-2680F124,Black-crowned Waxbill,Estrilda nonnula,avibase-2680F124,Black-crowned Waxbill,Estrilda nonnula
-stable-avibase-26A34DA5,classification_change,stable_avilist_id,avibase-26A34DA5,Red-chested Cuckoo,Cuculus solitarius,avibase-26A34DA5,Red-chested Cuckoo,Cuculus solitarius
-stable-avibase-26F27894,classification_change,stable_avilist_id,avibase-26F27894,Malachite Sunbird,Nectarinia famosa,avibase-26F27894,Malachite Sunbird,Nectarinia famosa
-stable-avibase-2700C97D,name_and_classification_change,stable_avilist_id,avibase-2700C97D,Yellow-crested Woodpecker,Chloropicos xantholophus,avibase-2700C97D,Yellow-crested Woodpecker,Chloropicus xantholophus
-stable-avibase-27012CC9,classification_change,stable_avilist_id,avibase-27012CC9,Black-bellied Firefinch,Lagonosticta rara,avibase-27012CC9,Black-bellied Firefinch,Lagonosticta rara
-stable-avibase-27CE7132,classification_change,stable_avilist_id,avibase-27CE7132,Slender-billed Gull,Chroicocephalus genei,avibase-27CE7132,Slender-billed Gull,Chroicocephalus genei
-stable-avibase-28CACA8F,name_and_classification_change,stable_avilist_id,avibase-28CACA8F,Green Wood-hoopoe,Phoeniculus purpureus,avibase-28CACA8F,Green Wood Hoopoe,Phoeniculus purpureus
-stable-avibase-295B9665,name_and_classification_change,stable_avilist_id,avibase-295B9665,Kenrick's Starling,Poeoptera kenricki (race bensoni),avibase-295B9665,Kenrick's Starling,Poeoptera kenricki
+stable-avibase-2700C97D,name_change,stable_avilist_id,avibase-2700C97D,Yellow-crested Woodpecker,Chloropicos xantholophus,avibase-2700C97D,Yellow-crested Woodpecker,Chloropicus xantholophus
+stable-avibase-28CACA8F,name_change,stable_avilist_id,avibase-28CACA8F,Green Wood-hoopoe,Phoeniculus purpureus,avibase-28CACA8F,Green Wood Hoopoe,Phoeniculus purpureus
+stable-avibase-295B9665,name_change,stable_avilist_id,avibase-295B9665,Kenrick's Starling,Poeoptera kenricki (race bensoni),avibase-295B9665,Kenrick's Starling,Poeoptera kenricki
 stable-avibase-29D50ED5,name_change,stable_avilist_id,avibase-29D50ED5,Heuglin's Courser,Rhinoptilus cinctus,avibase-29D50ED5,Three-banded Courser,Rhinoptilus cinctus
-stable-avibase-2A2C169B,classification_change,stable_avilist_id,avibase-2A2C169B,African Marsh Harrier,Circus ranivorus,avibase-2A2C169B,African Marsh Harrier,Circus ranivorus
-stable-avibase-2A2CC7B3,name_and_classification_change,stable_avilist_id,avibase-2A2CC7B3,Kilifi (Clarke’s) Weaver,Ploceus golandi,avibase-2A2CC7B3,Kilifi Weaver,Ploceus golandi
-stable-avibase-2AA13F1D,classification_change,stable_avilist_id,avibase-2AA13F1D,Purple Indigobird,Vidua purpurascens,avibase-2AA13F1D,Purple Indigobird,Vidua purpurascens
-stable-avibase-2AA4BC58,name_and_classification_change,stable_avilist_id,avibase-2AA4BC58,White-bellied Go-away-bird,Criniferoides leucogaster,avibase-2AA4BC58,White-bellied Go-away-bird,Crinifer leucogaster
-stable-avibase-2AD52363,classification_change,stable_avilist_id,avibase-2AD52363,Thick-billed Cuckoo,Pachycoccyx audeberti,avibase-2AD52363,Thick-billed Cuckoo,Pachycoccyx audeberti
-stable-avibase-2B020CA0,classification_change,stable_avilist_id,avibase-2B020CA0,River Warbler,Locustella fluviatilis,avibase-2B020CA0,River Warbler,Locustella fluviatilis
-stable-avibase-2B55E679,name_and_classification_change,stable_avilist_id,avibase-2B55E679,Swahili Sparrow,Passer (griseus) suahelicus,avibase-2B55E679,Swahili Sparrow,Passer suahelicus
-stable-avibase-2B6DE136,classification_change,stable_avilist_id,avibase-2B6DE136,Red-billed Quelea,Quelea quelea,avibase-2B6DE136,Red-billed Quelea,Quelea quelea
-stable-avibase-2C42345F,classification_change,stable_avilist_id,avibase-2C42345F,Orange Weaver,Ploceus aurantius,avibase-2C42345F,Orange Weaver,Ploceus aurantius
-stable-avibase-2C504059,name_and_classification_change,stable_avilist_id,avibase-2C504059,Chestnut-crowned Sparrow Weaver,Plocepasser superciliosus,avibase-2C504059,Chestnut-crowned Sparrow-Weaver,Plocepasser superciliosus
-stable-avibase-2C7AA154,classification_change,stable_avilist_id,avibase-2C7AA154,Eurasian Scops Owl,Otus scops,avibase-2C7AA154,Eurasian Scops Owl,Otus scops
-stable-avibase-2C7BA3A6,name_and_classification_change,stable_avilist_id,avibase-2C7BA3A6,Ross's Turaco,Musophaga rossae,avibase-2C7BA3A6,Ross's Turaco,Tauraco rossae
-stable-avibase-2CC91390,name_and_classification_change,stable_avilist_id,avibase-2CC91390,Black-bellied Seed-cracker,Pyrenestes ostrinus,avibase-2CC91390,Black-bellied Seedcracker,Pyrenestes ostrinus
-stable-avibase-2D0C83B2,classification_change,stable_avilist_id,avibase-2D0C83B2,Eastern Violet-backed Sunbird,Anthreptes orientalis,avibase-2D0C83B2,Eastern Violet-backed Sunbird,Anthreptes orientalis
-stable-avibase-2D157C82,classification_change,stable_avilist_id,avibase-2D157C82,Scaly-breasted Illadopsis,Illadopsis albipectus,avibase-2D157C82,Scaly-breasted Illadopsis,Illadopsis albipectus
-stable-avibase-2D46BB98,classification_change,stable_avilist_id,avibase-2D46BB98,Savi’s Warbler,Locustella luscinioides,avibase-2D46BB98,Savi's Warbler,Locustella luscinioides
-stable-avibase-2D52E3A5,classification_change,stable_avilist_id,avibase-2D52E3A5,Lesser Black-backed Gull,Larus fuscus,avibase-2D52E3A5,Lesser Black-backed Gull,Larus fuscus
-stable-avibase-2D86B0D2,classification_change,stable_avilist_id,avibase-2D86B0D2,Holub's Golden Weaver,Ploceus xanthops,avibase-2D86B0D2,Holub's Golden Weaver,Ploceus xanthops
-stable-avibase-2DAB45B8,classification_change,stable_avilist_id,avibase-2DAB45B8,Common Kestrel,Falco tinnunculus,avibase-2DAB45B8,Common Kestrel,Falco tinnunculus
-stable-avibase-2E2DE0B6,classification_change,stable_avilist_id,avibase-2E2DE0B6,Green-throated Sunbird,Chalcomitra rubescens,avibase-2E2DE0B6,Green-throated Sunbird,Chalcomitra rubescens
-stable-avibase-2E4A97D9,classification_change,stable_avilist_id,avibase-2E4A97D9,Juba Weaver,Ploceus dichrocephalus,avibase-2E4A97D9,Juba Weaver,Ploceus dichrocephalus
-stable-avibase-2E4DAA13,classification_change,stable_avilist_id,avibase-2E4DAA13,Greater Kestrel,Falco rupicoloides,avibase-2E4DAA13,Greater Kestrel,Falco rupicoloides
-stable-avibase-2E6575A8,classification_change,stable_avilist_id,avibase-2E6575A8,African Wood Owl,Strix woodfordii,avibase-2E6575A8,African Wood Owl,Strix woodfordii
-stable-avibase-2EEDACD5,classification_change,stable_avilist_id,avibase-2EEDACD5,White-backed Duck,Thalassornis leuconotus,avibase-2EEDACD5,White-backed Duck,Thalassornis leuconotus
+stable-avibase-2A2CC7B3,name_change,stable_avilist_id,avibase-2A2CC7B3,Kilifi (Clarke’s) Weaver,Ploceus golandi,avibase-2A2CC7B3,Kilifi Weaver,Ploceus golandi
+stable-avibase-2AA4BC58,name_change,stable_avilist_id,avibase-2AA4BC58,White-bellied Go-away-bird,Criniferoides leucogaster,avibase-2AA4BC58,White-bellied Go-away-bird,Crinifer leucogaster
+stable-avibase-2B55E679,name_change,stable_avilist_id,avibase-2B55E679,Swahili Sparrow,Passer (griseus) suahelicus,avibase-2B55E679,Swahili Sparrow,Passer suahelicus
+stable-avibase-2C504059,name_change,stable_avilist_id,avibase-2C504059,Chestnut-crowned Sparrow Weaver,Plocepasser superciliosus,avibase-2C504059,Chestnut-crowned Sparrow-Weaver,Plocepasser superciliosus
+stable-avibase-2C7BA3A6,name_change,stable_avilist_id,avibase-2C7BA3A6,Ross's Turaco,Musophaga rossae,avibase-2C7BA3A6,Ross's Turaco,Tauraco rossae
+stable-avibase-2CC91390,name_change,stable_avilist_id,avibase-2CC91390,Black-bellied Seed-cracker,Pyrenestes ostrinus,avibase-2CC91390,Black-bellied Seedcracker,Pyrenestes ostrinus
 stable-avibase-2F23EDC6,name_change,stable_avilist_id,avibase-2F23EDC6,Blacksmith Plover,Vanellus armatus,avibase-2F23EDC6,Blacksmith Lapwing,Vanellus armatus
-stable-avibase-2F467821,classification_change,stable_avilist_id,avibase-2F467821,Yellow-fronted Tinkerbird,Pogoniulus chrysoconus,avibase-2F467821,Yellow-fronted Tinkerbird,Pogoniulus chrysoconus
 stable-avibase-2F66131B,name_change,stable_avilist_id,avibase-2F66131B,Chestnut-headed Sparrow Lark,Eremopterix signatus,avibase-2F66131B,Chestnut-headed Sparrow-Lark,Eremopterix signatus
-stable-avibase-2FB34D83,classification_change,stable_avilist_id,avibase-2FB34D83,Pied Wheatear,Oenanthe pleschanka,avibase-2FB34D83,Pied Wheatear,Oenanthe pleschanka
-stable-avibase-30FEC6BE,name_and_classification_change,stable_avilist_id,avibase-30FEC6BE,Common House Martin,Delichon urbicum,avibase-30FEC6BE,Western House Martin,Delichon urbicum
-stable-avibase-3153FE22,name_and_classification_change,stable_avilist_id,avibase-3153FE22,Long-tailed Widowbird,Euplectes progne (race delamerei),avibase-3153FE22,Long-tailed Widowbird,Euplectes progne
-stable-avibase-319D044A,classification_change,stable_avilist_id,avibase-319D044A,Red-throated Pipit,Anthus cervinus,avibase-319D044A,Red-throated Pipit,Anthus cervinus
-stable-avibase-32C216E2,classification_change,stable_avilist_id,avibase-32C216E2,Fan-tailed Raven,Corvus rhipidurus,avibase-32C216E2,Fan-tailed Raven,Corvus rhipidurus
-stable-avibase-3395DCF1,classification_change,stable_avilist_id,avibase-3395DCF1,Purple Heron,Ardea purpurea,avibase-3395DCF1,Purple Heron,Ardea purpurea
-stable-avibase-3402C9BB,name_and_classification_change,stable_avilist_id,avibase-3402C9BB,Sooty Boubou,Laniarius leucorhynchus,avibase-3402C9BB,Lowland Sooty Boubou,Laniarius leucorhynchus
-stable-avibase-341298B9,name_and_classification_change,stable_avilist_id,avibase-341298B9,Weyn’s Weaver ,Ploceus weynsi,avibase-341298B9,Weyns's Weaver,Ploceus weynsi
-stable-avibase-345658E9,name_and_classification_change,stable_avilist_id,avibase-345658E9,Spotted Morning (Spotted Palm) Thrush,Cichladusa guttata,avibase-345658E9,Spotted Palm Thrush,Cichladusa guttata
-stable-avibase-34D538E1,classification_change,stable_avilist_id,avibase-34D538E1,Pied Crow,Corvus albus,avibase-34D538E1,Pied Crow,Corvus albus
-stable-avibase-34D5B04D,classification_change,stable_avilist_id,avibase-34D5B04D,Baillon’s Crake,Zapornia pusilla,avibase-34D5B04D,Baillon's Crake,Zapornia pusilla
-stable-avibase-35A1472C,name_and_classification_change,stable_avilist_id,avibase-35A1472C,African Goshawk,Accipiter tachiro,avibase-35A1472C,African Goshawk,Aerospiza tachiro
+stable-avibase-30FEC6BE,name_change,stable_avilist_id,avibase-30FEC6BE,Common House Martin,Delichon urbicum,avibase-30FEC6BE,Western House Martin,Delichon urbicum
+stable-avibase-3153FE22,name_change,stable_avilist_id,avibase-3153FE22,Long-tailed Widowbird,Euplectes progne (race delamerei),avibase-3153FE22,Long-tailed Widowbird,Euplectes progne
+stable-avibase-3402C9BB,name_change,stable_avilist_id,avibase-3402C9BB,Sooty Boubou,Laniarius leucorhynchus,avibase-3402C9BB,Lowland Sooty Boubou,Laniarius leucorhynchus
+stable-avibase-341298B9,name_change,stable_avilist_id,avibase-341298B9,Weyn’s Weaver ,Ploceus weynsi,avibase-341298B9,Weyns's Weaver,Ploceus weynsi
+stable-avibase-345658E9,name_change,stable_avilist_id,avibase-345658E9,Spotted Morning (Spotted Palm) Thrush,Cichladusa guttata,avibase-345658E9,Spotted Palm Thrush,Cichladusa guttata
+stable-avibase-35A1472C,name_change,stable_avilist_id,avibase-35A1472C,African Goshawk,Accipiter tachiro,avibase-35A1472C,African Goshawk,Aerospiza tachiro
 stable-avibase-35D60F12,name_change,stable_avilist_id,avibase-35D60F12,Kenya Crested Guineafowl,Guttera pucherani pucherani,avibase-35D60F12,Eastern Crested Guineafowl,Guttera pucherani
-stable-avibase-35EB45A0,classification_change,stable_avilist_id,avibase-35EB45A0,White-chinned Petrel,Procellaria aequinoctialis,avibase-35EB45A0,White-chinned Petrel,Procellaria aequinoctialis
 stable-avibase-35EC3BBF,name_change,stable_avilist_id,avibase-35EC3BBF,Little Ringed Plover,Charadrius dubius,avibase-35EC3BBF,Little Ringed Plover,Thinornis dubius
-stable-avibase-365F5E97,classification_change,stable_avilist_id,avibase-365F5E97,Tree Pipit,Anthus trivialis,avibase-365F5E97,Tree Pipit,Anthus trivialis
-stable-avibase-36C0242E,classification_change,stable_avilist_id,avibase-36C0242E,Southern Pochard,Netta erythrophthalma,avibase-36C0242E,Southern Pochard,Netta erythrophthalma
-stable-avibase-36C24C3D,classification_change,stable_avilist_id,avibase-36C24C3D,Slender-billed Weaver,Ploceus pelzelni,avibase-36C24C3D,Slender-billed Weaver,Ploceus pelzelni
-stable-avibase-3805ACAD,classification_change,stable_avilist_id,avibase-3805ACAD,Brown Illadopsis,Illadopsis fulvescens,avibase-3805ACAD,Brown Illadopsis,Illadopsis fulvescens
-stable-avibase-3809131C,classification_change,stable_avilist_id,avibase-3809131C,White-eyed Slaty Flycatcher,Melaenornis fischeri,avibase-3809131C,White-eyed Slaty Flycatcher,Melaenornis fischeri
-stable-avibase-3846F8A8,name_and_classification_change,stable_avilist_id,avibase-3846F8A8,Red-capped Robin Chat,Cossypha natalensis,avibase-3846F8A8,Red-capped Robin-Chat,Cossypha natalensis
-stable-avibase-39086887,name_and_classification_change,stable_avilist_id,avibase-39086887,Arctic Skua,Stercorarius parasiticus,avibase-39086887,Parasitic Jaeger,Stercorarius parasiticus
-stable-avibase-3948131B,classification_change,stable_avilist_id,avibase-3948131B,Knob-billed Duck,Sarkidiornis melanotos,avibase-3948131B,Knob-billed Duck,Sarkidiornis melanotos
-stable-avibase-39868903,classification_change,stable_avilist_id,avibase-39868903,House Crow,Corvus splendens,avibase-39868903,House Crow,Corvus splendens
-stable-avibase-3996ECD0,classification_change,stable_avilist_id,avibase-3996ECD0,White-crested Helmetshrike,Prionops plumatus,avibase-3996ECD0,White-crested Helmetshrike,Prionops plumatus
-stable-avibase-3A46A20C,name_and_classification_change,stable_avilist_id,avibase-3A46A20C,Southern Yellowbill (Green Malkoha),Ceuthmochares australis,avibase-3A46A20C,Green Malkoha,Ceuthmochares australis
-stable-avibase-3B3A6911,classification_change,stable_avilist_id,avibase-3B3A6911,Ashy Flycatcher,Fraseria caerulescens,avibase-3B3A6911,Ashy Flycatcher,Fraseria caerulescens
-stable-avibase-3B52D2B8,classification_change,stable_avilist_id,avibase-3B52D2B8,Pygmy Falcon,Polihierax semitorquatus,avibase-3B52D2B8,Pygmy Falcon,Polihierax semitorquatus
-stable-avibase-3B66D504,name_and_classification_change,stable_avilist_id,avibase-3B66D504,Yellow-bellied Wattle-eye,Dyaphorophyia concreta,avibase-3B66D504,Yellow-bellied Wattle-eye,Platysteira concreta
-stable-avibase-3BB2565D,classification_change,stable_avilist_id,avibase-3BB2565D,Rüppell's Starling,Lamprotornis purpuroptera,avibase-3BB2565D,Rüppell's Starling,Lamprotornis purpuroptera
-stable-avibase-3C0C325D,classification_change,stable_avilist_id,avibase-3C0C325D,Common Buzzard,Buteo buteo,avibase-3C0C325D,Common Buzzard,Buteo buteo
-stable-avibase-3C12AA44,name_and_classification_change,stable_avilist_id,avibase-3C12AA44,White-backed Night Heron,Gorsachius leuconotus,avibase-3C12AA44,White-backed Night Heron,Calherodius leuconotus
-stable-avibase-3C8C3A31,classification_change,stable_avilist_id,avibase-3C8C3A31,Levaillant’s Cuckoo,Clamator levaillantii,avibase-3C8C3A31,Levaillant's Cuckoo,Clamator levaillantii
-stable-avibase-3CD0F535,classification_change,stable_avilist_id,avibase-3CD0F535,Cape Eagle-Owl,Bubo capensis,avibase-3CD0F535,Cape Eagle-Owl,Bubo capensis
-stable-avibase-3D122849,classification_change,stable_avilist_id,avibase-3D122849,Northern Red Bishop,Euplectes franciscanus,avibase-3D122849,Northern Red Bishop,Euplectes franciscanus
-stable-avibase-3D25568A,name_and_classification_change,stable_avilist_id,avibase-3D25568A,Elgon Francolin,Scleroptila elgonensis (race theresae),avibase-3D25568A,Elgon Francolin,Scleroptila elgonensis
-stable-avibase-3D3808E3,classification_change,stable_avilist_id,avibase-3D3808E3,Lanner Falcon,Falco biarmicus,avibase-3D3808E3,Lanner Falcon,Falco biarmicus
-stable-avibase-3D67C56A,classification_change,stable_avilist_id,avibase-3D67C56A,Great Spotted Cuckoo,Clamator glandarius,avibase-3D67C56A,Great Spotted Cuckoo,Clamator glandarius
-stable-avibase-3DF5C587,classification_change,stable_avilist_id,avibase-3DF5C587,Great Cormorant,Phalacrocorax carbo,avibase-3DF5C587,Great Cormorant,Phalacrocorax carbo
-stable-avibase-3E3AFB25,classification_change,stable_avilist_id,avibase-3E3AFB25,Red-fronted Barbet,Tricholaema diademata,avibase-3E3AFB25,Red-fronted Barbet,Tricholaema diademata
-stable-avibase-3E4783BA,classification_change,stable_avilist_id,avibase-3E4783BA,East Coast Akalat,Sheppardia gunningi,avibase-3E4783BA,East Coast Akalat,Sheppardia gunningi
-stable-avibase-3E7F825D,classification_change,stable_avilist_id,avibase-3E7F825D,Sooty Tern,Onychoprion fuscatus,avibase-3E7F825D,Sooty Tern,Onychoprion fuscatus
-stable-avibase-3EEB66ED,classification_change,stable_avilist_id,avibase-3EEB66ED,Lizard Buzzard,Kaupifalco monogrammicus,avibase-3EEB66ED,Lizard Buzzard,Kaupifalco monogrammicus
+stable-avibase-3846F8A8,name_change,stable_avilist_id,avibase-3846F8A8,Red-capped Robin Chat,Cossypha natalensis,avibase-3846F8A8,Red-capped Robin-Chat,Cossypha natalensis
+stable-avibase-39086887,name_change,stable_avilist_id,avibase-39086887,Arctic Skua,Stercorarius parasiticus,avibase-39086887,Parasitic Jaeger,Stercorarius parasiticus
+stable-avibase-3A46A20C,name_change,stable_avilist_id,avibase-3A46A20C,Southern Yellowbill (Green Malkoha),Ceuthmochares australis,avibase-3A46A20C,Green Malkoha,Ceuthmochares australis
+stable-avibase-3B66D504,name_change,stable_avilist_id,avibase-3B66D504,Yellow-bellied Wattle-eye,Dyaphorophyia concreta,avibase-3B66D504,Yellow-bellied Wattle-eye,Platysteira concreta
+stable-avibase-3C12AA44,name_change,stable_avilist_id,avibase-3C12AA44,White-backed Night Heron,Gorsachius leuconotus,avibase-3C12AA44,White-backed Night Heron,Calherodius leuconotus
+stable-avibase-3D25568A,name_change,stable_avilist_id,avibase-3D25568A,Elgon Francolin,Scleroptila elgonensis (race theresae),avibase-3D25568A,Elgon Francolin,Scleroptila elgonensis
 stable-avibase-3F0EE474,name_change,stable_avilist_id,avibase-3F0EE474,Eurasian Reed Warbler,Acrocephalus scirpaceus,avibase-3F0EE474,Common Reed Warbler,Acrocephalus scirpaceus
-stable-avibase-3F2BA4F7,classification_change,stable_avilist_id,avibase-3F2BA4F7,Grey Kestrel,Falco ardosiaceus,avibase-3F2BA4F7,Grey Kestrel,Falco ardosiaceus
-stable-avibase-400E032C,classification_change,stable_avilist_id,avibase-400E032C,White Wagtail,Motacilla alba,avibase-400E032C,White Wagtail,Motacilla alba
-stable-avibase-405CCAAE,classification_change,stable_avilist_id,avibase-405CCAAE,Superb Starling,Lamprotornis superbus,avibase-405CCAAE,Superb Starling,Lamprotornis superbus
-stable-avibase-40781028,classification_change,stable_avilist_id,avibase-40781028,Black-bellied Starling,Notopholia corusca,avibase-40781028,Black-bellied Starling,Notopholia corusca
-stable-avibase-40A2405D,classification_change,stable_avilist_id,avibase-40A2405D,African Thrush,Turdus pelios,avibase-40A2405D,African Thrush,Turdus pelios
-stable-avibase-418C7CCB,name_and_classification_change,stable_avilist_id,avibase-418C7CCB,Western Black-headed Oriole,Oriolus brachyrynchus,avibase-418C7CCB,Western Oriole,Oriolus brachyrynchus
+stable-avibase-418C7CCB,name_change,stable_avilist_id,avibase-418C7CCB,Western Black-headed Oriole,Oriolus brachyrynchus,avibase-418C7CCB,Western Oriole,Oriolus brachyrynchus
 stable-avibase-419AEB97,name_change,stable_avilist_id,avibase-419AEB97,Masked Lark,Spizocorys personata (races intensa and mcchesneyi),avibase-419AEB97,Masked Lark,Spizocorys personata
-stable-avibase-424B857C,classification_change,stable_avilist_id,avibase-424B857C,Straw-tailed Whydah,Vidua fischeri,avibase-424B857C,Straw-tailed Whydah,Vidua fischeri
-stable-avibase-428DA7CD,name_and_classification_change,stable_avilist_id,avibase-428DA7CD,Northern Olive (Abyssinian) Thrush,Turdus abyssinicus,avibase-428DA7CD,Abyssinian Thrush,Turdus abyssinicus
+stable-avibase-428DA7CD,name_change,stable_avilist_id,avibase-428DA7CD,Northern Olive (Abyssinian) Thrush,Turdus abyssinicus,avibase-428DA7CD,Abyssinian Thrush,Turdus abyssinicus
 stable-avibase-42D3918F,name_change,stable_avilist_id,avibase-42D3918F,Senegal Plover,Vanellus lugubris,avibase-42D3918F,Senegal Lapwing,Vanellus lugubris
-stable-avibase-42E93B64,classification_change,stable_avilist_id,avibase-42E93B64,Ethiopian Swallow,Hirundo aethiopica,avibase-42E93B64,Ethiopian Swallow,Hirundo aethiopica
-stable-avibase-4321596C,classification_change,stable_avilist_id,avibase-4321596C,Green-headed Oriole,Oriolus chlorocephalus,avibase-4321596C,Green-headed Oriole,Oriolus chlorocephalus
-stable-avibase-4327F813,classification_change,stable_avilist_id,avibase-4327F813,Western Banded Snake Eagle,Circaetus cinerascens,avibase-4327F813,Western Banded Snake Eagle,Circaetus cinerascens
-stable-avibase-439FE608,name_and_classification_change,stable_avilist_id,avibase-439FE608,Double-toothed Barbet,Pogornornis bidentatus,avibase-439FE608,Double-toothed Barbet,Pogonornis bidentatus
-stable-avibase-43CAAEE3,name_and_classification_change,stable_avilist_id,avibase-43CAAEE3,White-winged Black Tern,Chlidonias leucopterus,avibase-43CAAEE3,White-winged Tern,Chlidonias leucopterus
-stable-avibase-43FE4788,classification_change,stable_avilist_id,avibase-43FE4788,Bar-breasted Firefinch,Lagonosticta rufopicta,avibase-43FE4788,Bar-breasted Firefinch,Lagonosticta rufopicta
-stable-avibase-4568986F,classification_change,stable_avilist_id,avibase-4568986F,Green Barbet,Cryptolybia olivacea,avibase-4568986F,Green Barbet,Cryptolybia olivacea
-stable-avibase-45A1D850,classification_change,stable_avilist_id,avibase-45A1D850,Grasshopper Buzzard,Butastur rufipennis,avibase-45A1D850,Grasshopper Buzzard,Butastur rufipennis
-stable-avibase-45C55FDE,name_and_classification_change,stable_avilist_id,avibase-45C55FDE,Orange Ground Thrush,Zoothera gurneyi (race raineyi),avibase-45C55FDE,Orange Ground Thrush,Geokichla gurneyi
-stable-avibase-460708F9,classification_change,stable_avilist_id,avibase-460708F9,Spotted Crake,Porzana porzana,avibase-460708F9,Spotted Crake,Porzana porzana
-stable-avibase-46847C50,classification_change,stable_avilist_id,avibase-46847C50,Abyssinian Scimitarbill,Rhinopomastus minor,avibase-46847C50,Abyssinian Scimitarbill,Rhinopomastus minor
-stable-avibase-469DCF57,classification_change,stable_avilist_id,avibase-469DCF57,Eastern Imperial Eagle,Aquila heliaca,avibase-469DCF57,Eastern Imperial Eagle,Aquila heliaca
-stable-avibase-46A1FC77,classification_change,stable_avilist_id,avibase-46A1FC77,Red-headed Bluebill,Spermophaga ruficapilla,avibase-46A1FC77,Red-headed Bluebill,Spermophaga ruficapilla
-stable-avibase-46C90944,classification_change,stable_avilist_id,avibase-46C90944,Bruce's Green Pigeon,Treron waalia,avibase-46C90944,Bruce's Green Pigeon,Treron waalia
-stable-avibase-47E58408,classification_change,stable_avilist_id,avibase-47E58408,Peregrine Falcon,Falco peregrinus,avibase-47E58408,Peregrine Falcon,Falco peregrinus
-stable-avibase-489FFCA9,classification_change,stable_avilist_id,avibase-489FFCA9,White-browed Crombec,Sylvietta leucophrys,avibase-489FFCA9,White-browed Crombec,Sylvietta leucophrys
+stable-avibase-439FE608,name_change,stable_avilist_id,avibase-439FE608,Double-toothed Barbet,Pogornornis bidentatus,avibase-439FE608,Double-toothed Barbet,Pogonornis bidentatus
+stable-avibase-43CAAEE3,name_change,stable_avilist_id,avibase-43CAAEE3,White-winged Black Tern,Chlidonias leucopterus,avibase-43CAAEE3,White-winged Tern,Chlidonias leucopterus
+stable-avibase-45C55FDE,name_change,stable_avilist_id,avibase-45C55FDE,Orange Ground Thrush,Zoothera gurneyi (race raineyi),avibase-45C55FDE,Orange Ground Thrush,Geokichla gurneyi
 stable-avibase-4971D1EF,name_change,stable_avilist_id,avibase-4971D1EF,Heuglin’s Bustard,Ardeotis heuglinii,avibase-4971D1EF,Heuglin's Bustard,Neotis heuglinii
-stable-avibase-49D9148A,name_and_classification_change,stable_avilist_id,avibase-49D9148A,Great White Egret,Ardea alba,avibase-49D9148A,Great Egret,Ardea alba
-stable-avibase-49EF9657,classification_change,stable_avilist_id,avibase-49EF9657,Dusky Indigobird,Vidua funerea,avibase-49EF9657,Dusky Indigobird,Vidua funerea
-stable-avibase-4A039821,classification_change,stable_avilist_id,avibase-4A039821,Brown-headed Parrot,Poicephalus cryptoxanthus,avibase-4A039821,Brown-headed Parrot,Poicephalus cryptoxanthus
-stable-avibase-4A58452B,classification_change,stable_avilist_id,avibase-4A58452B,Yellow-crowned Bishop,Euplectes afer,avibase-4A58452B,Yellow-crowned Bishop,Euplectes afer
-stable-avibase-4A83155B,classification_change,stable_avilist_id,avibase-4A83155B,Senegal Coucal,Centropus senegalensis,avibase-4A83155B,Senegal Coucal,Centropus senegalensis
-stable-avibase-4AC57370,classification_change,stable_avilist_id,avibase-4AC57370,Black Saw-wing,Psalidoprocne pristoptera,avibase-4AC57370,Black Saw-wing,Psalidoprocne pristoptera
-stable-avibase-4B8CC285,classification_change,stable_avilist_id,avibase-4B8CC285,Booted Eagle,Hieraaetus pennatus,avibase-4B8CC285,Booted Eagle,Hieraaetus pennatus
-stable-avibase-4C35510F,classification_change,stable_avilist_id,avibase-4C35510F,Piapiac,Ptilostomus afer,avibase-4C35510F,Piapiac,Ptilostomus afer
-stable-avibase-4C428439,classification_change,stable_avilist_id,avibase-4C428439,Red-chested Sunbird,Cinnyris erythrocercus,avibase-4C428439,Red-chested Sunbird,Cinnyris erythrocercus
-stable-avibase-4C7B3D81,name_and_classification_change,stable_avilist_id,avibase-4C7B3D81,Bush Pipit,Anthus caffer,avibase-4C7B3D81,Bushveld Pipit,Anthus caffer
-stable-avibase-4D2FF6F1,classification_change,stable_avilist_id,avibase-4D2FF6F1,Common Tern,Sterna hirundo,avibase-4D2FF6F1,Common Tern,Sterna hirundo
-stable-avibase-4DC2B23C,classification_change,stable_avilist_id,avibase-4DC2B23C,Speke's Weaver,Ploceus spekei,avibase-4DC2B23C,Speke's Weaver,Ploceus spekei
-stable-avibase-4F2CC293,classification_change,stable_avilist_id,avibase-4F2CC293,Cape Wagtail,Motacilla capensis,avibase-4F2CC293,Cape Wagtail,Motacilla capensis
-stable-avibase-4F9D43DE,classification_change,stable_avilist_id,avibase-4F9D43DE,Brown-crowned Tchagra,Tchagra australis,avibase-4F9D43DE,Brown-crowned Tchagra,Tchagra australis
-stable-avibase-4FD242D0,name_and_classification_change,stable_avilist_id,avibase-4FD242D0,Gabon Nightjar,Caprimulgus fossii,avibase-4FD242D0,Square-tailed Nightjar,Caprimulgus fossii
+stable-avibase-49D9148A,name_change,stable_avilist_id,avibase-49D9148A,Great White Egret,Ardea alba,avibase-49D9148A,Great Egret,Ardea alba
+stable-avibase-4C7B3D81,name_change,stable_avilist_id,avibase-4C7B3D81,Bush Pipit,Anthus caffer,avibase-4C7B3D81,Bushveld Pipit,Anthus caffer
+stable-avibase-4FD242D0,name_change,stable_avilist_id,avibase-4FD242D0,Gabon Nightjar,Caprimulgus fossii,avibase-4FD242D0,Square-tailed Nightjar,Caprimulgus fossii
 stable-avibase-4FDBC0CB,name_change,stable_avilist_id,avibase-4FDBC0CB,Denham’s Bustard,Ardeotis denhami ,avibase-4FDBC0CB,Denham's Bustard,Neotis denhami
 stable-avibase-4FE76868,name_change,stable_avilist_id,avibase-4FE76868,Black-headed Apalis,Apalis melanocephala (race nigrodorsalis),avibase-4FE76868,Black-headed Apalis,Apalis melanocephala
-stable-avibase-4FF4CAF8,classification_change,stable_avilist_id,avibase-4FF4CAF8,Fischer's Starling,Lamprotornis fischeri,avibase-4FF4CAF8,Fischer's Starling,Lamprotornis fischeri
-stable-avibase-5011E123,name_and_classification_change,stable_avilist_id,avibase-5011E123,Donaldson Smith's Sparrow Weaver,Plocepasser donaldsoni,avibase-5011E123,Donaldson Smith's Sparrow-Weaver,Plocepasser donaldsoni
-stable-avibase-50490520,name_and_classification_change,stable_avilist_id,avibase-50490520,Peter's Twinspot,Hypargos niveoguttatus,avibase-50490520,Red-throated Twinspot,Hypargos niveoguttatus
-stable-avibase-508D5CA2,classification_change,stable_avilist_id,avibase-508D5CA2,Red-winged Starling,Onychognathus morio,avibase-508D5CA2,Red-winged Starling,Onychognathus morio
-stable-avibase-50BF77FB,name_and_classification_change,stable_avilist_id,avibase-50BF77FB,Black-cheeked Waxbill,Estrilda charmosyna,avibase-50BF77FB,Black-cheeked Waxbill,Brunhilda charmosyna
-stable-avibase-5108E1D3,name_and_classification_change,stable_avilist_id,avibase-5108E1D3,Western Citril,Crithagra (citrinelloides) frontalis,avibase-5108E1D3,Western Citril,Crithagra frontalis
-stable-avibase-51FD3E3C,name_and_classification_change,stable_avilist_id,avibase-51FD3E3C,Cassin's Hawk Eagle,Aquila africana,avibase-51FD3E3C,Cassin's Hawk-Eagle,Aquila africana
-stable-avibase-5238FF10,classification_change,stable_avilist_id,avibase-5238FF10,Green Tinkerbird,Pogoniulus simplex,avibase-5238FF10,Green Tinkerbird,Pogoniulus simplex
-stable-avibase-523913AE,classification_change,stable_avilist_id,avibase-523913AE,Cinnamon Bracken Warbler,Bradypterus cinnamomeus,avibase-523913AE,Cinnamon Bracken Warbler,Bradypterus cinnamomeus
-stable-avibase-526978C4,name_and_classification_change,stable_avilist_id,avibase-526978C4,Greater Crested (Swift) Tern, Thalasseus bergii,avibase-526978C4,Greater Crested Tern,Thalasseus bergii
-stable-avibase-52E6406E,classification_change,stable_avilist_id,avibase-52E6406E,Swamp Nightjar,Caprimulgus natalensis,avibase-52E6406E,Swamp Nightjar,Caprimulgus natalensis
-stable-avibase-53235FDC,classification_change,stable_avilist_id,avibase-53235FDC,Red-knobbed Coot,Fulica cristata,avibase-53235FDC,Red-knobbed Coot,Fulica cristata
-stable-avibase-53288666,classification_change,stable_avilist_id,avibase-53288666,Allen's Gallinule,Porphyrio alleni,avibase-53288666,Allen's Gallinule,Porphyrio alleni
+stable-avibase-5011E123,name_change,stable_avilist_id,avibase-5011E123,Donaldson Smith's Sparrow Weaver,Plocepasser donaldsoni,avibase-5011E123,Donaldson Smith's Sparrow-Weaver,Plocepasser donaldsoni
+stable-avibase-50490520,name_change,stable_avilist_id,avibase-50490520,Peter's Twinspot,Hypargos niveoguttatus,avibase-50490520,Red-throated Twinspot,Hypargos niveoguttatus
+stable-avibase-50BF77FB,name_change,stable_avilist_id,avibase-50BF77FB,Black-cheeked Waxbill,Estrilda charmosyna,avibase-50BF77FB,Black-cheeked Waxbill,Brunhilda charmosyna
+stable-avibase-5108E1D3,name_change,stable_avilist_id,avibase-5108E1D3,Western Citril,Crithagra (citrinelloides) frontalis,avibase-5108E1D3,Western Citril,Crithagra frontalis
+stable-avibase-51FD3E3C,name_change,stable_avilist_id,avibase-51FD3E3C,Cassin's Hawk Eagle,Aquila africana,avibase-51FD3E3C,Cassin's Hawk-Eagle,Aquila africana
+stable-avibase-526978C4,name_change,stable_avilist_id,avibase-526978C4,Greater Crested (Swift) Tern, Thalasseus bergii,avibase-526978C4,Greater Crested Tern,Thalasseus bergii
 stable-avibase-5351025C,name_change,stable_avilist_id,avibase-5351025C,Thekla Lark,Galerida theklae,avibase-5351025C,Thekla's Lark,Galerida theklae
-stable-avibase-535F3C99,classification_change,stable_avilist_id,avibase-535F3C99,Wahlberg’s Eagle, Hieraaetus wahlbergi,avibase-535F3C99,Wahlberg's Eagle,Hieraaetus wahlbergi
-stable-avibase-5396F9FB,classification_change,stable_avilist_id,avibase-5396F9FB,Abyssinian Wheatear,Oenanthe lugubris,avibase-5396F9FB,Abyssinian Wheatear,Oenanthe lugubris
-stable-avibase-53A5E91F,classification_change,stable_avilist_id,avibase-53A5E91F,Brimstone Canary,Crithagra sulphurata,avibase-53A5E91F,Brimstone Canary,Crithagra sulphurata
-stable-avibase-53EABB81,name_and_classification_change,stable_avilist_id,avibase-53EABB81,Rüppell's Robin Chat,Cossypha semirufa,avibase-53EABB81,Rüppell's Robin-Chat,Cossypha semirufa
-stable-avibase-54494BCE,classification_change,stable_avilist_id,avibase-54494BCE,Slender-tailed Nightjar,Caprimulgus clarus,avibase-54494BCE,Slender-tailed Nightjar,Caprimulgus clarus
+stable-avibase-53EABB81,name_change,stable_avilist_id,avibase-53EABB81,Rüppell's Robin Chat,Cossypha semirufa,avibase-53EABB81,Rüppell's Robin-Chat,Cossypha semirufa
 stable-avibase-550DE745,name_change,stable_avilist_id,avibase-550DE745,Sacred Ibis,Threskiornis aethiopicus,avibase-550DE745,African Sacred Ibis,Threskiornis aethiopicus
-stable-avibase-55997100,classification_change,stable_avilist_id,avibase-55997100,Black-necked Weaver,Ploceus nigricollis,avibase-55997100,Black-necked Weaver,Ploceus nigricollis
-stable-avibase-56209052,name_and_classification_change,stable_avilist_id,avibase-56209052,Blue Crested-flycatcher,Elminia longicauda,avibase-56209052,African Blue Flycatcher,Elminia longicauda
-stable-avibase-562E17AB,name_and_classification_change,stable_avilist_id,avibase-562E17AB,Cape Rook,Corvus capensis,avibase-562E17AB,Cape Crow,Corvus capensis
-stable-avibase-566669CC,classification_change,stable_avilist_id,avibase-566669CC,Little Rock Thrush,Monticola rufocinereus,avibase-566669CC,Little Rock Thrush,Monticola rufocinereus
-stable-avibase-56790B57,classification_change,stable_avilist_id,avibase-56790B57,Yellow-spotted Barbet,Buccanodon duchaillui,avibase-56790B57,Yellow-spotted Barbet,Buccanodon duchaillui
-stable-avibase-56C6CBA8,classification_change,stable_avilist_id,avibase-56C6CBA8,Uluguru Violet-backed Sunbird,Anthreptes neglectus,avibase-56C6CBA8,Uluguru Violet-backed Sunbird,Anthreptes neglectus
-stable-avibase-56CCA717,classification_change,stable_avilist_id,avibase-56CCA717,Northern Pintail,Anas acuta,avibase-56CCA717,Northern Pintail,Anas acuta
-stable-avibase-570C1121,classification_change,stable_avilist_id,avibase-570C1121,Red-and-yellow Barbet,Trachyphonus erythrocephalus,avibase-570C1121,Red-and-yellow Barbet,Trachyphonus erythrocephalus
-stable-avibase-572C4C7F,name_and_classification_change,stable_avilist_id,avibase-572C4C7F,Wood Warbler,Rhadina sibilatrix,avibase-572C4C7F,Wood Warbler,Phylloscopus sibilatrix
-stable-avibase-573C3683,classification_change,stable_avilist_id,avibase-573C3683,Grey-capped Social Weaver,Pseudonigrita arnaudi,avibase-573C3683,Grey-capped Social Weaver,Pseudonigrita arnaudi
-stable-avibase-5788552B,classification_change,stable_avilist_id,avibase-5788552B,European Turtle Dove,Streptopelia turtur,avibase-5788552B,European Turtle Dove,Streptopelia turtur
-stable-avibase-57B05159,classification_change,stable_avilist_id,avibase-57B05159,Stone Partridge,Ptilopachus petrosus,avibase-57B05159,Stone Partridge,Ptilopachus petrosus
-stable-avibase-580A93C2,classification_change,stable_avilist_id,avibase-580A93C2,Streaky Seedeater,Crithagra striolata,avibase-580A93C2,Streaky Seedeater,Crithagra striolata
-stable-avibase-58C502EA,classification_change,stable_avilist_id,avibase-58C502EA,Barn Swallow,Hirundo rustica,avibase-58C502EA,Barn Swallow,Hirundo rustica
-stable-avibase-596BDE51,classification_change,stable_avilist_id,avibase-596BDE51,Mountain Illadopsis,Illadopsis pyrrhoptera,avibase-596BDE51,Mountain Illadopsis,Illadopsis pyrrhoptera
-stable-avibase-5983D677,name_and_classification_change,stable_avilist_id,avibase-5983D677,Yellow Wagtail,Motacilla flava,avibase-5983D677,Western Yellow Wagtail,Motacilla flava
-stable-avibase-59E7ABE5,classification_change,stable_avilist_id,avibase-59E7ABE5,Marsh Widowbird,Euplectes hartlaubi,avibase-59E7ABE5,Marsh Widowbird,Euplectes hartlaubi
-stable-avibase-5A58B69A,name_and_classification_change,stable_avilist_id,avibase-5A58B69A,East Coast (Pale) Batis,Batis soror,avibase-5A58B69A,Pale Batis,Batis soror
+stable-avibase-56209052,name_change,stable_avilist_id,avibase-56209052,Blue Crested-flycatcher,Elminia longicauda,avibase-56209052,African Blue Flycatcher,Elminia longicauda
+stable-avibase-562E17AB,name_change,stable_avilist_id,avibase-562E17AB,Cape Rook,Corvus capensis,avibase-562E17AB,Cape Crow,Corvus capensis
+stable-avibase-572C4C7F,name_change,stable_avilist_id,avibase-572C4C7F,Wood Warbler,Rhadina sibilatrix,avibase-572C4C7F,Wood Warbler,Phylloscopus sibilatrix
+stable-avibase-5983D677,name_change,stable_avilist_id,avibase-5983D677,Yellow Wagtail,Motacilla flava,avibase-5983D677,Western Yellow Wagtail,Motacilla flava
+stable-avibase-5A58B69A,name_change,stable_avilist_id,avibase-5A58B69A,East Coast (Pale) Batis,Batis soror,avibase-5A58B69A,Pale Batis,Batis soror
 stable-avibase-5A94FEAE,name_change,stable_avilist_id,avibase-5A94FEAE,Red-tailed Bristlebill,Bleda syndactyla,avibase-5A94FEAE,Red-tailed Bristlebill,Bleda syndactylus
-stable-avibase-5AC9F737,classification_change,stable_avilist_id,avibase-5AC9F737,Marico Sunbird,Cinnyris mariquensis,avibase-5AC9F737,Marico Sunbird,Cinnyris mariquensis
-stable-avibase-5ACC908D,classification_change,stable_avilist_id,avibase-5ACC908D,Lesser Striped Swallow,Cecropis abyssinica,avibase-5ACC908D,Lesser Striped Swallow,Cecropis abyssinica
-stable-avibase-5AF20251,classification_change,stable_avilist_id,avibase-5AF20251,Lühder's Bushshrike,Laniarius luehderi,avibase-5AF20251,Lühder's Bushshrike,Laniarius luehderi
-stable-avibase-5B115F6C,classification_change,stable_avilist_id,avibase-5B115F6C,Ring-necked Francolin,Scleroptila streptophora,avibase-5B115F6C,Ring-necked Francolin,Scleroptila streptophora
-stable-avibase-5B443EDE,name_and_classification_change,stable_avilist_id,avibase-5B443EDE,African Water Rail,Rallus caerulescens,avibase-5B443EDE,African Rail,Rallus caerulescens
-stable-avibase-5B9EA71C,classification_change,stable_avilist_id,avibase-5B9EA71C,Retz's Helmetshrike,Prionops retzii,avibase-5B9EA71C,Retz's Helmetshrike,Prionops retzii
-stable-avibase-5BFEFD9A,classification_change,stable_avilist_id,avibase-5BFEFD9A,Mountain Buzzard,Buteo oreophilus,avibase-5BFEFD9A,Mountain Buzzard,Buteo oreophilus
-stable-avibase-5C54F8C9,name_and_classification_change,stable_avilist_id,avibase-5C54F8C9,Dusky Tit,Parus funereus,avibase-5C54F8C9,Dusky Tit,Melaniparus funereus
-stable-avibase-5C70AA7D,name_and_classification_change,stable_avilist_id,avibase-5C70AA7D,Pale-eyed (White-shouldered) Black Tit,Melaniparus guineensis,avibase-5C70AA7D,White-shouldered Black Tit,Melaniparus guineensis
-stable-avibase-5C7936A7,classification_change,stable_avilist_id,avibase-5C7936A7,African Darter,Anhinga rufa,avibase-5C7936A7,African Darter,Anhinga rufa
-stable-avibase-5C9DDB02,classification_change,stable_avilist_id,avibase-5C9DDB02,Pygmy Batis,Batis perkeo,avibase-5C9DDB02,Pygmy Batis,Batis perkeo
-stable-avibase-5CAE6778,classification_change,stable_avilist_id,avibase-5CAE6778,Blue-capped Cordon-bleu,Uraeginthus cyanocephalus,avibase-5CAE6778,Blue-capped Cordon-bleu,Uraeginthus cyanocephalus
-stable-avibase-5CE2F0DC,classification_change,stable_avilist_id,avibase-5CE2F0DC,Black-fronted Bushshrike,Chlorophoneus nigrifrons,avibase-5CE2F0DC,Black-fronted Bushshrike,Chlorophoneus nigrifrons
+stable-avibase-5B443EDE,name_change,stable_avilist_id,avibase-5B443EDE,African Water Rail,Rallus caerulescens,avibase-5B443EDE,African Rail,Rallus caerulescens
+stable-avibase-5C54F8C9,name_change,stable_avilist_id,avibase-5C54F8C9,Dusky Tit,Parus funereus,avibase-5C54F8C9,Dusky Tit,Melaniparus funereus
+stable-avibase-5C70AA7D,name_change,stable_avilist_id,avibase-5C70AA7D,Pale-eyed (White-shouldered) Black Tit,Melaniparus guineensis,avibase-5C70AA7D,White-shouldered Black Tit,Melaniparus guineensis
 stable-avibase-5D82C13B,name_change,stable_avilist_id,avibase-5D82C13B,Slender-billed Greenbul,Stelgidillas gracilirostris (race percivali),avibase-5D82C13B,Slender-billed Greenbul,Stelgidillas gracilirostris
-stable-avibase-5E456730,classification_change,stable_avilist_id,avibase-5E456730,Papyrus Canary,Crithagra koliensis,avibase-5E456730,Papyrus Canary,Crithagra koliensis
-stable-avibase-5E822C9C,classification_change,stable_avilist_id,avibase-5E822C9C,Black-headed Gonolek,Laniarius erythrogaster,avibase-5E822C9C,Black-headed Gonolek,Laniarius erythrogaster
-stable-avibase-5EA2B90C,name_and_classification_change,stable_avilist_id,avibase-5EA2B90C,Grey Tit-flycatcher (Lead-coloured Flycatcher),Fraseria plumbea,avibase-5EA2B90C,Grey Tit-Flycatcher,Fraseria plumbea
-stable-avibase-5FA94F66,classification_change,stable_avilist_id,avibase-5FA94F66,Red-necked Spurfowl,Pternistis afer,avibase-5FA94F66,Red-necked Spurfowl,Pternistis afer
-stable-avibase-60A39CF9,name_and_classification_change,stable_avilist_id,avibase-60A39CF9,Spotted Ground Thrush,Zoothera guttata,avibase-60A39CF9,Spotted Ground Thrush,Geokichla guttata
-stable-avibase-610FFD8E,name_and_classification_change,stable_avilist_id,avibase-610FFD8E,Northern Grey Tit,Parus thruppi,avibase-610FFD8E,Acacia Tit,Melaniparus thruppi
-stable-avibase-61CB98C0,classification_change,stable_avilist_id,avibase-61CB98C0,Common Waxbill,Estrilda astrild,avibase-61CB98C0,Common Waxbill,Estrilda astrild
+stable-avibase-5EA2B90C,name_change,stable_avilist_id,avibase-5EA2B90C,Grey Tit-flycatcher (Lead-coloured Flycatcher),Fraseria plumbea,avibase-5EA2B90C,Grey Tit-Flycatcher,Fraseria plumbea
+stable-avibase-60A39CF9,name_change,stable_avilist_id,avibase-60A39CF9,Spotted Ground Thrush,Zoothera guttata,avibase-60A39CF9,Spotted Ground Thrush,Geokichla guttata
+stable-avibase-610FFD8E,name_change,stable_avilist_id,avibase-610FFD8E,Northern Grey Tit,Parus thruppi,avibase-610FFD8E,Acacia Tit,Melaniparus thruppi
 stable-avibase-61CECCA7,name_change,stable_avilist_id,avibase-61CECCA7,Somali Short-toed Lark,Alaudala somalica (includes the race athensis),avibase-61CECCA7,Somali Short-toed Lark,Alaudala somalica
 stable-avibase-61F0E581,name_change,stable_avilist_id,avibase-61F0E581,Chestnut-banded Plover,Charadrius pallidus (race venustus),avibase-61F0E581,Chestnut-banded Plover,Anarhynchus pallidus
-stable-avibase-61F9065B,name_and_classification_change,stable_avilist_id,avibase-61F9065B,Blackcap,Sylvia atricapilla,avibase-61F9065B,Eurasian Blackcap,Sylvia atricapilla
-stable-avibase-621F6E07,classification_change,stable_avilist_id,avibase-621F6E07,Hildebrandt's Starling,Lamprotornis hildebrandti,avibase-621F6E07,Hildebrandt's Starling,Lamprotornis hildebrandti
-stable-avibase-626D56E4,classification_change,stable_avilist_id,avibase-626D56E4,Nubian Nightjar,Caprimulgus nubicus ,avibase-626D56E4,Nubian Nightjar,Caprimulgus nubicus
-stable-avibase-63B6412E,classification_change,stable_avilist_id,avibase-63B6412E,Montagu’s Harrier,Circus pygargus,avibase-63B6412E,Montagu's Harrier,Circus pygargus
-stable-avibase-64078193,classification_change,stable_avilist_id,avibase-64078193,Pale-breasted Illadopsis,Illadopsis rufipennis,avibase-64078193,Pale-breasted Illadopsis,Illadopsis rufipennis
-stable-avibase-641068BB,name_and_classification_change,stable_avilist_id,avibase-641068BB,Grey-headed Bush-Shrike,Malaconotus blanchoti,avibase-641068BB,Grey-headed Bushshrike,Malaconotus blanchoti
-stable-avibase-6429024D,classification_change,stable_avilist_id,avibase-6429024D,Grey Heron,Ardea cinerea,avibase-6429024D,Grey Heron,Ardea cinerea
-stable-avibase-6483A467,classification_change,stable_avilist_id,avibase-6483A467,Kikuyu White-eye, Zosterops kikuyuensis,avibase-6483A467,Kikuyu White-eye,Zosterops kikuyuensis
-stable-avibase-648936C0,name_and_classification_change,stable_avilist_id,avibase-648936C0,African Cuckoo Hawk,Aviceda cuculoides,avibase-648936C0,African Cuckoo-Hawk,Aviceda cuculoides
+stable-avibase-61F9065B,name_change,stable_avilist_id,avibase-61F9065B,Blackcap,Sylvia atricapilla,avibase-61F9065B,Eurasian Blackcap,Sylvia atricapilla
+stable-avibase-641068BB,name_change,stable_avilist_id,avibase-641068BB,Grey-headed Bush-Shrike,Malaconotus blanchoti,avibase-641068BB,Grey-headed Bushshrike,Malaconotus blanchoti
+stable-avibase-648936C0,name_change,stable_avilist_id,avibase-648936C0,African Cuckoo Hawk,Aviceda cuculoides,avibase-648936C0,African Cuckoo-Hawk,Aviceda cuculoides
 stable-avibase-64DDD14D,name_change,stable_avilist_id,avibase-64DDD14D,Demoiselle Crane,Anthropoides virgo,avibase-64DDD14D,Demoiselle Crane,Grus virgo
-stable-avibase-64E386FE,classification_change,stable_avilist_id,avibase-64E386FE,Magpie Mannikin,Spermestes fringilloides,avibase-64E386FE,Magpie Mannikin,Spermestes fringilloides
-stable-avibase-65856D49,classification_change,stable_avilist_id,avibase-65856D49,Black-capped Social Weaver,Pseudonigrita cabanisi,avibase-65856D49,Black-capped Social Weaver,Pseudonigrita cabanisi
-stable-avibase-65FE8029,name_and_classification_change,stable_avilist_id,avibase-65FE8029,African White-winged Dove,Streptopelia reichenowi ,avibase-65FE8029,White-winged Collared Dove,Streptopelia reichenowi
-stable-avibase-66931B3F,classification_change,stable_avilist_id,avibase-66931B3F,African Cuckoo,Cuculus gularis,avibase-66931B3F,African Cuckoo,Cuculus gularis
+stable-avibase-65FE8029,name_change,stable_avilist_id,avibase-65FE8029,African White-winged Dove,Streptopelia reichenowi ,avibase-65FE8029,White-winged Collared Dove,Streptopelia reichenowi
 stable-avibase-66AA3934,name_change,stable_avilist_id,avibase-66AA3934,Eurasian Bee-eater,Merops apiaster,avibase-66AA3934,European Bee-eater,Merops apiaster
-stable-avibase-672EA454,classification_change,stable_avilist_id,avibase-672EA454,Lappet-faced Vulture,Torgos tracheliotos,avibase-672EA454,Lappet-faced Vulture,Torgos tracheliotos
-stable-avibase-673E66F0,classification_change,stable_avilist_id,avibase-673E66F0,Pin-tailed Whydah,Vidua macroura,avibase-673E66F0,Pin-tailed Whydah,Vidua macroura
-stable-avibase-67CEA1C1,classification_change,stable_avilist_id,avibase-67CEA1C1,Tufted Duck,Aythya fuligula,avibase-67CEA1C1,Tufted Duck,Aythya fuligula
-stable-avibase-67D43542,classification_change,stable_avilist_id,avibase-67D43542,Sooty Gull,Ichthyaetus hemprichii,avibase-67D43542,Sooty Gull,Ichthyaetus hemprichii
-stable-avibase-67F06823,classification_change,stable_avilist_id,avibase-67F06823,Plain-backed Sunbird,Anthreptes reichenowi,avibase-67F06823,Plain-backed Sunbird,Anthreptes reichenowi
-stable-avibase-68A80086,name_and_classification_change,stable_avilist_id,avibase-68A80086,Black-billed Wood-hoopoe,Phoeniculus somaliensis,avibase-68A80086,Black-billed Wood Hoopoe,Phoeniculus somaliensis
-stable-avibase-6904D83F,classification_change,stable_avilist_id,avibase-6904D83F,Brown Snake Eagle,Circaetus cinereus,avibase-6904D83F,Brown Snake Eagle,Circaetus cinereus
-stable-avibase-693FC6FD,classification_change,stable_avilist_id,avibase-693FC6FD,Orange-tufted Sunbird,Cinnyris bouvieri,avibase-693FC6FD,Orange-tufted Sunbird,Cinnyris bouvieri
-stable-avibase-69661C7D,name_and_classification_change,stable_avilist_id,avibase-69661C7D,African Orange-bellied Parrot,Poicephalus rufiventris,avibase-69661C7D,Red-bellied Parrot,Poicephalus rufiventris
-stable-avibase-69EB514A,name_and_classification_change,stable_avilist_id,avibase-69EB514A,Reichenow's Seedeater [Yellow-rumped],Crithagra reichenowi,avibase-69EB514A,Reichenow's Seedeater,Crithagra reichenowi
-stable-avibase-6A0BA87A,classification_change,stable_avilist_id,avibase-6A0BA87A,Purple Starling,Lamprotornis purpureus,avibase-6A0BA87A,Purple Starling,Lamprotornis purpureus
-stable-avibase-6A1ED1C2,classification_change,stable_avilist_id,avibase-6A1ED1C2,Orange-winged Pytilia,Pytilia afra,avibase-6A1ED1C2,Orange-winged Pytilia,Pytilia afra
-stable-avibase-6A64EFCB,name_and_classification_change,stable_avilist_id,avibase-6A64EFCB,Red-necked Falcon,Falco chiquera,avibase-6A64EFCB,Red-necked Falcon,Falco chicquera
-stable-avibase-6A84BDB8,classification_change,stable_avilist_id,avibase-6A84BDB8,Northern Masked Weaver,Ploceus taeniopterus,avibase-6A84BDB8,Northern Masked Weaver,Ploceus taeniopterus
-stable-avibase-6ADB636C,name_and_classification_change,stable_avilist_id,avibase-6ADB636C,Heuglin's Wheatear,Oenanthe heuglini,avibase-6ADB636C,Heuglin's Wheatear,Oenanthe heuglinii
-stable-avibase-6B9529AE,classification_change,stable_avilist_id,avibase-6B9529AE,Somali Crombec,Sylvietta isabellina,avibase-6B9529AE,Somali Crombec,Sylvietta isabellina
-stable-avibase-6BB94D7E,classification_change,stable_avilist_id,avibase-6BB94D7E,Black-crowned Night Heron,Nycticorax nycticorax,avibase-6BB94D7E,Black-crowned Night Heron,Nycticorax nycticorax
-stable-avibase-6C7BEEC6,classification_change,stable_avilist_id,avibase-6C7BEEC6,Mascarene Martin,Phedina borbonica,avibase-6C7BEEC6,Mascarene Martin,Phedina borbonica
-stable-avibase-6C81D39B,classification_change,stable_avilist_id,avibase-6C81D39B,White-eared Barbet,Stactolaema leucotis,avibase-6C81D39B,White-eared Barbet,Stactolaema leucotis
-stable-avibase-6CBD8724,classification_change,stable_avilist_id,avibase-6CBD8724,Bateleur ,Terathopius ecaudatus ,avibase-6CBD8724,Bateleur,Terathopius ecaudatus
-stable-avibase-6D3480A6,classification_change,stable_avilist_id,avibase-6D3480A6,Egyptian Vulture,Neophron percnopterus,avibase-6D3480A6,Egyptian Vulture,Neophron percnopterus
-stable-avibase-6DD8F10F,classification_change,stable_avilist_id,avibase-6DD8F10F,Crimson-rumped Waxbill,Estrilda rhodopyga,avibase-6DD8F10F,Crimson-rumped Waxbill,Estrilda rhodopyga
-stable-avibase-6DE16262,classification_change,stable_avilist_id,avibase-6DE16262,Green-headed Sunbird,Cyanomitra verticalis,avibase-6DE16262,Green-headed Sunbird,Cyanomitra verticalis
-stable-avibase-6E352E18,name_and_classification_change,stable_avilist_id,avibase-6E352E18,Pied Flycatcher,Ficedula hypoleuca,avibase-6E352E18,European Pied Flycatcher,Ficedula hypoleuca
-stable-avibase-6E95C4A9,name_and_classification_change,stable_avilist_id,avibase-6E95C4A9,African Dusky Flycatcher,Muscicapa adusta (race marsabit),avibase-6E95C4A9,African Dusky Flycatcher,Muscicapa adusta
-stable-avibase-6EB497FA,classification_change,stable_avilist_id,avibase-6EB497FA,Grey-headed Gull,Chroicocephalus cirrocephalus,avibase-6EB497FA,Grey-headed Gull,Chroicocephalus cirrocephalus
-stable-avibase-6EC66752,classification_change,stable_avilist_id,avibase-6EC66752,Thrush Nightingale,Luscinia luscinia,avibase-6EC66752,Thrush Nightingale,Luscinia luscinia
+stable-avibase-68A80086,name_change,stable_avilist_id,avibase-68A80086,Black-billed Wood-hoopoe,Phoeniculus somaliensis,avibase-68A80086,Black-billed Wood Hoopoe,Phoeniculus somaliensis
+stable-avibase-69661C7D,name_change,stable_avilist_id,avibase-69661C7D,African Orange-bellied Parrot,Poicephalus rufiventris,avibase-69661C7D,Red-bellied Parrot,Poicephalus rufiventris
+stable-avibase-69EB514A,name_change,stable_avilist_id,avibase-69EB514A,Reichenow's Seedeater [Yellow-rumped],Crithagra reichenowi,avibase-69EB514A,Reichenow's Seedeater,Crithagra reichenowi
+stable-avibase-6A64EFCB,name_change,stable_avilist_id,avibase-6A64EFCB,Red-necked Falcon,Falco chiquera,avibase-6A64EFCB,Red-necked Falcon,Falco chicquera
+stable-avibase-6ADB636C,name_change,stable_avilist_id,avibase-6ADB636C,Heuglin's Wheatear,Oenanthe heuglini,avibase-6ADB636C,Heuglin's Wheatear,Oenanthe heuglinii
+stable-avibase-6E352E18,name_change,stable_avilist_id,avibase-6E352E18,Pied Flycatcher,Ficedula hypoleuca,avibase-6E352E18,European Pied Flycatcher,Ficedula hypoleuca
+stable-avibase-6E95C4A9,name_change,stable_avilist_id,avibase-6E95C4A9,African Dusky Flycatcher,Muscicapa adusta (race marsabit),avibase-6E95C4A9,African Dusky Flycatcher,Muscicapa adusta
 stable-avibase-6F967270,name_change,stable_avilist_id,avibase-6F967270,Mouse-coloured Penduline-Tit,Anthoscopus musculus,avibase-6F967270,Mouse-colored Penduline Tit,Anthoscopus musculus
-stable-avibase-70129CB1,name_and_classification_change,stable_avilist_id,avibase-70129CB1,Rosy-breasted Longclaw,Macronyx ameliae,avibase-70129CB1,Rosy-throated Longclaw,Macronyx ameliae
-stable-avibase-70170649,classification_change,stable_avilist_id,avibase-70170649,Nubian Woodpecker,Campethera nubica,avibase-70170649,Nubian Woodpecker,Campethera nubica
-stable-avibase-70312286,classification_change,stable_avilist_id,avibase-70312286,Dark-backed Weaver,Ploceus bicolor,avibase-70312286,Dark-backed Weaver,Ploceus bicolor
-stable-avibase-706FEEB4,classification_change,stable_avilist_id,avibase-706FEEB4,Pringle's Puffback,Dryoscopus pringlii,avibase-706FEEB4,Pringle's Puffback,Dryoscopus pringlii
-stable-avibase-70BD722B,name_and_classification_change,stable_avilist_id,avibase-70BD722B,African Mourning Dove,Streptopelia decipiens,avibase-70BD722B,Mourning Collared Dove,Streptopelia decipiens
-stable-avibase-70CB00EC,classification_change,stable_avilist_id,avibase-70CB00EC,Pearl-spotted Owlet,Glaucidium perlatum,avibase-70CB00EC,Pearl-spotted Owlet,Glaucidium perlatum
-stable-avibase-71C72002,classification_change,stable_avilist_id,avibase-71C72002,Purple-banded Sunbird,Cinnyris bifasciatus,avibase-71C72002,Purple-banded Sunbird,Cinnyris bifasciatus
+stable-avibase-70129CB1,name_change,stable_avilist_id,avibase-70129CB1,Rosy-breasted Longclaw,Macronyx ameliae,avibase-70129CB1,Rosy-throated Longclaw,Macronyx ameliae
+stable-avibase-70BD722B,name_change,stable_avilist_id,avibase-70BD722B,African Mourning Dove,Streptopelia decipiens,avibase-70BD722B,Mourning Collared Dove,Streptopelia decipiens
 stable-avibase-72386016,name_change,stable_avilist_id,avibase-72386016,Somali Bunting,Fringillaria poliopleura,avibase-72386016,Somali Bunting,Emberiza poliopleura
-stable-avibase-724266B4,name_and_classification_change,stable_avilist_id,avibase-724266B4,Brown-breasted Barbet,Pogornornis melanopterus,avibase-724266B4,Brown-breasted Barbet,Pogonornis melanopterus
-stable-avibase-7308278F,classification_change,stable_avilist_id,avibase-7308278F,Tambourine Dove,Turtur tympanistria,avibase-7308278F,Tambourine Dove,Turtur tympanistria
-stable-avibase-736D38E7,classification_change,stable_avilist_id,avibase-736D38E7,Common Rock Thrush,Monticola saxatilis,avibase-736D38E7,Common Rock Thrush,Monticola saxatilis
-stable-avibase-7387E828,classification_change,stable_avilist_id,avibase-7387E828,Gambaga Flycatcher,Muscicapa gambagae,avibase-7387E828,Gambaga Flycatcher,Muscicapa gambagae
-stable-avibase-739A97EE,classification_change,stable_avilist_id,avibase-739A97EE,Speckle-breasted Woodpecker,Dendropicos poecilolaemus,avibase-739A97EE,Speckle-breasted Woodpecker,Dendropicos poecilolaemus
-stable-avibase-73BD4B29,name_and_classification_change,stable_avilist_id,avibase-73BD4B29,Irania,Irania gutturalis,avibase-73BD4B29,White-throated Robin,Irania gutturalis
-stable-avibase-74236837,classification_change,stable_avilist_id,avibase-74236837,Roseate Tern,Sterna dougallii,avibase-74236837,Roseate Tern,Sterna dougallii
+stable-avibase-724266B4,name_change,stable_avilist_id,avibase-724266B4,Brown-breasted Barbet,Pogornornis melanopterus,avibase-724266B4,Brown-breasted Barbet,Pogonornis melanopterus
+stable-avibase-73BD4B29,name_change,stable_avilist_id,avibase-73BD4B29,Irania,Irania gutturalis,avibase-73BD4B29,White-throated Robin,Irania gutturalis
 stable-avibase-7451A628,name_change,stable_avilist_id,avibase-7451A628,Eurasian Roller,Coracias garrulus,avibase-7451A628,European Roller,Coracias garrulus
 stable-avibase-7471E71D,name_change,stable_avilist_id,avibase-7471E71D,Red-billed Oxpecker,Buphagus erythrorhynchus,avibase-7471E71D,Red-billed Oxpecker,Buphagus erythroryncha
-stable-avibase-747B3A52,classification_change,stable_avilist_id,avibase-747B3A52,Mountain Wagtail,Motacilla clara,avibase-747B3A52,Mountain Wagtail,Motacilla clara
-stable-avibase-74853F89,classification_change,stable_avilist_id,avibase-74853F89,Black Heron,Egretta ardesiaca,avibase-74853F89,Black Heron,Egretta ardesiaca
-stable-avibase-749E7B3C,classification_change,stable_avilist_id,avibase-749E7B3C,White-winged Widowbird,Euplectes albonotatus,avibase-749E7B3C,White-winged Widowbird,Euplectes albonotatus
-stable-avibase-7516E687,classification_change,stable_avilist_id,avibase-7516E687,Greater Painted-snipe,Rostratula benghalensis,avibase-7516E687,Greater Painted-snipe,Rostratula benghalensis
-stable-avibase-75194A63,classification_change,stable_avilist_id,avibase-75194A63,Sokoke Scops Owl,Otus ireneae,avibase-75194A63,Sokoke Scops Owl,Otus ireneae
-stable-avibase-7542C6F1,classification_change,stable_avilist_id,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura
-stable-avibase-75AAC17B,classification_change,stable_avilist_id,avibase-75AAC17B,African Paradise Flycatcher,Terpsiphone viridis,avibase-75AAC17B,African Paradise Flycatcher,Terpsiphone viridis
-stable-avibase-76B512B1,name_and_classification_change,stable_avilist_id,avibase-76B512B1,Rüppell’s Vulture,Gyps rueppellii ,avibase-76B512B1,Rüppell's Vulture,Gyps rueppelli
-stable-avibase-76E45A19,classification_change,stable_avilist_id,avibase-76E45A19,Purple-crested Turaco,Gallirex porphyreolophus,avibase-76E45A19,Purple-crested Turaco,Gallirex porphyreolophus
-stable-avibase-76FAC9A5,name_and_classification_change,stable_avilist_id,avibase-76FAC9A5,Violet Wood-Hoopoe,Phoeniculus damarensis,avibase-76FAC9A5,Violet Wood Hoopoe,Phoeniculus damarensis
-stable-avibase-7749C92B,classification_change,stable_avilist_id,avibase-7749C92B,Yellow-rumped Tinkerbird,Pogoniulus bilineatus,avibase-7749C92B,Yellow-rumped Tinkerbird,Pogoniulus bilineatus
-stable-avibase-77D82F60,name_and_classification_change,stable_avilist_id,avibase-77D82F60,Bearded Woodpecker,Chloropicos namaquus,avibase-77D82F60,Bearded Woodpecker,Chloropicus namaquus
-stable-avibase-77F0C62C,classification_change,stable_avilist_id,avibase-77F0C62C,Swamp Flycatcher,Muscicapa aquatica,avibase-77F0C62C,Swamp Flycatcher,Muscicapa aquatica
-stable-avibase-77FEB897,classification_change,stable_avilist_id,avibase-77FEB897,African Barred Owlet,Glaucidium capense,avibase-77FEB897,African Barred Owlet,Glaucidium capense
+stable-avibase-76B512B1,name_change,stable_avilist_id,avibase-76B512B1,Rüppell’s Vulture,Gyps rueppellii ,avibase-76B512B1,Rüppell's Vulture,Gyps rueppelli
+stable-avibase-76FAC9A5,name_change,stable_avilist_id,avibase-76FAC9A5,Violet Wood-Hoopoe,Phoeniculus damarensis,avibase-76FAC9A5,Violet Wood Hoopoe,Phoeniculus damarensis
+stable-avibase-77D82F60,name_change,stable_avilist_id,avibase-77D82F60,Bearded Woodpecker,Chloropicos namaquus,avibase-77D82F60,Bearded Woodpecker,Chloropicus namaquus
 stable-avibase-79A45DAF,name_change,stable_avilist_id,avibase-79A45DAF,Sombre (Zanzibar) Greenbul ,Andropadus importunus,avibase-79A45DAF,Sombre Greenbul,Andropadus importunus
-stable-avibase-7AAD57AC,name_and_classification_change,stable_avilist_id,avibase-7AAD57AC,Little Bittern,Ixobrychus minutus,avibase-7AAD57AC,Little Bittern,Botaurus minutus
-stable-avibase-7AB4E42B,classification_change,stable_avilist_id,avibase-7AB4E42B,Whiskered Tern,Chlidonias hybrida,avibase-7AB4E42B,Whiskered Tern,Chlidonias hybrida
-stable-avibase-7B414273,classification_change,stable_avilist_id,avibase-7B414273,Black-winged Red Bishop,Euplectes hordeaceus,avibase-7B414273,Black-winged Red Bishop,Euplectes hordeaceus
-stable-avibase-7BEB0003,classification_change,stable_avilist_id,avibase-7BEB0003,Moustached Tinkerbird,Pogoniulus leucomystax,avibase-7BEB0003,Moustached Tinkerbird,Pogoniulus leucomystax
-stable-avibase-7C3026CC,classification_change,stable_avilist_id,avibase-7C3026CC,African Hill Babbler,Sylvia abyssinica,avibase-7C3026CC,African Hill Babbler,Sylvia abyssinica
-stable-avibase-7C3959D6,classification_change,stable_avilist_id,avibase-7C3959D6,Plain Nightjar,Caprimulgus inornatus,avibase-7C3959D6,Plain Nightjar,Caprimulgus inornatus
-stable-avibase-7C7F0DEE,classification_change,stable_avilist_id,avibase-7C7F0DEE,Common Nightingale,Luscinia megarhynchos,avibase-7C7F0DEE,Common Nightingale,Luscinia megarhynchos
-stable-avibase-7C822074,classification_change,stable_avilist_id,avibase-7C822074,Black-bellied Sunbird,Cinnyris nectarinioides,avibase-7C822074,Black-bellied Sunbird,Cinnyris nectarinioides
-stable-avibase-7C879D6D,classification_change,stable_avilist_id,avibase-7C879D6D,Blue-headed Coucal,Centropus monachus,avibase-7C879D6D,Blue-headed Coucal,Centropus monachus
-stable-avibase-7C8BC7CF,classification_change,stable_avilist_id,avibase-7C8BC7CF,Superb Sunbird,Cinnyris superbus,avibase-7C8BC7CF,Superb Sunbird,Cinnyris superbus
-stable-avibase-7CB8F5B7,name_and_classification_change,stable_avilist_id,avibase-7CB8F5B7,Pomarine Skua,Stercorarius pomarinus,avibase-7CB8F5B7,Pomarine Jaeger,Stercorarius pomarinus
-stable-avibase-7CF91527,classification_change,stable_avilist_id,avibase-7CF91527,Ferruginous Duck,Aythya nyroca,avibase-7CF91527,Ferruginous Duck,Aythya nyroca
-stable-avibase-7D1AE743,classification_change,stable_avilist_id,avibase-7D1AE743,South African Cliff Swallow,Petrochelidon spilodera,avibase-7D1AE743,South African Cliff Swallow,Petrochelidon spilodera
+stable-avibase-7AAD57AC,name_change,stable_avilist_id,avibase-7AAD57AC,Little Bittern,Ixobrychus minutus,avibase-7AAD57AC,Little Bittern,Botaurus minutus
+stable-avibase-7CB8F5B7,name_change,stable_avilist_id,avibase-7CB8F5B7,Pomarine Skua,Stercorarius pomarinus,avibase-7CB8F5B7,Pomarine Jaeger,Stercorarius pomarinus
 stable-avibase-7D340BF9,name_change,stable_avilist_id,avibase-7D340BF9,Turner’s Eremomela,Eremomela turneri (race turneri),avibase-7D340BF9,Turner's Eremomela,Eremomela turneri
-stable-avibase-7D6F12FE,name_and_classification_change,stable_avilist_id,avibase-7D6F12FE,Grey-headed Silverbill,Odontospiza griseicapilla,avibase-7D6F12FE,Grey-headed Silverbill,Spermestes griseicapilla
-stable-avibase-7DC78D7A,name_and_classification_change,stable_avilist_id,avibase-7DC78D7A,Jameson's Wattle-eye,Dyaphorophyia jamesoni,avibase-7DC78D7A,Jameson's Wattle-eye,Platysteira jamesoni
-stable-avibase-7DCA1C1E,name_and_classification_change,stable_avilist_id,avibase-7DCA1C1E,Marsh Tchagra,Bocagia minuta (race reichenowi),avibase-7DCA1C1E,Marsh Tchagra,Bocagia minuta
-stable-avibase-7DDB347E,classification_change,stable_avilist_id,avibase-7DDB347E,Greater Blue-eared Starling,Lamprotornis chalybaeus,avibase-7DDB347E,Greater Blue-eared Starling,Lamprotornis chalybaeus
-stable-avibase-7DE7F0ED,classification_change,stable_avilist_id,avibase-7DE7F0ED,Northern Puffback,Dryoscopus gambensis,avibase-7DE7F0ED,Northern Puffback,Dryoscopus gambensis
-stable-avibase-7DF00403,name_and_classification_change,stable_avilist_id,avibase-7DF00403,Ayres’s Hawk Eagle,Hieraaetus ayresii,avibase-7DF00403,Ayres's Hawk-Eagle,Hieraaetus ayresii
-stable-avibase-7E257242,name_and_classification_change,stable_avilist_id,avibase-7E257242,Corncrake,Crex crex,avibase-7E257242,Corn Crake,Crex crex
-stable-avibase-7E3578A2,classification_change,stable_avilist_id,avibase-7E3578A2,Fiery-necked Nightjar,Caprimulgus pectoralis,avibase-7E3578A2,Fiery-necked Nightjar,Caprimulgus pectoralis
-stable-avibase-7F64AD87,classification_change,stable_avilist_id,avibase-7F64AD87,Yellow-billed Duck,Anas undulata,avibase-7F64AD87,Yellow-billed Duck,Anas undulata
-stable-avibase-8004C7E5,name_and_classification_change,stable_avilist_id,avibase-8004C7E5,Crested Francolin,Dendroperdix sephaena,avibase-8004C7E5,Crested Francolin,Ortygornis sephaena
-stable-avibase-80B649D4,classification_change,stable_avilist_id,avibase-80B649D4,Oriole Finch,Linurgus olivaceus,avibase-80B649D4,Oriole Finch,Linurgus olivaceus
-stable-avibase-80D4B0FE,name_and_classification_change,stable_avilist_id,avibase-80D4B0FE,Eurasian Nightjar,Caprimulgus europaeus,avibase-80D4B0FE,European Nightjar,Caprimulgus europaeus
-stable-avibase-81474844,name_and_classification_change,stable_avilist_id,avibase-81474844,Chestnut-naped Francolin,Pternistis castaneicollis (race atrifrons),avibase-81474844,Chestnut-naped Spurfowl,Pternistis castaneicollis
-stable-avibase-8160D091,classification_change,stable_avilist_id,avibase-8160D091,Evergreen Forest Warbler,Bradypterus lopezi,avibase-8160D091,Evergreen Forest Warbler,Bradypterus lopezi
-stable-avibase-819AB823,name_and_classification_change,stable_avilist_id,avibase-819AB823,Great (Black) Sparrowhawk,Accipiter melanoleucus,avibase-819AB823,Black Sparrowhawk,Astur melanoleucus
-stable-avibase-81DB7410,name_and_classification_change,stable_avilist_id,avibase-81DB7410,Lammergeier,Gypaetus barbatus,avibase-81DB7410,Bearded Vulture,Gypaetus barbatus
-stable-avibase-8372FFBA,classification_change,stable_avilist_id,avibase-8372FFBA,Short-toed Snake Eagle,Circaetus gallicus,avibase-8372FFBA,Short-toed Snake Eagle,Circaetus gallicus
-stable-avibase-83D329B5,classification_change,stable_avilist_id,avibase-83D329B5,Red-fronted Parrot,Poicephalus gulielmi,avibase-83D329B5,Red-fronted Parrot,Poicephalus gulielmi
+stable-avibase-7D6F12FE,name_change,stable_avilist_id,avibase-7D6F12FE,Grey-headed Silverbill,Odontospiza griseicapilla,avibase-7D6F12FE,Grey-headed Silverbill,Spermestes griseicapilla
+stable-avibase-7DC78D7A,name_change,stable_avilist_id,avibase-7DC78D7A,Jameson's Wattle-eye,Dyaphorophyia jamesoni,avibase-7DC78D7A,Jameson's Wattle-eye,Platysteira jamesoni
+stable-avibase-7DCA1C1E,name_change,stable_avilist_id,avibase-7DCA1C1E,Marsh Tchagra,Bocagia minuta (race reichenowi),avibase-7DCA1C1E,Marsh Tchagra,Bocagia minuta
+stable-avibase-7DF00403,name_change,stable_avilist_id,avibase-7DF00403,Ayres’s Hawk Eagle,Hieraaetus ayresii,avibase-7DF00403,Ayres's Hawk-Eagle,Hieraaetus ayresii
+stable-avibase-7E257242,name_change,stable_avilist_id,avibase-7E257242,Corncrake,Crex crex,avibase-7E257242,Corn Crake,Crex crex
+stable-avibase-8004C7E5,name_change,stable_avilist_id,avibase-8004C7E5,Crested Francolin,Dendroperdix sephaena,avibase-8004C7E5,Crested Francolin,Ortygornis sephaena
+stable-avibase-80D4B0FE,name_change,stable_avilist_id,avibase-80D4B0FE,Eurasian Nightjar,Caprimulgus europaeus,avibase-80D4B0FE,European Nightjar,Caprimulgus europaeus
+stable-avibase-81474844,name_change,stable_avilist_id,avibase-81474844,Chestnut-naped Francolin,Pternistis castaneicollis (race atrifrons),avibase-81474844,Chestnut-naped Spurfowl,Pternistis castaneicollis
+stable-avibase-819AB823,name_change,stable_avilist_id,avibase-819AB823,Great (Black) Sparrowhawk,Accipiter melanoleucus,avibase-819AB823,Black Sparrowhawk,Astur melanoleucus
+stable-avibase-81DB7410,name_change,stable_avilist_id,avibase-81DB7410,Lammergeier,Gypaetus barbatus,avibase-81DB7410,Bearded Vulture,Gypaetus barbatus
 stable-avibase-83D95620,name_change,stable_avilist_id,avibase-83D95620,Black-winged Plover,Vanellus melanopterus,avibase-83D95620,Black-winged Lapwing,Vanellus melanopterus
-stable-avibase-83E21A84,classification_change,stable_avilist_id,avibase-83E21A84,Marsh Owl,Asio capensis,avibase-83E21A84,Marsh Owl,Asio capensis
-stable-avibase-83E5801B,classification_change,stable_avilist_id,avibase-83E5801B,Green Crombec,Sylvietta virens,avibase-83E5801B,Green Crombec,Sylvietta virens
 stable-avibase-84249EE3,name_change,stable_avilist_id,avibase-84249EE3,Sharpe’s Square-tailed Drongo,Dicrurus sharpei,avibase-84249EE3,Sharpe's Drongo,Dicrurus sharpei
-stable-avibase-842FF43C,name_and_classification_change,stable_avilist_id,avibase-842FF43C,Black-faced Waxbill,Estrilda erythronotos,avibase-842FF43C,Black-faced Waxbill,Brunhilda erythronotos
-stable-avibase-847AE7B8,classification_change,stable_avilist_id,avibase-847AE7B8,Little Yellow Flycatcher,Erythrocercus holochlorus,avibase-847AE7B8,Little Yellow Flycatcher,Erythrocercus holochlorus
-stable-avibase-8492E4B7,name_and_classification_change,stable_avilist_id,avibase-8492E4B7,Levant Sparrowhawk,Accipiter brevipes,avibase-8492E4B7,Levant Sparrowhawk,Tachyspiza brevipes
-stable-avibase-84E4178E,classification_change,stable_avilist_id,avibase-84E4178E,Chapin’s Flycatcher,Fraseria lendu,avibase-84E4178E,Chapin's Flycatcher,Fraseria lendu
-stable-avibase-85625D75,classification_change,stable_avilist_id,avibase-85625D75,Mallard,Anas platyrhynchos,avibase-85625D75,Mallard,Anas platyrhynchos
-stable-avibase-857DCDD5,classification_change,stable_avilist_id,avibase-857DCDD5,Western Violet-backed Sunbird,Anthreptes longuemarei,avibase-857DCDD5,Western Violet-backed Sunbird,Anthreptes longuemarei
-stable-avibase-85DF723B,classification_change,stable_avilist_id,avibase-85DF723B,Senegal Thick-knee,Burhinus senegalensis,avibase-85DF723B,Senegal Thick-knee,Burhinus senegalensis
-stable-avibase-862F6F04,classification_change,stable_avilist_id,avibase-862F6F04,Spotted Thick-knee,Burhinus capensis,avibase-862F6F04,Spotted Thick-knee,Burhinus capensis
-stable-avibase-864D4A4F,classification_change,stable_avilist_id,avibase-864D4A4F,White-billed Buffalo Weaver,Bubalornis albirostris,avibase-864D4A4F,White-billed Buffalo Weaver,Bubalornis albirostris
+stable-avibase-842FF43C,name_change,stable_avilist_id,avibase-842FF43C,Black-faced Waxbill,Estrilda erythronotos,avibase-842FF43C,Black-faced Waxbill,Brunhilda erythronotos
+stable-avibase-8492E4B7,name_change,stable_avilist_id,avibase-8492E4B7,Levant Sparrowhawk,Accipiter brevipes,avibase-8492E4B7,Levant Sparrowhawk,Tachyspiza brevipes
 stable-avibase-866D07A0,name_change,stable_avilist_id,avibase-866D07A0,Northern White-crowned Shrike,Eurocephalus rueppelli,avibase-866D07A0,Northern White-crowned Shrike,Eurocephalus ruppelli
-stable-avibase-86BEAFA6,classification_change,stable_avilist_id,avibase-86BEAFA6,Eastern Golden Weaver,Ploceus subaureus,avibase-86BEAFA6,Eastern Golden Weaver,Ploceus subaureus
-stable-avibase-87071086,classification_change,stable_avilist_id,avibase-87071086,Jackson’s Widowbird,Euplectes jacksoni ,avibase-87071086,Jackson's Widowbird,Euplectes jacksoni
-stable-avibase-870E4DDA,classification_change,stable_avilist_id,avibase-870E4DDA,Eastern Bronze-naped Pigeon,Columba delegorguei,avibase-870E4DDA,Eastern Bronze-naped Pigeon,Columba delegorguei
-stable-avibase-87168739,classification_change,stable_avilist_id,avibase-87168739,Gull-billed Tern,Gelochelidon nilotica,avibase-87168739,Gull-billed Tern,Gelochelidon nilotica
-stable-avibase-871F32D9,classification_change,stable_avilist_id,avibase-871F32D9,Jameson's Firefinch,Lagonosticta rhodopareia,avibase-871F32D9,Jameson's Firefinch,Lagonosticta rhodopareia
-stable-avibase-8770C6A7,classification_change,stable_avilist_id,avibase-8770C6A7,Dusky Turtle Dove,Streptopelia lugens,avibase-8770C6A7,Dusky Turtle Dove,Streptopelia lugens
-stable-avibase-87EEBD3E,name_and_classification_change,stable_avilist_id,avibase-87EEBD3E,Dwarf Bittern,Ixobrychus sturmii,avibase-87EEBD3E,Dwarf Bittern,Botaurus sturmii
+stable-avibase-87EEBD3E,name_change,stable_avilist_id,avibase-87EEBD3E,Dwarf Bittern,Ixobrychus sturmii,avibase-87EEBD3E,Dwarf Bittern,Botaurus sturmii
 stable-avibase-881C954D,name_change,stable_avilist_id,avibase-881C954D,Brown-chested Plover,Vanellus superciliosus,avibase-881C954D,Brown-chested Lapwing,Vanellus superciliosus
-stable-avibase-88AAE3D3,classification_change,stable_avilist_id,avibase-88AAE3D3,White-headed Saw-wing,Psalidoprocne albiceps,avibase-88AAE3D3,White-headed Saw-wing,Psalidoprocne albiceps
-stable-avibase-88F4B969,classification_change,stable_avilist_id,avibase-88F4B969,Willow Warbler,Phylloscopus trochilus,avibase-88F4B969,Willow Warbler,Phylloscopus trochilus
-stable-avibase-8A9A7AAA,classification_change,stable_avilist_id,avibase-8A9A7AAA,Southern Black Flycatcher,Melaenornis pammelaina,avibase-8A9A7AAA,Southern Black Flycatcher,Melaenornis pammelaina
-stable-avibase-8B7A6FE9,name_and_classification_change,stable_avilist_id,avibase-8B7A6FE9,Brown-chested Alethe,Chaemaetylas poliocephala (race akeleyae),avibase-8B7A6FE9,Brown-chested Alethe,Chamaetylas poliocephala
-stable-avibase-8B8AC14A,classification_change,stable_avilist_id,avibase-8B8AC14A,Rosy-patched Bushshrike,Rhodophoneus cruentus,avibase-8B8AC14A,Rosy-patched Bushshrike,Rhodophoneus cruentus
-stable-avibase-8C50CB2D,classification_change,stable_avilist_id,avibase-8C50CB2D,Black-collared Barbet,Lybius torquatus,avibase-8C50CB2D,Black-collared Barbet,Lybius torquatus
-stable-avibase-8CA1A851,classification_change,stable_avilist_id,avibase-8CA1A851,White-winged Swamp Warbler,Bradypterus carpalis,avibase-8CA1A851,White-winged Swamp Warbler,Bradypterus carpalis
-stable-avibase-8D05A048,classification_change,stable_avilist_id,avibase-8D05A048,Steel-blue Whydah,Vidua hypocherina,avibase-8D05A048,Steel-blue Whydah,Vidua hypocherina
-stable-avibase-8D562259,classification_change,stable_avilist_id,avibase-8D562259,Chestnut Wattle-eye,Dyaphorophyia castanea,avibase-8D562259,Chestnut Wattle-eye,Dyaphorophyia castanea
+stable-avibase-8B7A6FE9,name_change,stable_avilist_id,avibase-8B7A6FE9,Brown-chested Alethe,Chaemaetylas poliocephala (race akeleyae),avibase-8B7A6FE9,Brown-chested Alethe,Chamaetylas poliocephala
 stable-avibase-8DAF86A1,name_change,stable_avilist_id,avibase-8DAF86A1,Three-banded Plover,Charadrius tricollaris,avibase-8DAF86A1,Three-banded Plover,Thinornis tricollaris
 stable-avibase-8DB3F1A2,name_change,stable_avilist_id,avibase-8DB3F1A2,Wahlberg's Honeybird,Prodotiscus regulus,avibase-8DB3F1A2,Brown-backed Honeybird,Prodotiscus regulus
-stable-avibase-8E5252EB,name_and_classification_change,stable_avilist_id,avibase-8E5252EB,African Quailfinch,Ortygospiza atricollis,avibase-8E5252EB,Quailfinch,Ortygospiza atricollis
-stable-avibase-8E833C63,name_and_classification_change,stable_avilist_id,avibase-8E833C63,Archer’s Francolin ,Scleroptila gutturalis,avibase-8E833C63,Orange River Francolin,Scleroptila gutturalis
-stable-avibase-8E8B3DB9,name_and_classification_change,stable_avilist_id,avibase-8E8B3DB9,Thick-billed Seedeater,Crithagra burtoni (race albifrons),avibase-8E8B3DB9,Thick-billed Seedeater,Crithagra burtoni
-stable-avibase-8E9E45B5,classification_change,stable_avilist_id,avibase-8E9E45B5,Variable Sunbird,Cinnyris venustus,avibase-8E9E45B5,Variable Sunbird,Cinnyris venustus
-stable-avibase-8EB0AB41,name_and_classification_change,stable_avilist_id,avibase-8EB0AB41,Moorland (Alpine) Chat,Pinarochroa sordida,avibase-8EB0AB41,Moorland Chat,Pinarochroa sordida
-stable-avibase-8F052626,classification_change,stable_avilist_id,avibase-8F052626,Hunter's Sunbird,Chalcomitra hunteri,avibase-8F052626,Hunter's Sunbird,Chalcomitra hunteri
-stable-avibase-8F123A11,classification_change,stable_avilist_id,avibase-8F123A11,Short-eared Owl,Asio flammeus,avibase-8F123A11,Short-eared Owl,Asio flammeus
-stable-avibase-8F6876AC,classification_change,stable_avilist_id,avibase-8F6876AC,Red-billed Teal,Anas erythrorhyncha,avibase-8F6876AC,Red-billed Teal,Anas erythrorhyncha
-stable-avibase-8F82FF8C,classification_change,stable_avilist_id,avibase-8F82FF8C,Common Moorhen,Gallinula chloropus,avibase-8F82FF8C,Common Moorhen,Gallinula chloropus
-stable-avibase-902E9F69,name_and_classification_change,stable_avilist_id,avibase-902E9F69,Eastern Grey (Grey-headed) Woodpecker,Mesopicus spodocephalus ,avibase-902E9F69,Eastern Grey Woodpecker,Dendropicos spodocephalus
-stable-avibase-907B1140,classification_change,stable_avilist_id,avibase-907B1140,African Skimmer ,Rynchops flavirostris ,avibase-907B1140,African Skimmer,Rynchops flavirostris
-stable-avibase-90AFDF9E,classification_change,stable_avilist_id,avibase-90AFDF9E,Yellow-necked Spurfowl, Pternistis leucoscepus,avibase-90AFDF9E,Yellow-necked Spurfowl,Pternistis leucoscepus
-stable-avibase-90C937E4,classification_change,stable_avilist_id,avibase-90C937E4,White-bellied Canary,Crithagra dorsostriata,avibase-90C937E4,White-bellied Canary,Crithagra dorsostriata
-stable-avibase-90D0D245,name_and_classification_change,stable_avilist_id,avibase-90D0D245,Black-headed Batis,Batis minor,avibase-90D0D245,Eastern Black-headed Batis,Batis minor
-stable-avibase-90FDC4CC,classification_change,stable_avilist_id,avibase-90FDC4CC,Red-tailed Ant Thrush,Neocossyphus rufus,avibase-90FDC4CC,Red-tailed Ant Thrush,Neocossyphus rufus
-stable-avibase-915DABE2,classification_change,stable_avilist_id,avibase-915DABE2,Hairy-breasted Barbet,Tricholaema hirsuta,avibase-915DABE2,Hairy-breasted Barbet,Tricholaema hirsuta
+stable-avibase-8E5252EB,name_change,stable_avilist_id,avibase-8E5252EB,African Quailfinch,Ortygospiza atricollis,avibase-8E5252EB,Quailfinch,Ortygospiza atricollis
+stable-avibase-8E833C63,name_change,stable_avilist_id,avibase-8E833C63,Archer’s Francolin ,Scleroptila gutturalis,avibase-8E833C63,Orange River Francolin,Scleroptila gutturalis
+stable-avibase-8E8B3DB9,name_change,stable_avilist_id,avibase-8E8B3DB9,Thick-billed Seedeater,Crithagra burtoni (race albifrons),avibase-8E8B3DB9,Thick-billed Seedeater,Crithagra burtoni
+stable-avibase-8EB0AB41,name_change,stable_avilist_id,avibase-8EB0AB41,Moorland (Alpine) Chat,Pinarochroa sordida,avibase-8EB0AB41,Moorland Chat,Pinarochroa sordida
+stable-avibase-902E9F69,name_change,stable_avilist_id,avibase-902E9F69,Eastern Grey (Grey-headed) Woodpecker,Mesopicus spodocephalus ,avibase-902E9F69,Eastern Grey Woodpecker,Dendropicos spodocephalus
+stable-avibase-90D0D245,name_change,stable_avilist_id,avibase-90D0D245,Black-headed Batis,Batis minor,avibase-90D0D245,Eastern Black-headed Batis,Batis minor
 stable-avibase-9164F314,name_change,stable_avilist_id,avibase-9164F314,Chestnut-backed Sparrow Lark,Eremopterix leucotis,avibase-9164F314,Chestnut-backed Sparrow-Lark,Eremopterix leucotis
-stable-avibase-9185D29D,classification_change,stable_avilist_id,avibase-9185D29D,Mosque Swallow,Cecropis senegalensis,avibase-9185D29D,Mosque Swallow,Cecropis senegalensis
-stable-avibase-922DE9C1,classification_change,stable_avilist_id,avibase-922DE9C1,Gabar Goshawk,Micronisus gabar,avibase-922DE9C1,Gabar Goshawk,Micronisus gabar
-stable-avibase-92908926,name_and_classification_change,stable_avilist_id,avibase-92908926,Bearded Scrub Robin,Cercotrichas quadrivirgata,avibase-92908926,Bearded Scrub Robin,Tychaedon quadrivirgata
-stable-avibase-92A772BB,classification_change,stable_avilist_id,avibase-92A772BB,Eurasian Golden Oriole,Oriolus oriolus,avibase-92A772BB,Eurasian Golden Oriole,Oriolus oriolus
-stable-avibase-92FDBAF0,name_and_classification_change,stable_avilist_id,avibase-92FDBAF0,Red-throated Tit,Parus fringillinus,avibase-92FDBAF0,Red-throated Tit,Melaniparus fringillinus
-stable-avibase-9387DC41,classification_change,stable_avilist_id,avibase-9387DC41,Cardinal Quelea,Quelea cardinalis,avibase-9387DC41,Cardinal Quelea,Quelea cardinalis
-stable-avibase-93D7EC56,classification_change,stable_avilist_id,avibase-93D7EC56,White-headed Vulture,Trigonoceps occipitalis,avibase-93D7EC56,White-headed Vulture,Trigonoceps occipitalis
-stable-avibase-93EC5E12,classification_change,stable_avilist_id,avibase-93EC5E12,Red-throated Wryneck,Jynx ruficollis,avibase-93EC5E12,Red-throated Wryneck,Jynx ruficollis
-stable-avibase-94214F1C,classification_change,stable_avilist_id,avibase-94214F1C,Hartlaub's Turaco,Tauraco hartlaubi,avibase-94214F1C,Hartlaub's Turaco,Tauraco hartlaubi
-stable-avibase-94A1C447,classification_change,stable_avilist_id,avibase-94A1C447,Sand Martin,Riparia riparia,avibase-94A1C447,Sand Martin,Riparia riparia
-stable-avibase-94C71DF6,name_and_classification_change,stable_avilist_id,avibase-94C71DF6,White-browed Sparrow Weaver,Plocepasser mahali,avibase-94C71DF6,White-browed Sparrow-Weaver,Plocepasser mahali
-stable-avibase-95054CA5,name_and_classification_change,stable_avilist_id,avibase-95054CA5,Grey-throated (Grey-headed) Barbet,Gymnobucco bonapartei (race cinereiceps),avibase-95054CA5,Grey-throated Barbet,Gymnobucco bonapartei
-stable-avibase-958F4A5E,name_and_classification_change,stable_avilist_id,avibase-958F4A5E,Rufous-chested Swallow,Cecropis semirufa,avibase-958F4A5E,Red-breasted Swallow,Cecropis semirufa
-stable-avibase-95A2F6E7,name_and_classification_change,stable_avilist_id,avibase-95A2F6E7,Montane Oriole,Oriolus percivali,avibase-95A2F6E7,Mountain Oriole,Oriolus percivali
-stable-avibase-95A724BE,classification_change,stable_avilist_id,avibase-95A724BE,Fire-fronted Bishop,Euplectes diadematus,avibase-95A724BE,Fire-fronted Bishop,Euplectes diadematus
-stable-avibase-95F08BC3,classification_change,stable_avilist_id,avibase-95F08BC3,Southern Red Bishop,Euplectes orix,avibase-95F08BC3,Southern Red Bishop,Euplectes orix
-stable-avibase-960B56F2,classification_change,stable_avilist_id,avibase-960B56F2,Red-headed Malimbe,Malimbus rubricollis,avibase-960B56F2,Red-headed Malimbe,Malimbus rubricollis
-stable-avibase-9616C96E,name_and_classification_change,stable_avilist_id,avibase-9616C96E,Blue-shouldered Robin Chat,Cossypha cyanocampter,avibase-9616C96E,Blue-shouldered Robin-Chat,Cossypha cyanocampter
-stable-avibase-967545BC,classification_change,stable_avilist_id,avibase-967545BC,Brubru,Nilaus afer,avibase-967545BC,Brubru,Nilaus afer
-stable-avibase-96CCAFEE,classification_change,stable_avilist_id,avibase-96CCAFEE,Water Thick-knee,Burhinus vermiculatus,avibase-96CCAFEE,Water Thick-knee,Burhinus vermiculatus
-stable-avibase-97A73D9F,classification_change,stable_avilist_id,avibase-97A73D9F,Yellow Bishop,Euplectes capensis,avibase-97A73D9F,Yellow Bishop,Euplectes capensis
-stable-avibase-97C47F3E,name_and_classification_change,stable_avilist_id,avibase-97C47F3E,Black-shouldered (Black-winged) Kite,Elanus caeruleus,avibase-97C47F3E,Black-winged Kite,Elanus caeruleus
+stable-avibase-92908926,name_change,stable_avilist_id,avibase-92908926,Bearded Scrub Robin,Cercotrichas quadrivirgata,avibase-92908926,Bearded Scrub Robin,Tychaedon quadrivirgata
+stable-avibase-92FDBAF0,name_change,stable_avilist_id,avibase-92FDBAF0,Red-throated Tit,Parus fringillinus,avibase-92FDBAF0,Red-throated Tit,Melaniparus fringillinus
+stable-avibase-94C71DF6,name_change,stable_avilist_id,avibase-94C71DF6,White-browed Sparrow Weaver,Plocepasser mahali,avibase-94C71DF6,White-browed Sparrow-Weaver,Plocepasser mahali
+stable-avibase-95054CA5,name_change,stable_avilist_id,avibase-95054CA5,Grey-throated (Grey-headed) Barbet,Gymnobucco bonapartei (race cinereiceps),avibase-95054CA5,Grey-throated Barbet,Gymnobucco bonapartei
+stable-avibase-958F4A5E,name_change,stable_avilist_id,avibase-958F4A5E,Rufous-chested Swallow,Cecropis semirufa,avibase-958F4A5E,Red-breasted Swallow,Cecropis semirufa
+stable-avibase-95A2F6E7,name_change,stable_avilist_id,avibase-95A2F6E7,Montane Oriole,Oriolus percivali,avibase-95A2F6E7,Mountain Oriole,Oriolus percivali
+stable-avibase-9616C96E,name_change,stable_avilist_id,avibase-9616C96E,Blue-shouldered Robin Chat,Cossypha cyanocampter,avibase-9616C96E,Blue-shouldered Robin-Chat,Cossypha cyanocampter
+stable-avibase-97C47F3E,name_change,stable_avilist_id,avibase-97C47F3E,Black-shouldered (Black-winged) Kite,Elanus caeruleus,avibase-97C47F3E,Black-winged Kite,Elanus caeruleus
 stable-avibase-97D7865F,name_change,stable_avilist_id,avibase-97D7865F,Fischer’s Sparrow Lark,Eremopterix leucopareia,avibase-97D7865F,Fischer's Sparrow-Lark,Eremopterix leucopareia
-stable-avibase-97E7A30B,classification_change,stable_avilist_id,avibase-97E7A30B,Grey-rumped Swallow,Pseudhirundo griseopyga,avibase-97E7A30B,Grey-rumped Swallow,Pseudhirundo griseopyga
-stable-avibase-982C918E,name_and_classification_change,stable_avilist_id,avibase-982C918E,Banded Parisoma,Sylvia boehmi (race marsabit),avibase-982C918E,Banded Parisoma,Curruca boehmi
-stable-avibase-9888B3AE,classification_change,stable_avilist_id,avibase-9888B3AE,Red-eyed Dove,Streptopelia semitorquata,avibase-9888B3AE,Red-eyed Dove,Streptopelia semitorquata
-stable-avibase-98B15EE7,classification_change,stable_avilist_id,avibase-98B15EE7,Abyssinian Crimsonwing,Cryptospiza salvadorii,avibase-98B15EE7,Abyssinian Crimsonwing,Cryptospiza salvadorii
+stable-avibase-982C918E,name_change,stable_avilist_id,avibase-982C918E,Banded Parisoma,Sylvia boehmi (race marsabit),avibase-982C918E,Banded Parisoma,Curruca boehmi
 stable-avibase-98B9C10B,name_change,stable_avilist_id,avibase-98B9C10B,Greater Sand Plover,Charadrius leschenaultii,avibase-98B9C10B,Greater Sand Plover,Anarhynchus leschenaultii
-stable-avibase-98BA31AA,classification_change,stable_avilist_id,avibase-98BA31AA,Green Hylia,Hylia prasina,avibase-98BA31AA,Green Hylia,Hylia prasina
-stable-avibase-997A9437,classification_change,stable_avilist_id,avibase-997A9437,Red-footed Falcon,Falco vespertinus,avibase-997A9437,Red-footed Falcon,Falco vespertinus
-stable-avibase-9A418C45,name_and_classification_change,stable_avilist_id,avibase-9A418C45,African Hawk Eagle,Aquila spilogaster,avibase-9A418C45,African Hawk-Eagle,Aquila spilogaster
-stable-avibase-9A4AA945,classification_change,stable_avilist_id,avibase-9A4AA945,Taita Falcon,Falco fasciinucha,avibase-9A4AA945,Taita Falcon,Falco fasciinucha
-stable-avibase-9A60617E,classification_change,stable_avilist_id,avibase-9A60617E,Fulvous Whistling Duck,Dendrocygna bicolor,avibase-9A60617E,Fulvous Whistling Duck,Dendrocygna bicolor
-stable-avibase-9CDA630C,classification_change,stable_avilist_id,avibase-9CDA630C,Violet-breasted Sunbird,Cinnyris chalcomelas,avibase-9CDA630C,Violet-breasted Sunbird,Cinnyris chalcomelas
+stable-avibase-9A418C45,name_change,stable_avilist_id,avibase-9A418C45,African Hawk Eagle,Aquila spilogaster,avibase-9A418C45,African Hawk-Eagle,Aquila spilogaster
 stable-avibase-9D29C252,name_change,stable_avilist_id,avibase-9D29C252,Crested Guineafowl,Guttera (pucherani) verreauxi,avibase-9D29C252,Western Crested Guineafowl,Guttera verreauxi
-stable-avibase-9D95139B,classification_change,stable_avilist_id,avibase-9D95139B,Wattled Starling,Creatophora cinerea,avibase-9D95139B,Wattled Starling,Creatophora cinerea
-stable-avibase-9DBAAB1D,name_and_classification_change,stable_avilist_id,avibase-9DBAAB1D,Dwarf Raven,Corvus edithae,avibase-9DBAAB1D,Somali Crow,Corvus edithae
-stable-avibase-9EA1F12D,classification_change,stable_avilist_id,avibase-9EA1F12D,Eleonora's Falcon,Falco eleonorae,avibase-9EA1F12D,Eleonora's Falcon,Falco eleonorae
-stable-avibase-9EB53638,classification_change,stable_avilist_id,avibase-9EB53638,Red-billed Buffalo Weaver,Bubalornis niger,avibase-9EB53638,Red-billed Buffalo Weaver,Bubalornis niger
-stable-avibase-9EE216F9,classification_change,stable_avilist_id,avibase-9EE216F9,African Broadbill,Smithornis capensis,avibase-9EE216F9,African Broadbill,Smithornis capensis
-stable-avibase-9F2839A9,classification_change,stable_avilist_id,avibase-9F2839A9,Southern Banded Snake Eagle,Circaetus fasciolatus,avibase-9F2839A9,Southern Banded Snake Eagle,Circaetus fasciolatus
-stable-avibase-9FF4EDB5,name_and_classification_change,stable_avilist_id,avibase-9FF4EDB5,Brown-backed Woodpecker,Mesopicus obsoletus,avibase-9FF4EDB5,Brown-backed Woodpecker,Dendropicos obsoletus
-stable-avibase-A070171E,classification_change,stable_avilist_id,avibase-A070171E,Brown Noddy,Anous stolidus,avibase-A070171E,Brown Noddy,Anous stolidus
-stable-avibase-A0A3B03D,classification_change,stable_avilist_id,avibase-A0A3B03D,Collared Palm Thrush,Cichladusa arquata,avibase-A0A3B03D,Collared Palm Thrush,Cichladusa arquata
-stable-avibase-A0DC8E87,name_and_classification_change,stable_avilist_id,avibase-A0DC8E87,African Bare-eyed Thrush,Turdus tephronotus,avibase-A0DC8E87,Bare-eyed Thrush,Turdus tephronotus
-stable-avibase-A0EDAEA2,classification_change,stable_avilist_id,avibase-A0EDAEA2,Whinchat,Saxicola rubetra,avibase-A0EDAEA2,Whinchat,Saxicola rubetra
-stable-avibase-A14D3117,name_and_classification_change,stable_avilist_id,avibase-A14D3117,Grey-breasted Illadopsis,Illadopsis distans,avibase-A14D3117,Tanzanian Illadopsis,Illadopsis distans
-stable-avibase-A15F6836,name_and_classification_change,stable_avilist_id,avibase-A15F6836,Shelley's Francolin,Scleroptila shelleyi (race macarthuri),avibase-A15F6836,Shelley's Francolin,Scleroptila shelleyi
-stable-avibase-A19B0CF4,name_and_classification_change,stable_avilist_id,avibase-A19B0CF4,African Fish Eagle,Haliaeetus vocifer,avibase-A19B0CF4,African Fish Eagle,Icthyophaga vocifer
-stable-avibase-A20878F0,classification_change,stable_avilist_id,avibase-A20878F0,Grey Parrot,Psittacus erithacus,avibase-A20878F0,Grey Parrot,Psittacus erithacus
-stable-avibase-A20EA34D,classification_change,stable_avilist_id,avibase-A20EA34D,Long-tailed Nightjar,Caprimulgus climacurus,avibase-A20EA34D,Long-tailed Nightjar,Caprimulgus climacurus
-stable-avibase-A31AC101,classification_change,stable_avilist_id,avibase-A31AC101,Zanzibar Red Bishop,Euplectes nigroventris,avibase-A31AC101,Zanzibar Red Bishop,Euplectes nigroventris
-stable-avibase-A38BABE1,name_and_classification_change,stable_avilist_id,avibase-A38BABE1,Cape Robin Chat,Caffrornis caffra,avibase-A38BABE1,Cape Robin-Chat,Dessonornis caffer
+stable-avibase-9DBAAB1D,name_change,stable_avilist_id,avibase-9DBAAB1D,Dwarf Raven,Corvus edithae,avibase-9DBAAB1D,Somali Crow,Corvus edithae
+stable-avibase-9FF4EDB5,name_change,stable_avilist_id,avibase-9FF4EDB5,Brown-backed Woodpecker,Mesopicus obsoletus,avibase-9FF4EDB5,Brown-backed Woodpecker,Dendropicos obsoletus
+stable-avibase-A0DC8E87,name_change,stable_avilist_id,avibase-A0DC8E87,African Bare-eyed Thrush,Turdus tephronotus,avibase-A0DC8E87,Bare-eyed Thrush,Turdus tephronotus
+stable-avibase-A14D3117,name_change,stable_avilist_id,avibase-A14D3117,Grey-breasted Illadopsis,Illadopsis distans,avibase-A14D3117,Tanzanian Illadopsis,Illadopsis distans
+stable-avibase-A15F6836,name_change,stable_avilist_id,avibase-A15F6836,Shelley's Francolin,Scleroptila shelleyi (race macarthuri),avibase-A15F6836,Shelley's Francolin,Scleroptila shelleyi
+stable-avibase-A19B0CF4,name_change,stable_avilist_id,avibase-A19B0CF4,African Fish Eagle,Haliaeetus vocifer,avibase-A19B0CF4,African Fish Eagle,Icthyophaga vocifer
+stable-avibase-A38BABE1,name_change,stable_avilist_id,avibase-A38BABE1,Cape Robin Chat,Caffrornis caffra,avibase-A38BABE1,Cape Robin-Chat,Dessonornis caffer
 stable-avibase-A3E077E6,name_change,stable_avilist_id,avibase-A3E077E6,Gillett's Lark,Mirafra gilletti,avibase-A3E077E6,Gillett's Lark,Calendulauda gilletti
-stable-avibase-A51A5F84,name_and_classification_change,stable_avilist_id,avibase-A51A5F84,Spotted Creeper,Salpornis salvadori,avibase-A51A5F84,African Spotted Creeper,Salpornis salvadori
-stable-avibase-A526534E,name_and_classification_change,stable_avilist_id,avibase-A526534E,Pennant-winged Nightjar,Macrodipteryx vexillarius,avibase-A526534E,Pennant-winged Nightjar,Caprimulgus vexillarius
-stable-avibase-A534AFEA,classification_change,stable_avilist_id,avibase-A534AFEA,White-faced Whistling Duck,Dendrocygna viduata,avibase-A534AFEA,White-faced Whistling Duck,Dendrocygna viduata
-stable-avibase-A6034D7F,classification_change,stable_avilist_id,avibase-A6034D7F,African Firefinch,Lagonosticta rubricata,avibase-A6034D7F,African Firefinch,Lagonosticta rubricata
-stable-avibase-A6083057,classification_change,stable_avilist_id,avibase-A6083057,Northern Double-collared Sunbird,Cinnyris reichenowi,avibase-A6083057,Northern Double-collared Sunbird,Cinnyris reichenowi
-stable-avibase-A635F565,classification_change,stable_avilist_id,avibase-A635F565,Steppe Eagle,Aquila nipalensis,avibase-A635F565,Steppe Eagle,Aquila nipalensis
-stable-avibase-A6A4FC63,classification_change,stable_avilist_id,avibase-A6A4FC63,Garden Warbler,Sylvia borin,avibase-A6A4FC63,Garden Warbler,Sylvia borin
-stable-avibase-A6DFFC15,classification_change,stable_avilist_id,avibase-A6DFFC15,Grey-headed Batis,Batis orientalis,avibase-A6DFFC15,Grey-headed Batis,Batis orientalis
-stable-avibase-A6EA9F02,classification_change,stable_avilist_id,avibase-A6EA9F02,Speckled Pigeon,Columba guinea,avibase-A6EA9F02,Speckled Pigeon,Columba guinea
-stable-avibase-A77D4A77,name_and_classification_change,stable_avilist_id,avibase-A77D4A77,White-crowned Starling,Lamprotornis albicapillus (race horrensis),avibase-A77D4A77,White-crowned Starling,Lamprotornis albicapillus
-stable-avibase-A7E59764,name_and_classification_change,stable_avilist_id,avibase-A7E59764,Jackson’s Francolin,Pternistis jacksoni,avibase-A7E59764,Jackson's Spurfowl,Pternistis jacksoni
-stable-avibase-A7F240E3,classification_change,stable_avilist_id,avibase-A7F240E3,White-eyed Gull, Ichthyaetus leucophthalmus,avibase-A7F240E3,White-eyed Gull,Ichthyaetus leucophthalmus
-stable-avibase-A9030503,classification_change,stable_avilist_id,avibase-A9030503,Red-faced Crombec,Sylvietta whytii,avibase-A9030503,Red-faced Crombec,Sylvietta whytii
-stable-avibase-A927C1AE,name_and_classification_change,stable_avilist_id,avibase-A927C1AE,Lesser Moorhen,Gallinula angulata,avibase-A927C1AE,Lesser Moorhen,Paragallinula angulata
-stable-avibase-A96692E0,classification_change,stable_avilist_id,avibase-A96692E0,Common Pochard,Aythya ferina,avibase-A96692E0,Common Pochard,Aythya ferina
+stable-avibase-A51A5F84,name_change,stable_avilist_id,avibase-A51A5F84,Spotted Creeper,Salpornis salvadori,avibase-A51A5F84,African Spotted Creeper,Salpornis salvadori
+stable-avibase-A526534E,name_change,stable_avilist_id,avibase-A526534E,Pennant-winged Nightjar,Macrodipteryx vexillarius,avibase-A526534E,Pennant-winged Nightjar,Caprimulgus vexillarius
+stable-avibase-A77D4A77,name_change,stable_avilist_id,avibase-A77D4A77,White-crowned Starling,Lamprotornis albicapillus (race horrensis),avibase-A77D4A77,White-crowned Starling,Lamprotornis albicapillus
+stable-avibase-A7E59764,name_change,stable_avilist_id,avibase-A7E59764,Jackson’s Francolin,Pternistis jacksoni,avibase-A7E59764,Jackson's Spurfowl,Pternistis jacksoni
+stable-avibase-A927C1AE,name_change,stable_avilist_id,avibase-A927C1AE,Lesser Moorhen,Gallinula angulata,avibase-A927C1AE,Lesser Moorhen,Paragallinula angulata
 stable-avibase-A990EB0B,name_change,stable_avilist_id,avibase-A990EB0B,Fawn-coloured Lark,Calendulauda africanoides,avibase-A990EB0B,Fawn-colored Lark,Calendulauda africanoides
-stable-avibase-A9F51494,classification_change,stable_avilist_id,avibase-A9F51494,Saker Falcon,Falco cherrug,avibase-A9F51494,Saker Falcon,Falco cherrug
 stable-avibase-AA4385A2,name_change,stable_avilist_id,avibase-AA4385A2,Kentish Plover,Charadrius alexandrinus,avibase-AA4385A2,Kentish Plover,Anarhynchus alexandrinus
-stable-avibase-AAC2D613,name_and_classification_change,stable_avilist_id,avibase-AAC2D613,Cape Petrel,Daption capense,avibase-AAC2D613,Pintado Petrel,Daption capense
-stable-avibase-AB1CB216,name_and_classification_change,stable_avilist_id,avibase-AB1CB216,Cattle Egret,Bubulcus ibis,avibase-AB1CB216,Western Cattle Egret,Ardea ibis
-stable-avibase-AB38EDFD,classification_change,stable_avilist_id,avibase-AB38EDFD,Silverbird,Empidornis semipartitus,avibase-AB38EDFD,Silverbird,Empidornis semipartitus
-stable-avibase-AB937AEB,classification_change,stable_avilist_id,avibase-AB937AEB,Ring-necked Dove,Streptopelia capicola,avibase-AB937AEB,Ring-necked Dove,Streptopelia capicola
+stable-avibase-AAC2D613,name_change,stable_avilist_id,avibase-AAC2D613,Cape Petrel,Daption capense,avibase-AAC2D613,Pintado Petrel,Daption capense
+stable-avibase-AB1CB216,name_change,stable_avilist_id,avibase-AB1CB216,Cattle Egret,Bubulcus ibis,avibase-AB1CB216,Western Cattle Egret,Ardea ibis
 stable-avibase-AC89B8FF,name_change,stable_avilist_id,avibase-AC89B8FF,Madagascar Bee-eater,Merops superciliosus,avibase-AC89B8FF,Olive Bee-eater,Merops superciliosus
-stable-avibase-ACDC8DEE,classification_change,stable_avilist_id,avibase-ACDC8DEE,Gorgeous Bushshrike,Telophorus viridis,avibase-ACDC8DEE,Gorgeous Bushshrike,Telophorus viridis
-stable-avibase-ACE8EADE,name_and_classification_change,stable_avilist_id,avibase-ACE8EADE,Black-bellied Storm-Petrel,Fregetta tropica,avibase-ACE8EADE,Black-bellied Storm Petrel,Fregetta tropica
-stable-avibase-ACF0F1A2,name_and_classification_change,stable_avilist_id,avibase-ACF0F1A2,Eastern Paradise Whydah,Vidua paradisaea,avibase-ACF0F1A2,Long-tailed Paradise Whydah,Vidua paradisaea
+stable-avibase-ACE8EADE,name_change,stable_avilist_id,avibase-ACE8EADE,Black-bellied Storm-Petrel,Fregetta tropica,avibase-ACE8EADE,Black-bellied Storm Petrel,Fregetta tropica
+stable-avibase-ACF0F1A2,name_change,stable_avilist_id,avibase-ACF0F1A2,Eastern Paradise Whydah,Vidua paradisaea,avibase-ACF0F1A2,Long-tailed Paradise Whydah,Vidua paradisaea
 stable-avibase-ADDB3611,name_change,stable_avilist_id,avibase-ADDB3611,White-headed Mousebird,Colius leucocephalus (race turneri),avibase-ADDB3611,White-headed Mousebird,Colius leucocephalus
-stable-avibase-AE073221,classification_change,stable_avilist_id,avibase-AE073221,Grey Wagtail,Motacilla cinerea,avibase-AE073221,Grey Wagtail,Motacilla cinerea
-stable-avibase-AEB2DA9B,classification_change,stable_avilist_id,avibase-AEB2DA9B,Rufous-bellied Heron,Ardeola rufiventris,avibase-AEB2DA9B,Rufous-bellied Heron,Ardeola rufiventris
-stable-avibase-AEC1B69C,classification_change,stable_avilist_id,avibase-AEC1B69C,Stuhlmann's Starling,Poeoptera stuhlmanni,avibase-AEC1B69C,Stuhlmann's Starling,Poeoptera stuhlmanni
-stable-avibase-AEEED5D0,classification_change,stable_avilist_id,avibase-AEEED5D0,Bronze-tailed Starling,Lamprotornis chalcurus,avibase-AEEED5D0,Bronze-tailed Starling,Lamprotornis chalcurus
 stable-avibase-AF75AC32,name_change,stable_avilist_id,avibase-AF75AC32,(Northern) Red-billed Hornbill,Tockus erythrorhynchus,avibase-AF75AC32,Northern Red-billed Hornbill,Tockus erythrorhynchus
-stable-avibase-B01090EF,classification_change,stable_avilist_id,avibase-B01090EF,Dusky Crested Flycatcher,Elminia nigromitrata,avibase-B01090EF,Dusky Crested Flycatcher,Elminia nigromitrata
-stable-avibase-B022292C,classification_change,stable_avilist_id,avibase-B022292C,Amethyst Sunbird,Chalcomitra amethystina,avibase-B022292C,Amethyst Sunbird,Chalcomitra amethystina
-stable-avibase-B08FF959,classification_change,stable_avilist_id,avibase-B08FF959,Fan-tailed Widowbird,Euplectes axillaris,avibase-B08FF959,Fan-tailed Widowbird,Euplectes axillaris
-stable-avibase-B0DD1318,classification_change,stable_avilist_id,avibase-B0DD1318,Common Scimitarbill,Rhinopomastus cyanomelas,avibase-B0DD1318,Common Scimitarbill,Rhinopomastus cyanomelas
-stable-avibase-B0E7740F,name_and_classification_change,stable_avilist_id,avibase-B0E7740F,Pygmy Sunbird,Hedydipna platyura,avibase-B0E7740F,Pygmy Sunbird,Hedydipna platura
-stable-avibase-B15F4C49,name_and_classification_change,stable_avilist_id,avibase-B15F4C49,Grey-headed Negrofinch,Nigrita canicapillus,avibase-B15F4C49,Grey-headed Nigrita,Nigrita canicapillus
-stable-avibase-B1A3AF6C,classification_change,stable_avilist_id,avibase-B1A3AF6C,Violet-backed Starling,Cinnyricinclus leucogaster,avibase-B1A3AF6C,Violet-backed Starling,Cinnyricinclus leucogaster
-stable-avibase-B21A37E7,name_and_classification_change,stable_avilist_id,avibase-B21A37E7,(African) Grass Owl,Tyto capensis,avibase-B21A37E7,African Grass Owl,Tyto capensis
-stable-avibase-B24A13C7,classification_change,stable_avilist_id,avibase-B24A13C7,Shelley’s Starling,Lamprotornis shelleyi,avibase-B24A13C7,Shelley's Starling,Lamprotornis shelleyi
-stable-avibase-B24BD4A1,classification_change,stable_avilist_id,avibase-B24BD4A1,Taita White-eye,Zosterops silvanus,avibase-B24BD4A1,Taita White-eye,Zosterops silvanus
-stable-avibase-B2D6AB06,classification_change,stable_avilist_id,avibase-B2D6AB06,Laughing Dove,Spilopelia senegalensis,avibase-B2D6AB06,Laughing Dove,Spilopelia senegalensis
-stable-avibase-B2E6AB9F,classification_change,stable_avilist_id,avibase-B2E6AB9F,Eurasian Wryneck,Jynx torquilla,avibase-B2E6AB9F,Eurasian Wryneck,Jynx torquilla
-stable-avibase-B38CE692,classification_change,stable_avilist_id,avibase-B38CE692,Black-billed Weaver,Ploceus melanogaster,avibase-B38CE692,Black-billed Weaver,Ploceus melanogaster
-stable-avibase-B3D2C3C5,classification_change,stable_avilist_id,avibase-B3D2C3C5,Common Cuckoo,Cuculus canorus,avibase-B3D2C3C5,Common Cuckoo,Cuculus canorus
-stable-avibase-B418B155,classification_change,stable_avilist_id,avibase-B418B155,Angola Swallow,Hirundo angolensis,avibase-B418B155,Angola Swallow,Hirundo angolensis
-stable-avibase-B4967714,name_and_classification_change,stable_avilist_id,avibase-B4967714,Red-rumped Swallow,Cecropis daurica rufula,avibase-B4967714,European Red-rumped Swallow,Cecropis rufula
-stable-avibase-B49935ED,classification_change,stable_avilist_id,avibase-B49935ED,Red-winged Francolin,Scleroptila levaillantii,avibase-B49935ED,Red-winged Francolin,Scleroptila levaillantii
-stable-avibase-B4A4E4BF,classification_change,stable_avilist_id,avibase-B4A4E4BF,Red-billed Firefinch,Lagonosticta senegala,avibase-B4A4E4BF,Red-billed Firefinch,Lagonosticta senegala
-stable-avibase-B55BADC1,classification_change,stable_avilist_id,avibase-B55BADC1,Sooty Chat,Myrmecocichla nigra,avibase-B55BADC1,Sooty Chat,Myrmecocichla nigra
-stable-avibase-B5B6EC7B,classification_change,stable_avilist_id,avibase-B5B6EC7B,White-browed Scrub Robin,Cercotrichas leucophrys,avibase-B5B6EC7B,White-browed Scrub Robin,Cercotrichas leucophrys
-stable-avibase-B605A049,classification_change,stable_avilist_id,avibase-B605A049,Quail-plover,Ortyxelos meiffrenii,avibase-B605A049,Quail-plover,Ortyxelos meiffrenii
-stable-avibase-B68BD0D2,name_and_classification_change,stable_avilist_id,avibase-B68BD0D2,Rufous Bush Chat,Cercotrichas galactotes,avibase-B68BD0D2,Rufous-tailed Scrub Robin,Cercotrichas galactotes
-stable-avibase-B79D6B3D,classification_change,stable_avilist_id,avibase-B79D6B3D,Wire-tailed Swallow,Hirundo smithii,avibase-B79D6B3D,Wire-tailed Swallow,Hirundo smithii
+stable-avibase-B0E7740F,name_change,stable_avilist_id,avibase-B0E7740F,Pygmy Sunbird,Hedydipna platyura,avibase-B0E7740F,Pygmy Sunbird,Hedydipna platura
+stable-avibase-B15F4C49,name_change,stable_avilist_id,avibase-B15F4C49,Grey-headed Negrofinch,Nigrita canicapillus,avibase-B15F4C49,Grey-headed Nigrita,Nigrita canicapillus
+stable-avibase-B21A37E7,name_change,stable_avilist_id,avibase-B21A37E7,(African) Grass Owl,Tyto capensis,avibase-B21A37E7,African Grass Owl,Tyto capensis
+stable-avibase-B4967714,name_change,stable_avilist_id,avibase-B4967714,Red-rumped Swallow,Cecropis daurica rufula,avibase-B4967714,European Red-rumped Swallow,Cecropis rufula
+stable-avibase-B68BD0D2,name_change,stable_avilist_id,avibase-B68BD0D2,Rufous Bush Chat,Cercotrichas galactotes,avibase-B68BD0D2,Rufous-tailed Scrub Robin,Cercotrichas galactotes
 stable-avibase-B85B93BB,name_change,stable_avilist_id,avibase-B85B93BB,Cinnamon-chested Bee-eater,Merops lafresnayii,avibase-B85B93BB,Cinnamon-chested Bee-eater,Merops oreobates
-stable-avibase-B8D42059,classification_change,stable_avilist_id,avibase-B8D42059,Barred Long-tailed Cuckoo,Cercococcyx montanus,avibase-B8D42059,Barred Long-tailed Cuckoo,Cercococcyx montanus
-stable-avibase-B9104F62,classification_change,stable_avilist_id,avibase-B9104F62,Golden Pipit,Tmetothylacus tenellus,avibase-B9104F62,Golden Pipit,Tmetothylacus tenellus
-stable-avibase-B9BE800C,classification_change,stable_avilist_id,avibase-B9BE800C,Yellow-bellied Waxbill,Coccopygia quartinia,avibase-B9BE800C,Yellow-bellied Waxbill,Coccopygia quartinia
-stable-avibase-BA01A793,classification_change,stable_avilist_id,avibase-BA01A793,Village Indigobird,Vidua chalybeata,avibase-BA01A793,Village Indigobird,Vidua chalybeata
-stable-avibase-BA63C545,classification_change,stable_avilist_id,avibase-BA63C545,Mombasa Woodpecker,Campethera mombassica,avibase-BA63C545,Mombasa Woodpecker,Campethera mombassica
-stable-avibase-BAC4CA22,classification_change,stable_avilist_id,avibase-BAC4CA22,Greater Spotted Eagle,Clanga clanga,avibase-BAC4CA22,Greater Spotted Eagle,Clanga clanga
 stable-avibase-BAE527A2,name_change,stable_avilist_id,avibase-BAE527A2,Eastern Olivaceous Warbler,Hippolais pallida,avibase-BAE527A2,Eastern Olivaceous Warbler,Iduna pallida
-stable-avibase-BAE91683,classification_change,stable_avilist_id,avibase-BAE91683,Ovambo Sparrowhawk,Accipiter ovampensis,avibase-BAE91683,Ovambo Sparrowhawk,Accipiter ovampensis
-stable-avibase-BB05D1FC,name_and_classification_change,stable_avilist_id,avibase-BB05D1FC,Snowy-headed Robin Chat,Cossypha niveicapilla,avibase-BB05D1FC,Snowy-crowned Robin-Chat,Cossypha niveicapilla
+stable-avibase-BB05D1FC,name_change,stable_avilist_id,avibase-BB05D1FC,Snowy-headed Robin Chat,Cossypha niveicapilla,avibase-BB05D1FC,Snowy-crowned Robin-Chat,Cossypha niveicapilla
 stable-avibase-BB11EE7F,name_change,stable_avilist_id,avibase-BB11EE7F,Brown-rumped Bunting,Fringillaria affinis,avibase-BB11EE7F,Brown-rumped Bunting,Emberiza affinis
 stable-avibase-BB456342,name_change,stable_avilist_id,avibase-BB456342,Racquet-tailed Roller,Coracias spatulatus,avibase-BB456342,Racket-tailed Roller,Coracias spatulatus
-stable-avibase-BBA263C2,name_and_classification_change,stable_avilist_id,avibase-BBA263C2,Feral Pigeon,Columba livia,avibase-BBA263C2,Rock Dove,Columba livia
-stable-avibase-BC06BC0D,classification_change,stable_avilist_id,avibase-BC06BC0D,Caspian Tern,Hydroprogne caspia,avibase-BC06BC0D,Caspian Tern,Hydroprogne caspia
-stable-avibase-BC0E4C9F,classification_change,stable_avilist_id,avibase-BC0E4C9F,Common Grasshopper Warbler,Locustella naevia,avibase-BC0E4C9F,Common Grasshopper Warbler,Locustella naevia
-stable-avibase-BC6C3CCE,name_and_classification_change,stable_avilist_id,avibase-BC6C3CCE,Eurasian Teal,Anas crecca,avibase-BC6C3CCE,Green-winged Teal,Anas crecca
-stable-avibase-BCA0F974,classification_change,stable_avilist_id,avibase-BCA0F974,White-headed Barbet,Lybius leucocephalus,avibase-BCA0F974,White-headed Barbet,Lybius leucocephalus
-stable-avibase-BD34FDFD,classification_change,stable_avilist_id,avibase-BD34FDFD,Sooty Falcon,Falco concolor,avibase-BD34FDFD,Sooty Falcon,Falco concolor
-stable-avibase-BD7558AD,classification_change,stable_avilist_id,avibase-BD7558AD,Brown Twinspot,Clytospiza monteiri,avibase-BD7558AD,Brown Twinspot,Clytospiza monteiri
-stable-avibase-BD7C4F70,name_and_classification_change,stable_avilist_id,avibase-BD7C4F70,Green-backed Woodpecker,Campethera cailliautii,avibase-BD7C4F70,Green-backed Woodpecker,Campethera maculosa
-stable-avibase-BDC5CF80,classification_change,stable_avilist_id,avibase-BDC5CF80,Arctic Tern ,Sterna paradisaea,avibase-BDC5CF80,Arctic Tern,Sterna paradisaea
-stable-avibase-BDF442F2,name_and_classification_change,stable_avilist_id,avibase-BDF442F2,Emerald-spotted Wood-Dove,Turtur chalcospilos,avibase-BDF442F2,Emerald-spotted Wood Dove,Turtur chalcospilos
-stable-avibase-BE1FE156,classification_change,stable_avilist_id,avibase-BE1FE156,Baglafecht Weaver,Ploceus baglafecht,avibase-BE1FE156,Baglafecht Weaver,Ploceus baglafecht
-stable-avibase-BE56C141,name_and_classification_change,stable_avilist_id,avibase-BE56C141,Semi-collared Flycatcher,Ficedula semitorquata,avibase-BE56C141,Semicollared Flycatcher,Ficedula semitorquata
-stable-avibase-BE62734A,classification_change,stable_avilist_id,avibase-BE62734A,Black-headed Oriole,Oriolus larvatus,avibase-BE62734A,Black-headed Oriole,Oriolus larvatus
-stable-avibase-BE85C81E,classification_change,stable_avilist_id,avibase-BE85C81E,Yellow-mantled Weaver,Ploceus tricolor,avibase-BE85C81E,Yellow-mantled Weaver,Ploceus tricolor
-stable-avibase-BECA271F,classification_change,stable_avilist_id,avibase-BECA271F,Lesser Kestrel,Falco naumanni,avibase-BECA271F,Lesser Kestrel,Falco naumanni
-stable-avibase-BF0A0954,classification_change,stable_avilist_id,avibase-BF0A0954,Jacobin Cuckoo,Clamator jacobinus,avibase-BF0A0954,Jacobin Cuckoo,Clamator jacobinus
-stable-avibase-BF553D32,classification_change,stable_avilist_id,avibase-BF553D32,Black-chested Snake Eagle,Circaetus pectoralis,avibase-BF553D32,Black-chested Snake Eagle,Circaetus pectoralis
+stable-avibase-BBA263C2,name_change,stable_avilist_id,avibase-BBA263C2,Feral Pigeon,Columba livia,avibase-BBA263C2,Rock Dove,Columba livia
+stable-avibase-BC6C3CCE,name_change,stable_avilist_id,avibase-BC6C3CCE,Eurasian Teal,Anas crecca,avibase-BC6C3CCE,Green-winged Teal,Anas crecca
+stable-avibase-BD7C4F70,name_change,stable_avilist_id,avibase-BD7C4F70,Green-backed Woodpecker,Campethera cailliautii,avibase-BD7C4F70,Green-backed Woodpecker,Campethera maculosa
+stable-avibase-BDF442F2,name_change,stable_avilist_id,avibase-BDF442F2,Emerald-spotted Wood-Dove,Turtur chalcospilos,avibase-BDF442F2,Emerald-spotted Wood Dove,Turtur chalcospilos
+stable-avibase-BE56C141,name_change,stable_avilist_id,avibase-BE56C141,Semi-collared Flycatcher,Ficedula semitorquata,avibase-BE56C141,Semicollared Flycatcher,Ficedula semitorquata
 stable-avibase-C130193B,name_change,stable_avilist_id,avibase-C130193B,Double-banded Courser,Rhinoptilus africanus,avibase-C130193B,Double-banded Courser,Smutsornis africanus
-stable-avibase-C1A42CCA,classification_change,stable_avilist_id,avibase-C1A42CCA,Broad-tailed Paradise Whydah,Vidua obtusa,avibase-C1A42CCA,Broad-tailed Paradise Whydah,Vidua obtusa
-stable-avibase-C1CBA33A,name_and_classification_change,stable_avilist_id,avibase-C1CBA33A,Mouse-coloured Sunbird,Cyanomitra veroxii,avibase-C1CBA33A,Grey Sunbird,Cyanomitra veroxii
-stable-avibase-C235A4D7,classification_change,stable_avilist_id,avibase-C235A4D7,Gadwall,Mareca strepera,avibase-C235A4D7,Gadwall,Mareca strepera
-stable-avibase-C2565B65,classification_change,stable_avilist_id,avibase-C2565B65,Lesser Spotted Eagle,Clanga pomarina,avibase-C2565B65,Lesser Spotted Eagle,Clanga pomarina
-stable-avibase-C25F57BD,classification_change,stable_avilist_id,avibase-C25F57BD,Equatorial Akalat,Sheppardia aequatorialis,avibase-C25F57BD,Equatorial Akalat,Sheppardia aequatorialis
-stable-avibase-C2E0717C,classification_change,stable_avilist_id,avibase-C2E0717C,Madagascar Cuckoo,Cuculus rochii,avibase-C2E0717C,Madagascar Cuckoo,Cuculus rochii
-stable-avibase-C38DEB1A,classification_change,stable_avilist_id,avibase-C38DEB1A,Kandt's Waxbill,Estrilda kandti,avibase-C38DEB1A,Kandt's Waxbill,Estrilda kandti
-stable-avibase-C3ABF863,name_and_classification_change,stable_avilist_id,avibase-C3ABF863,Yellow-billed Egret,Egretta intermedia,avibase-C3ABF863,Yellow-billed Egret,Ardea brachyrhyncha
-stable-avibase-C3E33FEB,classification_change,stable_avilist_id,avibase-C3E33FEB,Crab-plover,Dromas ardeola,avibase-C3E33FEB,Crab-plover,Dromas ardeola
+stable-avibase-C1CBA33A,name_change,stable_avilist_id,avibase-C1CBA33A,Mouse-coloured Sunbird,Cyanomitra veroxii,avibase-C1CBA33A,Grey Sunbird,Cyanomitra veroxii
+stable-avibase-C3ABF863,name_change,stable_avilist_id,avibase-C3ABF863,Yellow-billed Egret,Egretta intermedia,avibase-C3ABF863,Yellow-billed Egret,Ardea brachyrhyncha
 stable-avibase-C49FA9A8,name_change,stable_avilist_id,avibase-C49FA9A8,Flappet Lark,Mirafra rufocinnamomea,avibase-C49FA9A8,Flappet Lark,Amirafra rufocinnamomea
-stable-avibase-C505EA72,name_and_classification_change,stable_avilist_id,avibase-C505EA72,African Harrier Hawk (Gymnogene),Polyboroides typus,avibase-C505EA72,African Harrier-Hawk,Polyboroides typus
-stable-avibase-C54DCA26,name_and_classification_change,stable_avilist_id,avibase-C54DCA26,Abyssinian Ground Thrush,Zoothera piaggiae,avibase-C54DCA26,Abyssinian Ground Thrush,Geokichla piaggiae
-stable-avibase-C5585051,name_and_classification_change,stable_avilist_id,avibase-C5585051,Reichenow’s (Speckle-throated) Woodpecker,Campethera scriptoricauda,avibase-C5585051,Speckle-throated Woodpecker,Campethera scriptoricauda
-stable-avibase-C59DFD44,classification_change,stable_avilist_id,avibase-C59DFD44,Red-naped Bushshrike,Laniarius ruficeps,avibase-C59DFD44,Red-naped Bushshrike,Laniarius ruficeps
-stable-avibase-C5C38D98,name_and_classification_change,stable_avilist_id,avibase-C5C38D98,Chin-spot Batis,Batis molitor,avibase-C5C38D98,Chinspot Batis,Batis molitor
-stable-avibase-C5FB15C6,name_and_classification_change,stable_avilist_id,avibase-C5FB15C6,Leach’s Storm-petrel,Hydrobates leucorhous,avibase-C5FB15C6,Leach's Storm Petrel,Hydrobates leucorhous
-stable-avibase-C649EA57,classification_change,stable_avilist_id,avibase-C649EA57,Brown-capped Weaver,Ploceus insignis,avibase-C649EA57,Brown-capped Weaver,Ploceus insignis
+stable-avibase-C505EA72,name_change,stable_avilist_id,avibase-C505EA72,African Harrier Hawk (Gymnogene),Polyboroides typus,avibase-C505EA72,African Harrier-Hawk,Polyboroides typus
+stable-avibase-C54DCA26,name_change,stable_avilist_id,avibase-C54DCA26,Abyssinian Ground Thrush,Zoothera piaggiae,avibase-C54DCA26,Abyssinian Ground Thrush,Geokichla piaggiae
+stable-avibase-C5585051,name_change,stable_avilist_id,avibase-C5585051,Reichenow’s (Speckle-throated) Woodpecker,Campethera scriptoricauda,avibase-C5585051,Speckle-throated Woodpecker,Campethera scriptoricauda
+stable-avibase-C5C38D98,name_change,stable_avilist_id,avibase-C5C38D98,Chin-spot Batis,Batis molitor,avibase-C5C38D98,Chinspot Batis,Batis molitor
+stable-avibase-C5FB15C6,name_change,stable_avilist_id,avibase-C5FB15C6,Leach’s Storm-petrel,Hydrobates leucorhous,avibase-C5FB15C6,Leach's Storm Petrel,Hydrobates leucorhous
 stable-avibase-C67FD539,name_change,stable_avilist_id,avibase-C67FD539,Red-winged Warbler,Prinia erythropterus,avibase-C67FD539,Red-winged Prinia,Prinia erythroptera
-stable-avibase-C69E0E28,classification_change,stable_avilist_id,avibase-C69E0E28,Striped Pipit,Anthus lineiventris,avibase-C69E0E28,Striped Pipit,Anthus lineiventris
-stable-avibase-C7708C70,name_and_classification_change,stable_avilist_id,avibase-C7708C70,Grosbeak Weaver,Amblyospiza albifrons,avibase-C7708C70,Thick-billed Weaver,Amblyospiza albifrons
-stable-avibase-C7888A15,classification_change,stable_avilist_id,avibase-C7888A15,Goliath Heron,Ardea goliath,avibase-C7888A15,Goliath Heron,Ardea goliath
+stable-avibase-C7708C70,name_change,stable_avilist_id,avibase-C7708C70,Grosbeak Weaver,Amblyospiza albifrons,avibase-C7708C70,Thick-billed Weaver,Amblyospiza albifrons
 stable-avibase-C7B05F46,name_change,stable_avilist_id,avibase-C7B05F46,Grey Cuckooshrike,Ceblepyris caesia,avibase-C7B05F46,Grey Cuckooshrike,Ceblepyris caesius
-stable-avibase-C7DB323E,name_and_classification_change,stable_avilist_id,avibase-C7DB323E,Stone-curlew,Burhinus oedicnemus,avibase-C7DB323E,Eurasian Stone-curlew,Burhinus oedicnemus
-stable-avibase-C8880D28,name_and_classification_change,stable_avilist_id,avibase-C8880D28,White-bellied Tit,Parus albiventris,avibase-C8880D28,White-bellied Tit,Melaniparus albiventris
-stable-avibase-C90890A3,classification_change,stable_avilist_id,avibase-C90890A3,Speckle-fronted Weaver,Sporopipes frontalis,avibase-C90890A3,Speckle-fronted Weaver,Sporopipes frontalis
-stable-avibase-C978ABCC,name_and_classification_change,stable_avilist_id,avibase-C978ABCC,Southern (Grey-faced) Citril ,Crithagra (citrinelloides) hyposticta,avibase-C978ABCC,Southern Citril,Crithagra hyposticta
-stable-avibase-C97A5C39,name_and_classification_change,stable_avilist_id,avibase-C97A5C39,Parasitic Weaver,Anomalospiza imberbis,avibase-C97A5C39,Cuckoo-finch,Anomalospiza imberbis
-stable-avibase-C9A1C773,classification_change,stable_avilist_id,avibase-C9A1C773,Black-billed Turaco,Tauraco schuettii,avibase-C9A1C773,Black-billed Turaco,Tauraco schuettii
-stable-avibase-CA34C05A,classification_change,stable_avilist_id,avibase-CA34C05A,Dickinson's Kestrel,Falco dickinsoni,avibase-CA34C05A,Dickinson's Kestrel,Falco dickinsoni
-stable-avibase-CA4839B2,classification_change,stable_avilist_id,avibase-CA4839B2,Spectacled Weaver,Ploceus ocularis,avibase-CA4839B2,Spectacled Weaver,Ploceus ocularis
-stable-avibase-CAA45AC6,name_and_classification_change,stable_avilist_id,avibase-CAA45AC6,African Blue Quail,Synoicus adansoniee,avibase-CAA45AC6,Blue Quail,Synoicus adansonii
-stable-avibase-CAFE345D,name_and_classification_change,stable_avilist_id,avibase-CAFE345D,Common Quail,Coturnix coturnix (race coturnix),avibase-CAFE345D,Common Quail,Coturnix coturnix
-stable-avibase-CB7FB32A,classification_change,stable_avilist_id,avibase-CB7FB32A,Blue Swallow,Hirundo atrocaerulea,avibase-CB7FB32A,Blue Swallow,Hirundo atrocaerulea
-stable-avibase-CBA39A29,classification_change,stable_avilist_id,avibase-CBA39A29,Usambara Double-collared Sunbird,Cinnyris usambaricus,avibase-CBA39A29,Usambara Double-collared Sunbird,Cinnyris usambaricus
-stable-avibase-CC65921F,classification_change,stable_avilist_id,avibase-CC65921F,Long-legged Buzzard,Buteo rufinus,avibase-CC65921F,Long-legged Buzzard,Buteo rufinus
-stable-avibase-CC7862AF,classification_change,stable_avilist_id,avibase-CC7862AF,Black Bishop,Euplectes gierowii,avibase-CC7862AF,Black Bishop,Euplectes gierowii
-stable-avibase-CD2F7C98,classification_change,stable_avilist_id,avibase-CD2F7C98,Golden-tailed Woodpecker,Campethera abingoni,avibase-CD2F7C98,Golden-tailed Woodpecker,Campethera abingoni
-stable-avibase-CD8DEBE3,name_and_classification_change,stable_avilist_id,avibase-CD8DEBE3,Familiar (Red-tailed) Chat,Oenanthe familiaris,avibase-CD8DEBE3,Familiar Chat,Oenanthe familiaris
-stable-avibase-CDDA63E0,classification_change,stable_avilist_id,avibase-CDDA63E0,Cut-throat Finch,Amadina fasciata,avibase-CDDA63E0,Cut-throat Finch,Amadina fasciata
+stable-avibase-C7DB323E,name_change,stable_avilist_id,avibase-C7DB323E,Stone-curlew,Burhinus oedicnemus,avibase-C7DB323E,Eurasian Stone-curlew,Burhinus oedicnemus
+stable-avibase-C8880D28,name_change,stable_avilist_id,avibase-C8880D28,White-bellied Tit,Parus albiventris,avibase-C8880D28,White-bellied Tit,Melaniparus albiventris
+stable-avibase-C978ABCC,name_change,stable_avilist_id,avibase-C978ABCC,Southern (Grey-faced) Citril ,Crithagra (citrinelloides) hyposticta,avibase-C978ABCC,Southern Citril,Crithagra hyposticta
+stable-avibase-C97A5C39,name_change,stable_avilist_id,avibase-C97A5C39,Parasitic Weaver,Anomalospiza imberbis,avibase-C97A5C39,Cuckoo-finch,Anomalospiza imberbis
+stable-avibase-CAA45AC6,name_change,stable_avilist_id,avibase-CAA45AC6,African Blue Quail,Synoicus adansoniee,avibase-CAA45AC6,Blue Quail,Synoicus adansonii
+stable-avibase-CAFE345D,name_change,stable_avilist_id,avibase-CAFE345D,Common Quail,Coturnix coturnix (race coturnix),avibase-CAFE345D,Common Quail,Coturnix coturnix
+stable-avibase-CD8DEBE3,name_change,stable_avilist_id,avibase-CD8DEBE3,Familiar (Red-tailed) Chat,Oenanthe familiaris,avibase-CD8DEBE3,Familiar Chat,Oenanthe familiaris
 stable-avibase-CDF4A106,name_change,stable_avilist_id,avibase-CDF4A106,Striolated Bunting,Fringillaria striolata,avibase-CDF4A106,Striolated Bunting,Emberiza striolata
-stable-avibase-CE1CF6FD,name_and_classification_change,stable_avilist_id,avibase-CE1CF6FD,Little Sparrowhawk,Accipiter minullus,avibase-CE1CF6FD,Little Sparrowhawk,Tachyspiza minulla
-stable-avibase-CE73EBD7,classification_change,stable_avilist_id,avibase-CE73EBD7,Squacco Heron,Ardeola ralloides,avibase-CE73EBD7,Squacco Heron,Ardeola ralloides
-stable-avibase-CE7D41A6,classification_change,stable_avilist_id,avibase-CE7D41A6,African Pied Wagtail,Motacilla aguimp,avibase-CE7D41A6,African Pied Wagtail,Motacilla aguimp
-stable-avibase-CE884D49,classification_change,stable_avilist_id,avibase-CE884D49,Star-spotted Nightjar,Caprimulgus stellatus,avibase-CE884D49,Star-spotted Nightjar,Caprimulgus stellatus
-stable-avibase-CF2E9674,name_and_classification_change,stable_avilist_id,avibase-CF2E9674,Common Stonechat,Saxicola torquatus,avibase-CF2E9674,African Stonechat,Saxicola torquatus
-stable-avibase-CF5C013D,classification_change,stable_avilist_id,avibase-CF5C013D,White-cheeked Tern,Sterna repressa,avibase-CF5C013D,White-cheeked Tern,Sterna repressa
-stable-avibase-D01CDECD,classification_change,stable_avilist_id,avibase-D01CDECD,Lesser Crested Tern,Thalasseus bengalensis,avibase-D01CDECD,Lesser Crested Tern,Thalasseus bengalensis
-stable-avibase-D0A5FADB,name_and_classification_change,stable_avilist_id,avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema (race hausbergi),avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema
+stable-avibase-CE1CF6FD,name_change,stable_avilist_id,avibase-CE1CF6FD,Little Sparrowhawk,Accipiter minullus,avibase-CE1CF6FD,Little Sparrowhawk,Tachyspiza minulla
+stable-avibase-CF2E9674,name_change,stable_avilist_id,avibase-CF2E9674,Common Stonechat,Saxicola torquatus,avibase-CF2E9674,African Stonechat,Saxicola torquatus
+stable-avibase-D0A5FADB,name_change,stable_avilist_id,avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema (race hausbergi),avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema
 stable-avibase-D0EAD8A3,name_change,stable_avilist_id,avibase-D0EAD8A3,Collared Lark,Mirafra collaris,avibase-D0EAD8A3,Collared Lark,Amirafra collaris
 stable-avibase-D0FA8EBE,name_change,stable_avilist_id,avibase-D0FA8EBE,Crowned Plover,Vanellus coronatus,avibase-D0FA8EBE,Crowned Lapwing,Vanellus coronatus
-stable-avibase-D12CDD0F,name_and_classification_change,stable_avilist_id,avibase-D12CDD0F,Black-throated Seedeater,Crithagra atrogularis,avibase-D12CDD0F,Black-throated Canary,Crithagra atrogularis
+stable-avibase-D12CDD0F,name_change,stable_avilist_id,avibase-D12CDD0F,Black-throated Seedeater,Crithagra atrogularis,avibase-D12CDD0F,Black-throated Canary,Crithagra atrogularis
 stable-avibase-D1C1A026,name_change,stable_avilist_id,avibase-D1C1A026,Golden-breasted Bunting,Fringillaria flaviventris,avibase-D1C1A026,Golden-breasted Bunting,Emberiza flaviventris
-stable-avibase-D1D9B619,classification_change,stable_avilist_id,avibase-D1D9B619,Donaldson Smith's Nightjar,Caprimulgus donaldsoni,avibase-D1D9B619,Donaldson Smith's Nightjar,Caprimulgus donaldsoni
-stable-avibase-D1FFB474,name_and_classification_change,stable_avilist_id,avibase-D1FFB474,White-headed Wood-hoopoe,Phoeniculus bollei,avibase-D1FFB474,White-headed Wood Hoopoe,Phoeniculus bollei
-stable-avibase-D2854489,name_and_classification_change,stable_avilist_id,avibase-D2854489,Plain Martin,Riparia paludicola,avibase-D2854489,Brown-throated Martin,Riparia paludicola
-stable-avibase-D295D249,name_and_classification_change,stable_avilist_id,avibase-D295D249,Wilson’s Storm-petrel ,Oceanites oceanicus,avibase-D295D249,Wilson's Storm Petrel,Oceanites oceanicus
-stable-avibase-D2AFD39B,classification_change,stable_avilist_id,avibase-D2AFD39B,Dark Chanting Goshawk,Melierax metabates,avibase-D2AFD39B,Dark Chanting Goshawk,Melierax metabates
-stable-avibase-D2B15B3F,classification_change,stable_avilist_id,avibase-D2B15B3F,Olive-bellied Sunbird,Cinnyris chloropygius,avibase-D2B15B3F,Olive-bellied Sunbird,Cinnyris chloropygius
-stable-avibase-D2CAA18B,classification_change,stable_avilist_id,avibase-D2CAA18B,Fox Kestrel,Falco alopex,avibase-D2CAA18B,Fox Kestrel,Falco alopex
-stable-avibase-D30DC715,classification_change,stable_avilist_id,avibase-D30DC715,Black-rumped Waxbill,Estrilda troglodytes,avibase-D30DC715,Black-rumped Waxbill,Estrilda troglodytes
-stable-avibase-D3390C6C,classification_change,stable_avilist_id,avibase-D3390C6C,Magpie Starling,Speculipastor bicolor,avibase-D3390C6C,Magpie Starling,Speculipastor bicolor
-stable-avibase-D33D2F6D,name_and_classification_change,stable_avilist_id,avibase-D33D2F6D,Golden-winged Sunbird,Drepanorhynchus reichenowi (race lathburyi),avibase-D33D2F6D,Golden-winged Sunbird,Drepanorhynchus reichenowi
-stable-avibase-D36F4D98,name_and_classification_change,stable_avilist_id,avibase-D36F4D98,Standard-winged Nightjar,Macrodipteryx longipennis,avibase-D36F4D98,Standard-winged Nightjar,Caprimulgus longipennis
-stable-avibase-D419E3A5,classification_change,stable_avilist_id,avibase-D419E3A5,African Citril,Crithagra citrinelloides,avibase-D419E3A5,African Citril,Crithagra citrinelloides
-stable-avibase-D4866EAE,classification_change,stable_avilist_id,avibase-D4866EAE,African Golden Oriole,Oriolus auratus,avibase-D4866EAE,African Golden Oriole,Oriolus auratus
-stable-avibase-D4F9B273,classification_change,stable_avilist_id,avibase-D4F9B273,Bronze Sunbird,Nectarinia kilimensis,avibase-D4F9B273,Bronze Sunbird,Nectarinia kilimensis
+stable-avibase-D1FFB474,name_change,stable_avilist_id,avibase-D1FFB474,White-headed Wood-hoopoe,Phoeniculus bollei,avibase-D1FFB474,White-headed Wood Hoopoe,Phoeniculus bollei
+stable-avibase-D2854489,name_change,stable_avilist_id,avibase-D2854489,Plain Martin,Riparia paludicola,avibase-D2854489,Brown-throated Martin,Riparia paludicola
+stable-avibase-D295D249,name_change,stable_avilist_id,avibase-D295D249,Wilson’s Storm-petrel ,Oceanites oceanicus,avibase-D295D249,Wilson's Storm Petrel,Oceanites oceanicus
+stable-avibase-D33D2F6D,name_change,stable_avilist_id,avibase-D33D2F6D,Golden-winged Sunbird,Drepanorhynchus reichenowi (race lathburyi),avibase-D33D2F6D,Golden-winged Sunbird,Drepanorhynchus reichenowi
+stable-avibase-D36F4D98,name_change,stable_avilist_id,avibase-D36F4D98,Standard-winged Nightjar,Macrodipteryx longipennis,avibase-D36F4D98,Standard-winged Nightjar,Caprimulgus longipennis
 stable-avibase-D531B5D3,name_change,stable_avilist_id,avibase-D531B5D3,Black-headed Plover,Vanellus tectus,avibase-D531B5D3,Black-headed Lapwing,Vanellus tectus
 stable-avibase-D5549C6D,name_change,stable_avilist_id,avibase-D5549C6D,Taita Apalis,Apalis (thoracica) fuscigularis,avibase-D5549C6D,Taita Apalis,Apalis fuscigularis
-stable-avibase-D5846D2A,classification_change,stable_avilist_id,avibase-D5846D2A,Fischer’s Turaco,Tauraco fischeri ,avibase-D5846D2A,Fischer's Turaco,Tauraco fischeri
-stable-avibase-D6A69E06,name_and_classification_change,stable_avilist_id,avibase-D6A69E06,Little Rush Warbler,Bradypterus baboecala,avibase-D6A69E06,Highland Rush Warbler,Bradypterus centralis
-stable-avibase-D6F2837E,classification_change,stable_avilist_id,avibase-D6F2837E,Sharpe's Starling,Pholia sharpii,avibase-D6F2837E,Sharpe's Starling,Pholia sharpii
+stable-avibase-D6A69E06,name_change,stable_avilist_id,avibase-D6A69E06,Highland (Northern) Rush Warbler ,Bradypterus centralis,avibase-D6A69E06,Highland Rush Warbler,Bradypterus centralis
 stable-avibase-D8177CEC,name_change,stable_avilist_id,avibase-D8177CEC,Red-fronted (Red-faced) Warbler,Prinia rufifrons,avibase-D8177CEC,Red-fronted Prinia,Prinia rufifrons
-stable-avibase-D8A51184,classification_change,stable_avilist_id,avibase-D8A51184,Malindi Pipit,Anthus melindae,avibase-D8A51184,Malindi Pipit,Anthus melindae
-stable-avibase-D8BFA987,classification_change,stable_avilist_id,avibase-D8BFA987,Kretschmer’s Longbill,Macrosphenus kretschmeri,avibase-D8BFA987,Kretschmer's Longbill,Macrosphenus kretschmeri
-stable-avibase-D8E67602,classification_change,stable_avilist_id,avibase-D8E67602,Heuglin's Masked Weaver,Ploceus heuglini,avibase-D8E67602,Heuglin's Masked Weaver,Ploceus heuglini
-stable-avibase-D8F2F78B,classification_change,stable_avilist_id,avibase-D8F2F78B,Chestnut Sparrow,Passer eminibey,avibase-D8F2F78B,Chestnut Sparrow,Passer eminibey
-stable-avibase-D91540DE,name_and_classification_change,stable_avilist_id,avibase-D91540DE,Forest Batis,Batis mixta,avibase-D91540DE,Short-tailed Batis,Batis mixta
-stable-avibase-D91BCC1B,classification_change,stable_avilist_id,avibase-D91BCC1B,Scarlet-tufted Sunbird,Nectarinia johnstoni,avibase-D91BCC1B,Scarlet-tufted Sunbird,Nectarinia johnstoni
-stable-avibase-DA2F24E3,classification_change,stable_avilist_id,avibase-DA2F24E3,Egyptian Goose,Alopochen aegyptiaca,avibase-DA2F24E3,Egyptian Goose,Alopochen aegyptiaca
-stable-avibase-DA3F40DB,classification_change,stable_avilist_id,avibase-DA3F40DB,Brown-tailed Rock Chat,Oenanthe scotocerca,avibase-DA3F40DB,Brown-tailed Rock Chat,Oenanthe scotocerca
-stable-avibase-DAE4C523,classification_change,stable_avilist_id,avibase-DAE4C523,Bat Hawk,Macheiramphus alcinus,avibase-DAE4C523,Bat Hawk,Macheiramphus alcinus
-stable-avibase-DB09507D,classification_change,stable_avilist_id,avibase-DB09507D,Black Coucal,Centropus grillii,avibase-DB09507D,Black Coucal,Centropus grillii
-stable-avibase-DB376A66,classification_change,stable_avilist_id,avibase-DB376A66,Eurasian Sparrowhawk,Accipiter nisus,avibase-DB376A66,Eurasian Sparrowhawk,Accipiter nisus
-stable-avibase-DB4998D1,name_and_classification_change,stable_avilist_id,avibase-DB4998D1,Parrot-billed Sparrow,Passer (griseus) gongonensis,avibase-DB4998D1,Parrot-billed Sparrow,Passer gongonensis
-stable-avibase-DBAB527C,name_and_classification_change,stable_avilist_id,avibase-DBAB527C,Kenya Rufous Sparrow,Passer (cordofanicus) rufocinctus,avibase-DBAB527C,Kenya Sparrow,Passer rufocinctus
+stable-avibase-D91540DE,name_change,stable_avilist_id,avibase-D91540DE,Forest Batis,Batis mixta,avibase-D91540DE,Short-tailed Batis,Batis mixta
+stable-avibase-DB4998D1,name_change,stable_avilist_id,avibase-DB4998D1,Parrot-billed Sparrow,Passer (griseus) gongonensis,avibase-DB4998D1,Parrot-billed Sparrow,Passer gongonensis
+stable-avibase-DBAB527C,name_change,stable_avilist_id,avibase-DBAB527C,Kenya Rufous Sparrow,Passer (cordofanicus) rufocinctus,avibase-DBAB527C,Kenya Sparrow,Passer rufocinctus
 stable-avibase-DC456636,name_change,stable_avilist_id,avibase-DC456636,Grey-backed Camaroptera,Camaroptera brachyura,avibase-DC456636,Bleating Camaroptera,Camaroptera brachyura
-stable-avibase-DC8CC91D,name_and_classification_change,stable_avilist_id,avibase-DC8CC91D,Spotted Eagle Owl,Bubo africanus,avibase-DC8CC91D,Spotted Eagle-Owl,Bubo africanus
-stable-avibase-DCFFEEC1,classification_change,stable_avilist_id,avibase-DCFFEEC1,Yellow-crowned Canary,Serinus flavivertex,avibase-DCFFEEC1,Yellow-crowned Canary,Serinus flavivertex
-stable-avibase-DDC2CC92,classification_change,stable_avilist_id,avibase-DDC2CC92,Namaqua Dove,Oena capensis,avibase-DDC2CC92,Namaqua Dove,Oena capensis
+stable-avibase-DC8CC91D,name_change,stable_avilist_id,avibase-DC8CC91D,Spotted Eagle Owl,Bubo africanus,avibase-DC8CC91D,Spotted Eagle-Owl,Bubo africanus
 stable-avibase-DE0A72A7,name_change,stable_avilist_id,avibase-DE0A72A7,Cream-coloured Courser,Cursorius cursor,avibase-DE0A72A7,Cream-colored Courser,Cursorius cursor
-stable-avibase-DE689967,classification_change,stable_avilist_id,avibase-DE689967,Purple Grenadier,Granatina ianthinogaster,avibase-DE689967,Purple Grenadier,Granatina ianthinogaster
-stable-avibase-DF0759C0,classification_change,stable_avilist_id,avibase-DF0759C0,Golden-backed Weaver,Ploceus jacksoni,avibase-DF0759C0,Golden-backed Weaver,Ploceus jacksoni
-stable-avibase-DF26171F,name_and_classification_change,stable_avilist_id,avibase-DF26171F,Black-eared Wheatear,Oenanthe hispanica,avibase-DF26171F,Eastern Black-eared Wheatear,Oenanthe melanoleuca
-stable-avibase-DF32B1F9,name_and_classification_change,stable_avilist_id,avibase-DF32B1F9,Western Reef Egret,Egretta (garzetta) gularis,avibase-DF32B1F9,Western Reef Heron,Egretta gularis
-stable-avibase-DF526047,classification_change,stable_avilist_id,avibase-DF526047,Northern Wheatear,Oenanthe oenanthe,avibase-DF526047,Northern Wheatear,Oenanthe oenanthe
-stable-avibase-DF7C8FC5,classification_change,stable_avilist_id,avibase-DF7C8FC5,Western Black-headed Batis, Batis erlangeri,avibase-DF7C8FC5,Western Black-headed Batis,Batis erlangeri
-stable-avibase-E05A96F3,classification_change,stable_avilist_id,avibase-E05A96F3,Red-chested Owlet,Glaucidium tephronotum,avibase-E05A96F3,Red-chested Owlet,Glaucidium tephronotum
-stable-avibase-E069A0BB,classification_change,stable_avilist_id,avibase-E069A0BB,Lesser Masked Weaver,Ploceus intermedius,avibase-E069A0BB,Lesser Masked Weaver,Ploceus intermedius
-stable-avibase-E09F7223,name_and_classification_change,stable_avilist_id,avibase-E09F7223,Northern Anteater Chat,Myrmecocichla aethiops,avibase-E09F7223,Anteater Chat,Myrmecocichla aethiops
-stable-avibase-E0D521B7,name_and_classification_change,stable_avilist_id,avibase-E0D521B7,Western Yellowbill (Blue Malkoha),Ceuthmochares aereus,avibase-E0D521B7,Blue Malkoha,Ceuthmochares aereus
-stable-avibase-E10D0809,name_and_classification_change,stable_avilist_id,avibase-E10D0809,Grey-headed Sparrow,Passer griseus,avibase-E10D0809,Northern Grey-headed Sparrow,Passer griseus
-stable-avibase-E11D6D66,classification_change,stable_avilist_id,avibase-E11D6D66,Waller's Starling,Onychognathus walleri,avibase-E11D6D66,Waller's Starling,Onychognathus walleri
-stable-avibase-E15225F1,classification_change,stable_avilist_id,avibase-E15225F1,Brown-throated Wattle-eye,Platysteira cyanea,avibase-E15225F1,Brown-throated Wattle-eye,Platysteira cyanea
-stable-avibase-E22B8495,name_and_classification_change,stable_avilist_id,avibase-E22B8495,Brown Woodland Warbler,Seicercus umbrovirens,avibase-E22B8495,Brown Woodland Warbler,Phylloscopus umbrovirens
-stable-avibase-E255DCE1,name_and_classification_change,stable_avilist_id,avibase-E255DCE1,Long-tailed (Reed) Cormorant ,Microcarbo africanus,avibase-E255DCE1,Reed Cormorant,Microcarbo africanus
-stable-avibase-E27EEDC5,name_and_classification_change,stable_avilist_id,avibase-E27EEDC5,Chestnut-fronted Helmetshrike,Prionops scopifrons (race keniensis),avibase-E27EEDC5,Chestnut-fronted Helmetshrike,Prionops scopifrons
-stable-avibase-E281D783,classification_change,stable_avilist_id,avibase-E281D783,African Grey Flycatcher,Bradornis microrhynchus,avibase-E281D783,African Grey Flycatcher,Bradornis microrhynchus
-stable-avibase-E2A19474,classification_change,stable_avilist_id,avibase-E2A19474,Western Marsh Harrier,Circus aeruginosus,avibase-E2A19474,Western Marsh Harrier,Circus aeruginosus
-stable-avibase-E358EC8A,classification_change,stable_avilist_id,avibase-E358EC8A,Black-and-white Mannikin,Spermestes bicolor,avibase-E358EC8A,Black-and-white Mannikin,Spermestes bicolor
-stable-avibase-E3C780D6,classification_change,stable_avilist_id,avibase-E3C780D6,Freckled Nightjar,Caprimulgus tristigma,avibase-E3C780D6,Freckled Nightjar,Caprimulgus tristigma
-stable-avibase-E561A180,name_and_classification_change,stable_avilist_id,avibase-E561A180,Northern White-faced (Scops) Owl,Ptilopsis leucotis,avibase-E561A180,Northern White-faced Owl,Ptilopsis leucotis
-stable-avibase-E5DF48FC,name_and_classification_change,stable_avilist_id,avibase-E5DF48FC,African Grey Woodpecker,Mesopicus goertae,avibase-E5DF48FC,African Grey Woodpecker,Dendropicos goertae
-stable-avibase-E6137E65,classification_change,stable_avilist_id,avibase-E6137E65,Amur Falcon,Falco amurensis,avibase-E6137E65,Amur Falcon,Falco amurensis
-stable-avibase-E6518B9D,classification_change,stable_avilist_id,avibase-E6518B9D,Bridled Tern,Onychoprion anaethetus,avibase-E6518B9D,Bridled Tern,Onychoprion anaethetus
-stable-avibase-E6536E4E,classification_change,stable_avilist_id,avibase-E6536E4E,Kelp Gull,Larus dominicanus,avibase-E6536E4E,Kelp Gull,Larus dominicanus
-stable-avibase-E6BD3258,classification_change,stable_avilist_id,avibase-E6BD3258,Capped Wheatear,Oenanthe pileata,avibase-E6BD3258,Capped Wheatear,Oenanthe pileata
-stable-avibase-E6C6F746,classification_change,stable_avilist_id,avibase-E6C6F746,Isabelline Wheatear,Oenanthe isabellina,avibase-E6C6F746,Isabelline Wheatear,Oenanthe isabellina
-stable-avibase-E7DC526A,name_and_classification_change,stable_avilist_id,avibase-E7DC526A,Manda Black Boubou,Laniarius nigerrimus,avibase-E7DC526A,Black Boubou,Laniarius nigerrimus
-stable-avibase-E8AA9E1C,classification_change,stable_avilist_id,avibase-E8AA9E1C,Village Weaver,Ploceus cucullatus,avibase-E8AA9E1C,Village Weaver,Ploceus cucullatus
-stable-avibase-E8DEABBD,classification_change,stable_avilist_id,avibase-E8DEABBD,Bristle-crowned Starling,Onychognathus salvadorii,avibase-E8DEABBD,Bristle-crowned Starling,Onychognathus salvadorii
-stable-avibase-E91E287A,classification_change,stable_avilist_id,avibase-E91E287A,Eurasian Hobby,Falco subbuteo,avibase-E91E287A,Eurasian Hobby,Falco subbuteo
-stable-avibase-E93A0F33,name_and_classification_change,stable_avilist_id,avibase-E93A0F33,Dusky Nightjar,Caprimulgus fraenatus,avibase-E93A0F33,Sombre Nightjar,Caprimulgus fraenatus
-stable-avibase-E94A7272,classification_change,stable_avilist_id,avibase-E94A7272,Wedge-tailed Shearwater,Ardenna pacifica,avibase-E94A7272,Wedge-tailed Shearwater,Ardenna pacifica
-stable-avibase-EA2C460A,name_and_classification_change,stable_avilist_id,avibase-EA2C460A,Madagascar Pond Heron,Ardeola idae,avibase-EA2C460A,Malagasy Pond Heron,Ardeola idae
-stable-avibase-EA326EA2,classification_change,stable_avilist_id,avibase-EA326EA2,White-necked Raven,Corvus albicollis,avibase-EA326EA2,White-necked Raven,Corvus albicollis
-stable-avibase-EAE77D96,classification_change,stable_avilist_id,avibase-EAE77D96,Red-cheeked Cordon-bleu,Uraeginthus bengalus,avibase-EAE77D96,Red-cheeked Cordon-bleu,Uraeginthus bengalus
-stable-avibase-EB01B24C,classification_change,stable_avilist_id,avibase-EB01B24C,Spur-winged Goose,Plectropterus gambensis,avibase-EB01B24C,Spur-winged Goose,Plectropterus gambensis
+stable-avibase-DF26171F,name_change,stable_avilist_id,avibase-DF26171F,Black-eared Wheatear,Oenanthe hispanica,avibase-DF26171F,Eastern Black-eared Wheatear,Oenanthe melanoleuca
+stable-avibase-DF32B1F9,name_change,stable_avilist_id,avibase-DF32B1F9,Western Reef Egret,Egretta (garzetta) gularis,avibase-DF32B1F9,Western Reef Heron,Egretta gularis
+stable-avibase-E09F7223,name_change,stable_avilist_id,avibase-E09F7223,Northern Anteater Chat,Myrmecocichla aethiops,avibase-E09F7223,Anteater Chat,Myrmecocichla aethiops
+stable-avibase-E0D521B7,name_change,stable_avilist_id,avibase-E0D521B7,Western Yellowbill (Blue Malkoha),Ceuthmochares aereus,avibase-E0D521B7,Blue Malkoha,Ceuthmochares aereus
+stable-avibase-E10D0809,name_change,stable_avilist_id,avibase-E10D0809,Grey-headed Sparrow,Passer griseus,avibase-E10D0809,Northern Grey-headed Sparrow,Passer griseus
+stable-avibase-E22B8495,name_change,stable_avilist_id,avibase-E22B8495,Brown Woodland Warbler,Seicercus umbrovirens,avibase-E22B8495,Brown Woodland Warbler,Phylloscopus umbrovirens
+stable-avibase-E255DCE1,name_change,stable_avilist_id,avibase-E255DCE1,Long-tailed (Reed) Cormorant ,Microcarbo africanus,avibase-E255DCE1,Reed Cormorant,Microcarbo africanus
+stable-avibase-E27EEDC5,name_change,stable_avilist_id,avibase-E27EEDC5,Chestnut-fronted Helmetshrike,Prionops scopifrons (race keniensis),avibase-E27EEDC5,Chestnut-fronted Helmetshrike,Prionops scopifrons
+stable-avibase-E561A180,name_change,stable_avilist_id,avibase-E561A180,Northern White-faced (Scops) Owl,Ptilopsis leucotis,avibase-E561A180,Northern White-faced Owl,Ptilopsis leucotis
+stable-avibase-E5DF48FC,name_change,stable_avilist_id,avibase-E5DF48FC,African Grey Woodpecker,Mesopicus goertae,avibase-E5DF48FC,African Grey Woodpecker,Dendropicos goertae
+stable-avibase-E7DC526A,name_change,stable_avilist_id,avibase-E7DC526A,Manda Black Boubou,Laniarius nigerrimus,avibase-E7DC526A,Black Boubou,Laniarius nigerrimus
+stable-avibase-E93A0F33,name_change,stable_avilist_id,avibase-E93A0F33,Dusky Nightjar,Caprimulgus fraenatus,avibase-E93A0F33,Sombre Nightjar,Caprimulgus fraenatus
+stable-avibase-EA2C460A,name_change,stable_avilist_id,avibase-EA2C460A,Madagascar Pond Heron,Ardeola idae,avibase-EA2C460A,Malagasy Pond Heron,Ardeola idae
 stable-avibase-EBBD09CA,name_change,stable_avilist_id,avibase-EBBD09CA,Dark-capped (African) Yellow Warbler,Iduna natalensis,avibase-EBBD09CA,African Yellow Warbler,Iduna natalensis
-stable-avibase-EBC3B53B,classification_change,stable_avilist_id,avibase-EBC3B53B,Ethiopian Boubou,Laniarius aethiopicus,avibase-EBC3B53B,Ethiopian Boubou,Laniarius aethiopicus
-stable-avibase-EBD3129B,name_and_classification_change,stable_avilist_id,avibase-EBD3129B,Verreaux's Eagle Owl,Bubo lacteus,avibase-EBD3129B,Verreaux's Eagle-Owl,Ketupa lactea
-stable-avibase-EBDC03AA,classification_change,stable_avilist_id,avibase-EBDC03AA,Augur Buzzard,Buteo augur,avibase-EBDC03AA,Augur Buzzard,Buteo augur
-stable-avibase-EC0E680F,classification_change,stable_avilist_id,avibase-EC0E680F,Rufous-breasted Sparrowhawk,Accipiter rufiventris,avibase-EC0E680F,Rufous-breasted Sparrowhawk,Accipiter rufiventris
-stable-avibase-EC7C1618,classification_change,stable_avilist_id,avibase-EC7C1618,African Pygmy Goose,Nettapus auritus,avibase-EC7C1618,African Pygmy Goose,Nettapus auritus
-stable-avibase-ECC3F122,classification_change,stable_avilist_id,avibase-ECC3F122,Plain-backed Pipit,Anthus leucophrys,avibase-ECC3F122,Plain-backed Pipit,Anthus leucophrys
-stable-avibase-ECC40D44,classification_change,stable_avilist_id,avibase-ECC40D44,Orange-breasted Waxbill,Amandava subflava,avibase-ECC40D44,Orange-breasted Waxbill,Amandava subflava
-stable-avibase-ECD7C1D8,name_and_classification_change,stable_avilist_id,avibase-ECD7C1D8,Coqui Francolin,Peliperdix coqui,avibase-ECD7C1D8,Coqui Francolin,Campocolinus coqui
-stable-avibase-ECFF22D2,classification_change,stable_avilist_id,avibase-ECFF22D2,Long-billed Pipit,Anthus similis,avibase-ECFF22D2,Long-billed Pipit,Anthus similis
-stable-avibase-ED4CE8E7,classification_change,stable_avilist_id,avibase-ED4CE8E7,Northern Shoveler,Spatula clypeata,avibase-ED4CE8E7,Northern Shoveler,Spatula clypeata
-stable-avibase-ED5A7E8F,classification_change,stable_avilist_id,avibase-ED5A7E8F,European Honey Buzzard,Pernis apivorus,avibase-ED5A7E8F,European Honey Buzzard,Pernis apivorus
-stable-avibase-ED9EE880,name_and_classification_change,stable_avilist_id,avibase-ED9EE880,Highland (Northern) Rush Warbler ,Bradypterus centralis,avibase-ED9EE880,Little Rush Warbler,Bradypterus baboecala
-stable-avibase-EDB84334,classification_change,stable_avilist_id,avibase-EDB84334,Black Cuckoo,Cuculus clamosus,avibase-EDB84334,Black Cuckoo,Cuculus clamosus
-stable-avibase-EE40DDB6,classification_change,stable_avilist_id,avibase-EE40DDB6,Lemon Dove,Aplopelia larvata,avibase-EE40DDB6,Lemon Dove,Aplopelia larvata
+stable-avibase-EBD3129B,name_change,stable_avilist_id,avibase-EBD3129B,Verreaux's Eagle Owl,Bubo lacteus,avibase-EBD3129B,Verreaux's Eagle-Owl,Ketupa lactea
+stable-avibase-ECD7C1D8,name_change,stable_avilist_id,avibase-ECD7C1D8,Coqui Francolin,Peliperdix coqui,avibase-ECD7C1D8,Coqui Francolin,Campocolinus coqui
 stable-avibase-EE61E2CA,name_change,stable_avilist_id,avibase-EE61E2CA,Pintail Snipe,Gallinago stenura,avibase-EE61E2CA,Pin-tailed Snipe,Gallinago stenura
-stable-avibase-EE674721,classification_change,stable_avilist_id,avibase-EE674721,Golden-breasted Starling,Lamprotornis regius,avibase-EE674721,Golden-breasted Starling,Lamprotornis regius
 stable-avibase-EE7915A2,name_change,stable_avilist_id,avibase-EE7915A2,Turkestan Shrike (Red-tailed),Lanius phoenicuroides,avibase-EE7915A2,Red-tailed Shrike,Lanius phoenicuroides
-stable-avibase-EE79A5EF,classification_change,stable_avilist_id,avibase-EE79A5EF,Olive Sunbird,Cyanomitra olivacea,avibase-EE79A5EF,Olive Sunbird,Cyanomitra olivacea
-stable-avibase-EE8206E7,classification_change,stable_avilist_id,avibase-EE8206E7,Spotted Flycatcher,Muscicapa striata,avibase-EE8206E7,Spotted Flycatcher,Muscicapa striata
-stable-avibase-EEDB8253,classification_change,stable_avilist_id,avibase-EEDB8253,African Olive Pigeon,Columba arquatrix,avibase-EEDB8253,African Olive Pigeon,Columba arquatrix
-stable-avibase-EF5EDE6D,classification_change,stable_avilist_id,avibase-EF5EDE6D,Bocage's Bushshrike,Chlorophoneus bocagei,avibase-EF5EDE6D,Bocage's Bushshrike,Chlorophoneus bocagei
-stable-avibase-EF6101F4,classification_change,stable_avilist_id,avibase-EF6101F4,Eastern Double-collared Sunbird,Cinnyris mediocris,avibase-EF6101F4,Eastern Double-collared Sunbird,Cinnyris mediocris
-stable-avibase-EF6293B7,classification_change,stable_avilist_id,avibase-EF6293B7,Locust Finch,Paludipasser locustella,avibase-EF6293B7,Locust Finch,Paludipasser locustella
-stable-avibase-EF930CDC,classification_change,stable_avilist_id,avibase-EF930CDC,Pallas’s Gull ,Ichthyaetus ichthyaetus,avibase-EF930CDC,Pallas's Gull,Ichthyaetus ichthyaetus
-stable-avibase-F03BE6C3,classification_change,stable_avilist_id,avibase-F03BE6C3,Black-throated Barbet,Tricholaema melanocephala,avibase-F03BE6C3,Black-throated Barbet,Tricholaema melanocephala
-stable-avibase-F0AA4FE4,classification_change,stable_avilist_id,avibase-F0AA4FE4,African Scops Owl,Otus senegalensis,avibase-F0AA4FE4,African Scops Owl,Otus senegalensis
-stable-avibase-F188F8C8,classification_change,stable_avilist_id,avibase-F188F8C8,Northern Black Flycatcher,Melaenornis edolioides,avibase-F188F8C8,Northern Black Flycatcher,Melaenornis edolioides
-stable-avibase-F1A4B955,classification_change,stable_avilist_id,avibase-F1A4B955,Black-and-white Shrike-flycatcher,Bias musicus,avibase-F1A4B955,Black-and-white Shrike-flycatcher,Bias musicus
-stable-avibase-F1CCA0AA,classification_change,stable_avilist_id,avibase-F1CCA0AA,Spot-flanked Barbet,Tricholaema lacrymosa,avibase-F1CCA0AA,Spot-flanked Barbet,Tricholaema lacrymosa
-stable-avibase-F2858F9F,classification_change,stable_avilist_id,avibase-F2858F9F,Little Egret,Egretta garzetta,avibase-F2858F9F,Little Egret,Egretta garzetta
-stable-avibase-F2C7AA06,classification_change,stable_avilist_id,avibase-F2C7AA06,Slender-billed Starling,Onychognathus tenuirostris,avibase-F2C7AA06,Slender-billed Starling,Onychognathus tenuirostris
-stable-avibase-F3618305,name_and_classification_change,stable_avilist_id,avibase-F3618305,Southern Grosbeak Canary,Crithagra buchanani,avibase-F3618305,Southern Grosbeak-Canary,Crithagra buchanani
-stable-avibase-F375B25B,name_and_classification_change,stable_avilist_id,avibase-F375B25B,Swainson’s Sparrow,Passer (griseus) swainsonii,avibase-F375B25B,Swainson's Sparrow,Passer swainsonii
-stable-avibase-F3B46894,name_and_classification_change,stable_avilist_id,avibase-F3B46894,White-breasted Negrofinch,Nigrita fusconotus,avibase-F3B46894,White-breasted Nigrita,Nigrita fusconotus
-stable-avibase-F3DCCA8F,name_and_classification_change,stable_avilist_id,avibase-F3DCCA8F,Sulphur-breasted Bushshrike,Chlorophoneus sulfureopectus,avibase-F3DCCA8F,Orange-breasted Bushshrike,Chlorophoneus sulfureopectus
-stable-avibase-F40197D6,classification_change,stable_avilist_id,avibase-F40197D6,Golden Palm Weaver,Ploceus bojeri,avibase-F40197D6,Golden Palm Weaver,Ploceus bojeri
+stable-avibase-F3618305,name_change,stable_avilist_id,avibase-F3618305,Southern Grosbeak Canary,Crithagra buchanani,avibase-F3618305,Southern Grosbeak-Canary,Crithagra buchanani
+stable-avibase-F375B25B,name_change,stable_avilist_id,avibase-F375B25B,Swainson’s Sparrow,Passer (griseus) swainsonii,avibase-F375B25B,Swainson's Sparrow,Passer swainsonii
+stable-avibase-F3B46894,name_change,stable_avilist_id,avibase-F3B46894,White-breasted Negrofinch,Nigrita fusconotus,avibase-F3B46894,White-breasted Nigrita,Nigrita fusconotus
+stable-avibase-F3DCCA8F,name_change,stable_avilist_id,avibase-F3DCCA8F,Sulphur-breasted Bushshrike,Chlorophoneus sulfureopectus,avibase-F3DCCA8F,Orange-breasted Bushshrike,Chlorophoneus sulfureopectus
 stable-avibase-F44BD4BE,name_change,stable_avilist_id,avibase-F44BD4BE,Penduline Tit,Anthoscopus caroli,avibase-F44BD4BE,Grey Penduline Tit,Anthoscopus caroli
-stable-avibase-F4E78AFA,classification_change,stable_avilist_id,avibase-F4E78AFA,Beaudouin’s Snake Eagle,Circaetus beaudouini ,avibase-F4E78AFA,Beaudouin's Snake Eagle,Circaetus beaudouini
-stable-avibase-F501ED18,classification_change,stable_avilist_id,avibase-F501ED18,Jouanin’s Petrel,Bulweria fallax,avibase-F501ED18,Jouanin's Petrel,Bulweria fallax
-stable-avibase-F56A73BF,classification_change,stable_avilist_id,avibase-F56A73BF,African Hobby,Falco cuvierii,avibase-F56A73BF,African Hobby,Falco cuvierii
-stable-avibase-F577BA0F,classification_change,stable_avilist_id,avibase-F577BA0F,Garganey,Spatula querquedula,avibase-F577BA0F,Garganey,Spatula querquedula
-stable-avibase-F5A73AAA,name_and_classification_change,stable_avilist_id,avibase-F5A73AAA,Hildebrandt's Francolin,Pternistis hildebrandti,avibase-F5A73AAA,Hildebrandt's Spurfowl,Pternistis hildebrandti
-stable-avibase-F5E0EA0D,classification_change,stable_avilist_id,avibase-F5E0EA0D,Yellow-mantled Widowbird,Euplectes macroura,avibase-F5E0EA0D,Yellow-mantled Widowbird,Euplectes macroura
+stable-avibase-F5A73AAA,name_change,stable_avilist_id,avibase-F5A73AAA,Hildebrandt's Francolin,Pternistis hildebrandti,avibase-F5A73AAA,Hildebrandt's Spurfowl,Pternistis hildebrandti
 stable-avibase-F5E92B22,name_change,stable_avilist_id,avibase-F5E92B22,Spur-winged Plover,Vanellus spinosus,avibase-F5E92B22,Spur-winged Lapwing,Vanellus spinosus
-stable-avibase-F6B77E64,name_and_classification_change,stable_avilist_id,avibase-F6B77E64,Yellow-throated Woodland Warbler,Seicercus ruficapilla,avibase-F6B77E64,Yellow-throated Woodland Warbler,Phylloscopus ruficapilla
-stable-avibase-F6D547B2,classification_change,stable_avilist_id,avibase-F6D547B2,Tawny Eagle,Aquila rapax,avibase-F6D547B2,Tawny Eagle,Aquila rapax
-stable-avibase-F7504353,classification_change,stable_avilist_id,avibase-F7504353,Sandwich Tern,Thalasseus sandvicensis,avibase-F7504353,Sandwich Tern,Thalasseus sandvicensis
-stable-avibase-F774B577,classification_change,stable_avilist_id,avibase-F774B577,Pangani Longclaw,Macronyx aurantiigula,avibase-F774B577,Pangani Longclaw,Macronyx aurantiigula
+stable-avibase-F6B77E64,name_change,stable_avilist_id,avibase-F6B77E64,Yellow-throated Woodland Warbler,Seicercus ruficapilla,avibase-F6B77E64,Yellow-throated Woodland Warbler,Phylloscopus ruficapilla
 stable-avibase-F7D5320E,name_change,stable_avilist_id,avibase-F7D5320E,Long-toed Plover,Vanellus crassirostris,avibase-F7D5320E,Long-toed Lapwing,Vanellus crassirostris
-stable-avibase-F8041931,classification_change,stable_avilist_id,avibase-F8041931,Red-headed Quelea,Quelea erythrops,avibase-F8041931,Red-headed Quelea,Quelea erythrops
-stable-avibase-F80D69C2,name_and_classification_change,stable_avilist_id,avibase-F80D69C2,Common Scrub White-eye,Zosterops flavilateralis,avibase-F80D69C2,Pale White-eye,Zosterops flavilateralis
-stable-avibase-F8B6EC31,classification_change,stable_avilist_id,avibase-F8B6EC31,Mocking Cliff Chat,Thamnolaea cinnamomeiventris,avibase-F8B6EC31,Mocking Cliff Chat,Thamnolaea cinnamomeiventris
+stable-avibase-F80D69C2,name_change,stable_avilist_id,avibase-F80D69C2,Common Scrub White-eye,Zosterops flavilateralis,avibase-F80D69C2,Pale White-eye,Zosterops flavilateralis
 stable-avibase-F936B680,name_change,stable_avilist_id,avibase-F936B680,Levaillant's Cisticola,Cisticola tinniens (race oreophilus),avibase-F936B680,Levaillant's Cisticola,Cisticola tinniens
-stable-avibase-F9F4B04D,classification_change,stable_avilist_id,avibase-F9F4B04D,Common Chiffchaff,Phylloscopus collybita,avibase-F9F4B04D,Common Chiffchaff,Phylloscopus collybita
 stable-avibase-F9F5CAB0,name_change,stable_avilist_id,avibase-F9F5CAB0,Semi-collared Kingfisher,Alcedo semitorquata,avibase-F9F5CAB0,Half-collared Kingfisher,Alcedo semitorquata
-stable-avibase-F9FB0226,classification_change,stable_avilist_id,avibase-F9FB0226,Northern Brown-throated Weaver,Ploceus castanops,avibase-F9FB0226,Northern Brown-throated Weaver,Ploceus castanops
-stable-avibase-FA03A965,name_and_classification_change,stable_avilist_id,avibase-FA03A965,Pale Flycatcher,Bradornis pallidus,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
+stable-avibase-FA03A965,name_change,stable_avilist_id,avibase-FA03A965,Pale Flycatcher,Bradornis pallidus,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
 stable-avibase-FA137697,name_change,stable_avilist_id,avibase-FA137697,Tiny Greenbul,Phyllastrephus debilis,avibase-FA137697,Lowland Tiny Greenbul,Phyllastrephus debilis
-stable-avibase-FA2F9125,name_and_classification_change,stable_avilist_id,avibase-FA2F9125,Hoopoe,Upupa epops,avibase-FA2F9125,Common Hoopoe,Upupa epops
-stable-avibase-FA3A1F20,classification_change,stable_avilist_id,avibase-FA3A1F20,Eastern Chanting Goshawk,Melierax poliopterus,avibase-FA3A1F20,Eastern Chanting Goshawk,Melierax poliopterus
-stable-avibase-FA7A6D02,name_and_classification_change,stable_avilist_id,avibase-FA7A6D02,Three-streaked Tchagra,Tchagra jamesi (race mandanus),avibase-FA7A6D02,Three-streaked Tchagra,Tchagra jamesi
-stable-avibase-FA831F65,name_and_classification_change,stable_avilist_id,avibase-FA831F65,Hottentot Teal,Spatula hottentota,avibase-FA831F65,Blue-billed Teal,Spatula hottentota
-stable-avibase-FAFA576B,classification_change,stable_avilist_id,avibase-FAFA576B,Tacazze Sunbird,Nectarinia tacazze,avibase-FAFA576B,Tacazze Sunbird,Nectarinia tacazze
-stable-avibase-FB02DD96,classification_change,stable_avilist_id,avibase-FB02DD96,Black-headed Gull,Chroicocephalus ridibundus,avibase-FB02DD96,Black-headed Gull,Chroicocephalus ridibundus
-stable-avibase-FB84DF4D,classification_change,stable_avilist_id,avibase-FB84DF4D,Stripe-breasted Seedeater,Crithagra striatipectus,avibase-FB84DF4D,Stripe-breasted Seedeater,Crithagra striatipectus
-stable-avibase-FB96690D,classification_change,stable_avilist_id,avibase-FB96690D,Montane Nightjar,Caprimulgus poliocephalus,avibase-FB96690D,Montane Nightjar,Caprimulgus poliocephalus
+stable-avibase-FA2F9125,name_change,stable_avilist_id,avibase-FA2F9125,Hoopoe,Upupa epops,avibase-FA2F9125,Common Hoopoe,Upupa epops
+stable-avibase-FA7A6D02,name_change,stable_avilist_id,avibase-FA7A6D02,Three-streaked Tchagra,Tchagra jamesi (race mandanus),avibase-FA7A6D02,Three-streaked Tchagra,Tchagra jamesi
+stable-avibase-FA831F65,name_change,stable_avilist_id,avibase-FA831F65,Hottentot Teal,Spatula hottentota,avibase-FA831F65,Blue-billed Teal,Spatula hottentota
 stable-avibase-FBDCA962,name_change,stable_avilist_id,avibase-FBDCA962,Short-winged (Siffling) Cisticola,Cisticola brachypterus (race kericho),avibase-FBDCA962,Short-winged Cisticola,Cisticola brachypterus
-stable-avibase-FC085C6D,classification_change,stable_avilist_id,avibase-FC085C6D,Taita Thrush,Turdus helleri,avibase-FC085C6D,Taita Thrush,Turdus helleri
-stable-avibase-FC1BE879,name_and_classification_change,stable_avilist_id,avibase-FC1BE879,Grey-chested Kakamega (Thrush-babbler),Kakamega poliothorax,avibase-FC1BE879,Grey-chested Babbler,Kakamega poliothorax
+stable-avibase-FC1BE879,name_change,stable_avilist_id,avibase-FC1BE879,Grey-chested Kakamega (Thrush-babbler),Kakamega poliothorax,avibase-FC1BE879,Grey-chested Babbler,Kakamega poliothorax
 stable-avibase-FC523946,name_change,stable_avilist_id,avibase-FC523946,Eastern Mountain Greenbul,Arizelocichla nigriceps nigriceps,avibase-FC523946,Black-headed Mountain Greenbul,Arizelocichla nigriceps
-stable-avibase-FC6A9CD0,classification_change,stable_avilist_id,avibase-FC6A9CD0,African Silverbill,Euodice cantans,avibase-FC6A9CD0,African Silverbill,Euodice cantans
-stable-avibase-FC6C191F,classification_change,stable_avilist_id,avibase-FC6C191F,Vitelline Masked Weaver,Ploceus vitellinus,avibase-FC6C191F,Vitelline Masked Weaver,Ploceus vitellinus
-stable-avibase-FCD72CEE,name_and_classification_change,stable_avilist_id,avibase-FCD72CEE,Yellow-spotted Petronia,Gymnoris pyrgita,avibase-FCD72CEE,Yellow-spotted Bush Sparrow,Gymnoris pyrgita
+stable-avibase-FCD72CEE,name_change,stable_avilist_id,avibase-FCD72CEE,Yellow-spotted Petronia,Gymnoris pyrgita,avibase-FCD72CEE,Yellow-spotted Bush Sparrow,Gymnoris pyrgita
 stable-avibase-FCDA4F09,name_change,stable_avilist_id,avibase-FCDA4F09,Red-capped Lark,Calandrella cinerea (race williamsi),avibase-FCDA4F09,Red-capped Lark,Calandrella cinerea
-stable-avibase-FD2FEFFD,classification_change,stable_avilist_id,avibase-FD2FEFFD,Rufous-tailed Weaver,Histurgops ruficauda,avibase-FD2FEFFD,Rufous-tailed Weaver,Histurgops ruficauda
-stable-avibase-FDA2E4A3,classification_change,stable_avilist_id,avibase-FDA2E4A3,Martial Eagle,Polemaetus bellicosus,avibase-FDA2E4A3,Martial Eagle,Polemaetus bellicosus
-stable-avibase-FED54E53,classification_change,stable_avilist_id,avibase-FED54E53,Sharpe’s Longclaw,Macronyx sharpei,avibase-FED54E53,Sharpe's Longclaw,Macronyx sharpei
-stable-avibase-FF2AF138,classification_change,stable_avilist_id,avibase-FF2AF138,White-crested Turaco,Tauraco leucolophus,avibase-FF2AF138,White-crested Turaco,Tauraco leucolophus
-stable-avibase-FF41B79F,classification_change,stable_avilist_id,avibase-FF41B79F,Lesser Cuckoo,Cuculus poliocephalus,avibase-FF41B79F,Lesser Cuckoo,Cuculus poliocephalus

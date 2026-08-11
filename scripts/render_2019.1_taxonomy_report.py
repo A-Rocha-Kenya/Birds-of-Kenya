@@ -101,14 +101,6 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
                 tags.append("english_name")
             if normalized(row["scientific_name"] for row in old_rows) != normalized(row["scientific_name"] for row in new_rows):
                 tags.append("scientific_name")
-            old_families = normalized(
-                f"{row['family_scientific']}|{row['family_english']}" for row in old_rows
-            )
-            new_families = normalized(
-                f"{row['family']}|{row['family_english_name']}" for row in new_rows
-            )
-            if old_families != new_families:
-                tags.append("classification")
         if relationship in {"replacement", "split", "lump", "many_to_many", "added", "unresolved"}:
             tags.append("concept")
         old_names = [row["common_name"].strip() for row in old_rows]
