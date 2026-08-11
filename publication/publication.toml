@@ -28,7 +28,7 @@ country_code = "KE"
 name = "Nature Kenya—the East Africa Natural History Society"
 imprint = "Nature Kenya—the East Africa Natural History Society"
 address = "The Nature Kenya office is at the National Museums of Kenya, Museum Hill, Nairobi. Postal address: P. O. Box 44486, 00100 Nairobi, Kenya."
-telephone = "(+254) (0) 20 374 6090 or 374 9957"
+telephone = "(+254) (0)777 149200 / (0)776 149200 / (0)701 149200 and (0)780 149200"
 email = "office@naturekenya.org"
 website = "https://www.naturekenya.org"
 copyright_holder = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
@@ -42,12 +42,128 @@ edition_statement = "Sixth edition"
 
 [editorial]
 approving_body = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
-data_curator = "Raphaël Nussbaumer"
-data_curator_orcid = "https://orcid.org/0000-0002-8185-1020"
-ebird_record_manager = "James Bradley"
-ebird_record_manager_email = "jalopyjamo@gmail.com"
-additional_contributor = "Richard Stratton Hatfield"
-additional_contributor_orcid = "https://orcid.org/0000-0001-8419-6589"
+
+[[editorial.credits]]
+id = "bird-committee"
+name = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+type = "organization"
+roles = ["corporate author"]
+orcid = ""
+email = "birds@naturekenya.org"
+
+[[editorial.credits]]
+id = "nature-kenya"
+name = "Nature Kenya—the East Africa Natural History Society"
+type = "organization"
+roles = ["publisher", "partner", "contributor"]
+orcid = ""
+email = "office@naturekenya.org"
+
+[[editorial.credits]]
+id = "a-rocha-kenya"
+name = "A Rocha Kenya"
+type = "organization"
+roles = ["partner", "contributor"]
+orcid = ""
+email = ""
+
+[[editorial.credits]]
+id = "nmk"
+name = "National Museums of Kenya (NMK)"
+type = "organization"
+roles = ["partner", "contributor"]
+orcid = ""
+email = ""
+
+[[editorial.credits]]
+id = "earc"
+name = "East African Rarities Committee (EARC)"
+type = "organization"
+roles = ["contributor"]
+orcid = ""
+email = ""
+
+[[editorial.credits]]
+id = "ebird-kenya"
+name = "eBird Kenya"
+type = "organization"
+roles = ["contributor"]
+orcid = ""
+email = ""
+
+[[editorial.credits]]
+id = "victor"
+name = "Victor Ikawa"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "ikawaj@gmail.com"
+
+[[editorial.credits]]
+id = "fleur"
+name = "Fleur Ng'weno"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "fleurngweno@gmail.com"
+alternate_emails = ["fleur@africaonline.co.ke"]
+
+[[editorial.credits]]
+id = "colin"
+name = "Colin Jackson"
+type = "person"
+roles = ["contributor"]
+orcid = "https://orcid.org/0000-0003-2280-1397"
+email = "colin.jackson@arocha.org"
+affiliations = ["A Rocha Kenya", "International Wader Study Group", "University of Cape Town"]
+
+[[editorial.credits]]
+id = "nigel"
+name = "Nigel Hunter"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "nigelhunter74@gmail.com"
+
+[[editorial.credits]]
+id = "okech"
+name = "Okech"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "wokech@hotmail.com"
+
+[[editorial.credits]]
+id = "washington"
+name = "Washington Wachira"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "washingtonwachira@gmail.com"
+
+[[editorial.credits]]
+id = "james-bradley"
+name = "James Bradley"
+type = "person"
+roles = ["eBird record manager", "contributor"]
+orcid = ""
+email = "jalopyjamo@gmail.com"
+
+[[editorial.credits]]
+id = "raphael-nussbaumer"
+name = "Raphaël Nussbaumer"
+type = "person"
+roles = ["data curator", "contributor"]
+orcid = "https://orcid.org/0000-0002-8185-1020"
+email = ""
+
+[[editorial.credits]]
+id = "richard-stratton-hatfield"
+name = "Richard Stratton Hatfield"
+type = "person"
+roles = ["contributor"]
+orcid = "https://orcid.org/0000-0001-8419-6589"
+email = ""
 
 [source_credits]
 ebird = "eBird Basic Dataset for Kenya, release 2026-06"

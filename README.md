@@ -40,7 +40,7 @@ uv run python tests/validate_ipt_checklist.py dist/2026-06.0/gbif
 
 The export contains one accepted AviList species per Kenya checklist entry. Upload `checklist.csv` to the IPT as a Checklist resource, map its Darwin Core Taxon headers, and use `ipt-metadata.json` to complete the IPT metadata form. Complete the citation, publisher, licence, and rights holder in `publication.toml` before publishing through GBIF.
 
-The current metadata credits the Bird Committee as corporate author, Raphaël Nussbaumer as data curator ([ORCID](https://orcid.org/0000-0002-8185-1020)), James Bradley as eBird record manager, and Richard Stratton Hatfield as a contributor ([ORCID](https://orcid.org/0000-0001-8419-6589)).
+The official publishing organization is Nature Kenya—the East Africa Natural History Society. Partner organizations are Nature Kenya, A Rocha Kenya, and the National Museums of Kenya (NMK). Contributors include the East African Rarities Committee (EARC), eBird Kenya, Victor Ikawa, Fleur Ng'weno, Colin Jackson, Nigel Hunter, Okech, Washington Wachira, James Bradley, Raphaël Nussbaumer, and Richard Stratton Hatfield.
 
 ## Website
 

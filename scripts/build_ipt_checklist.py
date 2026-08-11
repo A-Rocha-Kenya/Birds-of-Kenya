@@ -81,6 +81,36 @@ def main():
             "rights holder": rights_holder,
         }.items() if not value
     ]
+    credits = metadata["editorial"]["credits"]
+    contributors = []
+    for credit in credits:
+        if "contributor" not in credit["roles"]:
+            continue
+        contributor = {
+            "name": credit["name"].strip(),
+            "role": next((role for role in credit["roles"] if role != "contributor"), "contributor"),
+        }
+        if credit.get("orcid", "").strip():
+            contributor["orcid"] = credit["orcid"].strip()
+        if credit.get("email", "").strip():
+            contributor["email"] = credit["email"].strip()
+        if credit.get("alternate_emails"):
+            contributor["alternate_emails"] = [email.strip() for email in credit["alternate_emails"] if email.strip()]
+        if credit.get("affiliations"):
+            contributor["affiliations"] = [affiliation.strip() for affiliation in credit["affiliations"] if affiliation.strip()]
+        contributors.append(contributor)
+
+    creator_credits = [credit for credit in credits if "corporate author" in credit["roles"] or "data curator" in credit["roles"]]
+    creators = []
+    for credit in creator_credits:
+        role = "corporate author" if "corporate author" in credit["roles"] else "data curator"
+        creator = {"name": credit["name"].strip(), "role": role}
+        if credit.get("orcid", "").strip():
+            creator["orcid"] = credit["orcid"].strip()
+        if credit.get("email", "").strip():
+            creator["email"] = credit["email"].strip()
+        creators.append(creator)
+
     ipt_metadata = {
         "resource": {
             "shortname": ipt["resource_shortname"],
@@ -99,29 +129,8 @@ def main():
             "email": metadata["publisher"]["email"].strip(),
             "website": metadata["publisher"]["website"].strip(),
         },
-        "creators": [
-            {
-                "name": metadata["document"]["corporate_author"].strip(),
-                "role": "corporate author",
-            },
-            {
-                "name": metadata["editorial"]["data_curator"].strip(),
-                "role": "data curator",
-                "orcid": metadata["editorial"]["data_curator_orcid"].strip(),
-            },
-        ],
-        "contributors": [
-            {
-                "name": metadata["editorial"]["ebird_record_manager"].strip(),
-                "role": "eBird record manager",
-                "email": metadata["editorial"]["ebird_record_manager_email"].strip(),
-            },
-            {
-                "name": metadata["editorial"]["additional_contributor"].strip(),
-                "role": "contributor",
-                "orcid": metadata["editorial"]["additional_contributor_orcid"].strip(),
-            },
-        ],
+        "creators": creators,
+        "contributors": contributors,
         "coverage": {"country": ipt["country"], "country_code": ipt["country_code"]},
         "release": {
             "id": manifest["release_id"],
