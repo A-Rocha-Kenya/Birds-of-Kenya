@@ -48,7 +48,8 @@ legacy-map-030,lump,curated_mapping,avibase-A113792C,Barbary Falcon,Falco (pereg
 legacy-map-031,unresolved,curated_mapping,avibase-4396F4F1,Yellow-collared Lovebird,Agapornis personatus,,,
 legacy-map-032,unresolved,curated_mapping,avibase-E1EE00F7,Fischer’s Lovebird,Agapornis fischeri,,,
 legacy-map-033,unresolved,curated_mapping,avibase-7B0E2F01,Hybrid Lovebird,Agapornis fischeri x personatus ,,,
-legacy-map-034,replacement,curated_mapping,avibase-FBB58997,Tropical Boubou,Laniarius aethiopicus,avibase-EBC3B53B,Ethiopian Boubou,Laniarius aethiopicus
+legacy-map-034,split,curated_mapping,avibase-FBB58997,Tropical Boubou,Laniarius aethiopicus,avibase-EBC3B53B,Ethiopian Boubou,Laniarius aethiopicus
+legacy-map-034,split,curated_mapping,avibase-FBB58997,Tropical Boubou,Laniarius aethiopicus,avibase-07F940AA,Tropical Boubou,Laniarius major
 legacy-map-035,replacement,curated_mapping,avibase-7763FEC8,Glossy-backed (Northern) Drongo,Dicrurus divaricatus,avibase-11FE7313,Fork-tailed Drongo,Dicrurus adsimilis
 legacy-map-036,unresolved,curated_mapping,avibase-DB2501EE,Geat Grey Shrike,Lanius excubitor,,,
 legacy-map-037,replacement,curated_mapping,avibase-71EF2ACB,Grey-chinned Sunbird,Anthreptes rectirostris,avibase-35A2CCDF,Grey-chinned Sunbird,Anthreptes tephrolaemus
@@ -73,36 +74,35 @@ legacy-map-049,split,curated_mapping,avibase-BAA83B0C,Red-winged Lark,Mirafra hy
 legacy-map-049,split,curated_mapping,avibase-BAA83B0C,Red-winged Lark,Mirafra hypermetra,avibase-D167A312,Sentinel Lark,Corypha athi
 legacy-map-050,lump,curated_mapping,avibase-0C8B9FA4,Northern Crombec,Sylvietta brachyura,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura
 legacy-map-050,lump,curated_mapping,avibase-406E1A4D,White-bellied (Eastern) Crombec,Sylvietta (brachyura) leucopsis,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura
-legacy-map-051,replacement,curated_mapping,avibase-9E034D83,Yellow-bellied Eremomela,Eremomela icteropygialis,avibase-183E7FD0,Yellow-bellied Eremomela,Eremomela icteropygialis
-legacy-map-052,lump,curated_mapping,avibase-CA02C9A1,Yellow-breasted Apalis,Apalis flavida (race pugnax),avibase-E70F9747,Yellow-breasted Apalis,Apalis flavida
-legacy-map-052,lump,curated_mapping,avibase-8C13DA6F,Brown-tailed Apalis,Apalis (flavida) flavocincta,avibase-E70F9747,Yellow-breasted Apalis,Apalis flavida
-legacy-map-053,replacement,curated_mapping,avibase-2C8B24B6,Rock-loving Cisticola,Cisticola aberrans,avibase-AB6AE581,Rock-loving Cisticola,Cisticola aberrans
-legacy-map-054,replacement,curated_mapping,avibase-9AEEFA09,Wailing Cisticola,Cisticola lais,avibase-52B4F230,Lynes's Cisticola,Cisticola distinctus
-legacy-map-055,replacement,curated_mapping,avibase-34E27C2A,African Reed Warbler,Acrocephalus baeticatus,avibase-3F0EE474,Common Reed Warbler,Acrocephalus scirpaceus
-legacy-map-056,many_to_many,curated_mapping,avibase-F72A871F,Red-rumped Swallow,Cecropis daurica,avibase-91315CD4,African Red-rumped Swallow,Cecropis melanocrissus
-legacy-map-056,many_to_many,curated_mapping,avibase-F72A871F,Red-rumped Swallow,Cecropis daurica,avibase-B4967714,European Red-rumped Swallow,Cecropis rufula
-legacy-map-056,many_to_many,curated_mapping,avibase-94F9F616,Red-rumped Swallow,Cecropis daurica emini,avibase-91315CD4,African Red-rumped Swallow,Cecropis melanocrissus
-legacy-map-057,replacement,curated_mapping,avibase-47DA0258,Rock Martin,Ptyonoprogne fuligula,avibase-A85102D3,Red-throated Rock Martin,Ptyonoprogne rufigula
-legacy-map-058,replacement,curated_mapping,avibase-C73137EA,Yellow-throated Greenbul (Leaflove) ,Atimastillas flavicollis,avibase-04E77EEF,Pale-throated Greenbul,Atimastillas flavigula
-legacy-map-059,split,curated_mapping,avibase-54A902B5,Mountain Greenbul,Arizelocichla nigriceps,avibase-1EEE86B8,Kikuyu Mountain Greenbul,Arizelocichla kikuyuensis
-legacy-map-059,split,curated_mapping,avibase-54A902B5,Mountain Greenbul,Arizelocichla nigriceps,avibase-FC523946,Black-headed Mountain Greenbul,Arizelocichla nigriceps
-legacy-map-060,replacement,curated_mapping,avibase-4996833A,Stripe-cheeked Greenbul,Arizelocichla milanjensis,avibase-9A80B57C,Olive-headed Greenbul,Arizelocichla striifacies
-legacy-map-061,lump,curated_mapping,avibase-3029C547,Cabanis's Greenbul,Phyllastrephus cabanisi,avibase-24F71192,Cabanis's Greenbul,Phyllastrephus cabanisi
-legacy-map-061,lump,curated_mapping,avibase-CF1DDF4E,Placid Greenbul,Phyllastrephus (cabanisi) placidus ,avibase-24F71192,Cabanis's Greenbul,Phyllastrephus cabanisi
-legacy-map-062,lump,curated_mapping,avibase-ADC1F0C9,Common Bulbul,Pycnonotus barbatus,avibase-6ABDB635,Common Bulbul,Pycnonotus barbatus
-legacy-map-062,lump,curated_mapping,avibase-B2F86107,Dodson’s Bulbul,Pycnonotus (barbatus) dodsoni,avibase-6ABDB635,Common Bulbul,Pycnonotus barbatus
-legacy-map-063,replacement,curated_mapping,avibase-EAC8528E,Northern Yellow White-eye,Zosterops senegalensis,avibase-86F34425,Northern Yellow White-eye,Zosterops senegalensis
-legacy-map-064,replacement,curated_mapping,avibase-BF3D3E26,Montane (Heuglin’s) White-eye,Zosterops poliogastrus (race kulalensis),avibase-52C60399,Kafa White-eye,Zosterops kaffensis
-legacy-map-065,lump,curated_mapping,avibase-42C9B9B1,Black-lored Babbler,Turdoides sharpei sharpei ,avibase-7350FE4C,Black-lored Babbler,Turdoides sharpei
-legacy-map-065,lump,curated_mapping,avibase-BE76A224,Black-lored (Mt. Kenya) Babbler,Turdoides (sharpei) vepres,avibase-7350FE4C,Black-lored Babbler,Turdoides sharpei
-legacy-map-066,lump,curated_mapping,avibase-060AF4FA,Pale Flycatcher,Bradornis pallidus pallidus,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
-legacy-map-066,lump,curated_mapping,avibase-CAC5AD6C,Bafirawar’s Flycatcher,Bradornis (pallidus) bafirawari,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
-legacy-map-067,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-6A1F6033,Red-cowled Widowbird,Euplectes laticauda
-legacy-map-067,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens
-legacy-map-068,replacement,curated_mapping,avibase-D029B521,Karamoja Apalis,Apalis karamojae,avibase-DCA0028B,Maasai Apalis,Apalis stronachi
-legacy-map-069,replacement,curated_mapping,avibase-6DA05B66,Tropical Shearwater,Puffinus bailloni,avibase-198120BB,Persian Shearwater,Puffinus persicus
-legacy-map-070,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-ECE36984,Red Weaver,Anaplectes jubaensis
-legacy-map-070,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-4D19099B,Red-headed Weaver,Anaplectes rubriceps
+legacy-map-051,lump,curated_mapping,avibase-CA02C9A1,Yellow-breasted Apalis,Apalis flavida (race pugnax),avibase-E70F9747,Yellow-breasted Apalis,Apalis flavida
+legacy-map-051,lump,curated_mapping,avibase-8C13DA6F,Brown-tailed Apalis,Apalis (flavida) flavocincta,avibase-E70F9747,Yellow-breasted Apalis,Apalis flavida
+legacy-map-052,replacement,curated_mapping,avibase-2C8B24B6,Rock-loving Cisticola,Cisticola aberrans,avibase-AB6AE581,Rock-loving Cisticola,Cisticola aberrans
+legacy-map-053,replacement,curated_mapping,avibase-9AEEFA09,Wailing Cisticola,Cisticola lais,avibase-52B4F230,Lynes's Cisticola,Cisticola distinctus
+legacy-map-054,replacement,curated_mapping,avibase-34E27C2A,African Reed Warbler,Acrocephalus baeticatus,avibase-3F0EE474,Common Reed Warbler,Acrocephalus scirpaceus
+legacy-map-055,many_to_many,curated_mapping,avibase-F72A871F,Red-rumped Swallow,Cecropis daurica,avibase-91315CD4,African Red-rumped Swallow,Cecropis melanocrissus
+legacy-map-055,many_to_many,curated_mapping,avibase-F72A871F,Red-rumped Swallow,Cecropis daurica,avibase-B4967714,European Red-rumped Swallow,Cecropis rufula
+legacy-map-055,many_to_many,curated_mapping,avibase-94F9F616,Red-rumped Swallow,Cecropis daurica emini,avibase-91315CD4,African Red-rumped Swallow,Cecropis melanocrissus
+legacy-map-056,replacement,curated_mapping,avibase-47DA0258,Rock Martin,Ptyonoprogne fuligula,avibase-A85102D3,Red-throated Rock Martin,Ptyonoprogne rufigula
+legacy-map-057,replacement,curated_mapping,avibase-C73137EA,Yellow-throated Greenbul (Leaflove) ,Atimastillas flavicollis,avibase-04E77EEF,Pale-throated Greenbul,Atimastillas flavigula
+legacy-map-058,split,curated_mapping,avibase-54A902B5,Mountain Greenbul,Arizelocichla nigriceps,avibase-1EEE86B8,Kikuyu Mountain Greenbul,Arizelocichla kikuyuensis
+legacy-map-058,split,curated_mapping,avibase-54A902B5,Mountain Greenbul,Arizelocichla nigriceps,avibase-FC523946,Black-headed Mountain Greenbul,Arizelocichla nigriceps
+legacy-map-059,replacement,curated_mapping,avibase-4996833A,Stripe-cheeked Greenbul,Arizelocichla milanjensis,avibase-9A80B57C,Olive-headed Greenbul,Arizelocichla striifacies
+legacy-map-060,lump,curated_mapping,avibase-3029C547,Cabanis's Greenbul,Phyllastrephus cabanisi,avibase-24F71192,Cabanis's Greenbul,Phyllastrephus cabanisi
+legacy-map-060,lump,curated_mapping,avibase-CF1DDF4E,Placid Greenbul,Phyllastrephus (cabanisi) placidus ,avibase-24F71192,Cabanis's Greenbul,Phyllastrephus cabanisi
+legacy-map-061,lump,curated_mapping,avibase-ADC1F0C9,Common Bulbul,Pycnonotus barbatus,avibase-6ABDB635,Common Bulbul,Pycnonotus barbatus
+legacy-map-061,lump,curated_mapping,avibase-B2F86107,Dodson’s Bulbul,Pycnonotus (barbatus) dodsoni,avibase-6ABDB635,Common Bulbul,Pycnonotus barbatus
+legacy-map-062,replacement,curated_mapping,avibase-EAC8528E,Northern Yellow White-eye,Zosterops senegalensis,avibase-86F34425,Northern Yellow White-eye,Zosterops senegalensis
+legacy-map-063,replacement,curated_mapping,avibase-BF3D3E26,Montane (Heuglin’s) White-eye,Zosterops poliogastrus (race kulalensis),avibase-52C60399,Kafa White-eye,Zosterops kaffensis
+legacy-map-064,lump,curated_mapping,avibase-42C9B9B1,Black-lored Babbler,Turdoides sharpei sharpei ,avibase-7350FE4C,Black-lored Babbler,Turdoides sharpei
+legacy-map-064,lump,curated_mapping,avibase-BE76A224,Black-lored (Mt. Kenya) Babbler,Turdoides (sharpei) vepres,avibase-7350FE4C,Black-lored Babbler,Turdoides sharpei
+legacy-map-065,lump,curated_mapping,avibase-060AF4FA,Pale Flycatcher,Bradornis pallidus pallidus,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
+legacy-map-065,lump,curated_mapping,avibase-CAC5AD6C,Bafirawar’s Flycatcher,Bradornis (pallidus) bafirawari,avibase-FA03A965,Pale Flycatcher,Agricola pallidus
+legacy-map-066,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-6A1F6033,Red-cowled Widowbird,Euplectes laticauda
+legacy-map-066,split,curated_mapping,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens,avibase-26618AA1,Red-collared Widowbird,Euplectes ardens
+legacy-map-067,replacement,curated_mapping,avibase-D029B521,Karamoja Apalis,Apalis karamojae,avibase-DCA0028B,Maasai Apalis,Apalis stronachi
+legacy-map-068,replacement,curated_mapping,avibase-6DA05B66,Tropical Shearwater,Puffinus bailloni,avibase-198120BB,Persian Shearwater,Puffinus persicus
+legacy-map-069,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-ECE36984,Red Weaver,Anaplectes jubaensis
+legacy-map-069,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-4D19099B,Red-headed Weaver,Anaplectes rubriceps
 stable-avibase-0018A99B,name_change,stable_avilist_id,avibase-0018A99B,Greyish Eagle Owl,Bubo (africanus) cinerascens,avibase-0018A99B,Greyish Eagle-Owl,Bubo cinerascens
 stable-avibase-023D6E38,name_change,stable_avilist_id,avibase-023D6E38,Southern White-faced (Scops) Owl,Ptilopsis granti,avibase-023D6E38,Southern White-faced Owl,Ptilopsis granti
 stable-avibase-02428AC1,name_change,stable_avilist_id,avibase-02428AC1,Black-and-white Casqued Hornbill,Bycanistes subcylindricus,avibase-02428AC1,Black-and-white-casqued Hornbill,Bycanistes subcylindricus

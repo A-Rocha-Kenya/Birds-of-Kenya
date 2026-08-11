@@ -1,14 +1,14 @@
 {
   "from_release": "2019.1",
   "to_release": "2026-06.0",
-  "group_count": 382,
+  "group_count": 380,
   "relationship_counts": {
     "added": 22,
     "lump": 22,
     "many_to_many": 1,
-    "replacement": 31,
-    "retained": 290,
-    "split": 8,
+    "replacement": 29,
+    "retained": 289,
+    "split": 9,
     "unresolved": 8
   },
   "groups": [
@@ -2781,7 +2781,7 @@
       ]
     },
     {
-      "id": "legacy-map-069",
+      "id": "legacy-map-068",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -6321,13 +6321,13 @@
     },
     {
       "id": "legacy-map-034",
-      "relationship": "replacement",
-      "relationship_label": "Replacement",
+      "relationship": "split",
+      "relationship_label": "Split",
       "tags": [
-        "english_name",
+        "scientific_name",
         "concept"
       ],
-      "title": "Ethiopian Boubou",
+      "title": "Ethiopian Boubou / Tropical Boubou",
       "sort_order": 18134.0,
       "order": "Passeriformes",
       "family": "Malaconotidae",
@@ -6344,6 +6344,12 @@
           "english": "Ethiopian Boubou",
           "scientific": "Laniarius aethiopicus",
           "family": "Malaconotidae"
+        },
+        {
+          "id": "avibase-07F940AA",
+          "english": "Tropical Boubou",
+          "scientific": "Laniarius (aethiopicus) major/ambiguus",
+          "family": "Malaconotidae"
         }
       ],
       "new": [
@@ -6356,30 +6362,7 @@
           "ebird_codes": [
             "trobou2"
           ]
-        }
-      ]
-    },
-    {
-      "id": "stable-avibase-07F940AA",
-      "relationship": "retained",
-      "relationship_label": "Retained concept",
-      "tags": [
-        "scientific_name"
-      ],
-      "title": "Tropical Boubou",
-      "sort_order": 18135.0,
-      "order": "Passeriformes",
-      "family": "Malaconotidae",
-      "family_english": "Bushshrikes and Allies",
-      "old": [
-        {
-          "id": "avibase-07F940AA",
-          "english": "Tropical Boubou",
-          "scientific": "Laniarius (aethiopicus) major/ambiguus",
-          "family": "Malaconotidae"
-        }
-      ],
-      "new": [
+        },
         {
           "id": "avibase-07F940AA",
           "english": "Tropical Boubou",
@@ -7853,39 +7836,6 @@
       ]
     },
     {
-      "id": "legacy-map-051",
-      "relationship": "replacement",
-      "relationship_label": "Replacement",
-      "tags": [
-        "concept"
-      ],
-      "title": "Yellow-bellied Eremomela",
-      "sort_order": 21560.0,
-      "order": "Passeriformes",
-      "family": "Cisticolidae",
-      "family_english": "Cisticolas and Allies",
-      "old": [
-        {
-          "id": "avibase-9E034D83",
-          "english": "Yellow-bellied Eremomela",
-          "scientific": "Eremomela icteropygialis",
-          "family": "Cisticolidae"
-        }
-      ],
-      "new": [
-        {
-          "id": "avibase-183E7FD0",
-          "english": "Yellow-bellied Eremomela",
-          "scientific": "Eremomela icteropygialis",
-          "family": "Cisticolidae",
-          "sequence": 21560.0,
-          "ebird_codes": [
-            "yebere1"
-          ]
-        }
-      ]
-    },
-    {
       "id": "stable-avibase-7D340BF9",
       "relationship": "retained",
       "relationship_label": "Retained concept",
@@ -8018,7 +7968,7 @@
       ]
     },
     {
-      "id": "legacy-map-052",
+      "id": "legacy-map-051",
       "relationship": "lump",
       "relationship_label": "Lump",
       "tags": [
@@ -8098,7 +8048,7 @@
       ]
     },
     {
-      "id": "legacy-map-068",
+      "id": "legacy-map-067",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -8200,7 +8150,7 @@
       ]
     },
     {
-      "id": "legacy-map-053",
+      "id": "legacy-map-052",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -8233,7 +8183,7 @@
       ]
     },
     {
-      "id": "legacy-map-054",
+      "id": "legacy-map-053",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -8427,7 +8377,7 @@
       ]
     },
     {
-      "id": "legacy-map-055",
+      "id": "legacy-map-054",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -8593,7 +8543,7 @@
       ]
     },
     {
-      "id": "legacy-map-057",
+      "id": "legacy-map-056",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -8694,7 +8644,7 @@
       ]
     },
     {
-      "id": "legacy-map-056",
+      "id": "legacy-map-055",
       "relationship": "many_to_many",
       "relationship_label": "Many-to-many",
       "tags": [
@@ -9008,7 +8958,7 @@
       ]
     },
     {
-      "id": "legacy-map-059",
+      "id": "legacy-map-058",
       "relationship": "split",
       "relationship_label": "Split",
       "tags": [
@@ -9065,7 +9015,7 @@
       ]
     },
     {
-      "id": "legacy-map-060",
+      "id": "legacy-map-059",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -9100,7 +9050,7 @@
       ]
     },
     {
-      "id": "legacy-map-058",
+      "id": "legacy-map-057",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -9201,7 +9151,7 @@
       ]
     },
     {
-      "id": "legacy-map-061",
+      "id": "legacy-map-060",
       "relationship": "lump",
       "relationship_label": "Lump",
       "tags": [
@@ -9248,7 +9198,7 @@
       ]
     },
     {
-      "id": "legacy-map-062",
+      "id": "legacy-map-061",
       "relationship": "lump",
       "relationship_label": "Lump",
       "tags": [
@@ -9578,7 +9528,7 @@
       ]
     },
     {
-      "id": "legacy-map-064",
+      "id": "legacy-map-063",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -9613,7 +9563,7 @@
       ]
     },
     {
-      "id": "legacy-map-063",
+      "id": "legacy-map-062",
       "relationship": "replacement",
       "relationship_label": "Replacement",
       "tags": [
@@ -9679,7 +9629,7 @@
       ]
     },
     {
-      "id": "legacy-map-065",
+      "id": "legacy-map-064",
       "relationship": "lump",
       "relationship_label": "Lump",
       "tags": [
@@ -10155,7 +10105,7 @@
       ]
     },
     {
-      "id": "legacy-map-066",
+      "id": "legacy-map-065",
       "relationship": "lump",
       "relationship_label": "Lump",
       "tags": [
@@ -11644,7 +11594,7 @@
       ]
     },
     {
-      "id": "legacy-map-067",
+      "id": "legacy-map-066",
       "relationship": "split",
       "relationship_label": "Split",
       "tags": [
@@ -11722,7 +11672,7 @@
       ]
     },
     {
-      "id": "legacy-map-070",
+      "id": "legacy-map-069",
       "relationship": "split",
       "relationship_label": "Split",
       "tags": [
