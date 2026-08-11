@@ -6,11 +6,11 @@ const selected = { names: new Set(), concepts: new Set() };
 let groups = [];
 
 const filterConfig = {
-  names: [['english_name', 'English name'], ['scientific_name', 'Scientific name']],
-  concepts: [['replacement', 'Replacement'], ['split', 'Split'], ['lump', 'Lump'], ['many_to_many', 'Many-to-many'], ['added', 'New in 2026'], ['unresolved', 'No equivalent']]
+  names: [['english_name', 'English name'], ['scientific_name', 'Scientific name'], ['classification', 'Family placement']],
+  concepts: [['retained', 'Same taxon'], ['replacement', 'One-to-one revision'], ['split', 'Split'], ['lump', 'Lump'], ['many_to_many', 'Complex revision'], ['added', 'Added to current checklist'], ['unresolved', 'Mapping pending']]
 };
 
-const dictionary = { english_name: 'English name', scientific_name: 'Scientific name', classification: 'Classification' };
+const dictionary = { english_name: 'English name', scientific_name: 'Scientific name', classification: 'Family placement' };
 const escapeHtml = value => {
   const element = document.createElement('span');
   element.textContent = value ?? '';

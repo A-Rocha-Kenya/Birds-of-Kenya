@@ -19,13 +19,13 @@ PDF = OUTPUT / "Taxonomy-changes-2019.1-to-2026.0.pdf"
 COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
 
 RELATIONSHIP_LABELS = {
-    "retained": "Retained concept",
-    "replacement": "Replacement",
+    "retained": "Same taxon",
+    "replacement": "One-to-one revision",
     "split": "Split",
     "lump": "Lump",
-    "many_to_many": "Many-to-many",
-    "unresolved": "No equivalent",
-    "added": "New in 2026",
+    "many_to_many": "Complex revision",
+    "unresolved": "Mapping pending",
+    "added": "Added to current checklist",
 }
 
 
@@ -101,8 +101,8 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
                 tags.append("english_name")
             if normalized(row["scientific_name"] for row in old_rows) != normalized(row["scientific_name"] for row in new_rows):
                 tags.append("scientific_name")
-        if relationship in {"replacement", "split", "lump", "many_to_many", "added", "unresolved"}:
-            tags.append("concept")
+            if normalized(row["family_scientific"] for row in old_rows) != normalized(row["family"] for row in new_rows):
+                tags.append("classification")
         old_names = [row["common_name"].strip() for row in old_rows]
         new_names = [row["english_name"].strip() for row in new_rows]
         title_names = new_names or old_names
@@ -195,7 +195,7 @@ main{{max-width:1240px;margin:auto;padding:1.15rem 1.25rem 5rem}}.result-line{{d
 <main><div class="result-line"><span id="resultCount"></span><span>Ordered by current AviList sequence</span></div><div class="column-legend" aria-hidden="true"><span>2019.1 historical concept</span><span></span><span>2026.0 current concept</span></div><div id="report"></div></main>
 <footer>Generated from the corrected v2019.1 checklist, the 2026.0 checklist and the project’s one-time taxonomy mapping. This is a review aid, not a taxonomic authority.</footer>
 <script>const groups={data};
-const filterConfig={{names:[['english_name','English name'],['scientific_name','Scientific name']],concepts:[['replacement','Replacement'],['split','Split'],['lump','Lump'],['many_to_many','Many-to-many'],['added','New in 2026'],['unresolved','No equivalent']]}};
+const filterConfig={{names:[['english_name','English name'],['scientific_name','Scientific name'],['classification','Family placement']],concepts:[['retained','Same taxon'],['replacement','One-to-one revision'],['split','Split'],['lump','Lump'],['many_to_many','Complex revision'],['added','Added to current checklist'],['unresolved','Mapping pending']]}};
 const selected={{names:new Set(),concepts:new Set()}};const esc=s=>{{const e=document.createElement('span');e.textContent=s??'';return e.innerHTML}};
 function button([key,label],kind){{const count=groups.filter(g=>kind==='names'?g.tags.includes(key):g.relationship===key).length;return `<button class="filter" data-kind="${{kind}}" data-key="${{key}}" aria-pressed="false">${{label}} <span class="count">${{count}}</span></button>`}}
 nameFilters.insertAdjacentHTML('beforeend',filterConfig.names.map(x=>button(x,'names')).join(''));conceptFilters.insertAdjacentHTML('beforeend',filterConfig.concepts.map(x=>button(x,'concepts')).join(''));
@@ -204,7 +204,7 @@ function ebirdLinks(row){{return (row.ebird_codes||[]).map(code=>`<a class="sour
 function taxon(row){{return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${{esc(row.english)}}</span><span class="scientific">${{esc(row.scientific)}}</span></div><div class="source-links">${{avibaseLink(row.id)}}${{ebirdLinks(row)}}</div></div></div>`}}
 function side(rows,kind){{return `<div class="side ${{kind}}">${{rows.length?rows.map(taxon).join(''):'<div class="empty">None listed</div>'}}</div>`}}
 function card(g){{const tags=g.tags.filter(x=>x!=='concept').map(x=>`<span class="badge">${{esc(dict[x])}}</span>`).join('');const relClass=g.relationship==='unresolved'?' unresolved':'';return `<article class="change-card" id="${{esc(g.id)}}"><div class="card-head"><div class="card-title">${{esc(g.title)}}</div><div class="badges"><span class="badge relationship${{relClass}}">${{esc(g.relationship_label)}}</span>${{tags}}</div></div><div class="concept-grid">${{side(g.old,'old')}}<div class="arrow" aria-hidden="true"><span class="symbol">→</span></div>${{side(g.new,'new')}}</div></article>`}}
-const dict={{english_name:'English name',scientific_name:'Scientific name',classification:'Classification'}};
+const dict={{english_name:'English name',scientific_name:'Scientific name',classification:'Family placement'}};
 function render(){{const q=search.value.trim().toLowerCase();const visible=groups.filter(g=>{{const namesOk=!selected.names.size||[...selected.names].every(x=>g.tags.includes(x));const conceptOk=!selected.concepts.size||selected.concepts.has(g.relationship);const text=JSON.stringify(g).toLowerCase();return namesOk&&conceptOk&&(!q||text.includes(q))}});resultCount.innerHTML=`Showing <b>${{visible.length.toLocaleString()}}</b> of ${{groups.length.toLocaleString()}} change groups`;let out='',order='',family='';for(const g of visible){{if(g.order!==order){{order=g.order;family='';out+=`<h2 class="order-heading">${{esc(order)}}</h2>`}}if(g.family!==family){{family=g.family;out+=`<h3 class="family-heading">${{esc(family)}} <span>${{esc(g.family_english)}}</span></h3>`}}out+=card(g)}}report.innerHTML=out||'<div class="no-results">No changes match these filters.</div>'}}
 document.querySelectorAll('.filter').forEach(el=>el.addEventListener('click',()=>{{const set=selected[el.dataset.kind];set.has(el.dataset.key)?set.delete(el.dataset.key):set.add(el.dataset.key);el.setAttribute('aria-pressed',set.has(el.dataset.key));render()}}));search.addEventListener('input',render);clear.addEventListener('click',()=>{{search.value='';selected.names.clear();selected.concepts.clear();document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed','false'));render()}});render();
 </script></body></html>'''
