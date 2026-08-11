@@ -25,6 +25,8 @@ sort,action,replacement_avibaseid,note
 871,repair_id,avibase-E70F9747,Keep the original species row.
 871.1,repair_id,avibase-CA02C9A1,Correct Yellow-breasted Apalis subspecies to its Avibase taxonomic concept.
 909,repair_id,avibase-AEE2063F,Correct malformed legacy Avibase ID.
+925,repair_id,avibase-ED9EE880,Correct Little Rush Warbler to its Avibase taxonomic concept.
+926,repair_id,avibase-D6A69E06,Correct Highland Rush Warbler to its Avibase taxonomic concept.
 967,repair_id,avibase-C73137EA,Correct malformed legacy Avibase ID.
 975,repair_id,avibase-728B225E,Correct malformed legacy Avibase ID.
 985,repair_id,avibase-651384DF,Correct malformed legacy Avibase ID.
