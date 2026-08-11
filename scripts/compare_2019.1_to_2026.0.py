@@ -44,8 +44,17 @@ def write_csv(path, fields, rows):
         writer.writerows(rows)
 
 
-def mapping_edges(mapping):
+def mapping_edges(mapping, old_ids=None):
+    # A curated mapping can point to an unchanged identifier.  That stable
+    # old/current concept is not repeated in the crosswalk, but it is still
+    # part of the relationship group (e.g. African + Eurasian Reed Warbler
+    # becoming Common Reed Warbler). Include those implicit identity edges
+    # before deriving split/lump cardinality.
     old_to_new = {old_id: set(targets) for old_id, targets in mapping.items()}
+    known_old_ids = set(old_ids or ())
+    for target in {target for targets in old_to_new.values() for target in targets} & known_old_ids:
+        if target not in old_to_new:
+            old_to_new[target] = {target}
     new_to_old = defaultdict(set)
     for old_id, targets in old_to_new.items():
         for target in targets:
@@ -131,7 +140,7 @@ def compare(legacy_rows, current_rows, mapping_rows, fields):
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
     new_by_id = {row["avilist_id"]: row for row in current_rows}
     mapping = read_mapping_rows(mapping_rows, old_by_id, new_by_id)
-    edges = mapping_edges(mapping)
+    edges = mapping_edges(mapping, old_by_id)
     mapped_new_ids = {target for targets in mapping.values() for target in targets}
     changes = [
         change_row(group_id, relationship, "curated_mapping", old_by_id[old_id], new_by_id.get(new_id, {}))

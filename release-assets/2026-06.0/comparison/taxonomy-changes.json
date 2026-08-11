@@ -4,18 +4,19 @@
   "group_count": 380,
   "relationship_counts": {
     "added": 22,
-    "lump": 22,
-    "many_to_many": 1,
-    "replacement": 29,
+    "lump": 27,
+    "many_to_many": 6,
+    "replacement": 24,
     "retained": 289,
-    "split": 9,
+    "split": 4,
     "unresolved": 8
   },
   "groups": [
     {
       "id": "stable-avibase-2247CB05",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -49,7 +50,8 @@
     {
       "id": "added-avibase-90AAE188",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Cotton Pygmy Goose",
       "sort_order": 265.0,
@@ -74,7 +76,8 @@
     {
       "id": "added-avibase-1F9D883E",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Ruddy Shelduck",
       "sort_order": 391.0,
@@ -99,7 +102,8 @@
     {
       "id": "stable-avibase-FA831F65",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -133,7 +137,8 @@
     {
       "id": "stable-avibase-BC6C3CCE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -166,8 +171,9 @@
     },
     {
       "id": "legacy-map-001",
-      "relationship": "split",
-      "relationship_label": "Split",
+      "relationship": "many_to_many",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -225,7 +231,8 @@
     {
       "id": "stable-avibase-ECD7C1D8",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -259,7 +266,8 @@
     {
       "id": "stable-avibase-3D25568A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -293,7 +301,8 @@
     {
       "id": "stable-avibase-8E833C63",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -327,7 +336,8 @@
     {
       "id": "stable-avibase-A15F6836",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -361,7 +371,8 @@
     {
       "id": "stable-avibase-8004C7E5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -395,7 +406,8 @@
     {
       "id": "stable-avibase-CAA45AC6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -430,7 +442,8 @@
     {
       "id": "stable-avibase-CAFE345D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -464,7 +477,8 @@
     {
       "id": "stable-avibase-81474844",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -499,7 +513,8 @@
     {
       "id": "stable-avibase-A7E59764",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -533,7 +548,8 @@
     {
       "id": "stable-avibase-F5A73AAA",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -567,7 +583,8 @@
     {
       "id": "stable-avibase-1B11690B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -601,7 +618,8 @@
     {
       "id": "legacy-map-003",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -648,7 +666,8 @@
     {
       "id": "stable-avibase-2AA4BC58",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -682,7 +701,8 @@
     {
       "id": "stable-avibase-10B14696",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -716,7 +736,8 @@
     {
       "id": "stable-avibase-2C7BA3A6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -750,7 +771,8 @@
     {
       "id": "stable-avibase-22952180",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [],
       "title": "Schalow's Turaco",
       "sort_order": 1741.0,
@@ -782,7 +804,8 @@
     {
       "id": "stable-avibase-4FDBC0CB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -816,7 +839,8 @@
     {
       "id": "stable-avibase-4971D1EF",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -850,7 +874,8 @@
     {
       "id": "legacy-map-002",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [],
       "title": "White-browed Coucal",
       "sort_order": 1917.0,
@@ -882,7 +907,8 @@
     {
       "id": "stable-avibase-3A46A20C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -916,7 +942,8 @@
     {
       "id": "stable-avibase-E0D521B7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -950,7 +977,8 @@
     {
       "id": "added-avibase-DDEF7228",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Vinaceous Dove",
       "sort_order": 2625.0,
@@ -975,7 +1003,8 @@
     {
       "id": "stable-avibase-70BD722B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1009,7 +1038,8 @@
     {
       "id": "stable-avibase-65FE8029",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1043,7 +1073,8 @@
     {
       "id": "stable-avibase-BBA263C2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1077,7 +1108,8 @@
     {
       "id": "stable-avibase-23D5FC36",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1111,7 +1143,8 @@
     {
       "id": "stable-avibase-BDF442F2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1145,7 +1178,8 @@
     {
       "id": "stable-avibase-64DDD14D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1179,7 +1213,8 @@
     {
       "id": "stable-avibase-5B443EDE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1213,7 +1248,8 @@
     {
       "id": "stable-avibase-09A0F2EB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1247,7 +1283,8 @@
     {
       "id": "stable-avibase-7E257242",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1281,7 +1318,8 @@
     {
       "id": "stable-avibase-A927C1AE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1315,7 +1353,8 @@
     {
       "id": "legacy-map-005",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1349,7 +1388,8 @@
     {
       "id": "stable-avibase-13967506",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1383,7 +1423,8 @@
     {
       "id": "stable-avibase-C7DB323E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1417,7 +1458,8 @@
     {
       "id": "stable-avibase-8DAF86A1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1451,7 +1493,8 @@
     {
       "id": "stable-avibase-35EC3BBF",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1485,7 +1528,8 @@
     {
       "id": "stable-avibase-F7D5320E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1519,7 +1563,8 @@
     {
       "id": "stable-avibase-2F23EDC6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1553,7 +1598,8 @@
     {
       "id": "stable-avibase-F5E92B22",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1587,7 +1633,8 @@
     {
       "id": "stable-avibase-D531B5D3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1621,7 +1668,8 @@
     {
       "id": "stable-avibase-42D3918F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1655,7 +1703,8 @@
     {
       "id": "stable-avibase-83D95620",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1689,7 +1738,8 @@
     {
       "id": "stable-avibase-D0FA8EBE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1723,7 +1773,8 @@
     {
       "id": "stable-avibase-074251A3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1757,7 +1808,8 @@
     {
       "id": "stable-avibase-881C954D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -1791,7 +1843,8 @@
     {
       "id": "stable-avibase-264D0351",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1825,7 +1878,8 @@
     {
       "id": "legacy-map-006",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -1860,7 +1914,8 @@
     {
       "id": "stable-avibase-98B9C10B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1894,7 +1949,8 @@
     {
       "id": "stable-avibase-0F0DCC2F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1928,7 +1984,8 @@
     {
       "id": "stable-avibase-61F0E581",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1962,7 +2019,8 @@
     {
       "id": "stable-avibase-214B3533",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -1996,7 +2054,8 @@
     {
       "id": "stable-avibase-AA4385A2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -2030,7 +2089,8 @@
     {
       "id": "legacy-map-007",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2064,7 +2124,8 @@
     {
       "id": "stable-avibase-EE61E2CA",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2098,7 +2159,8 @@
     {
       "id": "stable-avibase-18A19380",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2132,7 +2194,8 @@
     {
       "id": "stable-avibase-0874B4D5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -2166,7 +2229,8 @@
     {
       "id": "stable-avibase-C130193B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -2200,7 +2264,8 @@
     {
       "id": "stable-avibase-29D50ED5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2234,7 +2299,8 @@
     {
       "id": "stable-avibase-DE0A72A7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2268,7 +2334,8 @@
     {
       "id": "stable-avibase-39086887",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2302,7 +2369,8 @@
     {
       "id": "stable-avibase-1D446440",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2336,7 +2404,8 @@
     {
       "id": "stable-avibase-7CB8F5B7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2370,7 +2439,8 @@
     {
       "id": "added-avibase-4D5D2BC3",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Brown Skua",
       "sort_order": 4318.0,
@@ -2395,7 +2465,8 @@
     {
       "id": "legacy-map-010",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -2442,7 +2513,8 @@
     {
       "id": "stable-avibase-43CAAEE3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2476,7 +2548,8 @@
     {
       "id": "stable-avibase-526978C4",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2510,7 +2583,8 @@
     {
       "id": "added-avibase-F89FD6E3",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Little Gull",
       "sort_order": 4538.0,
@@ -2535,7 +2609,8 @@
     {
       "id": "added-avibase-86182656",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Sabine's Gull",
       "sort_order": 4547.0,
@@ -2560,7 +2635,8 @@
     {
       "id": "legacy-map-008",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Common Gull",
       "sort_order": 4589.5,
@@ -2580,7 +2656,8 @@
     {
       "id": "added-avibase-93CA037F",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Caspian Gull",
       "sort_order": 4601.0,
@@ -2605,7 +2682,8 @@
     {
       "id": "legacy-map-009",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -2652,7 +2730,8 @@
     {
       "id": "added-avibase-7EE005BD",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Red-billed Tropicbird",
       "sort_order": 4652.0,
@@ -2677,7 +2756,8 @@
     {
       "id": "added-avibase-C412CD62",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Red-tailed Tropicbird",
       "sort_order": 4656.0,
@@ -2702,7 +2782,8 @@
     {
       "id": "stable-avibase-D295D249",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2736,7 +2817,8 @@
     {
       "id": "stable-avibase-ACE8EADE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2770,7 +2852,8 @@
     {
       "id": "stable-avibase-C5FB15C6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2804,7 +2887,8 @@
     {
       "id": "stable-avibase-AAC2D613",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2838,7 +2922,8 @@
     {
       "id": "legacy-map-068",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -2873,7 +2958,8 @@
     {
       "id": "stable-avibase-0F14ECE4",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -2907,7 +2993,8 @@
     {
       "id": "legacy-map-011",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -2942,7 +3029,8 @@
     {
       "id": "legacy-map-014",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Christmas Island Frigatebird",
       "sort_order": 5025.0,
@@ -2962,7 +3050,8 @@
     {
       "id": "legacy-map-015",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [],
       "title": "Brown Booby",
       "sort_order": 5034.0,
@@ -2994,7 +3083,8 @@
     {
       "id": "stable-avibase-E255DCE1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3028,7 +3118,8 @@
     {
       "id": "stable-avibase-550DE745",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3062,7 +3153,8 @@
     {
       "id": "stable-avibase-0F42F11A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3096,7 +3188,8 @@
     {
       "id": "stable-avibase-87EEBD3E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3130,7 +3223,8 @@
     {
       "id": "stable-avibase-7AAD57AC",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3164,7 +3258,8 @@
     {
       "id": "stable-avibase-3C12AA44",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3198,7 +3293,8 @@
     {
       "id": "stable-avibase-DF32B1F9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3232,8 +3328,9 @@
     },
     {
       "id": "legacy-map-013",
-      "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "relationship": "lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3274,7 +3371,8 @@
     {
       "id": "legacy-map-012",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3309,7 +3407,8 @@
     {
       "id": "stable-avibase-EA2C460A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3343,7 +3442,8 @@
     {
       "id": "stable-avibase-49D9148A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3377,7 +3477,8 @@
     {
       "id": "stable-avibase-C3ABF863",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3411,7 +3512,8 @@
     {
       "id": "stable-avibase-AB1CB216",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3446,7 +3548,8 @@
     {
       "id": "stable-avibase-A526534E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3480,7 +3583,8 @@
     {
       "id": "stable-avibase-D36F4D98",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -3514,7 +3618,8 @@
     {
       "id": "stable-avibase-80D4B0FE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3548,7 +3653,8 @@
     {
       "id": "stable-avibase-E93A0F33",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3582,7 +3688,8 @@
     {
       "id": "legacy-map-004",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3629,7 +3736,8 @@
     {
       "id": "stable-avibase-4FD242D0",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3663,7 +3771,8 @@
     {
       "id": "stable-avibase-B21A37E7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3697,7 +3806,8 @@
     {
       "id": "legacy-map-018",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3731,7 +3841,8 @@
     {
       "id": "stable-avibase-E561A180",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3765,7 +3876,8 @@
     {
       "id": "stable-avibase-023D6E38",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3799,7 +3911,8 @@
     {
       "id": "stable-avibase-250123FB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3832,8 +3945,9 @@
     },
     {
       "id": "legacy-map-019",
-      "relationship": "split",
-      "relationship_label": "Split",
+      "relationship": "many_to_many",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3891,7 +4005,8 @@
     {
       "id": "stable-avibase-034B2A6A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3925,7 +4040,8 @@
     {
       "id": "stable-avibase-EBD3129B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -3960,7 +4076,8 @@
     {
       "id": "stable-avibase-22832FF4",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -3994,7 +4111,8 @@
     {
       "id": "stable-avibase-97C47F3E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4028,7 +4146,8 @@
     {
       "id": "stable-avibase-C505EA72",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4062,7 +4181,8 @@
     {
       "id": "stable-avibase-81DB7410",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4096,7 +4216,8 @@
     {
       "id": "stable-avibase-648936C0",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4130,7 +4251,8 @@
     {
       "id": "stable-avibase-1192205B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4164,7 +4286,8 @@
     {
       "id": "stable-avibase-76B512B1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4198,7 +4321,8 @@
     {
       "id": "stable-avibase-7DF00403",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4232,7 +4356,8 @@
     {
       "id": "stable-avibase-51FD3E3C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4266,7 +4391,8 @@
     {
       "id": "stable-avibase-9A418C45",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4300,7 +4426,8 @@
     {
       "id": "stable-avibase-35A1472C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4334,7 +4461,8 @@
     {
       "id": "stable-avibase-CE1CF6FD",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4368,7 +4496,8 @@
     {
       "id": "stable-avibase-1A0ECB6E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4402,7 +4531,8 @@
     {
       "id": "stable-avibase-8492E4B7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4436,7 +4566,8 @@
     {
       "id": "stable-avibase-819AB823",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -4471,7 +4602,8 @@
     {
       "id": "legacy-map-016",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -4524,7 +4656,8 @@
     {
       "id": "stable-avibase-A19B0CF4",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4557,8 +4690,9 @@
     },
     {
       "id": "legacy-map-017",
-      "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "relationship": "lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -4599,7 +4733,8 @@
     {
       "id": "stable-avibase-1FDDABDB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4633,7 +4768,8 @@
     {
       "id": "stable-avibase-ADDB3611",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -4667,7 +4803,8 @@
     {
       "id": "legacy-map-020",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -4720,7 +4857,8 @@
     {
       "id": "legacy-map-021",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Forest Wood-hoopoe",
       "sort_order": 8878.29411764706,
@@ -4740,7 +4878,8 @@
     {
       "id": "stable-avibase-28CACA8F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -4775,7 +4914,8 @@
     {
       "id": "stable-avibase-76FAC9A5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -4810,7 +4950,8 @@
     {
       "id": "stable-avibase-68A80086",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -4845,7 +4986,8 @@
     {
       "id": "stable-avibase-D1FFB474",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -4880,7 +5022,8 @@
     {
       "id": "stable-avibase-AF75AC32",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4914,7 +5057,8 @@
     {
       "id": "stable-avibase-02428AC1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4948,7 +5092,8 @@
     {
       "id": "stable-avibase-BB456342",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -4982,7 +5127,8 @@
     {
       "id": "stable-avibase-2624054E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5016,7 +5162,8 @@
     {
       "id": "stable-avibase-7451A628",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5050,7 +5197,8 @@
     {
       "id": "added-avibase-30238523",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Böhm's Bee-eater",
       "sort_order": 9083.0,
@@ -5075,7 +5223,8 @@
     {
       "id": "added-avibase-D0C68FE0",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Ethiopian Bee-eater",
       "sort_order": 9104.0,
@@ -5100,7 +5249,8 @@
     {
       "id": "stable-avibase-B85B93BB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5134,7 +5284,8 @@
     {
       "id": "stable-avibase-66AA3934",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5168,7 +5319,8 @@
     {
       "id": "stable-avibase-AC89B8FF",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5202,7 +5354,8 @@
     {
       "id": "stable-avibase-F9F5CAB0",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5236,7 +5389,8 @@
     {
       "id": "legacy-map-028",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -5271,7 +5425,8 @@
     {
       "id": "legacy-map-023",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name",
@@ -5319,7 +5474,8 @@
     {
       "id": "legacy-map-024",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Speckled Tinkerbird",
       "sort_order": 9902.0,
@@ -5339,7 +5495,8 @@
     {
       "id": "stable-avibase-95054CA5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name",
@@ -5375,7 +5532,8 @@
     {
       "id": "legacy-map-025",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name",
@@ -5423,7 +5581,8 @@
     {
       "id": "legacy-map-026",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name",
@@ -5459,7 +5618,8 @@
     {
       "id": "stable-avibase-724266B4",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name",
         "classification"
@@ -5494,7 +5654,8 @@
     {
       "id": "stable-avibase-439FE608",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name",
         "classification"
@@ -5529,7 +5690,8 @@
     {
       "id": "legacy-map-027",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name",
@@ -5577,7 +5739,8 @@
     {
       "id": "stable-avibase-8DB3F1A2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5611,7 +5774,8 @@
     {
       "id": "legacy-map-022",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -5658,7 +5822,8 @@
     {
       "id": "stable-avibase-D0A5FADB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5692,7 +5857,8 @@
     {
       "id": "stable-avibase-BD7C4F70",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5726,7 +5892,8 @@
     {
       "id": "stable-avibase-C5585051",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -5760,7 +5927,8 @@
     {
       "id": "stable-avibase-2700C97D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5794,7 +5962,8 @@
     {
       "id": "stable-avibase-77D82F60",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5828,7 +5997,8 @@
     {
       "id": "stable-avibase-9FF4EDB5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5862,7 +6032,8 @@
     {
       "id": "stable-avibase-E5DF48FC",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -5896,7 +6067,8 @@
     {
       "id": "stable-avibase-902E9F69",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -5931,7 +6103,8 @@
     {
       "id": "legacy-map-029",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -5978,7 +6151,8 @@
     {
       "id": "stable-avibase-6A64EFCB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6012,7 +6186,8 @@
     {
       "id": "legacy-map-030",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -6059,7 +6234,8 @@
     {
       "id": "stable-avibase-0ECD9D58",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6093,7 +6269,8 @@
     {
       "id": "stable-avibase-69661C7D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6127,7 +6304,8 @@
     {
       "id": "added-avibase-6B1CFC3C",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Rose-ringed Parakeet",
       "sort_order": 11950.0,
@@ -6152,7 +6330,8 @@
     {
       "id": "legacy-map-031",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Yellow-collared Lovebird",
       "sort_order": 12205.75,
@@ -6172,7 +6351,8 @@
     {
       "id": "legacy-map-032",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Fischer’s Lovebird",
       "sort_order": 12299.5,
@@ -6192,7 +6372,8 @@
     {
       "id": "legacy-map-033",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Hybrid Lovebird",
       "sort_order": 12393.25,
@@ -6212,7 +6393,8 @@
     {
       "id": "stable-avibase-C7B05F46",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6246,7 +6428,8 @@
     {
       "id": "stable-avibase-7DCA1C1E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6280,7 +6463,8 @@
     {
       "id": "stable-avibase-FA7A6D02",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6314,7 +6498,8 @@
     {
       "id": "stable-avibase-641068BB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6348,7 +6533,8 @@
     {
       "id": "stable-avibase-0BC36521",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6382,7 +6568,8 @@
     {
       "id": "stable-avibase-F3DCCA8F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6416,7 +6603,8 @@
     {
       "id": "stable-avibase-E7DC526A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6449,8 +6637,9 @@
     },
     {
       "id": "legacy-map-034",
-      "relationship": "split",
-      "relationship_label": "Split",
+      "relationship": "many_to_many",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "scientific_name"
       ],
@@ -6507,7 +6696,8 @@
     {
       "id": "stable-avibase-0868B50D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6541,7 +6731,8 @@
     {
       "id": "stable-avibase-3402C9BB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6575,7 +6766,8 @@
     {
       "id": "stable-avibase-7DC78D7A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6609,7 +6801,8 @@
     {
       "id": "stable-avibase-3B66D504",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -6643,7 +6836,8 @@
     {
       "id": "stable-avibase-D91540DE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6677,7 +6871,8 @@
     {
       "id": "stable-avibase-C5C38D98",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6711,7 +6906,8 @@
     {
       "id": "stable-avibase-5A58B69A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6745,7 +6941,8 @@
     {
       "id": "stable-avibase-90D0D245",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6779,7 +6976,8 @@
     {
       "id": "stable-avibase-E27EEDC5",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name",
         "classification"
@@ -6814,7 +7012,8 @@
     {
       "id": "stable-avibase-418C7CCB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6848,7 +7047,8 @@
     {
       "id": "stable-avibase-95A2F6E7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6882,7 +7082,8 @@
     {
       "id": "stable-avibase-84249EE3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -6915,8 +7116,9 @@
     },
     {
       "id": "legacy-map-035",
-      "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "relationship": "lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -6957,7 +7159,8 @@
     {
       "id": "legacy-map-036",
       "relationship": "unresolved",
-      "relationship_label": "Mapping pending",
+      "cardinality": "1:0",
+      "relationship_label": "Discontinued",
       "tags": [],
       "title": "Geat Grey Shrike",
       "sort_order": 19833.5,
@@ -6977,7 +7180,8 @@
     {
       "id": "stable-avibase-EE7915A2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7011,7 +7215,8 @@
     {
       "id": "stable-avibase-866D07A0",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7045,7 +7250,8 @@
     {
       "id": "stable-avibase-562E17AB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7079,7 +7285,8 @@
     {
       "id": "stable-avibase-9DBAAB1D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7113,7 +7320,8 @@
     {
       "id": "stable-avibase-56209052",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7147,7 +7355,8 @@
     {
       "id": "legacy-map-045",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -7182,7 +7391,8 @@
     {
       "id": "stable-avibase-6F967270",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7216,7 +7426,8 @@
     {
       "id": "legacy-map-046",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -7263,7 +7474,8 @@
     {
       "id": "stable-avibase-5C70AA7D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7297,7 +7509,8 @@
     {
       "id": "stable-avibase-C8880D28",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7331,7 +7544,8 @@
     {
       "id": "stable-avibase-5C54F8C9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7365,7 +7579,8 @@
     {
       "id": "stable-avibase-610FFD8E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -7400,7 +7615,8 @@
     {
       "id": "stable-avibase-92FDBAF0",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7434,7 +7650,8 @@
     {
       "id": "stable-avibase-97D7865F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7468,7 +7685,8 @@
     {
       "id": "stable-avibase-2F66131B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7502,7 +7720,8 @@
     {
       "id": "stable-avibase-9164F314",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7536,7 +7755,8 @@
     {
       "id": "stable-avibase-A3E077E6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7570,7 +7790,8 @@
     {
       "id": "stable-avibase-A990EB0B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7604,7 +7825,8 @@
     {
       "id": "added-avibase-AB507233",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Melodious Lark",
       "sort_order": 21153.0,
@@ -7629,7 +7851,8 @@
     {
       "id": "legacy-map-047",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7663,7 +7886,8 @@
     {
       "id": "stable-avibase-D0EAD8A3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7697,7 +7921,8 @@
     {
       "id": "stable-avibase-C49FA9A8",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7731,7 +7956,8 @@
     {
       "id": "legacy-map-048",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7765,7 +7991,8 @@
     {
       "id": "legacy-map-049",
       "relationship": "split",
-      "relationship_label": "Split",
+      "cardinality": "1:n",
+      "relationship_label": "1:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -7811,7 +8038,8 @@
     {
       "id": "stable-avibase-419AEB97",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7845,7 +8073,8 @@
     {
       "id": "stable-avibase-5351025C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -7879,7 +8108,8 @@
     {
       "id": "stable-avibase-FCDA4F09",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7913,7 +8143,8 @@
     {
       "id": "stable-avibase-61CECCA7",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -7947,7 +8178,8 @@
     {
       "id": "legacy-map-050",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -7994,7 +8226,8 @@
     {
       "id": "stable-avibase-7D340BF9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8028,7 +8261,8 @@
     {
       "id": "stable-avibase-1E7CADC2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8062,7 +8296,8 @@
     {
       "id": "stable-avibase-DC456636",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8096,7 +8331,8 @@
     {
       "id": "stable-avibase-D5549C6D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8130,7 +8366,8 @@
     {
       "id": "legacy-map-051",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8177,7 +8414,8 @@
     {
       "id": "stable-avibase-4FE76868",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8211,7 +8449,8 @@
     {
       "id": "legacy-map-067",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8246,7 +8485,8 @@
     {
       "id": "stable-avibase-C67FD539",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8281,7 +8521,8 @@
     {
       "id": "stable-avibase-D8177CEC",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8315,7 +8556,8 @@
     {
       "id": "legacy-map-052",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [],
       "title": "Rock-loving Cisticola",
       "sort_order": 21998.0,
@@ -8347,7 +8589,8 @@
     {
       "id": "legacy-map-053",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8382,7 +8625,8 @@
     {
       "id": "added-avibase-3DF3F9B9",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Ethiopian Cisticola",
       "sort_order": 22067.0,
@@ -8407,7 +8651,8 @@
     {
       "id": "stable-avibase-F936B680",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8441,7 +8686,8 @@
     {
       "id": "stable-avibase-FBDCA962",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8476,7 +8722,8 @@
     {
       "id": "stable-avibase-BAE527A2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8510,7 +8757,8 @@
     {
       "id": "stable-avibase-EBBD09CA",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8543,8 +8791,9 @@
     },
     {
       "id": "legacy-map-054",
-      "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "relationship": "lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8585,7 +8834,8 @@
     {
       "id": "added-avibase-A630DB2C",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Bamboo Warbler",
       "sort_order": 22410.0,
@@ -8610,7 +8860,8 @@
     {
       "id": "stable-avibase-2470FC01",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8644,7 +8895,8 @@
     {
       "id": "stable-avibase-D6A69E06",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8678,7 +8930,8 @@
     {
       "id": "stable-avibase-D2854489",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8712,7 +8965,8 @@
     {
       "id": "legacy-map-056",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8747,7 +9001,8 @@
     {
       "id": "stable-avibase-30FEC6BE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8781,7 +9036,8 @@
     {
       "id": "stable-avibase-958F4A5E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -8815,7 +9071,8 @@
     {
       "id": "legacy-map-055",
       "relationship": "many_to_many",
-      "relationship_label": "Complex revision",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -8873,7 +9130,8 @@
     {
       "id": "stable-avibase-572C4C7F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8907,7 +9165,8 @@
     {
       "id": "stable-avibase-F6B77E64",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8941,7 +9200,8 @@
     {
       "id": "stable-avibase-E22B8495",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -8975,7 +9235,8 @@
     {
       "id": "stable-avibase-132E0773",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9009,7 +9270,8 @@
     {
       "id": "stable-avibase-79A45DAF",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9043,7 +9305,8 @@
     {
       "id": "stable-avibase-5D82C13B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9077,7 +9340,8 @@
     {
       "id": "stable-avibase-5A94FEAE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9111,7 +9375,8 @@
     {
       "id": "added-avibase-1D9175EA",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Yellow-eyed Bristlebill",
       "sort_order": 23299.0,
@@ -9135,8 +9400,9 @@
     },
     {
       "id": "legacy-map-058",
-      "relationship": "split",
-      "relationship_label": "Split",
+      "relationship": "many_to_many",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9194,7 +9460,8 @@
     {
       "id": "legacy-map-059",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9229,7 +9496,8 @@
     {
       "id": "legacy-map-057",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9264,7 +9532,8 @@
     {
       "id": "stable-avibase-0EA5F2E1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9298,7 +9567,8 @@
     {
       "id": "stable-avibase-FA137697",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9332,7 +9602,8 @@
     {
       "id": "legacy-map-060",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9379,7 +9650,8 @@
     {
       "id": "legacy-map-061",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9426,7 +9698,8 @@
     {
       "id": "stable-avibase-61F9065B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9460,7 +9733,8 @@
     {
       "id": "stable-avibase-1EA60B94",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9494,7 +9768,8 @@
     {
       "id": "stable-avibase-982C918E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9528,7 +9803,8 @@
     {
       "id": "stable-avibase-0DCD05BE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9562,7 +9838,8 @@
     {
       "id": "stable-avibase-16FEF081",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9596,7 +9873,8 @@
     {
       "id": "stable-avibase-14AFBA82",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9630,7 +9908,8 @@
     {
       "id": "stable-avibase-F80D69C2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9664,7 +9943,8 @@
     {
       "id": "added-avibase-33C35018",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Green White-eye",
       "sort_order": 24140.0,
@@ -9689,7 +9969,8 @@
     {
       "id": "added-avibase-A23B8E7A",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Broad-ringed White-eye",
       "sort_order": 24145.0,
@@ -9714,7 +9995,8 @@
     {
       "id": "legacy-map-063",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9749,7 +10031,8 @@
     {
       "id": "legacy-map-062",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [],
       "title": "Northern Yellow White-eye",
       "sort_order": 24158.0,
@@ -9781,7 +10064,8 @@
     {
       "id": "stable-avibase-A14D3117",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9815,7 +10099,8 @@
     {
       "id": "legacy-map-064",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -9862,7 +10147,8 @@
     {
       "id": "stable-avibase-A51A5F84",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "classification"
@@ -9897,7 +10183,8 @@
     {
       "id": "stable-avibase-7471E71D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9931,7 +10218,8 @@
     {
       "id": "stable-avibase-24208346",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -9965,7 +10253,8 @@
     {
       "id": "stable-avibase-1350773F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -9999,7 +10288,8 @@
     {
       "id": "stable-avibase-295B9665",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10033,7 +10323,8 @@
     {
       "id": "stable-avibase-A77D4A77",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10067,7 +10358,8 @@
     {
       "id": "stable-avibase-60A39CF9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10101,7 +10393,8 @@
     {
       "id": "stable-avibase-C54DCA26",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10135,7 +10428,8 @@
     {
       "id": "stable-avibase-45C55FDE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10169,7 +10463,8 @@
     {
       "id": "stable-avibase-428DA7CD",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10203,7 +10498,8 @@
     {
       "id": "stable-avibase-A0DC8E87",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10237,7 +10533,8 @@
     {
       "id": "stable-avibase-92908926",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10271,7 +10568,8 @@
     {
       "id": "stable-avibase-B68BD0D2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10305,7 +10603,8 @@
     {
       "id": "legacy-map-065",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -10352,7 +10651,8 @@
     {
       "id": "stable-avibase-5EA2B90C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10386,7 +10686,8 @@
     {
       "id": "stable-avibase-6E95C4A9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10420,7 +10721,8 @@
     {
       "id": "stable-avibase-230A0342",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10454,7 +10756,8 @@
     {
       "id": "added-avibase-2455B82B",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Yellow-breasted Forest Robin",
       "sort_order": 27548.0,
@@ -10479,7 +10782,8 @@
     {
       "id": "stable-avibase-8B7A6FE9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -10513,7 +10817,8 @@
     {
       "id": "stable-avibase-9616C96E",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10547,7 +10852,8 @@
     {
       "id": "stable-avibase-53EABB81",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10581,7 +10887,8 @@
     {
       "id": "stable-avibase-16BD42DD",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10615,7 +10922,8 @@
     {
       "id": "stable-avibase-3846F8A8",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10649,7 +10957,8 @@
     {
       "id": "stable-avibase-BB05D1FC",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10683,7 +10992,8 @@
     {
       "id": "stable-avibase-345658E9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10717,7 +11027,8 @@
     {
       "id": "stable-avibase-A38BABE1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -10752,7 +11063,8 @@
     {
       "id": "stable-avibase-25C26AB9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10786,7 +11098,8 @@
     {
       "id": "stable-avibase-73BD4B29",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10820,7 +11133,8 @@
     {
       "id": "stable-avibase-BE56C141",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10854,7 +11168,8 @@
     {
       "id": "stable-avibase-6E352E18",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10888,7 +11203,8 @@
     {
       "id": "added-avibase-3380CFC5",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Siberian Stonechat",
       "sort_order": 27988.0,
@@ -10913,7 +11229,8 @@
     {
       "id": "stable-avibase-CF2E9674",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10947,7 +11264,8 @@
     {
       "id": "stable-avibase-8EB0AB41",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -10981,7 +11299,8 @@
     {
       "id": "stable-avibase-E09F7223",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11015,7 +11334,8 @@
     {
       "id": "added-avibase-535524BE",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Arnot's Chat",
       "sort_order": 28068.0,
@@ -11040,7 +11360,8 @@
     {
       "id": "stable-avibase-DF26171F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11075,7 +11396,8 @@
     {
       "id": "stable-avibase-6ADB636C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11109,7 +11431,8 @@
     {
       "id": "stable-avibase-CD8DEBE3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11143,7 +11466,8 @@
     {
       "id": "stable-avibase-FC1BE879",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11177,7 +11501,8 @@
     {
       "id": "legacy-map-037",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11211,7 +11536,8 @@
     {
       "id": "stable-avibase-1611F295",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11245,7 +11571,8 @@
     {
       "id": "stable-avibase-B0E7740F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11279,7 +11606,8 @@
     {
       "id": "stable-avibase-0B4F3AA2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11313,7 +11641,8 @@
     {
       "id": "stable-avibase-C1CBA33A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11347,7 +11676,8 @@
     {
       "id": "stable-avibase-D33D2F6D",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11381,7 +11711,8 @@
     {
       "id": "legacy-map-038",
       "relationship": "split",
-      "relationship_label": "Split",
+      "cardinality": "1:n",
+      "relationship_label": "1:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11427,7 +11758,8 @@
     {
       "id": "legacy-map-039",
       "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11461,7 +11793,8 @@
     {
       "id": "stable-avibase-C7708C70",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11495,7 +11828,8 @@
     {
       "id": "stable-avibase-94C71DF6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11529,7 +11863,8 @@
     {
       "id": "stable-avibase-2C504059",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11563,7 +11898,8 @@
     {
       "id": "stable-avibase-5011E123",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11597,7 +11933,8 @@
     {
       "id": "stable-avibase-2379E3EB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11631,7 +11968,8 @@
     {
       "id": "stable-avibase-341298B9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11665,7 +12003,8 @@
     {
       "id": "stable-avibase-2A2CC7B3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11699,7 +12038,8 @@
     {
       "id": "stable-avibase-19D053B3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11733,7 +12073,8 @@
     {
       "id": "legacy-map-040",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11780,7 +12121,8 @@
     {
       "id": "legacy-map-041",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11827,7 +12169,8 @@
     {
       "id": "legacy-map-066",
       "relationship": "split",
-      "relationship_label": "Split",
+      "cardinality": "1:n",
+      "relationship_label": "1:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11873,7 +12216,8 @@
     {
       "id": "stable-avibase-3153FE22",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -11907,7 +12251,8 @@
     {
       "id": "legacy-map-069",
       "relationship": "split",
-      "relationship_label": "Split",
+      "cardinality": "1:n",
+      "relationship_label": "1:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -11953,7 +12298,8 @@
     {
       "id": "stable-avibase-C97A5C39",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -11987,7 +12333,8 @@
     {
       "id": "stable-avibase-ACF0F1A2",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12021,7 +12368,8 @@
     {
       "id": "stable-avibase-7D6F12FE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12055,7 +12403,8 @@
     {
       "id": "legacy-map-042",
       "relationship": "lump",
-      "relationship_label": "Lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -12102,7 +12451,8 @@
     {
       "id": "stable-avibase-1A6B766A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12136,7 +12486,8 @@
     {
       "id": "stable-avibase-F3B46894",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12170,7 +12521,8 @@
     {
       "id": "stable-avibase-B15F4C49",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12204,7 +12556,8 @@
     {
       "id": "stable-avibase-842FF43C",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12238,7 +12591,8 @@
     {
       "id": "stable-avibase-50BF77FB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12272,7 +12626,8 @@
     {
       "id": "stable-avibase-8E5252EB",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12306,7 +12661,8 @@
     {
       "id": "stable-avibase-2CC91390",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12340,7 +12696,8 @@
     {
       "id": "stable-avibase-50490520",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12374,7 +12731,8 @@
     {
       "id": "stable-avibase-FCD72CEE",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12407,8 +12765,9 @@
     },
     {
       "id": "legacy-map-044",
-      "relationship": "replacement",
-      "relationship_label": "One-to-one revision",
+      "relationship": "lump",
+      "cardinality": "n:1",
+      "relationship_label": "n:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -12449,7 +12808,8 @@
     {
       "id": "stable-avibase-F375B25B",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12483,7 +12843,8 @@
     {
       "id": "stable-avibase-DB4998D1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12517,7 +12878,8 @@
     {
       "id": "stable-avibase-2B55E679",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12550,8 +12912,9 @@
     },
     {
       "id": "legacy-map-043",
-      "relationship": "split",
-      "relationship_label": "Split",
+      "relationship": "many_to_many",
+      "cardinality": "n:n",
+      "relationship_label": "n:n",
       "tags": [
         "english_name",
         "scientific_name"
@@ -12609,7 +12972,8 @@
     {
       "id": "stable-avibase-5983D677",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12643,7 +13007,8 @@
     {
       "id": "stable-avibase-70129CB1",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12677,7 +13042,8 @@
     {
       "id": "stable-avibase-0D7CC717",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12711,7 +13077,8 @@
     {
       "id": "stable-avibase-4C7B3D81",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12745,7 +13112,8 @@
     {
       "id": "stable-avibase-5108E1D3",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12779,7 +13147,8 @@
     {
       "id": "stable-avibase-C978ABCC",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name",
         "scientific_name"
@@ -12814,7 +13183,8 @@
     {
       "id": "stable-avibase-D12CDD0F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12848,7 +13218,8 @@
     {
       "id": "stable-avibase-69EB514A",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12882,7 +13253,8 @@
     {
       "id": "stable-avibase-0CEB2DA6",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12916,7 +13288,8 @@
     {
       "id": "stable-avibase-F3618305",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "english_name"
       ],
@@ -12950,7 +13323,8 @@
     {
       "id": "stable-avibase-8E8B3DB9",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -12984,7 +13358,8 @@
     {
       "id": "stable-avibase-D1C1A026",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -13018,7 +13393,8 @@
     {
       "id": "stable-avibase-72386016",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -13052,7 +13428,8 @@
     {
       "id": "stable-avibase-BB11EE7F",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -13086,7 +13463,8 @@
     {
       "id": "stable-avibase-CDF4A106",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],
@@ -13120,7 +13498,8 @@
     {
       "id": "added-avibase-17E7F90B",
       "relationship": "added",
-      "relationship_label": "Added to current checklist",
+      "cardinality": "0:1",
+      "relationship_label": "New",
       "tags": [],
       "title": "Gosling's Bunting",
       "sort_order": 30789.0,
@@ -13145,7 +13524,8 @@
     {
       "id": "stable-avibase-0C571D99",
       "relationship": "retained",
-      "relationship_label": "Same taxon",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
       "tags": [
         "scientific_name"
       ],

@@ -19,13 +19,8 @@ PDF = OUTPUT / "Taxonomy-changes-2019.1-to-2026.0.pdf"
 COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
 
 RELATIONSHIP_LABELS = {
-    "retained": "Same taxon",
-    "replacement": "One-to-one revision",
-    "split": "Split",
-    "lump": "Lump",
-    "many_to_many": "Complex revision",
-    "unresolved": "Mapping pending",
-    "added": "Added to current checklist",
+    "1:1": "1:1", "n:1": "n:1", "1:n": "1:n", "n:n": "n:n",
+    "1:0": "Discontinued", "0:1": "New",
 }
 
 
@@ -54,7 +49,7 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
     new_by_id = {row["avilist_id"]: row for row in current_rows}
     mapping = comparison.read_mapping_rows(mapping_rows, old_by_id, new_by_id)
-    edges = comparison.mapping_edges(mapping)
+    edges = comparison.mapping_edges(mapping, old_by_id)
     current_sorted = sorted(current_rows, key=lambda row: number(row["sequence"]))
     current_sequences = [number(row["sequence"]) for row in current_sorted]
 
@@ -105,6 +100,13 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
                 tags.append("classification")
         old_names = [row["common_name"].strip() for row in old_rows]
         new_names = [row["english_name"].strip() for row in new_rows]
+        cardinality = (
+            "1:1" if len(old_rows) == 1 and len(new_rows) == 1 else
+            "n:1" if len(old_rows) > 1 and len(new_rows) == 1 else
+            "1:n" if len(old_rows) == 1 and len(new_rows) > 1 else
+            "n:n" if old_rows and new_rows else
+            "1:0" if old_rows else "0:1"
+        )
         title_names = new_names or old_names
         title = title_names[0] if len(title_names) == 1 else " / ".join(title_names[:3])
         if len(title_names) > 3:
@@ -112,7 +114,8 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
         return {
             "id": group_id,
             "relationship": relationship,
-            "relationship_label": RELATIONSHIP_LABELS[relationship],
+            "cardinality": cardinality,
+            "relationship_label": RELATIONSHIP_LABELS[cardinality],
             "tags": tags,
             "title": title,
             "sort_order": sort_order,
@@ -189,24 +192,24 @@ main{{max-width:1240px;margin:auto;padding:1.15rem 1.25rem 5rem}}.result-line{{d
 @media(max-width:760px){{.hero{{padding-top:3rem;padding-bottom:3rem}}.top-controls{{grid-template-columns:1fr}}.column-legend{{display:none}}.concept-grid{{grid-template-columns:1fr}}.arrow{{min-height:1.4rem}}.arrow .symbol{{transform:rotate(90deg)}}.card-head{{display:block}}.badges{{justify-content:flex-start;margin-top:.35rem}}.source-links{{max-width:46%}}.toolbar-wrap{{position:relative}}}}
 @media print{{.toolbar-wrap{{display:none}}.hero{{padding:1.2cm;background:#173e2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}main{{padding:.5cm}}.change-card{{box-shadow:none;break-inside:avoid}}}}
 </style></head>
-<body><header class="hero"><div class="eyebrow">Birds of Kenya · Taxonomy review</div><h1>From the 2019 checklist to AviList 2026</h1><p class="lede">A taxonomically ordered view of name changes and concept changes. Splits, lumps and related taxa stay together as a single species complex.</p>
+<body><header class="hero"><div class="eyebrow">Birds of Kenya · Taxonomy review</div><h1>From the 2019 checklist to AviList 2026</h1><p class="lede">A taxonomically ordered view of name changes and concept changes. Relationships are labelled by historical-to-current concept cardinality.</p>
 </header>
 <div class="toolbar-wrap"><div class="toolbar"><div class="top-controls"><input id="search" type="search" placeholder="Search names, families or AviList IDs" aria-label="Search taxonomy changes"><button class="clear" id="clear">Clear filters</button></div>
 <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div><div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div></div></div>
 <main><div class="result-line"><span id="resultCount"></span><span>Ordered by current AviList sequence</span></div><div class="column-legend" aria-hidden="true"><span>2019.1 historical concept</span><span></span><span>2026.0 current concept</span></div><div id="report"></div></main>
 <footer>Generated from the corrected v2019.1 checklist, the 2026.0 checklist and the project’s one-time taxonomy mapping. This is a review aid, not a taxonomic authority.</footer>
 <script>const groups={data};
-const filterConfig={{names:[['english_name','English name'],['scientific_name','Scientific name'],['classification','Family placement']],concepts:[['retained','Same taxon'],['replacement','One-to-one revision'],['split','Split'],['lump','Lump'],['many_to_many','Complex revision'],['added','Added to current checklist'],['unresolved','Mapping pending']]}};
+const filterConfig={{names:[['english_name','English name'],['scientific_name','Scientific name']],concepts:[['1:1','1:1'],['n:1','n:1'],['1:n','1:n'],['n:n','n:n'],['0:1','New'],['1:0','Discontinued']]}};
 const selected={{names:new Set(),concepts:new Set()}};const esc=s=>{{const e=document.createElement('span');e.textContent=s??'';return e.innerHTML}};
-function button([key,label],kind){{const count=groups.filter(g=>kind==='names'?g.tags.includes(key):g.relationship===key).length;return `<button class="filter" data-kind="${{kind}}" data-key="${{key}}" aria-pressed="false">${{label}} <span class="count">${{count}}</span></button>`}}
+function button([key,label],kind){{const count=groups.filter(g=>kind==='names'?g.tags.includes(key):g.cardinality===key).length;return `<button class="filter" data-kind="${{kind}}" data-key="${{key}}" aria-pressed="false">${{label}} <span class="count">${{count}}</span></button>`}}
 nameFilters.insertAdjacentHTML('beforeend',filterConfig.names.map(x=>button(x,'names')).join(''));conceptFilters.insertAdjacentHTML('beforeend',filterConfig.concepts.map(x=>button(x,'concepts')).join(''));
 function avibaseLink(id){{const shortId=id.replace(/^avibase-/,'');return `<a class="source-link" href="https://avibase.bsc-eoc.org/species.jsp?avibaseid=${{encodeURIComponent(shortId)}}" target="_blank" rel="noopener" title="Open ${{esc(id)}} in Avibase">Avibase · ${{esc(shortId)}}</a>`}}
 function ebirdLinks(row){{return (row.ebird_codes||[]).map(code=>`<a class="source-link" href="https://ebird.org/species/${{encodeURIComponent(code)}}/KE" target="_blank" rel="noopener" title="Open ${{esc(code)}} in eBird for Kenya">eBird · ${{esc(code)}}</a>`).join('')}}
-function taxon(row){{const note=row.taxonomy_comment?`<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${{esc(row.taxonomy_comment)}}</div>`:'';return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${{esc(row.english)}}</span><span class="scientific">${{esc(row.scientific)}}</span></div><div class="source-links">${{avibaseLink(row.id)}}${{ebirdLinks(row)}}</div></div>${{note}}</div>`}}
+function taxon(row){{return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${{esc(row.english)}}</span><span class="scientific">${{esc(row.scientific)}}</span></div><div class="source-links">${{avibaseLink(row.id)}}${{ebirdLinks(row)}}</div></div></div>`}}
 function side(rows,kind){{return `<div class="side ${{kind}}">${{rows.length?rows.map(taxon).join(''):'<div class="empty">None listed</div>'}}</div>`}}
-function card(g){{const tags=g.tags.filter(x=>x!=='concept').map(x=>`<span class="badge">${{esc(dict[x])}}</span>`).join('');const relClass=g.relationship==='unresolved'?' unresolved':'';return `<article class="change-card" id="${{esc(g.id)}}"><div class="card-head"><div class="card-title">${{esc(g.title)}}</div><div class="badges"><span class="badge relationship${{relClass}}">${{esc(g.relationship_label)}}</span>${{tags}}</div></div><div class="concept-grid">${{side(g.old,'old')}}<div class="arrow" aria-hidden="true"><span class="symbol">→</span></div>${{side(g.new,'new')}}</div></article>`}}
+function card(g){{const tags=g.tags.filter(x=>x!=='concept').map(x=>`<span class="badge">${{esc(dict[x])}}</span>`).join('');const relClass=g.relationship==='unresolved'?' unresolved':'';const comments=[...new Set(g.new.map(row=>row.taxonomy_comment).filter(Boolean))];const note=comments.length?`<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${{comments.map(comment=>esc(comment)).join('<br>')}}</div>`:'';return `<article class="change-card" id="${{esc(g.id)}}"><div class="card-head"><div class="card-title">${{esc(g.title)}}</div><div class="badges"><span class="badge relationship${{relClass}}">${{esc(g.relationship_label)}}</span>${{tags}}</div></div><div class="concept-grid">${{side(g.old,'old')}}<div class="arrow" aria-hidden="true"><span class="symbol">→</span></div>${{side(g.new,'new')}}</div>${{note}}</article>`}}
 const dict={{english_name:'English name',scientific_name:'Scientific name',classification:'Family placement'}};
-function render(){{const q=search.value.trim().toLowerCase();const visible=groups.filter(g=>{{const namesOk=!selected.names.size||[...selected.names].every(x=>g.tags.includes(x));const conceptOk=!selected.concepts.size||selected.concepts.has(g.relationship);const text=JSON.stringify(g).toLowerCase();return namesOk&&conceptOk&&(!q||text.includes(q))}});resultCount.innerHTML=`Showing <b>${{visible.length.toLocaleString()}}</b> of ${{groups.length.toLocaleString()}} change groups`;let out='',order='',family='';for(const g of visible){{if(g.order!==order){{order=g.order;family='';out+=`<h2 class="order-heading">${{esc(order)}}</h2>`}}if(g.family!==family){{family=g.family;out+=`<h3 class="family-heading">${{esc(family)}} <span>${{esc(g.family_english)}}</span></h3>`}}out+=card(g)}}report.innerHTML=out||'<div class="no-results">No changes match these filters.</div>'}}
+function render(){{const q=search.value.trim().toLowerCase();const visible=groups.filter(g=>{{const namesOk=!selected.names.size||[...selected.names].every(x=>g.tags.includes(x));const conceptOk=!selected.concepts.size||selected.concepts.has(g.cardinality);const text=JSON.stringify(g).toLowerCase();return namesOk&&conceptOk&&(!q||text.includes(q))}});resultCount.innerHTML=`Showing <b>${{visible.length.toLocaleString()}}</b> of ${{groups.length.toLocaleString()}} change groups`;let out='',order='',family='';for(const g of visible){{if(g.order!==order){{order=g.order;family='';out+=`<h2 class="order-heading">${{esc(order)}}</h2>`}}if(g.family!==family){{family=g.family;out+=`<h3 class="family-heading">${{esc(family)}} <span>${{esc(g.family_english)}}</span></h3>`}}out+=card(g)}}report.innerHTML=out||'<div class="no-results">No changes match these filters.</div>'}}
 document.querySelectorAll('.filter').forEach(el=>el.addEventListener('click',()=>{{const set=selected[el.dataset.kind];set.has(el.dataset.key)?set.delete(el.dataset.key):set.add(el.dataset.key);el.setAttribute('aria-pressed',set.has(el.dataset.key));render()}}));search.addEventListener('input',render);clear.addEventListener('click',()=>{{search.value='';selected.names.clear();selected.concepts.clear();document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed','false'));render()}});render();
 </script></body></html>'''
 
@@ -233,15 +236,21 @@ def typst_report(groups):
 #set par(leading: 0.62em)
 #set heading(numbering: none)
 #show heading.where(level: 1): it => block(above: 1em, below: .35em)[#text(size: 17pt, weight: "bold", fill: rgb("1f6848"))[#it.body]]
-#show heading.where(level: 2): it => block(above: .7em, below: .2em)[#text(size: 11pt, weight: "bold", fill: rgb("1f6848"))[#it.body]]
+#show heading.where(level: 2): it => block(above: .7em, below: .2em)[#text(size: 11pt, weight: "bold", fill: rgb("173e2e"))[#it.body]]
 #let badge(body) = box(fill: rgb("f6ead8"), radius: 3pt, inset: (x: 4pt, y: 2pt), text(size: 7pt, weight: "bold", fill: rgb("8a541a"), body))
+#let pending(body) = box(fill: rgb("f8dddd"), radius: 3pt, inset: (x: 4pt, y: 2pt), text(size: 6pt, weight: "bold", fill: rgb("8b2c2c"), body))
+#let old-panel(body) = box(fill: rgb("f5eee3"), stroke: .5pt + rgb("eadbc5"), radius: 4pt, inset: 6pt, body)
+#let new-panel(body) = box(fill: rgb("eaf3ed"), stroke: .5pt + rgb("d1e4d8"), radius: 4pt, inset: 6pt, body)
+#let decision(body) = block(above: 5pt, fill: rgb("faf7f0"), inset: 6pt, stroke: (left: 2pt + rgb("b5752a")))[#text(size: 7pt, weight: "bold")[AviList taxonomy decision] #v(2pt) #text(size: 7.5pt, fill: rgb("68736d"))[#body]]
 #align(center)[
   #v(24mm)
+  #text(size: 9pt, weight: "bold", fill: rgb("1f6848"))[BIRDS OF KENYA · TAXONOMY REVIEW]
+  #v(4mm)
   #text(size: 29pt, weight: "bold", fill: rgb("173e2e"))[Taxonomy changes]
   #v(4mm)
   #text(size: 17pt)[Birds of Kenya, 2019.1 to 2026.0]
   #v(8mm)
-  #text(size: 10pt, fill: rgb("68736d"))[Taxonomically ordered; related concepts grouped as species complexes]
+  #text(size: 10pt, fill: rgb("68736d"))[Taxonomically ordered comparison of historical and current concepts]
   #v(18mm)
   #text(size: 11pt, weight: "bold", fill: rgb("1f6848"))[{len(groups):,} change groups]
 ]
@@ -255,7 +264,7 @@ def typst_report(groups):
             parts.append(f"= {typst_text(order)}\n")
         if group["family"] != family:
             family = group["family"]
-            parts.append(f"== {typst_text(family)} #text(size: 8pt, fill: rgb(\"68736d\"))[{typst_text(group['family_english'])}]\n")
+            parts.append(f"== {typst_text(group['family_english'])} #text(size: 8pt, fill: rgb(\"68736d\"))[{typst_text(family)}]\n")
         old_taxa = "\\\n".join(
             f"#strong[{typst_text(row['english'])}] #emph({json.dumps(row['scientific'], ensure_ascii=False)}) #text(size: 6.5pt, fill: rgb(\"68736d\"))[{typst_text(row['id'])}]"
             for row in group["old"]
@@ -264,13 +273,18 @@ def typst_report(groups):
             f"#strong[{typst_text(row['english'])}] #emph({json.dumps(row['scientific'], ensure_ascii=False)}) #text(size: 6.5pt, fill: rgb(\"68736d\"))[{typst_text(row['id'])}]"
             for row in group["new"]
         ) or "#text(fill: rgb(\"68736d\"), style: \"italic\")[None listed]"
+        comments = list(dict.fromkeys(row["taxonomy_comment"] for row in group["new"] if row["taxonomy_comment"]))
+        decision_note = f"#decision[{' \\\\ '.join(typst_text(comment) for comment in comments)}]" if comments else ""
+        pending_earc = "#v(3pt) #pending[Pending EARC]" if group["cardinality"] in {"0:1", "1:0"} else ""
         parts.append(
-            f'''#block(breakable: true, stroke: .5pt + rgb("d9ded8"), radius: 4pt, inset: 7pt, above: 4pt, below: 4pt)[
-#grid(columns: (1fr, 52pt, 1fr), gutter: 7pt,
-  [#text(size: 6.5pt, weight: "bold", fill: rgb("68736d"))[2019.1]\\ {old_taxa}],
-  [#align(center + horizon)[#badge[{typst_text(group["relationship_label"])}]]],
-  [#text(size: 6.5pt, weight: "bold", fill: rgb("68736d"))[2026.0]\\ {new_taxa}]
-)]
+            f'''#block(breakable: true, stroke: .5pt + rgb("d9ded8"), radius: 5pt, inset: 7pt, above: 4pt, below: 4pt)[
+#grid(columns: (1fr, 42pt, 1fr), gutter: 7pt,
+  [#old-panel[#text(size: 6.5pt, weight: "bold", fill: rgb("68736d"))[2019.1]\\ {old_taxa}]],
+  [#align(center + horizon)[#badge[{typst_text(group["relationship_label"])}]{pending_earc} #v(4pt) #text(size: 15pt, weight: "bold", fill: rgb("b5752a"))[→]]],
+  [#new-panel[#text(size: 6.5pt, weight: "bold", fill: rgb("68736d"))[2026.0]\\ {new_taxa}]]
+)
+{decision_note}
+]
 ''')
     return "\n".join(parts)
 

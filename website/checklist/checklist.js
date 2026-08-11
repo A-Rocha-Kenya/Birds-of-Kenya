@@ -9,6 +9,10 @@ const resultCount = document.getElementById('resultCount');
 const statusNotesButton = document.getElementById('statusNotes');
 const statusDialog = document.getElementById('statusDialog');
 const categoryLegend = document.getElementById('categoryLegend');
+const columnChooserButton = document.getElementById('columnChooser');
+const columnDialog = document.getElementById('columnDialog');
+const availableColumnsSelect = document.getElementById('availableColumns');
+const visibleColumnsSelect = document.getElementById('visibleColumns');
 const tableTooltip = document.createElement('div');
 tableTooltip.className = 'table-tooltip';
 tableTooltip.hidden = true;
@@ -36,6 +40,10 @@ let statusDescriptions = {
 const originDescriptions = { naturalized: 'eBird origin: Naturalized', provisional: 'eBird origin: Provisional' };
 
 const renderCategoryLegend = definitions => {
+  definitions.push({
+    code: 'S', label: 'Sensitive species', definition: 'Species with observation details withheld for conservation reasons',
+    display_group: 'Data handling', display_token: 'S', display_order: 60
+  });
   const groups = new Map();
   definitions.sort((a, b) => Number(a.display_order) - Number(b.display_order)).forEach(definition => {
     if (!groups.has(definition.display_group)) groups.set(definition.display_group, []);
@@ -76,15 +84,14 @@ const columns = [
   'family',
   'family_english_name',
   'status',
+  'iucn_red_list_category',
+  'birdlife_datazone_url',
+  'birds_of_the_world_url',
   'observation_record_count',
   'first_observation_date',
   'last_observation_date',
-  'membership_source',
-  'sensitive',
-  'water_bird',
   'avilist_id',
-  'ebird_species_code',
-  'source_avibase_ids'
+  'ebird_species_code'
 ];
 
 const columnLabels = {
@@ -95,27 +102,31 @@ const columnLabels = {
   family: 'Family',
   family_english_name: 'Family name',
   status: 'Status',
+  iucn_red_list_category: 'Conservation',
+  birdlife_datazone_url: 'BirdLife Data Zone',
+  birds_of_the_world_url: 'Birds of the World',
   observation_record_count: 'eBird records',
   first_observation_date: 'First record',
   last_observation_date: 'Latest record',
-  membership_source: 'Evidence',
-  sensitive: 'Sensitive',
-  water_bird: 'Waterbird',
   avilist_id: 'AviList ID',
-  ebird_species_code: 'eBird code',
-  source_avibase_ids: 'Source Avibase IDs'
+  ebird_species_code: 'eBird code'
 };
 
 const headerDescriptions = {
   sequence: 'Current AviList taxonomic sequence',
   status: 'Kenya checklist status codes; open Codes & notes for definitions',
-  observation_record_count: 'Number of observation records contributing to this release',
-  membership_source: 'Observation-based or curated sensitive-species membership',
-  sensitive: 'Records may be absent or withheld for conservation reasons',
-  source_avibase_ids: 'Avibase concepts mapped to the current AviList species'
+  iucn_red_list_category: 'Global IUCN Red List category',
+  birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
+  birds_of_the_world_url: 'Open the Birds of the World species account',
+  observation_record_count: 'Number of observation records contributing to this release'
 };
 
-const hiddenColumns = ['sequence', 'family_english_name', 'first_observation_date', 'membership_source', 'sensitive', 'water_bird', 'source_avibase_ids'];
+const hiddenColumns = ['sequence', 'family_english_name', 'first_observation_date'];
+const defaultVisibleColumns = columns.filter(field => !hiddenColumns.includes(field));
+const savedVisibleColumns = JSON.parse(localStorage.getItem('birds-of-kenya-visible-columns') || '[]');
+const restoredVisibleColumns = savedVisibleColumns.filter(field => columns.includes(field));
+let visibleColumns = restoredVisibleColumns.length ? restoredVisibleColumns : [...defaultVisibleColumns];
+let pendingVisibleColumns = [];
 const truthy = value => value === 'TRUE';
 const formatNumber = value => Number(value).toLocaleString('en');
 
@@ -130,6 +141,37 @@ const linkRenderer = urlFor => function(instance, td, row, col, prop, value) {
   link.title = `Open ${value} in a new tab`;
   td.textContent = '';
   td.appendChild(link);
+};
+
+const resourceLinkRenderer = label => function(instance, td, row, col, prop, value) {
+  Handsontable.renderers.TextRenderer.apply(this, arguments);
+  td.textContent = '';
+  if (!value) return;
+  const link = document.createElement('a');
+  link.href = value;
+  link.target = '_blank';
+  link.rel = 'noreferrer';
+  link.className = 'resource-link';
+  link.textContent = label;
+  link.title = `Open ${label} in a new tab`;
+  td.appendChild(link);
+};
+
+const conservationColors = {
+  LC: 'least-concern', NT: 'near-threatened', VU: 'vulnerable', EN: 'endangered',
+  CR: 'critically-endangered', EW: 'extinct-in-wild', EX: 'extinct', DD: 'data-deficient', NE: 'not-evaluated'
+};
+
+const conservationRenderer = function(instance, td, row, col, prop, value) {
+  Handsontable.renderers.TextRenderer.apply(this, arguments);
+  td.textContent = '';
+  if (!value) return;
+  const icon = document.createElement('span');
+  icon.className = `conservation-status ${conservationColors[value] || 'not-evaluated'}`;
+  icon.textContent = value;
+  icon.title = `IUCN Red List: ${value}`;
+  icon.setAttribute('aria-label', icon.title);
+  td.appendChild(icon);
 };
 
 const statusRenderer = function(instance, td, row, col, prop, value) {
@@ -162,24 +204,6 @@ const englishNameRenderer = function(instance, td, row, col, prop, value) {
     badge.setAttribute('aria-label', originDescriptions[origin]);
     td.appendChild(badge);
   }
-  if (truthy(source.sensitive)) {
-    const sensitive = document.createElement('span');
-    sensitive.className = 'ebird-origin sensitive';
-    sensitive.textContent = 'S';
-    sensitive.dataset.tooltip = 'Sensitive species: observation details are withheld for conservation reasons';
-    sensitive.tabIndex = 0;
-    sensitive.setAttribute('aria-label', sensitive.dataset.tooltip);
-    td.appendChild(sensitive);
-  }
-};
-
-const sourceRenderer = function(instance, td, row, col, prop, value) {
-  Handsontable.renderers.TextRenderer.apply(this, arguments);
-  const pill = document.createElement('span');
-  pill.className = 'source-pill';
-  pill.textContent = value === 'curated_sensitive_species' ? 'Curated sensitive list' : 'eBird observations';
-  td.textContent = '';
-  td.appendChild(pill);
 };
 
 const numberRenderer = function(instance, td, row, col, prop, value) {
@@ -196,20 +220,47 @@ const columnDefinitions = columns.map(field => {
   }
   if (field === 'scientific_name') definition.className = 'scientific-name';
   if (field === 'status') definition.renderer = statusRenderer;
+  if (field === 'iucn_red_list_category') definition.renderer = conservationRenderer;
+  if (field === 'birdlife_datazone_url') definition.renderer = resourceLinkRenderer('Data Zone');
+  if (field === 'birds_of_the_world_url') definition.renderer = resourceLinkRenderer('Birds of the World');
   if (field === 'observation_record_count') {
     definition.renderer = numberRenderer;
     definition.className = 'number';
   }
-  if (field === 'membership_source') definition.renderer = sourceRenderer;
   if (field === 'avilist_id') definition.renderer = linkRenderer(value => `https://avibase.bsc-eoc.org/species.jsp?avibaseid=${encodeURIComponent(value.replace(/^avibase-/, ''))}`);
   if (field === 'ebird_species_code') definition.renderer = linkRenderer(value => `https://ebird.org/species/${encodeURIComponent(value)}/KE`);
   return definition;
 });
+const columnDefinitionsByField = Object.fromEntries(columns.map((field, index) => [field, columnDefinitions[index]]));
 
 const enrichRow = row => ({
   ...row,
-  status: [...statusColumns.filter(code => truthy(row[code])), ...(truthy(row.water_bird) ? ['W'] : [])].join(', ')
+  status: [
+    ...statusColumns.filter(code => truthy(row[code])),
+    ...(truthy(row.sensitive) ? ['S'] : []),
+    ...(truthy(row.water_bird) ? ['W'] : [])
+  ].join(', ')
 });
+
+const applyColumnSettings = () => {
+  hot.updateSettings({
+    columns: visibleColumns.map(field => columnDefinitionsByField[field]),
+    colHeaders: visibleColumns.map(field => columnLabels[field])
+  });
+};
+
+const renderColumnPicker = () => {
+  const makeOption = field => {
+    const option = document.createElement('option');
+    option.value = field;
+    option.textContent = columnLabels[field];
+    return option;
+  };
+  availableColumnsSelect.replaceChildren(...columns.filter(field => !pendingVisibleColumns.includes(field)).map(makeOption));
+  visibleColumnsSelect.replaceChildren(...pendingVisibleColumns.map(makeOption));
+};
+
+const selectedColumns = select => [...select.selectedOptions].map(option => option.value);
 
 const matchesFilter = (row, filter) => {
   if (filter === 'endemic') return truthy(row.E) || truthy(row.ES);
@@ -219,6 +270,8 @@ const matchesFilter = (row, filter) => {
   if (filter === 'historical') return historicalColumns.some(code => truthy(row[code]));
   if (filter === 'rare') return truthy(row.RAR);
   if (filter === 'waterbird') return truthy(row.water_bird);
+  if (filter === 'naturalized') return row.exotic_status === 'naturalized';
+  if (filter === 'sensitive') return truthy(row.sensitive);
   return true;
 };
 
@@ -256,6 +309,8 @@ const setFilterCounts = rows => {
   setText('historicalCount', rows.filter(row => historicalColumns.some(code => truthy(row[code]))).length);
   setText('rareCount', rows.filter(row => truthy(row.RAR)).length);
   setText('waterbirdFilterCount', rows.filter(row => truthy(row.water_bird)).length);
+  setText('naturalizedCount', rows.filter(row => row.exotic_status === 'naturalized').length);
+  setText('sensitiveCount', rows.filter(row => truthy(row.sensitive)).length);
 };
 
 const showError = message => {
@@ -307,20 +362,19 @@ Papa.parse('../data/checklist.csv', {
       width: '100%',
       height: tableHeight(),
       stretchH: 'all',
-      colHeaders: columns.map(field => columnLabels[field]),
-      columns: columnDefinitions,
+      colHeaders: visibleColumns.map(field => columnLabels[field]),
+      columns: visibleColumns.map(field => columnDefinitionsByField[field]),
       readOnly: true,
       multiColumnSorting: true,
       filters: true,
       dropdownMenu: ['filter_by_condition', 'filter_by_value', 'filter_action_bar'],
       manualColumnResize: true,
       manualColumnFreeze: true,
-      hiddenColumns: { columns: hiddenColumns.map(field => columns.indexOf(field)), indicators: true },
-      contextMenu: ['freeze_column', 'unfreeze_column', '---------', 'hidden_columns_hide', 'hidden_columns_show', '---------', 'filter_by_value', 'filter_action_bar'],
+      contextMenu: ['freeze_column', 'unfreeze_column', '---------', 'filter_by_value', 'filter_action_bar'],
       licenseKey: 'non-commercial-and-evaluation',
       modifyColWidth: width => Math.min(width, 300),
       afterGetColHeader: (col, th) => {
-        const field = columns[col];
+        const field = visibleColumns[col];
         const label = th.querySelector('.colHeader');
         if (label && headerDescriptions[field]) {
           label.title = headerDescriptions[field];
@@ -345,7 +399,7 @@ clearSearchButton.addEventListener('click', () => {
   renderView();
 });
 
-document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+document.querySelectorAll('.filter[data-filter]').forEach(button => button.addEventListener('click', () => {
   const filter = button.dataset.filter;
   selectedFilters.has(filter) ? selectedFilters.delete(filter) : selectedFilters.add(filter);
   button.setAttribute('aria-pressed', selectedFilters.has(filter));
@@ -354,7 +408,7 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
 
 clearFiltersButton.addEventListener('click', () => {
   selectedFilters.clear();
-  document.querySelectorAll('.filter').forEach(button => button.setAttribute('aria-pressed', 'false'));
+  document.querySelectorAll('.filter[data-filter]').forEach(button => button.setAttribute('aria-pressed', 'false'));
   renderView();
 });
 
@@ -375,4 +429,50 @@ statusNotesButton.addEventListener('click', () => statusDialog.showModal());
 statusDialog.querySelector('.dialog-close').addEventListener('click', () => statusDialog.close());
 statusDialog.addEventListener('click', event => {
   if (event.target === statusDialog) statusDialog.close();
+});
+
+columnChooserButton.addEventListener('click', () => {
+  pendingVisibleColumns = [...visibleColumns];
+  renderColumnPicker();
+  columnDialog.showModal();
+});
+
+document.getElementById('addColumn').addEventListener('click', () => {
+  pendingVisibleColumns.push(...selectedColumns(availableColumnsSelect));
+  renderColumnPicker();
+});
+
+document.getElementById('removeColumn').addEventListener('click', () => {
+  const selected = selectedColumns(visibleColumnsSelect);
+  if (pendingVisibleColumns.length === selected.length) return;
+  pendingVisibleColumns = pendingVisibleColumns.filter(field => !selected.includes(field));
+  renderColumnPicker();
+});
+
+const moveSelectedColumn = direction => {
+  const [field] = selectedColumns(visibleColumnsSelect);
+  const index = pendingVisibleColumns.indexOf(field);
+  const target = index + direction;
+  if (index < 0 || target < 0 || target >= pendingVisibleColumns.length) return;
+  [pendingVisibleColumns[index], pendingVisibleColumns[target]] = [pendingVisibleColumns[target], pendingVisibleColumns[index]];
+  renderColumnPicker();
+  visibleColumnsSelect.value = field;
+};
+
+document.getElementById('moveColumnUp').addEventListener('click', () => moveSelectedColumn(-1));
+document.getElementById('moveColumnDown').addEventListener('click', () => moveSelectedColumn(1));
+document.getElementById('resetColumns').addEventListener('click', () => {
+  pendingVisibleColumns = [...defaultVisibleColumns];
+  renderColumnPicker();
+});
+document.getElementById('cancelColumns').addEventListener('click', () => columnDialog.close());
+columnDialog.querySelector('.dialog-close').addEventListener('click', () => columnDialog.close());
+columnDialog.addEventListener('click', event => {
+  if (event.target === columnDialog) columnDialog.close();
+});
+document.getElementById('applyColumns').addEventListener('click', () => {
+  visibleColumns = [...pendingVisibleColumns];
+  localStorage.setItem('birds-of-kenya-visible-columns', JSON.stringify(visibleColumns));
+  applyColumnSettings();
+  columnDialog.close();
 });

@@ -65,6 +65,10 @@ def main():
         raise ValueError("blank mappings were not preserved as unresolved")
     if Counter(row["relationship"] for row in changes) != {"split": 2, "lump": 2, "unresolved": 1}:
         raise ValueError("split and lump relationships were not derived from the minimal mapping")
+
+    implicit_identity = comparison.mapping_edges({"old-a": {"stable"}}, {"old-a", "stable"})
+    if {row[1] for row in implicit_identity} != {"lump"}:
+        raise ValueError("stable target concepts were not included when deriving lump relationships")
     if current_only or len(audit) != 5:
         raise ValueError("comparison coverage or category audit is incomplete")
     apostrophe_old = old_row("apostrophe", "Jouanin’s Petrel")

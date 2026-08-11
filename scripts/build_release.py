@@ -50,7 +50,8 @@ CHECKLIST_FIELDS = [
     "sequence", "avilist_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
     "membership_source", "sensitive", "exotic_status", "observation_record_count",
-    "first_observation_date", "last_observation_date",
+    "first_observation_date", "last_observation_date", "iucn_red_list_category",
+    "birdlife_datazone_url", "birds_of_the_world_url",
 ]
 PUBLIC_RECORD_FIELDS = [
     "avilist_id", "sampling_event_identifier", "source_taxon_concept_id",
@@ -639,6 +640,9 @@ def build(config_path, force_compaction=False):
             "observation_record_count": "" if evidence["count"] is None else evidence["count"],
             "first_observation_date": evidence["first"],
             "last_observation_date": evidence["last"],
+            "iucn_red_list_category": taxon["IUCN_Red_List_Category"],
+            "birdlife_datazone_url": taxon["BirdLife_DataZone_URL"],
+            "birds_of_the_world_url": taxon["Birds_of_the_World_URL"],
             **{field: curated.get(field, "") for field in category_fields},
             "water_bird": "TRUE" if taxon["Family"] in WATERBIRD_FAMILIES else "FALSE",
         })
