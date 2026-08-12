@@ -41,9 +41,9 @@ def main():
         raise ValueError("checklist contains an invalid membership source")
     if any(row["sensitive"] not in {"TRUE", "FALSE"} for row in checklist):
         raise ValueError("checklist contains an invalid sensitive flag")
-    if any(not all(row[field] for field in ["observation_record_count", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "ebd"):
+    if any(not all(row[field] for field in ["observations", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "ebd"):
         raise ValueError("EBD checklist evidence contains a blank observation summary")
-    if any(row["sensitive"] != "TRUE" or any(row[field] for field in ["observation_record_count", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "curated_sensitive_species"):
+    if any(row["sensitive"] != "TRUE" or any(row[field] for field in ["observations", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "curated_sensitive_species"):
         raise ValueError("curated sensitive membership must be flagged and must not invent observation summaries")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in checklist if row["first_observation_date"] and row["last_observation_date"]):
         raise ValueError("checklist contains an invalid observation-date range")
@@ -57,7 +57,7 @@ def main():
     entity_keys = [(row["source_taxon_concept_id"], row["exotic_status"]) for row in entities]
     if any(not identifier for identifier, status in entity_keys) or len(entity_keys) != len(set(entity_keys)):
         raise ValueError("supplementary_taxa source_taxon_concept_id and exotic_status pairs must be nonblank and unique")
-    entity_required = ["entity_category", "exotic_status", "scientific_name", "english_name", "observation_record_count", "first_observation_date", "last_observation_date"]
+    entity_required = ["entity_category", "exotic_status", "scientific_name", "english_name", "record_count", "first_observation_date", "last_observation_date"]
     if any(not row[field] for row in entities for field in entity_required):
         raise ValueError("supplementary_taxa contains a blank required value")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in entities):
@@ -75,7 +75,7 @@ def main():
         raise ValueError("manifest taxonomic-entity counts do not agree with the tables")
     if manifest["counts"]["unmapped_reported_species_codes"] != len(unmapped):
         raise ValueError("manifest unmatched-code count is inconsistent")
-    if manifest["counts"]["curated_exotic_code_observations"] != sum(int(row["observation_record_count"]) for row in exotic_overrides):
+    if manifest["counts"]["curated_exotic_code_records"] != sum(int(row["record_count"]) for row in exotic_overrides):
         raise ValueError("manifest exotic-code override count is inconsistent")
     if manifest["counts"]["curated_sensitive_species"] != len(sensitive_species):
         raise ValueError("manifest sensitive-species count is inconsistent")

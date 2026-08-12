@@ -12,14 +12,14 @@ CORE_FIELDS = {
     "sequence", "avilist_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "ebird_species_code", "membership_source",
     "sensitive", "exotic_status",
-    "source_avibase_ids", "observation_record_count", "first_observation_date",
+    "source_avibase_ids", "observations", "observation_record_count", "first_observation_date",
     "last_observation_date", "ebd_taxon_concept_ids", "ebd_source_categories",
     "mapping_methods", "record_count_lt_5", "last_record_year",
 }
 FIELDS = [
     "change", "avilist_id", "old_scientific_name", "new_scientific_name",
-    "old_english_name", "new_english_name", "old_observation_record_count",
-    "new_observation_record_count", "changed_fields",
+    "old_english_name", "new_english_name", "old_observations",
+    "new_observations", "changed_fields",
 ]
 
 
@@ -45,7 +45,7 @@ def compare(old_rows, new_rows):
             change = "categories_changed"
         elif set(changed_fields) & {"scientific_name", "english_name", "order", "family", "family_english_name"}:
             change = "taxonomy_changed"
-        elif set(changed_fields) & {"membership_source", "sensitive", "exotic_status", "observation_record_count", "first_observation_date", "last_observation_date", "source_avibase_ids", "ebird_species_code"}:
+        elif set(changed_fields) & {"membership_source", "sensitive", "exotic_status", "observations", "observation_record_count", "first_observation_date", "last_observation_date", "source_avibase_ids", "ebird_species_code"}:
             change = "evidence_changed"
         else:
             continue
@@ -56,8 +56,8 @@ def compare(old_rows, new_rows):
             "new_scientific_name": after.get("scientific_name", ""),
             "old_english_name": before.get("english_name", ""),
             "new_english_name": after.get("english_name", ""),
-            "old_observation_record_count": before.get("observation_record_count", ""),
-            "new_observation_record_count": after.get("observation_record_count", ""),
+            "old_observations": before.get("observations", before.get("observation_record_count", "")),
+            "new_observations": after.get("observations", ""),
             "changed_fields": ";".join(changed_fields),
         })
     return changes
@@ -106,7 +106,7 @@ const counts=Object.fromEntries(Object.keys(labels).map(k=>[k,k==='all'?data.len
 filters.innerHTML=Object.entries(labels).map(([k,v])=>`<button data-filter="${{k}}">${{v}} (${{counts[k]}})</button>`).join(' ');
 summary.textContent=`${{data.length.toLocaleString()}} material changes between the two releases.`;
 function esc(x){{const e=document.createElement('span');e.textContent=x||'';return e.innerHTML}}
-function render(){{const q=search.value.toLowerCase();const shown=data.filter(x=>(selected==='all'||x.change===selected)&&Object.values(x).join(' ').toLowerCase().includes(q));rows.innerHTML=shown.map(x=>`<tr><td class="${{x.change}}">${{esc(labels[x.change])}}</td><td>${{esc(x.avilist_id)}}</td><td><b>${{esc(x.old_english_name)}}</b><br><i>${{esc(x.old_scientific_name)}}</i><br><span class="count">${{esc(x.old_observation_record_count)}}</span></td><td><b>${{esc(x.new_english_name)}}</b><br><i>${{esc(x.new_scientific_name)}}</i><br><span class="count">${{esc(x.new_observation_record_count)}}</span></td><td>${{esc(x.changed_fields)}}</td></tr>`).join('')}}
+function render(){{const q=search.value.toLowerCase();const shown=data.filter(x=>(selected==='all'||x.change===selected)&&Object.values(x).join(' ').toLowerCase().includes(q));rows.innerHTML=shown.map(x=>`<tr><td class="${{x.change}}">${{esc(labels[x.change])}}</td><td>${{esc(x.avilist_id)}}</td><td><b>${{esc(x.old_english_name)}}</b><br><i>${{esc(x.old_scientific_name)}}</i><br><span class="count">${{esc(x.old_observations)}}</span></td><td><b>${{esc(x.new_english_name)}}</b><br><i>${{esc(x.new_scientific_name)}}</i><br><span class="count">${{esc(x.new_observations)}}</span></td><td>${{esc(x.changed_fields)}}</td></tr>`).join('')}}
 filters.addEventListener('click',e=>{{if(e.target.dataset.filter){{selected=e.target.dataset.filter;render()}}}});search.addEventListener('input',render);render();</script></body></html>""", encoding="utf-8")
 
 

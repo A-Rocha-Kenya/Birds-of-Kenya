@@ -357,8 +357,10 @@ input[type="search"]:focus { border-color: var(--green); box-shadow: 0 0 0 3px r
 .method-note > p { margin: 0; color: var(--muted); line-height: 1.7; }
 
 .changes-toolbar-wrap { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(45, 70, 55, .12); background: rgba(246, 243, 235, .94); backdrop-filter: blur(16px); }
-.changes-toolbar { max-width: 1240px; margin: 0 auto; padding: .9rem 1.25rem; }
+.changes-toolbar { display: flex; flex-wrap: wrap; gap: .7rem 1.1rem; max-width: 1240px; margin: 0 auto; padding: .9rem 1.25rem; }
 .top-controls { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: .8rem; align-items: center; }
+.changes-toolbar .top-controls { flex: 1 0 100%; }
+.changes-toolbar .filter-row { margin-top: 0; }
 .changes-main { padding-top: 1.15rem; padding-bottom: 5rem; }
 .column-legend { display: grid; grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr); gap: .65rem; padding: 0 .75rem; color: var(--muted); font-size: .68rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
 .column-legend span:last-child { text-align: right; }

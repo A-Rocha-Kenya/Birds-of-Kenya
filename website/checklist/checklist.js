@@ -87,7 +87,7 @@ const columns = [
   'iucn_red_list_category',
   'birdlife_datazone_url',
   'birds_of_the_world_url',
-  'observation_record_count',
+  'observations',
   'first_observation_date',
   'last_observation_date',
   'avilist_id',
@@ -105,7 +105,7 @@ const columnLabels = {
   iucn_red_list_category: 'Conservation',
   birdlife_datazone_url: 'BirdLife Data Zone',
   birds_of_the_world_url: 'Birds of the World',
-  observation_record_count: 'eBird records',
+  observations: 'eBird observations',
   first_observation_date: 'First record',
   last_observation_date: 'Latest record',
   avilist_id: 'AviList ID',
@@ -118,7 +118,7 @@ const headerDescriptions = {
   iucn_red_list_category: 'Global IUCN Red List category',
   birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
   birds_of_the_world_url: 'Open the Birds of the World species account',
-  observation_record_count: 'Number of observation records contributing to this release'
+  observations: 'Number of same-day eBird observations within 1 km clusters'
 };
 
 const hiddenColumns = ['sequence', 'family_english_name', 'first_observation_date'];
@@ -223,7 +223,7 @@ const columnDefinitions = columns.map(field => {
   if (field === 'iucn_red_list_category') definition.renderer = conservationRenderer;
   if (field === 'birdlife_datazone_url') definition.renderer = resourceLinkRenderer('Data Zone');
   if (field === 'birds_of_the_world_url') definition.renderer = resourceLinkRenderer('Birds of the World');
-  if (field === 'observation_record_count') {
+  if (field === 'observations') {
     definition.renderer = numberRenderer;
     definition.className = 'number';
   }

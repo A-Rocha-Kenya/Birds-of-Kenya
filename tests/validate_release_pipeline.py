@@ -41,22 +41,31 @@ def main():
     if build.release_id({"ebd_version": "2026-06", "release_revision": 0}) != "2026-06.0":
         raise ValueError("automatic release identifier failed")
 
+    clustered = [
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.0},
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.005},
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.02},
+        {"observation_date": "2024-01-02", "latitude": 0.0, "longitude": 0.0},
+    ]
+    if build.count_observations(clustered) != 3:
+        raise ValueError("same-day one-kilometre observation clustering failed")
+
     reported, latest = build.aggregate_reported([
-        {"ebd_category": "species", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "observation_record_count": "3", "first_observation_date": "2020-01-01", "last_observation_date": "2021-01-01"},
-        {"ebd_category": "issf", "exotic_code": "P", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-2", "observation_record_count": "4", "first_observation_date": "2019-01-01", "last_observation_date": "2022-01-01"},
-        {"ebd_category": "species", "exotic_code": "X", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "observation_record_count": "2", "first_observation_date": "2022-02-01", "last_observation_date": "2022-02-02"},
+        {"ebd_category": "species", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "3", "first_observation_date": "2020-01-01", "last_observation_date": "2021-01-01"},
+        {"ebd_category": "issf", "exotic_code": "P", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-2", "record_count": "4", "first_observation_date": "2019-01-01", "last_observation_date": "2022-01-01"},
+        {"ebd_category": "species", "exotic_code": "X", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "2", "first_observation_date": "2022-02-01", "last_observation_date": "2022-02-02"},
     ], [])
-    if reported[0]["observation_record_count"] != 7 or reported[0]["first_observation_date"] != "2019-01-01" or reported[0]["last_observation_date"] != "2022-01-01" or reported[0]["exotic_status"] != "naturalized":
+    if reported[0]["record_count"] != 7 or reported[0]["first_observation_date"] != "2019-01-01" or reported[0]["last_observation_date"] != "2022-01-01" or reported[0]["exotic_status"] != "naturalized":
         raise ValueError("exotic-aware species evidence aggregation failed")
 
     reportable_form = {
         "ebd_category": "form", "ebird_report_as": "alpha1", "exotic_code": "", "REPORTED_SPECIES_CODE": "alpha1",
-        "source_taxon_concept_id": "source-3", "observation_record_count": "2",
+        "source_taxon_concept_id": "source-3", "record_count": "2",
         "first_observation_date": "2023-01-01", "last_observation_date": "2023-01-02",
     }
     unreported_form = {
         "ebd_category": "form", "ebird_report_as": "", "exotic_code": "", "REPORTED_SPECIES_CODE": "form1",
-        "source_taxon_concept_id": "source-4", "observation_record_count": "3",
+        "source_taxon_concept_id": "source-4", "record_count": "3",
         "first_observation_date": "2023-02-01", "last_observation_date": "2023-02-03",
     }
     if not build.is_species_evidence(reportable_form) or build.is_taxonomic_entity(reportable_form):

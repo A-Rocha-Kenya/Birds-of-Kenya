@@ -32,7 +32,7 @@ Every EBD taxon-concept ID must occur exactly once in the matching taxonomy and 
 
 ### 2. Compact the EBD
 
-Read the observation-level EBD `EXOTIC CODE`, preserving both the source value and any effective value from the version-scoped correction table. Group observations by `TAXON CONCEPT ID + CATEGORY + SCIENTIFIC NAME + SUBSPECIES SCIENTIFIC NAME + REPORTED_SPECIES_CODE + source EXOTIC CODE + effective EXOTIC CODE`. For every group, calculate its row count and first and last observation dates, and retain its five newest observation rows. Keeping the exotic code in the key prevents observations with different statuses from being irreversibly merged.
+Read the observation-level EBD `EXOTIC CODE`, preserving both the source value and any effective value from the version-scoped correction table. Group observations by `TAXON CONCEPT ID + CATEGORY + SCIENTIFIC NAME + SUBSPECIES SCIENTIFIC NAME + REPORTED_SPECIES_CODE + source EXOTIC CODE + effective EXOTIC CODE`. For every group, retain the original EBD row total as `record_count`, calculate `observations` as same-day spatial clusters within 1 km, and retain its five newest observation rows. Keeping the exotic code in the key prevents observations with different statuses from being irreversibly merged.
 
 The compact tables are a local development cache under `data/ebird/derived/`. Cache metadata contains the EBD checksum, eBird taxonomy checksum, exotic-correction checksum, and compaction schema version. The build reuses the cache only when all inputs still match; `--force-compaction` rebuilds it explicitly.
 
@@ -52,7 +52,7 @@ Use the effective observation-level exotic code when routing evidence:
 
 ### 4. Re-create reportable-species evidence
 
-Group supported compact rows by `REPORTED_SPECIES_CODE`. Calculate the qualifying EBD row count and the first and last observation dates across contributing compact groups; Escapee rows never contribute. Retain the contributing source Avibase IDs and the five newest qualifying observation rows.
+Group supported compact rows by `REPORTED_SPECIES_CODE`. Sum `record_count` and `observations` and calculate the first and last observation dates across contributing compact groups; Escapee rows never contribute. Retain the contributing source Avibase IDs and the five newest qualifying observation rows.
 
 Derive the regional checklist status using eBird's precedence: Native, Naturalized, Provisional, Escapee. The main checklist can contain Native, Naturalized, and Provisional species. Escapee-only species remain in the taxonomic-entity output and do not count toward the checklist total.
 
@@ -78,10 +78,12 @@ For a sensitive species added through curation, populate taxonomy, names, and th
 | `membership_source` | `ebd` or `curated_sensitive_species` |
 | `sensitive` | `TRUE` for entries in the curated sensitive-species table; otherwise `FALSE` |
 | `exotic_status` | Derived regional status: `native`, `naturalized`, or `provisional` |
-| `observation_record_count`, `first_observation_date`, `last_observation_date` | Aggregated EBD evidence; blank for curated sensitive species without EBD rows |
+| `observations`, `first_observation_date`, `last_observation_date` | Same-day reports clustered within 1 km; blank for curated sensitive species without EBD rows |
 | Additional category columns | Project `categories.csv`, joined by `avilist_id`, plus derived `water_bird` |
 
 `water_bird` is calculated as `TRUE` when the AviList family is one of the 33 families covered by the Ramsar Convention's [Waterbird Population Estimates scope](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf), otherwise `FALSE`. It is not maintained in `categories.csv`.
+
+The local compact summary retains both `record_count` (original EBD row count) and `observations` (the derived spatial estimate). The public `checklist.csv` contains only `observations`; raw record counts remain in local derived tables and the manifest for provenance.
 
 `latest_records.csv` contains at most five rows per `avilist_id` with:
 

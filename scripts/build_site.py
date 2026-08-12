@@ -35,6 +35,8 @@ def copy(source, destination):
 def public_metadata(metadata, manifest, rows, comparison, downloads):
     gbif_doi = metadata["gbif"]["doi"].strip()
     citation = metadata["document"]["recommended_citation"].strip()
+    endemic_species = sum(bool(row["E"].strip()) for row in rows)
+    endemic_subspecies = sum(bool(row["ES"].strip()) for row in rows)
     return {
         "release": {
             "id": manifest["release_id"],
@@ -45,8 +47,8 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
         "counts": {
             "species": f"{len(rows):,}",
             "families": f"{len({row['family'] for row in rows}):,}",
-            "observations": f"{manifest['counts']['species_observation_records']:,}",
-            "changes": f"{comparison['group_count']:,}",
+            "endemic_species": f"{endemic_species:,}",
+            "endemic_subspecies": f"{endemic_subspecies:,}",
             "sensitive_species": f"{manifest['counts']['curated_sensitive_species']:,}",
         },
         "sources": {

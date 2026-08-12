@@ -7,6 +7,7 @@ import hashlib
 import heapq
 import io
 import json
+import math
 import sys
 import tomllib
 import zipfile
@@ -16,7 +17,8 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-COMPACTION_SCHEMA_VERSION = 3
+COMPACTION_SCHEMA_VERSION = 4
+OBSERVATION_RADIUS_KM = 1.0
 SPECIES_EVIDENCE_CATEGORIES = {"species", "issf"}
 ENTITY_CATEGORIES = {"domestic", "hybrid"}
 EXOTIC_STATUS = {"": "native", "N": "naturalized", "P": "provisional", "X": "escapee"}
@@ -35,21 +37,22 @@ COMPACT_FIELDS = [
     "source_taxon_concept_id", "ebd_category", "ebd_scientific_name",
     "ebd_subspecies_scientific_name", "ebird_species_code", "ebird_report_as",
     "REPORTED_SPECIES_CODE", "source_exotic_code", "exotic_code",
-    "observation_record_count", "first_observation_date", "last_observation_date",
+    "record_count", "observations", "first_observation_date", "last_observation_date",
 ]
 LOCAL_RECORD_FIELDS = [
     "REPORTED_SPECIES_CODE", "ebd_category", "ebird_report_as", "source_taxon_concept_id", "source_exotic_code",
     "exotic_code", "sampling_event_identifier", "global_unique_identifier", "observation_date", "observation_count",
+    "latitude", "longitude",
     "checklist_comments", "species_comments",
 ]
 REPORTED_FIELDS = [
-    "REPORTED_SPECIES_CODE", "source_avibase_ids", "exotic_status", "observation_record_count",
+    "REPORTED_SPECIES_CODE", "source_avibase_ids", "exotic_status", "record_count", "observations",
     "first_observation_date", "last_observation_date",
 ]
 CHECKLIST_FIELDS = [
     "sequence", "avilist_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
-    "membership_source", "sensitive", "exotic_status", "observation_record_count",
+    "membership_source", "sensitive", "exotic_status", "observations",
     "first_observation_date", "last_observation_date", "iucn_red_list_category",
     "birdlife_datazone_url", "birds_of_the_world_url",
 ]
@@ -60,7 +63,7 @@ PUBLIC_RECORD_FIELDS = [
 ENTITY_FIELDS = [
     "sequence", "source_taxon_concept_id", "entity_category", "exotic_status", "order", "family",
     "family_english_name", "scientific_name", "english_name", "ebird_species_code",
-    "source_avibase_ids", "observation_record_count", "first_observation_date",
+    "source_avibase_ids", "record_count", "observations", "first_observation_date",
     "last_observation_date",
 ]
 ENTITY_PUBLIC_RECORD_FIELDS = [
@@ -69,7 +72,7 @@ ENTITY_PUBLIC_RECORD_FIELDS = [
 ]
 EXOTIC_OVERRIDE_FIELDS = [
     "ebd_version", "source_taxon_concept_id", "source_exotic_code",
-    "corrected_exotic_code", "observation_record_count", "reason",
+    "corrected_exotic_code", "record_count", "reason",
 ]
 SENSITIVE_AUDIT_FIELDS = [
     "avilist_id", "scientific_name", "english_name", "ebird_species_code",
@@ -186,6 +189,57 @@ def push_latest(heap, row):
         heapq.heappop(heap)
 
 
+def distance_km(left, right):
+    latitude_1, longitude_1 = map(math.radians, left)
+    latitude_2, longitude_2 = map(math.radians, right)
+    delta_latitude = latitude_2 - latitude_1
+    delta_longitude = longitude_2 - longitude_1
+    value = (math.sin(delta_latitude / 2) ** 2
+             + math.cos(latitude_1) * math.cos(latitude_2) * math.sin(delta_longitude / 2) ** 2)
+    return 6371.0088 * 2 * math.asin(math.sqrt(value))
+
+
+def count_observations(records, radius_km=OBSERVATION_RADIUS_KM):
+    """Count same-day spatial clusters in a list of retained EBD records."""
+    observations = 0
+    by_date = defaultdict(list)
+    for record in records:
+        by_date[record["observation_date"]].append(record)
+    cell_size = radius_km / 111.2
+    for day in by_date.values():
+        parents = list(range(len(day)))
+
+        def find(index):
+            while parents[index] != index:
+                parents[index] = parents[parents[index]]
+                index = parents[index]
+            return index
+
+        def union(left, right):
+            left, right = find(left), find(right)
+            if left != right:
+                parents[right] = left
+
+        cells = defaultdict(list)
+        for left, first in enumerate(day):
+            if first["latitude"] is None or first["longitude"] is None:
+                parents[left] = left
+                continue
+            cell = (math.floor(first["latitude"] / cell_size), math.floor(first["longitude"] / cell_size))
+            for latitude_cell in range(cell[0] - 1, cell[0] + 2):
+                for longitude_cell in range(cell[1] - 1, cell[1] + 2):
+                    for right in cells[(latitude_cell, longitude_cell)]:
+                        second = day[right]
+                        if distance_km(
+                            (first["latitude"], first["longitude"]),
+                            (second["latitude"], second["longitude"]),
+                        ) <= radius_km:
+                            union(left, right)
+            cells[cell].append(left)
+        observations += len({find(index) for index in range(len(day))})
+    return observations
+
+
 def flatten_latest(heaps):
     rows = []
     for key in sorted(heaps, key=str):
@@ -231,13 +285,15 @@ def aggregate_reported(compact_rows, compact_latest_rows):
             "REPORTED_SPECIES_CODE": code,
             "source_avibase_ids": set(),
             "exotic_status": exotic_status(row["exotic_code"]),
-            "observation_record_count": 0,
+            "record_count": 0,
+            "observations": 0,
             "first_observation_date": row["first_observation_date"],
             "last_observation_date": row["last_observation_date"],
         })
         item["source_avibase_ids"].add(row["source_taxon_concept_id"])
         item["exotic_status"] = preferred_exotic_status(item["exotic_status"], exotic_status(row["exotic_code"]))
-        item["observation_record_count"] += int(row["observation_record_count"])
+        item["record_count"] += int(row["record_count"])
+        item["observations"] += int(row.get("observations", row["record_count"]))
         item["first_observation_date"] = min(item["first_observation_date"], row["first_observation_date"])
         item["last_observation_date"] = max(item["last_observation_date"], row["last_observation_date"])
     summary = [{
@@ -278,11 +334,13 @@ def aggregate_taxonomic_entities(compact_rows, compact_latest_rows, taxonomy):
             "english_name": taxon["PRIMARY_COM_NAME"],
             "ebird_species_code": taxon["SPECIES_CODE"],
             "source_avibase_ids": source_id,
-            "observation_record_count": 0,
+            "record_count": 0,
+            "observations": 0,
             "first_observation_date": row["first_observation_date"],
             "last_observation_date": row["last_observation_date"],
         })
-        item["observation_record_count"] += int(row["observation_record_count"])
+        item["record_count"] += int(row["record_count"])
+        item["observations"] += int(row.get("observations", row["record_count"]))
         item["first_observation_date"] = min(item["first_observation_date"], row["first_observation_date"])
         item["last_observation_date"] = max(item["last_observation_date"], row["last_observation_date"])
     latest = defaultdict(list)
@@ -301,13 +359,13 @@ def write_derived_summaries(derived, compact_rows=None, compact_latest_rows=None
     excluded = defaultdict(int)
     for row in compact_rows:
         if not is_species_evidence(row) and not is_taxonomic_entity(row):
-            excluded[(row["ebd_category"], row["ebd_scientific_name"])] += int(row["observation_record_count"])
+            excluded[(row["ebd_category"], row["ebd_scientific_name"])] += int(row["record_count"])
     excluded_rows = [{
-        "category": key[0], "scientific_name": key[1], "observation_record_count": count,
+        "category": key[0], "scientific_name": key[1], "record_count": count,
     } for key, count in sorted(excluded.items())]
     write_csv(derived["reported"], REPORTED_FIELDS, reported_rows)
     write_csv(derived["reported_latest"], LOCAL_RECORD_FIELDS, reported_latest_rows)
-    write_csv(derived["excluded"], ["category", "scientific_name", "observation_record_count"], excluded_rows)
+    write_csv(derived["excluded"], ["category", "scientific_name", "record_count"], excluded_rows)
 
 
 def read_exotic_overrides(path, ebd_version):
@@ -324,7 +382,7 @@ def read_exotic_overrides(path, ebd_version):
 
 def warn_exotic_overrides(path):
     rows = read_csv(path)
-    applied = sum(int(row["observation_record_count"]) for row in rows)
+    applied = sum(int(row["record_count"]) for row in rows)
     if applied:
         print(f"WARNING: Applied {applied:,} curated EBD EXOTIC CODE corrections; inspect {path.relative_to(ROOT)}")
 
@@ -333,6 +391,8 @@ def prepare_ebd(paths, ebd_version, force=False):
     derived = derived_paths(paths["ebd_path"])
     metadata = {
         "schema_version": COMPACTION_SCHEMA_VERSION,
+        "observation_radius_km": OBSERVATION_RADIUS_KM,
+        "observation_time_unit": "calendar day",
         "ebd_sha256": checksum(paths["ebd_path"]),
         "ebird_taxonomy_sha256": checksum(paths["ebird_taxonomy_path"]),
         "ebird_exotic_overrides_sha256": checksum(paths["ebird_exotic_overrides_path"]),
@@ -350,6 +410,7 @@ def prepare_ebd(paths, ebd_version, force=False):
     exotic_overrides = read_exotic_overrides(paths["ebird_exotic_overrides_path"], ebd_version)
     applied_exotic_overrides = Counter()
     compact = {}
+    observation_points = defaultdict(list)
     latest = defaultdict(list)
     mismatches = Counter()
     archive, binary, handle = open_ebd(paths["ebd_path"])
@@ -393,11 +454,12 @@ def prepare_ebd(paths, ebd_version, force=False):
                 "REPORTED_SPECIES_CODE": reported_code,
                 "source_exotic_code": source_exotic_code,
                 "exotic_code": effective_exotic_code,
-                "observation_record_count": 0,
+                "record_count": 0,
+                "observations": 0,
                 "first_observation_date": date,
                 "last_observation_date": date,
             })
-            item["observation_record_count"] += 1
+            item["record_count"] += 1
             item["first_observation_date"] = min(item["first_observation_date"], date)
             item["last_observation_date"] = max(item["last_observation_date"], date)
             record = {
@@ -411,9 +473,16 @@ def prepare_ebd(paths, ebd_version, force=False):
                 "global_unique_identifier": row["GLOBAL UNIQUE IDENTIFIER"].strip(),
                 "observation_date": date,
                 "observation_count": row["OBSERVATION COUNT"].strip(),
+                "latitude": float(row["LATITUDE"].strip()) if row["LATITUDE"].strip() else None,
+                "longitude": float(row["LONGITUDE"].strip()) if row["LONGITUDE"].strip() else None,
                 "checklist_comments": row["CHECKLIST COMMENTS"].strip(),
                 "species_comments": row["SPECIES COMMENTS"].strip(),
             }
+            observation_points[key].append({
+                "observation_date": date,
+                "latitude": record["latitude"],
+                "longitude": record["longitude"],
+            })
             push_latest(latest[key], record)
     finally:
         handle.close()
@@ -423,11 +492,11 @@ def prepare_ebd(paths, ebd_version, force=False):
     if mismatches:
         mismatch_rows = [{
             "source_taxon_concept_id": key[0], "ebd_category": key[1],
-            "ebd_scientific_name": key[2], "error": key[3], "observation_record_count": count,
+            "ebd_scientific_name": key[2], "error": key[3], "record_count": count,
         } for key, count in sorted(mismatches.items())]
         write_csv(derived["mismatch"], [
             "source_taxon_concept_id", "ebd_category", "ebd_scientific_name", "error",
-            "observation_record_count",
+            "record_count",
         ], mismatch_rows)
         raise ValueError(
             f"EBD and eBird taxonomy do not match; inspect {derived['mismatch'].relative_to(ROOT)}"
@@ -439,7 +508,7 @@ def prepare_ebd(paths, ebd_version, force=False):
         "source_taxon_concept_id": key[0],
         "source_exotic_code": key[1],
         "corrected_exotic_code": value["corrected_exotic_code"],
-        "observation_record_count": applied_exotic_overrides[key],
+        "record_count": applied_exotic_overrides[key],
         "reason": value["reason"],
     } for key, value in sorted(exotic_overrides.items())]
     write_csv(derived["exotic_overrides"], EXOTIC_OVERRIDE_FIELDS, override_rows)
@@ -448,6 +517,8 @@ def prepare_ebd(paths, ebd_version, force=False):
     compact_rows = sorted(compact.values(), key=lambda row: (
         row["ebd_category"], row["ebd_scientific_name"], row["REPORTED_SPECIES_CODE"],
     ))
+    for key, row in compact.items():
+        row["observations"] = count_observations(observation_points[key])
     compact_latest_rows = flatten_latest(latest)
     write_csv(derived["compact"], COMPACT_FIELDS, compact_rows)
     write_csv(derived["compact_latest"], LOCAL_RECORD_FIELDS, compact_latest_rows)
@@ -535,7 +606,8 @@ def merge_evidence(target, row, code):
     target["codes"].add(code)
     target["source_ids"].update(filter(None, row["source_avibase_ids"].split(";")))
     target["exotic_status"] = preferred_exotic_status(target["exotic_status"], row["exotic_status"])
-    target["count"] += int(row["observation_record_count"])
+    target["count"] += int(row["record_count"])
+    target["observations"] += int(row.get("observations", row["record_count"]))
     target["first"] = min(target["first"], row["first_observation_date"]) if target["first"] else row["first_observation_date"]
     target["last"] = max(target["last"], row["last_observation_date"])
 
@@ -577,6 +649,7 @@ def build(config_path, force_compaction=False):
             overrides_used.add(code)
         item = observations.setdefault(taxon["AvibaseID"], {
             "taxon": taxon, "codes": set(), "source_ids": set(), "count": 0,
+            "observations": 0,
             "first": "", "last": "", "exotic_status": row["exotic_status"],
             "membership_source": "ebd", "sensitive": "FALSE",
         })
@@ -595,6 +668,7 @@ def build(config_path, force_compaction=False):
                 "codes": {taxon["Species_code_Cornell_Lab"]},
                 "source_ids": set(),
                 "count": None,
+                "observations": None,
                 "first": "",
                 "last": "",
                 "exotic_status": "native",
@@ -637,7 +711,7 @@ def build(config_path, force_compaction=False):
             "membership_source": evidence["membership_source"],
             "sensitive": evidence["sensitive"],
             "exotic_status": evidence["exotic_status"],
-            "observation_record_count": "" if evidence["count"] is None else evidence["count"],
+            "observations": "" if evidence["count"] is None else evidence["observations"],
             "first_observation_date": evidence["first"],
             "last_observation_date": evidence["last"],
             "iucn_red_list_category": taxon["IUCN_Red_List_Category"],
@@ -660,7 +734,7 @@ def build(config_path, force_compaction=False):
     ])
     write_csv(output / "audit" / "ebd_taxa_not_in_avilist.csv", REPORTED_FIELDS + ["mapping_result"], unmapped)
     write_csv(output / "audit" / "excluded_non_species_observations.csv", [
-        "category", "scientific_name", "observation_record_count",
+        "category", "scientific_name", "record_count",
     ], excluded)
     write_csv(output / "audit" / "unused_category_rows.csv", ["avilist_id"] + category_fields, [
         row for avilist_id, row in categories.items() if avilist_id not in used_categories
@@ -680,19 +754,19 @@ def build(config_path, force_compaction=False):
         },
         "counts": {
             "species": len(checklist),
-            "species_observation_records": sum(int(row["observation_record_count"]) for row in checklist if row["observation_record_count"]),
+            "species_records": sum(int(row["record_count"]) for row in reported),
+            "species_observations": sum(int(row["observations"]) for row in checklist if row["observations"]),
             "latest_records": len(latest_rows),
             "taxonomic_entities": len(entity_rows),
-            "taxonomic_entity_observation_records": sum(
-                int(row["observation_record_count"]) for row in entity_rows
-            ),
+            "taxonomic_entity_records": sum(int(row["record_count"]) for row in entity_rows),
+            "taxonomic_entity_observations": sum(int(row["observations"]) for row in entity_rows),
             "taxonomic_entity_latest_records": len(entity_latest),
             "curated_ebird_avilist_overrides_used": len(overrides_used),
             "curated_exotic_code_overrides_used": sum(
-                int(row["observation_record_count"]) > 0 for row in exotic_override_audit
+                int(row["record_count"]) > 0 for row in exotic_override_audit
             ),
-            "curated_exotic_code_observations": sum(
-                int(row["observation_record_count"]) for row in exotic_override_audit
+            "curated_exotic_code_records": sum(
+                int(row["record_count"]) for row in exotic_override_audit
             ),
             "curated_sensitive_species": len(sensitive_audit),
             "curated_sensitive_species_without_ebd_records": sum(
@@ -706,7 +780,7 @@ def build(config_path, force_compaction=False):
     }
     output.mkdir(parents=True, exist_ok=True)
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"Built {identifier}: {len(checklist):,} species from {manifest['counts']['species_observation_records']:,} observation records")
+    print(f"Built {identifier}: {len(checklist):,} species from {manifest['counts']['species_observations']:,} observations ({manifest['counts']['species_records']:,} records)")
     print(f"Wrote {output.relative_to(ROOT)}")
     return output
 
