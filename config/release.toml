@@ -1,5 +1,7 @@
 ebd_version = "2026-06"
 release_revision = 0
+historical_reference_date = "2026-06-30"
+historical_years = 50
 avilist_version = "v2025b"
 ebird_taxonomy_version = "2025"
 

@@ -24,51 +24,40 @@ let exportPlugin;
 let allRows = [];
 const selectedFilters = new Set();
 
-const statusColumns = ['AM', 'AMR', 'E', 'ES', 'EX', 'HIST', 'IO', 'MM', 'N', 'NR', 'NRR', 'OM', 'PM', 'PMR', 'RAR', 'RS', 'SO', 'VIO', 'VM', 'VN', 'VO', 'VP', 'VSO', 'VSA'];
-const migrantColumns = ['AM', 'AMR', 'MM', 'OM', 'PM', 'PMR'];
-const vagrantColumns = ['VIO', 'VM', 'VN', 'VO', 'VP', 'VSO', 'VSA'];
-const visitorColumns = ['IO', 'RS', 'SO'];
-const historicalColumns = ['EX', 'HIST', 'NRR'];
-let statusDisplayTokens = { AMR: 'AM+R', NR: 'N+R', PMR: 'PM+R' };
+const statusColumns = ['E', 'ES', 'HIST', 'RAR'];
+const hiddenCategoryGroups = new Set(['Regular movement', 'Regional visitors', 'Regional vagrants']);
+let statusDisplayTokens = {};
 let statusDescriptions = {
-  AM: 'Afrotropical migrant', AMR: 'Afrotropical migrant and resident', E: 'Endemic species', ES: 'Endemic subspecies', EX: 'Extinct in Kenya', HIST: 'Historical record',
-  IO: 'Northwest Indian Ocean visitor', MM: 'Malagasy migrant', N: 'Nomadic or wanderer', NR: 'Nomadic or wanderer and resident', NRR: 'Not recently recorded',
-  OM: 'Oriental migrant', PM: 'Palaearctic migrant', PMR: 'Palaearctic migrant and resident', RAR: 'Fewer than five EARC records at classification',
-  RS: 'Red Sea visitor', SO: 'Southern Ocean visitor', VIO: 'Northwest Indian Ocean vagrant', VM: 'Malagasy vagrant', VN: 'Nearctic vagrant',
-  VO: 'Oriental vagrant', VP: 'Palaearctic vagrant', VSO: 'Southern Ocean vagrant', VSA: 'Southern African vagrant', W: 'Waterbird'
+  E: 'Endemic species', ES: 'Endemic subspecies', HIST: 'Historical occurrence', RAR: 'Rare'
 };
 const originDescriptions = { naturalized: 'eBird origin: Naturalized', provisional: 'eBird origin: Provisional' };
 
 const renderCategoryLegend = definitions => {
-  definitions.push({
+  definitions = [...definitions.filter(definition => !hiddenCategoryGroups.has(definition.display_group)), {
     code: 'S', label: 'Sensitive species', definition: 'Species with observation details withheld for conservation reasons',
     display_group: 'Data handling', display_token: 'S', display_order: 60
-  });
-  const groups = new Map();
-  definitions.sort((a, b) => Number(a.display_order) - Number(b.display_order)).forEach(definition => {
-    if (!groups.has(definition.display_group)) groups.set(definition.display_group, []);
-    groups.get(definition.display_group).push(definition);
-  });
+  }, {
+    code: 'naturalized', label: 'Naturalized', definition: 'Established non-native species in Kenya',
+    display_group: 'Origin status', display_token: 'Naturalized', display_order: 55
+  }];
+  definitions.sort((a, b) => Number(a.display_order) - Number(b.display_order));
   statusDisplayTokens = Object.fromEntries(definitions.map(definition => [definition.code, definition.display_token]));
-  statusDescriptions = Object.fromEntries(definitions.flatMap(definition => [[definition.code, definition.label], [definition.display_token, definition.label]]));
-  categoryLegend.replaceChildren(...[...groups].map(([group, categories]) => {
-    const section = document.createElement('section');
-    const heading = document.createElement('h3');
-    heading.textContent = group;
-    const grid = document.createElement('div');
-    grid.className = 'legend-grid';
-    categories.forEach(category => {
-      const item = document.createElement('p');
-      const token = document.createElement('strong');
-      token.textContent = category.display_token;
-      const label = document.createElement('span');
-      label.textContent = category.label;
-      item.append(token, label);
-      grid.appendChild(item);
-    });
-    section.append(heading, grid);
-    return section;
+  statusDescriptions = Object.fromEntries(definitions.flatMap(definition => {
+    const description = `${definition.label}: ${definition.definition}`;
+    return [[definition.code, description], [definition.display_token, description]];
   }));
+  const grid = document.createElement('div');
+  grid.className = 'legend-grid';
+  definitions.forEach(category => {
+    const item = document.createElement('p');
+    const token = document.createElement('strong');
+    token.textContent = category.display_token;
+    const text = document.createElement('span');
+    text.textContent = `${category.label}: ${category.definition}`;
+    item.append(token, text);
+    grid.appendChild(item);
+  });
+  categoryLegend.replaceChildren(grid);
 };
 
 fetch('../data/category-definitions.json')
@@ -161,6 +150,11 @@ const conservationColors = {
   LC: 'least-concern', NT: 'near-threatened', VU: 'vulnerable', EN: 'endangered',
   CR: 'critically-endangered', EW: 'extinct-in-wild', EX: 'extinct', DD: 'data-deficient', NE: 'not-evaluated'
 };
+const conservationLabels = {
+  LC: 'Least Concern', NT: 'Near Threatened', VU: 'Vulnerable', EN: 'Endangered',
+  CR: 'Critically Endangered', EW: 'Extinct in the Wild', EX: 'Extinct',
+  DD: 'Data Deficient', NE: 'Not Evaluated'
+};
 
 const conservationRenderer = function(instance, td, row, col, prop, value) {
   Handsontable.renderers.TextRenderer.apply(this, arguments);
@@ -169,8 +163,9 @@ const conservationRenderer = function(instance, td, row, col, prop, value) {
   const icon = document.createElement('span');
   icon.className = `conservation-status ${conservationColors[value] || 'not-evaluated'}`;
   icon.textContent = value;
-  icon.title = `IUCN Red List: ${value}`;
-  icon.setAttribute('aria-label', icon.title);
+  icon.dataset.tooltip = `IUCN Red List: ${conservationLabels[value] || value}`;
+  icon.tabIndex = 0;
+  icon.setAttribute('aria-label', icon.dataset.tooltip);
   td.appendChild(icon);
 };
 
@@ -212,6 +207,19 @@ const numberRenderer = function(instance, td, row, col, prop, value) {
   if (!value) td.title = 'Observation evidence is not published for this sensitive species';
 };
 
+const avilistIdRenderer = function(instance, td, row, col, prop, value) {
+  Handsontable.renderers.TextRenderer.apply(this, arguments);
+  const code = value.replace(/^avibase-/, '');
+  const link = document.createElement('a');
+  link.href = `https://avibase.bsc-eoc.org/species.jsp?avibaseid=${encodeURIComponent(code)}`;
+  link.target = '_blank';
+  link.rel = 'noreferrer';
+  link.textContent = code;
+  link.title = `Open ${value} in a new tab`;
+  td.textContent = '';
+  td.appendChild(link);
+};
+
 const columnDefinitions = columns.map(field => {
   const definition = { data: field, renderer: 'text' };
   if (field === 'english_name') {
@@ -223,11 +231,11 @@ const columnDefinitions = columns.map(field => {
   if (field === 'iucn_red_list_category') definition.renderer = conservationRenderer;
   if (field === 'birdlife_datazone_url') definition.renderer = resourceLinkRenderer('Data Zone');
   if (field === 'birds_of_the_world_url') definition.renderer = resourceLinkRenderer('Birds of the World');
+  if (field === 'avilist_id') definition.renderer = avilistIdRenderer;
   if (field === 'observations') {
     definition.renderer = numberRenderer;
     definition.className = 'number';
   }
-  if (field === 'avilist_id') definition.renderer = linkRenderer(value => `https://avibase.bsc-eoc.org/species.jsp?avibaseid=${encodeURIComponent(value.replace(/^avibase-/, ''))}`);
   if (field === 'ebird_species_code') definition.renderer = linkRenderer(value => `https://ebird.org/species/${encodeURIComponent(value)}/KE`);
   return definition;
 });
@@ -264,10 +272,7 @@ const selectedColumns = select => [...select.selectedOptions].map(option => opti
 
 const matchesFilter = (row, filter) => {
   if (filter === 'endemic') return truthy(row.E);
-  if (filter === 'migrant') return migrantColumns.some(code => truthy(row[code]));
-  if (filter === 'vagrant') return vagrantColumns.some(code => truthy(row[code]));
-  if (filter === 'visitor') return visitorColumns.some(code => truthy(row[code]));
-  if (filter === 'historical') return historicalColumns.some(code => truthy(row[code]));
+  if (filter === 'historical') return truthy(row.HIST);
   if (filter === 'rare') return truthy(row.RAR);
   if (filter === 'waterbird') return truthy(row.water_bird);
   if (filter === 'naturalized') return row.exotic_status === 'naturalized';
@@ -303,10 +308,7 @@ const renderView = () => {
 const setFilterCounts = rows => {
   const setText = (id, value) => { document.getElementById(id).textContent = value.toLocaleString(); };
   setText('endemicCount', rows.filter(row => truthy(row.E)).length);
-  setText('migrantCount', rows.filter(row => migrantColumns.some(code => truthy(row[code]))).length);
-  setText('vagrantCount', rows.filter(row => vagrantColumns.some(code => truthy(row[code]))).length);
-  setText('visitorCount', rows.filter(row => visitorColumns.some(code => truthy(row[code]))).length);
-  setText('historicalCount', rows.filter(row => historicalColumns.some(code => truthy(row[code]))).length);
+  setText('historicalCount', rows.filter(row => truthy(row.HIST)).length);
   setText('rareCount', rows.filter(row => truthy(row.RAR)).length);
   setText('waterbirdFilterCount', rows.filter(row => truthy(row.water_bird)).length);
   setText('naturalizedCount', rows.filter(row => row.exotic_status === 'naturalized').length);

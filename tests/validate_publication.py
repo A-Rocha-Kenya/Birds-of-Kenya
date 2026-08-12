@@ -75,7 +75,7 @@ def main():
     if len(codes) != len(set(codes)):
         raise ValueError("category definition codes must be unique")
 
-    category_columns = read_header(ROOT / "data" / "curation" / "categories.csv")[1:] + ["water_bird"]
+    category_columns = read_header(ROOT / "data" / "curation" / "categories.csv")[1:] + ["HIST", "RAR", "water_bird"]
     if set(codes) != set(category_columns):
         raise ValueError("category definitions and categories.csv columns do not agree")
     if metadata["checklist"]["group_by"] != "family":

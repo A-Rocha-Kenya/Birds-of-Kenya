@@ -21,9 +21,9 @@ The geographic scope is the Kenya coverage used to obtain the EBD, which closely
 
 ## Categories
 
-The project may maintain Kenya-specific categories. To make the checklist easier to interpret, these are grouped as **Kenya status** (endemism, historical occurrence, and rarity), **regular movement**, **regional visitors**, and **regional vagrants**. These are editorial interpretations, not automatic consequences of an external taxonomic database. Waterbird status is the exception: it is an **ecological association** derived from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
+The project may maintain Kenya-specific categories. The public checklist currently presents **Kenya status** categories for endemism, historical occurrence, and rarity. These are editorial interpretations, not automatic consequences of an external taxonomic database. Waterbird status is the exception: it is an **ecological association** derived from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
 
-The fewer-than-five-records list is a practical review aid. It must not be confused with the East African Rarities Committee threshold, a conservation assessment, or an automatic `RAR` designation. A rare, historical, introduced, or extinct-in-Kenya label requires its own definition, evidence, and approval.
+`RAR` is a derived review aid for species with fewer than five observations in a release. An observation clusters eBird reports within three calendar months and 3 km. It must not be confused with an East African Rarities Committee threshold or a conservation assessment. An introduced label requires its own definition, evidence, and approval. Historical status is derived when the latest Kenyan eBird record is more than 50 years before a release’s reference date.
 
 ## Acceptance rules
 

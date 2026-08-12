@@ -3,6 +3,7 @@
 
 import argparse
 import csv
+import datetime
 import json
 import sys
 from collections import Counter
@@ -49,6 +50,20 @@ def main():
         raise ValueError("checklist contains an invalid observation-date range")
     if any(row["exotic_status"] not in {"native", "naturalized", "provisional"} for row in checklist):
         raise ValueError("checklist contains an invalid exotic status")
+    if "EX" in checklist[0]:
+        raise ValueError("checklist must not contain an extinct category")
+    reference_date = datetime.date.fromisoformat(manifest["historical_reference_date"])
+    historical_cutoff = reference_date.replace(year=reference_date.year - manifest["historical_years"])
+    if any(
+        (row["HIST"] == "TRUE") != (
+            bool(row["last_observation_date"])
+            and datetime.date.fromisoformat(row["last_observation_date"]) < historical_cutoff
+        )
+        for row in checklist
+    ):
+        raise ValueError("checklist historical status does not match the last observation date")
+    if any((row["RAR"] == "TRUE") != (bool(row["observations"]) and int(row["observations"]) < 5) for row in checklist):
+        raise ValueError("checklist rarity status is inconsistent")
     latest_counts = Counter(row["avilist_id"] for row in latest)
     if any(identifier not in set(identifiers) for identifier in latest_counts):
         raise ValueError("latest_records contains an avilist_id absent from checklist")

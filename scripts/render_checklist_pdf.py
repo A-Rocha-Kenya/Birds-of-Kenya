@@ -11,6 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
 ACCENT = 'rgb("2d6a4f")'
 MUTED = 'rgb("5b6470")'
 
@@ -188,7 +189,10 @@ def main():
     metadata_path = args.metadata.resolve()
     metadata = tomllib.loads(metadata_path.read_text(encoding="utf-8"))
     rows = read_csv(root_path(metadata["sources"]["release_directory"]) / "checklist.csv")
-    definitions = read_csv(root_path(metadata["sources"]["category_definitions"]))
+    definitions = [
+        definition for definition in read_csv(root_path(metadata["sources"]["category_definitions"]))
+        if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
+    ]
 
     policy = markdown_to_typst(root_path(metadata["sources"]["policy"]))
     typst_dir = ROOT / "tmp" / "pdfs" / metadata["release_id"]

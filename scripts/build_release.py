@@ -2,7 +2,9 @@
 """Build a versioned Kenya checklist from EBD observations and AviList."""
 
 import argparse
+import calendar
 import csv
+import datetime
 import hashlib
 import heapq
 import io
@@ -11,14 +13,15 @@ import math
 import sys
 import tomllib
 import zipfile
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 from pathlib import Path
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-COMPACTION_SCHEMA_VERSION = 4
-OBSERVATION_RADIUS_KM = 1.0
+COMPACTION_SCHEMA_VERSION = 5
+OBSERVATION_RADIUS_KM = 3.0
+OBSERVATION_WINDOW_MONTHS = 3
 SPECIES_EVIDENCE_CATEGORIES = {"species", "issf"}
 ENTITY_CATEGORIES = {"domestic", "hybrid"}
 EXOTIC_STATUS = {"": "native", "N": "naturalized", "P": "provisional", "X": "escapee"}
@@ -32,7 +35,7 @@ WATERBIRD_FAMILIES = frozenset({
     "Podicipedidae", "Rallidae", "Recurvirostridae", "Rostratulidae", "Scolopacidae",
     "Scopidae", "Thinocoridae", "Threskiornithidae",
 })
-DERIVED_CATEGORY_FIELDS = ["water_bird"]
+DERIVED_CATEGORY_FIELDS = ["HIST", "RAR", "water_bird"]
 COMPACT_FIELDS = [
     "source_taxon_concept_id", "ebd_category", "ebd_scientific_name",
     "ebd_subspecies_scientific_name", "ebird_species_code", "ebird_report_as",
@@ -199,45 +202,56 @@ def distance_km(left, right):
     return 6371.0088 * 2 * math.asin(math.sqrt(value))
 
 
-def count_observations(records, radius_km=OBSERVATION_RADIUS_KM):
-    """Count same-day spatial clusters in a list of retained EBD records."""
-    observations = 0
-    by_date = defaultdict(list)
-    for record in records:
-        by_date[record["observation_date"]].append(record)
+def subtract_months(value, months):
+    month = value.month - months
+    year = value.year + (month - 1) // 12
+    month = (month - 1) % 12 + 1
+    return value.replace(year=year, month=month, day=min(value.day, calendar.monthrange(year, month)[1]))
+
+
+def is_historical(last_observation_date, reference_date, years):
+    cutoff = reference_date.replace(year=reference_date.year - years)
+    return datetime.date.fromisoformat(last_observation_date) < cutoff
+
+
+def count_observations(records, radius_km=OBSERVATION_RADIUS_KM, window_months=OBSERVATION_WINDOW_MONTHS):
+    """Count spatial clusters of retained EBD records within three calendar months and 3 km."""
+    points = sorted(records, key=lambda record: record["observation_date"])
+    parents = list(range(len(points)))
+
+    def find(index):
+        while parents[index] != index:
+            parents[index] = parents[parents[index]]
+            index = parents[index]
+        return index
+
+    def union(left, right):
+        left, right = find(left), find(right)
+        if left != right:
+            parents[right] = left
+
     cell_size = radius_km / 111.2
-    for day in by_date.values():
-        parents = list(range(len(day)))
-
-        def find(index):
-            while parents[index] != index:
-                parents[index] = parents[parents[index]]
-                index = parents[index]
-            return index
-
-        def union(left, right):
-            left, right = find(left), find(right)
-            if left != right:
-                parents[right] = left
-
-        cells = defaultdict(list)
-        for left, first in enumerate(day):
-            if first["latitude"] is None or first["longitude"] is None:
-                parents[left] = left
-                continue
-            cell = (math.floor(first["latitude"] / cell_size), math.floor(first["longitude"] / cell_size))
-            for latitude_cell in range(cell[0] - 1, cell[0] + 2):
-                for longitude_cell in range(cell[1] - 1, cell[1] + 2):
-                    for right in cells[(latitude_cell, longitude_cell)]:
-                        second = day[right]
-                        if distance_km(
-                            (first["latitude"], first["longitude"]),
-                            (second["latitude"], second["longitude"]),
-                        ) <= radius_km:
-                            union(left, right)
-            cells[cell].append(left)
-        observations += len({find(index) for index in range(len(day))})
-    return observations
+    cells = defaultdict(deque)
+    for left, first in enumerate(points):
+        if first["latitude"] is None or first["longitude"] is None:
+            continue
+        first_date = datetime.date.fromisoformat(first["observation_date"])
+        cutoff = subtract_months(first_date, window_months)
+        cell = (math.floor(first["latitude"] / cell_size), math.floor(first["longitude"] / cell_size))
+        for latitude_cell in range(cell[0] - 1, cell[0] + 2):
+            for longitude_cell in range(cell[1] - 1, cell[1] + 2):
+                candidates = cells[(latitude_cell, longitude_cell)]
+                while candidates and datetime.date.fromisoformat(points[candidates[0]]["observation_date"]) < cutoff:
+                    candidates.popleft()
+                for right in candidates:
+                    second = points[right]
+                    if distance_km(
+                        (first["latitude"], first["longitude"]),
+                        (second["latitude"], second["longitude"]),
+                    ) <= radius_km:
+                        union(left, right)
+        cells[cell].append(left)
+    return len({find(index) for index in range(len(points))})
 
 
 def flatten_latest(heaps):
@@ -392,7 +406,7 @@ def prepare_ebd(paths, ebd_version, force=False):
     metadata = {
         "schema_version": COMPACTION_SCHEMA_VERSION,
         "observation_radius_km": OBSERVATION_RADIUS_KM,
-        "observation_time_unit": "calendar day",
+        "observation_window_months": OBSERVATION_WINDOW_MONTHS,
         "ebd_sha256": checksum(paths["ebd_path"]),
         "ebird_taxonomy_sha256": checksum(paths["ebird_taxonomy_path"]),
         "ebird_exotic_overrides_sha256": checksum(paths["ebird_exotic_overrides_path"]),
@@ -614,6 +628,7 @@ def merge_evidence(target, row, code):
 
 def build(config_path, force_compaction=False):
     config = tomllib.loads(config_path.read_text(encoding="utf-8"))
+    historical_reference_date = datetime.date.fromisoformat(config["historical_reference_date"])
     paths = source_paths(config)
     for key, path in paths.items():
         if key != "categories_path" and not path.exists():
@@ -718,6 +733,10 @@ def build(config_path, force_compaction=False):
             "birdlife_datazone_url": taxon["BirdLife_DataZone_URL"],
             "birds_of_the_world_url": taxon["Birds_of_the_World_URL"],
             **{field: curated.get(field, "") for field in category_fields},
+            "HIST": "TRUE" if evidence["last"] and is_historical(
+                evidence["last"], historical_reference_date, int(config["historical_years"])
+            ) else "FALSE",
+            "RAR": "TRUE" if evidence["observations"] is not None and evidence["observations"] < 5 else "FALSE",
             "water_bird": "TRUE" if taxon["Family"] in WATERBIRD_FAMILIES else "FALSE",
         })
     checklist.sort(key=lambda row: float(row["sequence"]))
@@ -746,6 +765,8 @@ def build(config_path, force_compaction=False):
         "release_id": identifier,
         "ebd_version": config["ebd_version"],
         "release_revision": int(config["release_revision"]),
+        "historical_reference_date": config["historical_reference_date"],
+        "historical_years": int(config["historical_years"]),
         "ebird_taxonomy_version": config["ebird_taxonomy_version"],
         "avilist_version": config["avilist_version"],
         "sources": {

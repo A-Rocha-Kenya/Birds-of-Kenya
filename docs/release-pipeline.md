@@ -32,7 +32,7 @@ Every EBD taxon-concept ID must occur exactly once in the matching taxonomy and 
 
 ### 2. Compact the EBD
 
-Read the observation-level EBD `EXOTIC CODE`, preserving both the source value and any effective value from the version-scoped correction table. Group observations by `TAXON CONCEPT ID + CATEGORY + SCIENTIFIC NAME + SUBSPECIES SCIENTIFIC NAME + REPORTED_SPECIES_CODE + source EXOTIC CODE + effective EXOTIC CODE`. For every group, retain the original EBD row total as `record_count`, calculate `observations` as same-day spatial clusters within 1 km, and retain its five newest observation rows. Keeping the exotic code in the key prevents observations with different statuses from being irreversibly merged.
+Read the observation-level EBD `EXOTIC CODE`, preserving both the source value and any effective value from the version-scoped correction table. Group observations by `TAXON CONCEPT ID + CATEGORY + SCIENTIFIC NAME + SUBSPECIES SCIENTIFIC NAME + REPORTED_SPECIES_CODE + source EXOTIC CODE + effective EXOTIC CODE`. For every group, retain the original EBD row total as `record_count`, calculate `observations` as spatial clusters within three calendar months and 3 km, and retain its five newest observation rows. Keeping the exotic code in the key prevents observations with different statuses from being irreversibly merged.
 
 The compact tables are a local development cache under `data/ebird/derived/`. Cache metadata contains the EBD checksum, eBird taxonomy checksum, exotic-correction checksum, and compaction schema version. The build reuses the cache only when all inputs still match; `--force-compaction` rebuilds it explicitly.
 
@@ -78,10 +78,10 @@ For a sensitive species added through curation, populate taxonomy, names, and th
 | `membership_source` | `ebd` or `curated_sensitive_species` |
 | `sensitive` | `TRUE` for entries in the curated sensitive-species table; otherwise `FALSE` |
 | `exotic_status` | Derived regional status: `native`, `naturalized`, or `provisional` |
-| `observations`, `first_observation_date`, `last_observation_date` | Same-day reports clustered within 1 km; blank for curated sensitive species without EBD rows |
-| Additional category columns | Project `categories.csv`, joined by `avilist_id`, plus derived `water_bird` |
+| `observations`, `first_observation_date`, `last_observation_date` | Reports clustered within three calendar months and 3 km; blank for curated sensitive species without EBD rows |
+| Additional category columns | Project `categories.csv`, joined by `avilist_id`, plus derived `HIST`, `RAR`, and `water_bird` |
 
-`water_bird` is calculated as `TRUE` when the AviList family is one of the 33 families covered by the Ramsar Convention's [Waterbird Population Estimates scope](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf), otherwise `FALSE`. It is not maintained in `categories.csv`.
+`HIST` is `TRUE` when the latest qualifying Kenyan eBird record predates the configured release reference date by more than 50 years. `RAR` is `TRUE` when the release contains fewer than five derived observations for the species; an observation clusters eBird reports within three calendar months and 3 km. It is a review aid, not a conservation assessment. `water_bird` is `TRUE` when the AviList family is one of the 33 families covered by the Ramsar Convention's [Waterbird Population Estimates scope](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf), otherwise `FALSE`. None of these derived fields is maintained in `categories.csv`.
 
 The local compact summary retains both `record_count` (original EBD row count) and `observations` (the derived spatial estimate). The public `checklist.csv` contains only `observations`; raw record counts remain in local derived tables and the manifest for provenance.
 

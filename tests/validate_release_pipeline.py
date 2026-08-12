@@ -40,15 +40,23 @@ def main():
 
     if build.release_id({"ebd_version": "2026-06", "release_revision": 0}) != "2026-06.0":
         raise ValueError("automatic release identifier failed")
+    if not build.is_historical("1976-06-29", build.datetime.date(2026, 6, 30), 50):
+        raise ValueError("historical status should apply after 50 years")
+    if build.is_historical("1976-06-30", build.datetime.date(2026, 6, 30), 50):
+        raise ValueError("historical status should not apply at exactly 50 years")
+    if "RAR" not in build.DERIVED_CATEGORY_FIELDS:
+        raise ValueError("rarity status must be derived")
 
     clustered = [
         {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.0},
-        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.005},
-        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.02},
-        {"observation_date": "2024-01-02", "latitude": 0.0, "longitude": 0.0},
+        {"observation_date": "2024-03-31", "latitude": 0.0, "longitude": 0.02},
+        {"observation_date": "2024-04-01", "latitude": 0.0, "longitude": 0.02},
+        {"observation_date": "2024-07-01", "latitude": 0.0, "longitude": 0.02},
+        {"observation_date": "2024-03-31", "latitude": 0.0, "longitude": 0.08},
+        {"observation_date": "2024-03-31", "latitude": None, "longitude": None},
     ]
     if build.count_observations(clustered) != 3:
-        raise ValueError("same-day one-kilometre observation clustering failed")
+        raise ValueError("three-month three-kilometre observation clustering failed")
 
     reported, latest = build.aggregate_reported([
         {"ebd_category": "species", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "3", "first_observation_date": "2020-01-01", "last_observation_date": "2021-01-01"},
@@ -107,14 +115,14 @@ def main():
         if categories or fields != ["AM", "E"]:
             raise ValueError("empty categories schema was not preserved")
 
-        categories_path.write_text("avilist_id,water_bird\n", encoding="utf-8")
+        categories_path.write_text("avilist_id,HIST\n", encoding="utf-8")
         try:
             build.read_categories(categories_path)
         except ValueError as error:
             if "derived category columns" not in str(error):
                 raise
         else:
-            raise ValueError("manually curated waterbird category was accepted")
+            raise ValueError("manually curated historical category was accepted")
 
         overrides_path = directory / "ebird_avilist_overrides.csv"
         overrides_path.write_text(

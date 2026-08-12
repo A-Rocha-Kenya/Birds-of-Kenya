@@ -36,13 +36,14 @@ def main():
     if metadata["release"]["id"] != manifest["release_id"] or comparison["to_release"] != manifest["release_id"]:
         raise ValueError("website, comparison, and manifest release identifiers do not match")
     endemic_species = sum(bool(row["E"].strip()) for row in rows)
-    endemic_subspecies = sum(bool(row["ES"].strip()) for row in rows)
     if metadata["counts"]["endemic_species"] != f"{endemic_species:,}":
         raise ValueError("website endemic-species count is incorrect")
-    if metadata["counts"]["endemic_subspecies"] != f"{endemic_subspecies:,}":
-        raise ValueError("website endemic-subspecies count is incorrect")
     if not categories or {"code", "label", "display_group", "display_order"} - set(categories[0]):
         raise ValueError("website category definitions are incomplete")
+    if any(category["display_group"] in {"Regular movement", "Regional visitors", "Regional vagrants"} for category in categories):
+        raise ValueError("website exposes hidden status categories")
+    if {"AM", "IO", "VIO"} & set(rows[0]):
+        raise ValueError("website checklist exposes hidden status fields")
 
     missing_downloads = [path for path in metadata["downloads"].values() if path and not (site / path).exists()]
     if missing_downloads:

@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WEBSITE = ROOT / "website"
 PUBLICATION = ROOT / "publication" / "publication.toml"
+HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
 
 
 def read_csv(path):
@@ -32,11 +33,18 @@ def copy(source, destination):
     shutil.copy2(source, destination)
 
 
+def write_csv(path, fields, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def public_metadata(metadata, manifest, rows, comparison, downloads):
     gbif_doi = metadata["gbif"]["doi"].strip()
     citation = metadata["document"]["recommended_citation"].strip()
     endemic_species = sum(bool(row["E"].strip()) for row in rows)
-    endemic_subspecies = sum(bool(row["ES"].strip()) for row in rows)
     return {
         "release": {
             "id": manifest["release_id"],
@@ -48,7 +56,6 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
             "species": f"{len(rows):,}",
             "families": f"{len({row['family'] for row in rows}):,}",
             "endemic_species": f"{endemic_species:,}",
-            "endemic_subspecies": f"{endemic_subspecies:,}",
             "sensitive_species": f"{manifest['counts']['curated_sensitive_species']:,}",
         },
         "sources": {
@@ -108,7 +115,17 @@ def main():
 
     checklist = require(release / "checklist.csv")
     rows = read_csv(checklist)
-    category_definitions = read_csv(require(ROOT / metadata["sources"]["category_definitions"]))
+    all_category_definitions = read_csv(require(ROOT / metadata["sources"]["category_definitions"]))
+    category_definitions = [
+        definition for definition in all_category_definitions
+        if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
+    ]
+    hidden_category_codes = {
+        definition["code"] for definition in all_category_definitions
+        if definition["display_group"] in HIDDEN_CATEGORY_GROUPS
+    }
+    public_rows = [{field: value for field, value in row.items() if field not in hidden_category_codes} for row in rows]
+    public_fields = [field for field in rows[0] if field not in hidden_category_codes]
     comparison_path = require(release / "comparison" / "taxonomy-changes.json")
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     if comparison["to_release"] != manifest["release_id"]:
@@ -132,14 +149,14 @@ def main():
     with tempfile.TemporaryDirectory(prefix="birds-of-kenya-site-", dir=output.parent) as temporary:
         staging = Path(temporary) / "site"
         shutil.copytree(WEBSITE, staging)
-        copy(checklist, staging / "data" / "checklist.csv")
+        write_csv(staging / "data" / "checklist.csv", public_fields, public_rows)
         (staging / "data" / "category-definitions.json").write_text(
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         copy(release / "manifest.json", staging / "data" / "manifest.json")
         copy(comparison_path, staging / "data" / "taxonomy-changes.json")
         copy(checklist_pdf, staging / downloads["checklist_pdf"])
-        copy(checklist, staging / downloads["checklist_csv"])
+        write_csv(staging / downloads["checklist_csv"], public_fields, public_rows)
         copy(comparison_csv, staging / downloads["comparison_csv"])
         if comparison_pdf:
             copy(comparison_pdf, staging / downloads["comparison_pdf"])
