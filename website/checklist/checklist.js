@@ -263,7 +263,7 @@ const renderColumnPicker = () => {
 const selectedColumns = select => [...select.selectedOptions].map(option => option.value);
 
 const matchesFilter = (row, filter) => {
-  if (filter === 'endemic') return truthy(row.E) || truthy(row.ES);
+  if (filter === 'endemic') return truthy(row.E);
   if (filter === 'migrant') return migrantColumns.some(code => truthy(row[code]));
   if (filter === 'vagrant') return vagrantColumns.some(code => truthy(row[code]));
   if (filter === 'visitor') return visitorColumns.some(code => truthy(row[code]));
@@ -302,7 +302,7 @@ const renderView = () => {
 
 const setFilterCounts = rows => {
   const setText = (id, value) => { document.getElementById(id).textContent = value.toLocaleString(); };
-  setText('endemicCount', rows.filter(row => truthy(row.E) || truthy(row.ES)).length);
+  setText('endemicCount', rows.filter(row => truthy(row.E)).length);
   setText('migrantCount', rows.filter(row => migrantColumns.some(code => truthy(row[code]))).length);
   setText('vagrantCount', rows.filter(row => vagrantColumns.some(code => truthy(row[code]))).length);
   setText('visitorCount', rows.filter(row => visitorColumns.some(code => truthy(row[code]))).length);

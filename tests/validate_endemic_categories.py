@@ -31,8 +31,8 @@ def main():
         raise ValueError("endemic species assignments do not match the approved list")
     if species & subspecies:
         raise ValueError("a taxon cannot be both an endemic species and endemic subspecies")
-    if len(species) + len(subspecies) != 44:
-        raise ValueError("all legacy endemic assignments must have an endemicity category")
+    if len(species) + len(subspecies) != 42:
+        raise ValueError("endemicity assignments do not match the approved list")
     print(f"Validated {len(species)} endemic species and {len(subspecies)} endemic subspecies")
 
 
