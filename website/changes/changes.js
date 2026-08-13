@@ -35,10 +35,11 @@ const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map
 const card = group => {
   const tags = group.tags.filter(tag => tag !== 'concept').map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const unresolved = group.relationship === 'unresolved' ? ' unresolved' : '';
-  const pendingEarc = ['0:1', '1:0'].includes(group.cardinality) ? '<span class="badge pending-earc">Pending EARC</span>' : '';
+  const pendingEarc = group.pending_earc ? '<span class="badge pending-earc">Pending EARC</span>' : '';
+  const earcDecisions = (group.earc_decisions || []).map(row => `<a class="badge earc-decision" href="${escapeHtml(row.source_url)}" target="_blank" rel="noopener" title="${escapeHtml(row.decision_id)}">EARC ${escapeHtml(row.decision.replaceAll('_', ' '))} · ${escapeHtml(row.report_year)}</a>`).join('');
   const comments = [...new Set(group.new.map(row => row.taxonomy_comment).filter(Boolean))];
   const note = comments.length ? `<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${comments.map(escapeHtml).join('<br>')}</div>` : '';
-  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="card-title">${escapeHtml(group.title)}</div><div class="badges"><span class="badge relationship${unresolved}">${escapeHtml(group.relationship_label)}</span>${pendingEarc}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true"><span>→</span></div>${side(group.new, 'new')}</div>${note}</article>`;
+  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="card-title">${escapeHtml(group.title)}</div><div class="badges"><span class="badge relationship${unresolved}">${escapeHtml(group.relationship_label)}</span>${pendingEarc}${earcDecisions}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true"><span>→</span></div>${side(group.new, 'new')}</div>${note}</article>`;
 };
 
 const renderChanges = () => {
@@ -76,7 +77,7 @@ const bindFilters = () => {
   }));
 };
 
-fetch('../data/taxonomy-changes.json')
+fetch('../data/taxonomy-changes.json?v=20260813-1')
   .then(response => {
     if (!response.ok) throw new Error('Comparison data unavailable');
     return response.json();

@@ -76,6 +76,11 @@ def main():
     apostrophe_old["scientific_name"] = apostrophe_new["scientific_name"] = "Bulweria fallax"
     if comparison.changed_direct_relationship(apostrophe_old, apostrophe_new):
         raise ValueError("typographic apostrophe variants must not be reported as name changes")
+    case_old = old_row("case", "Common Name")
+    case_new = new_row("case", "common name")
+    case_old["scientific_name"], case_new["scientific_name"] = "Example species", "example species"
+    if comparison.changed_direct_relationship(case_old, case_new):
+        raise ValueError("case-only English or scientific name differences must not be reported as name changes")
     family_old = old_row("family", "Example")
     family_new = new_row("family", "Example")
     family_new["family"] = "Differentidae"

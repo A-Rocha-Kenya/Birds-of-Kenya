@@ -109,13 +109,17 @@ def category_fields(categories_path):
 
 
 def normalized_english_name(value):
-    return value.strip().translate(str.maketrans({"‘": "'", "’": "'"}))
+    return value.strip().translate(str.maketrans({"‘": "'", "’": "'"})).casefold()
+
+
+def normalized_scientific_name(value):
+    return value.strip().casefold()
 
 
 def changed_direct_relationship(old, new):
     names_changed = (
         normalized_english_name(old["common_name"]) != normalized_english_name(new["english_name"])
-        or old["scientific_name"].strip() != new["scientific_name"].strip()
+        or normalized_scientific_name(old["scientific_name"]) != normalized_scientific_name(new["scientific_name"])
     )
     if names_changed:
         return "name_change"

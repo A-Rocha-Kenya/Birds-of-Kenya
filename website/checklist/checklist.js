@@ -30,16 +30,26 @@ let statusDisplayTokens = {};
 let statusDescriptions = {
   E: 'Endemic species', ES: 'Endemic subspecies', HIST: 'Historical occurrence', RAR: 'Rare'
 };
-const originDescriptions = { naturalized: 'eBird origin: Naturalized', provisional: 'eBird origin: Provisional' };
+const originStatusDefinitions = [
+  {
+    code: 'naturalized', label: 'Naturalized', definition: 'Established non-native species in Kenya',
+    display_group: 'Origin status', display_token: 'Naturalized', display_order: 55
+  },
+  {
+    code: 'provisional', label: 'Provisional', definition: 'eBird provisional origin status',
+    display_group: 'Origin status', display_token: 'Provisional', display_order: 56
+  }
+];
+const reviewStatusDefinition = {
+  code: 'PE', label: 'Pending EARC', definition: 'Added since 2019 and not represented in the curated EARC decision list',
+  display_group: 'Review status', display_token: 'Pending EARC', display_order: 59
+};
 
 const renderCategoryLegend = definitions => {
   definitions = [...definitions.filter(definition => !hiddenCategoryGroups.has(definition.display_group)), {
     code: 'S', label: 'Sensitive species', definition: 'Species with observation details withheld for conservation reasons',
     display_group: 'Data handling', display_token: 'S', display_order: 60
-  }, {
-    code: 'naturalized', label: 'Naturalized', definition: 'Established non-native species in Kenya',
-    display_group: 'Origin status', display_token: 'Naturalized', display_order: 55
-  }];
+  }, ...originStatusDefinitions, reviewStatusDefinition];
   definitions.sort((a, b) => Number(a.display_order) - Number(b.display_order));
   statusDisplayTokens = Object.fromEntries(definitions.map(definition => [definition.code, definition.display_token]));
   statusDescriptions = Object.fromEntries(definitions.flatMap(definition => {
@@ -184,23 +194,6 @@ const statusRenderer = function(instance, td, row, col, prop, value) {
   });
 };
 
-const englishNameRenderer = function(instance, td, row, col, prop, value) {
-  Handsontable.renderers.TextRenderer.apply(this, arguments);
-  const source = instance.getSourceDataAtRow(row);
-  const origin = source.exotic_status;
-  td.textContent = '';
-  td.append(document.createTextNode(value));
-  if (origin !== 'native') {
-    const badge = document.createElement('span');
-    badge.className = `ebird-origin ${origin}`;
-    badge.textContent = origin === 'naturalized' ? 'N' : 'P';
-    badge.dataset.tooltip = originDescriptions[origin];
-    badge.tabIndex = 0;
-    badge.setAttribute('aria-label', originDescriptions[origin]);
-    td.appendChild(badge);
-  }
-};
-
 const numberRenderer = function(instance, td, row, col, prop, value) {
   Handsontable.renderers.TextRenderer.apply(this, arguments);
   td.textContent = value ? formatNumber(value) : 'Withheld';
@@ -224,7 +217,6 @@ const columnDefinitions = columns.map(field => {
   const definition = { data: field, renderer: 'text' };
   if (field === 'english_name') {
     definition.className = 'english-name';
-    definition.renderer = englishNameRenderer;
   }
   if (field === 'scientific_name') definition.className = 'scientific-name';
   if (field === 'status') definition.renderer = statusRenderer;
@@ -245,8 +237,10 @@ const enrichRow = row => ({
   ...row,
   status: [
     ...statusColumns.filter(code => truthy(row[code])),
+    ...(truthy(row.pending_earc) ? ['PE'] : []),
     ...(truthy(row.sensitive) ? ['S'] : []),
-    ...(truthy(row.water_bird) ? ['W'] : [])
+    ...(truthy(row.water_bird) ? ['W'] : []),
+    ...(row.exotic_status !== 'native' ? [row.exotic_status] : [])
   ].join(', ')
 });
 
@@ -276,6 +270,7 @@ const matchesFilter = (row, filter) => {
   if (filter === 'rare') return truthy(row.RAR);
   if (filter === 'waterbird') return truthy(row.water_bird);
   if (filter === 'naturalized') return row.exotic_status === 'naturalized';
+  if (filter === 'pending-earc') return truthy(row.pending_earc);
   if (filter === 'sensitive') return truthy(row.sensitive);
   return true;
 };
@@ -312,6 +307,7 @@ const setFilterCounts = rows => {
   setText('rareCount', rows.filter(row => truthy(row.RAR)).length);
   setText('waterbirdFilterCount', rows.filter(row => truthy(row.water_bird)).length);
   setText('naturalizedCount', rows.filter(row => row.exotic_status === 'naturalized').length);
+  setText('pendingEarcCount', rows.filter(row => truthy(row.pending_earc)).length);
   setText('sensitiveCount', rows.filter(row => truthy(row.sensitive)).length);
 };
 
@@ -346,7 +342,7 @@ tableElement.addEventListener('focusin', event => {
 });
 tableElement.addEventListener('focusout', () => { tableTooltip.hidden = true; });
 
-Papa.parse('../data/checklist.csv', {
+Papa.parse('../data/checklist.csv?v=20260813-1', {
   encoding: 'UTF-8',
   download: true,
   header: true,

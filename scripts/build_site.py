@@ -130,6 +130,14 @@ def main():
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     if comparison["to_release"] != manifest["release_id"]:
         raise ValueError("comparison target does not match the website release")
+    pending_earc_ids = {
+        row["id"]
+        for group in comparison["groups"] if group["pending_earc"]
+        for row in group["new"]
+    }
+    for row in public_rows:
+        row["pending_earc"] = "TRUE" if row["avilist_id"] in pending_earc_ids else ""
+    public_fields.append("pending_earc")
 
     checklist_pdf = require(release / metadata["render"]["output_filename"])
     comparison_csv = require(release / "comparison" / "taxonomy-changes.csv")

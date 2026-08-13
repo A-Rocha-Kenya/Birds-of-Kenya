@@ -306,8 +306,6 @@ input[type="search"]:focus { border-color: var(--green); box-shadow: 0 0 0 3px r
 .handsontable tbody tr:nth-child(even) td { background: #fbfaf5; }
 .handsontable td.scientific-name { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
 .handsontable td.english-name { font-weight: 700; }
-.ebird-origin { display: inline-flex; width: 1.2rem; height: 1.2rem; margin-left: .38rem; align-items: center; justify-content: center; border-radius: 50%; color: #fff; font-size: .64rem; font-weight: 850; line-height: 1; vertical-align: middle; }
-.ebird-origin.naturalized, .ebird-origin.provisional, .ebird-origin.sensitive { background: #7b8580; }
 .handsontable td.number { font-variant-numeric: tabular-nums; text-align: right; }
 .handsontable a { color: var(--green); font-weight: 650; text-decoration: none; }
 .handsontable a:hover { text-decoration: underline; text-underline-offset: 2px; }
@@ -385,6 +383,8 @@ input[type="search"]:focus { border-color: var(--green); box-shadow: 0 0 0 3px r
 .taxon .scientific { margin-left: .24rem; color: #38463e; font-family: Georgia, "Times New Roman", serif; font-style: italic; }
 .taxonomy-note { margin-top: .45rem; padding: .42rem .5rem; border-left: 3px solid var(--ochre); background: rgba(255, 255, 255, .48); color: var(--muted); font-size: .73rem; line-height: 1.4; }
 .badge.pending-earc { background: #f8dddd; color: #8b2c2c; }
+.badge.earc-decision { background: #e5f1e9; color: #1f6848; text-decoration: none; }
+.badge.earc-decision:hover { text-decoration: underline; text-underline-offset: 2px; }
 .taxonomy-note strong { display: block; margin-bottom: .12rem; color: var(--ink); font-size: .67rem; letter-spacing: .04em; text-transform: uppercase; }
 .source-links { display: flex; max-width: 48%; flex: 0 1 auto; flex-wrap: wrap; gap: .25rem; justify-content: flex-end; }
 .source-link { display: inline-block; border: 1px solid rgba(31, 104, 72, .22); border-radius: 999px; padding: .14rem .32rem; color: #416b58; background: rgba(255, 255, 255, .62); font: 750 .59rem/1.15 ui-monospace, SFMono-Regular, Menlo, monospace; text-decoration: none; white-space: nowrap; }

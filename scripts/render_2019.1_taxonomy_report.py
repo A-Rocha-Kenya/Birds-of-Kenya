@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
 CURRENT = ROOT / "dist" / "2026-06.0" / "checklist.csv"
 MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2026.0.csv"
+EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 OUTPUT = ROOT / "dist" / "2026-06.0" / "comparison"
 PDF = OUTPUT / "Taxonomy-changes-2019.1-to-2026.0.pdf"
 COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
@@ -169,6 +170,27 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
     return sorted(groups, key=lambda group: (group["sort_order"], group["id"]))
 
 
+def annotate_earc(groups, decision_rows):
+    decisions_by_taxon = defaultdict(list)
+    for row in decision_rows:
+        decision = {
+            "decision_id": row["decision_id"],
+            "decision": row["decision"],
+            "report_year": row["report_year_published"],
+            "source_url": row["source_url"],
+        }
+        for field in ("legacy_avilist_id", "current_avilist_id"):
+            if row[field].strip():
+                decisions_by_taxon[row[field].strip()].append(decision)
+
+    for group in groups:
+        taxon_ids = {row["id"] for side in ("old", "new") for row in group[side]}
+        decisions = [decision for identifier in taxon_ids for decision in decisions_by_taxon[identifier]]
+        group["earc_decisions"] = sorted(decisions, key=lambda row: row["decision_id"])
+        group["pending_earc"] = group["cardinality"] in {"0:1", "1:0"} and not decisions
+    return groups
+
+
 def html_report(groups):
     data = json.dumps(groups, ensure_ascii=False).replace("</", "<\\/")
     return f'''<!doctype html>
@@ -207,7 +229,7 @@ function avibaseLink(id){{const shortId=id.replace(/^avibase-/,'');return `<a cl
 function ebirdLinks(row){{return (row.ebird_codes||[]).map(code=>`<a class="source-link" href="https://ebird.org/species/${{encodeURIComponent(code)}}/KE" target="_blank" rel="noopener" title="Open ${{esc(code)}} in eBird for Kenya">eBird · ${{esc(code)}}</a>`).join('')}}
 function taxon(row){{return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${{esc(row.english)}}</span><span class="scientific">${{esc(row.scientific)}}</span></div><div class="source-links">${{avibaseLink(row.id)}}${{ebirdLinks(row)}}</div></div></div>`}}
 function side(rows,kind){{return `<div class="side ${{kind}}">${{rows.length?rows.map(taxon).join(''):'<div class="empty">None listed</div>'}}</div>`}}
-function card(g){{const tags=g.tags.filter(x=>x!=='concept').map(x=>`<span class="badge">${{esc(dict[x])}}</span>`).join('');const relClass=g.relationship==='unresolved'?' unresolved':'';const comments=[...new Set(g.new.map(row=>row.taxonomy_comment).filter(Boolean))];const note=comments.length?`<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${{comments.map(comment=>esc(comment)).join('<br>')}}</div>`:'';return `<article class="change-card" id="${{esc(g.id)}}"><div class="card-head"><div class="card-title">${{esc(g.title)}}</div><div class="badges"><span class="badge relationship${{relClass}}">${{esc(g.relationship_label)}}</span>${{tags}}</div></div><div class="concept-grid">${{side(g.old,'old')}}<div class="arrow" aria-hidden="true"><span class="symbol">→</span></div>${{side(g.new,'new')}}</div>${{note}}</article>`}}
+function card(g){{const tags=g.tags.filter(x=>x!=='concept').map(x=>`<span class="badge">${{esc(dict[x])}}</span>`).join('');const relClass=g.relationship==='unresolved'?' unresolved':'';const pendingEarc=g.pending_earc?'<span class="badge unresolved">Pending EARC</span>':'';const comments=[...new Set(g.new.map(row=>row.taxonomy_comment).filter(Boolean))];const note=comments.length?`<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${{comments.map(comment=>esc(comment)).join('<br>')}}</div>`:'';return `<article class="change-card" id="${{esc(g.id)}}"><div class="card-head"><div class="card-title">${{esc(g.title)}}</div><div class="badges"><span class="badge relationship${{relClass}}">${{esc(g.relationship_label)}}</span>${{pendingEarc}}${{tags}}</div></div><div class="concept-grid">${{side(g.old,'old')}}<div class="arrow" aria-hidden="true"><span class="symbol">→</span></div>${{side(g.new,'new')}}</div>${{note}}</article>`}}
 const dict={{english_name:'English name',scientific_name:'Scientific name',classification:'Family placement'}};
 function render(){{const q=search.value.trim().toLowerCase();const visible=groups.filter(g=>{{const namesOk=!selected.names.size||[...selected.names].every(x=>g.tags.includes(x));const conceptOk=!selected.concepts.size||selected.concepts.has(g.cardinality);const text=JSON.stringify(g).toLowerCase();return namesOk&&conceptOk&&(!q||text.includes(q))}});resultCount.innerHTML=`Showing <b>${{visible.length.toLocaleString()}}</b> of ${{groups.length.toLocaleString()}} change groups`;let out='',order='',family='';for(const g of visible){{if(g.order!==order){{order=g.order;family='';out+=`<h2 class="order-heading">${{esc(order)}}</h2>`}}if(g.family!==family){{family=g.family;out+=`<h3 class="family-heading">${{esc(family)}} <span>${{esc(g.family_english)}}</span></h3>`}}out+=card(g)}}report.innerHTML=out||'<div class="no-results">No changes match these filters.</div>'}}
 document.querySelectorAll('.filter').forEach(el=>el.addEventListener('click',()=>{{const set=selected[el.dataset.kind];set.has(el.dataset.key)?set.delete(el.dataset.key):set.add(el.dataset.key);el.setAttribute('aria-pressed',set.has(el.dataset.key));render()}}));search.addEventListener('input',render);clear.addEventListener('click',()=>{{search.value='';selected.names.clear();selected.concepts.clear();document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed','false'));render()}});render();
@@ -274,8 +296,9 @@ def typst_report(groups):
             for row in group["new"]
         ) or "#text(fill: rgb(\"68736d\"), style: \"italic\")[None listed]"
         comments = list(dict.fromkeys(row["taxonomy_comment"] for row in group["new"] if row["taxonomy_comment"]))
-        decision_note = f"#decision[{' \\\\ '.join(typst_text(comment) for comment in comments)}]" if comments else ""
-        pending_earc = "#v(3pt) #pending[Pending EARC]" if group["cardinality"] in {"0:1", "1:0"} else ""
+        decision_text = " \\\\ ".join(typst_text(comment) for comment in comments)
+        decision_note = f"#decision[{decision_text}]" if comments else ""
+        pending_earc = "#v(3pt) #pending[Pending EARC]" if group["pending_earc"] else ""
         parts.append(
             f'''#block(breakable: true, stroke: .5pt + rgb("d9ded8"), radius: 5pt, inset: 7pt, above: 4pt, below: 4pt)[
 #grid(columns: (1fr, 42pt, 1fr), gutter: 7pt,
@@ -294,6 +317,7 @@ def main():
     parser.add_argument("--legacy", type=Path, default=LEGACY)
     parser.add_argument("--current", type=Path, default=CURRENT)
     parser.add_argument("--mapping", type=Path, default=MAPPING)
+    parser.add_argument("--earc-decisions", type=Path, default=EARC_DECISIONS)
     parser.add_argument("--output", type=Path, default=OUTPUT)
     parser.add_argument("--pdf", type=Path, default=PDF)
     parser.add_argument("--no-pdf", action="store_true")
@@ -301,6 +325,7 @@ def main():
     args = parser.parse_args()
 
     groups = taxonomy_groups(read_csv(args.legacy), read_csv(args.current), read_csv(args.mapping))
+    groups = annotate_earc(groups, read_csv(args.earc_decisions))
     args.output.mkdir(parents=True, exist_ok=True)
     json_path = args.output / "taxonomy-changes.json"
     write_json(json_path, groups)
