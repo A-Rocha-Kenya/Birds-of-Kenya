@@ -6,10 +6,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "render_2019.1_taxonomy_report.py"
+SITE_SCRIPT = ROOT / "scripts" / "build_site.py"
 
 
 def load_renderer():
     spec = importlib.util.spec_from_file_location("taxonomy_report", SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_site_builder():
+    spec = importlib.util.spec_from_file_location("site_builder", SITE_SCRIPT)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -38,7 +46,15 @@ def main():
     if sum(bool(group["new"]) for group in pending) != 16:
         raise ValueError("unexpected number of current checklist species pending EARC")
 
-    print("Validated 8 relevant EARC decisions, 8 decided changes, and 22 pending change groups")
+    old_comparison = {"groups": [
+        {"cardinality": "0:1", "old": [], "new": [{"id": "avibase-DDEF7228"}]},
+        {"cardinality": "0:1", "old": [], "new": [{"id": "avibase-90AAE188"}]},
+    ]}
+    old_comparison = load_site_builder().annotate_earc(old_comparison, decisions)
+    if [group["pending_earc"] for group in old_comparison["groups"]] != [False, True]:
+        raise ValueError("site builder did not derive pending EARC for a legacy comparison")
+
+    print("Validated 8 relevant EARC decisions, 8 decided changes, and legacy-site compatibility")
 
 
 if __name__ == "__main__":

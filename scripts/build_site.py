@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WEBSITE = ROOT / "website"
 PUBLICATION = ROOT / "publication" / "publication.toml"
+EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
 
 
@@ -39,6 +40,30 @@ def write_csv(path, fields, rows):
         writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+
+
+def annotate_earc(comparison, decision_rows):
+    decisions_by_taxon = {}
+    for decision in decision_rows:
+        public_decision = {
+            "decision_id": decision["decision_id"],
+            "decision": decision["decision"],
+            "report_year": decision["report_year_published"],
+            "source_url": decision["source_url"],
+        }
+        for field in ("legacy_avilist_id", "current_avilist_id"):
+            identifier = decision[field].strip()
+            if identifier:
+                decisions_by_taxon.setdefault(identifier, []).append(public_decision)
+
+    for group in comparison["groups"]:
+        if "pending_earc" in group:
+            continue
+        taxon_ids = {row["id"] for side in ("old", "new") for row in group[side]}
+        decisions = [decision for identifier in taxon_ids for decision in decisions_by_taxon.get(identifier, [])]
+        group["earc_decisions"] = sorted(decisions, key=lambda decision: decision["decision_id"])
+        group["pending_earc"] = group["cardinality"] in {"0:1", "1:0"} and not decisions
+    return comparison
 
 
 def public_metadata(metadata, manifest, rows, comparison, downloads):
@@ -130,9 +155,10 @@ def main():
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     if comparison["to_release"] != manifest["release_id"]:
         raise ValueError("comparison target does not match the website release")
+    comparison = annotate_earc(comparison, read_csv(EARC_DECISIONS))
     pending_earc_ids = {
         row["id"]
-        for group in comparison["groups"] if group["pending_earc"]
+        for group in comparison["groups"] if group.get("pending_earc")
         for row in group["new"]
     }
     for row in public_rows:
@@ -162,7 +188,9 @@ def main():
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         copy(release / "manifest.json", staging / "data" / "manifest.json")
-        copy(comparison_path, staging / "data" / "taxonomy-changes.json")
+        (staging / "data" / "taxonomy-changes.json").write_text(
+            json.dumps(comparison, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
         copy(checklist_pdf, staging / downloads["checklist_pdf"])
         write_csv(staging / downloads["checklist_csv"], public_fields, public_rows)
         copy(comparison_csv, staging / downloads["comparison_csv"])
