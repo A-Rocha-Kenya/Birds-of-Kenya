@@ -1,4 +1,23 @@
 
+# Local build products ----------------------------------------------------
 .DS_Store
 site/
+/_site/
+/dist/
+/output/
+/tmp/
+/.cache/
 __pycache__/
+
+# Third-party source inputs and derived eBird caches stay local.
+# Publish selected release artifacts through GitHub Releases, not Git.
+/data/ebird/*.txt
+/data/ebird/*.txt.gz
+/data/ebird/*.zip
+/data/ebird/*taxonomy*.csv
+/data/ebird/*taxonomy*.tsv
+/data/ebird/derived/
+/data/avilist/*.xlsx
+
+# Legacy site-export residue.
+/data/avibase/Avibase bird checklist - Kenya_files/

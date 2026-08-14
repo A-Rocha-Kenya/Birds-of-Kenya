@@ -1,0 +1,17 @@
+ebd_version = "2026-06"
+release_revision = 0
+historical_reference_date = "2026-06-30"
+historical_years = 50
+avilist_version = "v2025b"
+ebird_taxonomy_version = "2025"
+
+# Pinned source inputs for the release being prepared.
+ebd_path = "data/ebird/ebd_KE_relJun-2026.zip"
+avilist_path = "data/avilist/AviList-v2025b-10Jun2026-extended.xlsx"
+ebird_taxonomy_path = "data/ebird/eBird_taxonomy_v2025-4.csv"
+categories_path = "data/curation/categories.csv"
+safring_numbers_path = "data/curation/safring_numbers.csv"
+ebird_avilist_overrides_path = "data/curation/ebird_avilist_overrides.csv"
+ebird_exotic_overrides_path = "data/curation/ebird_exotic_overrides.csv"
+sensitive_species_path = "data/curation/sensitive_species.csv"
+curated_species_path = "data/curation/curated_species.csv"

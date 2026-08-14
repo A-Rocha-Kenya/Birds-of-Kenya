@@ -1,7 +1,27 @@
-The original checklist is identified in the included PDF as:
+# Licensing
 
-Copyright © Bird Committee, Nature Kenya—the East Africa Natural History Society, 2019.
+## Checklist data and publication material
 
-Copyright in the repository's transcription, derived data, code, images, and other materials may belong to their respective authors or rights holders.
+Copyright © 2026 Bird Committee, Nature Kenya—the East Africa Natural History Society.
 
-This repository does not currently grant an open-source or data-reuse license. No permission is granted to redistribute, modify, or commercially use the checklist data or source documents beyond rights provided by the respective rights holders. Contact Nature Kenya or the relevant rights holder before reusing these materials.
+Unless a file says otherwise, the project-created checklist data, curation tables, documentation,
+publication material, and website source are licensed under the [Creative Commons Attribution 4.0
+International License](https://creativecommons.org/licenses/by/4.0/). This is the licence applied to
+the Checklist of the Birds of Kenya dataset published through GBIF.
+
+## Code
+
+The Python scripts, tests, and workflow files are licensed under the MIT License in
+[`LICENSE-CODE`](LICENSE-CODE).
+
+## Excluded material
+
+This licence does not apply to third-party or historical material, including:
+
+- the 2019 fifth-edition checklist and its source documents, which retain the copyright notice of
+  Bird Committee, Nature Kenya—the East Africa Natural History Society;
+- raw eBird data and eBird taxonomy files, which remain subject to eBird's terms;
+- AviList source files, which remain subject to AviList's terms; and
+- photographs, logos, and other assets credited to their respective rights holders.
+
+No licence granted here overrides the rights or terms attached to excluded material.

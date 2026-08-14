@@ -1,8 +1,16 @@
-name: Publish GitHub Pages
+name: Build and publish GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [2026.0]
+    paths:
+      - "website/**"
+      - "release-assets/**"
+      - "publication/**"
+      - "scripts/build_site.py"
+      - "scripts/stage_release_assets.py"
+      - "tests/validate_site.py"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -15,37 +23,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Validate checklist data
-        run: python3 tests/validate_2019.0.py
+
+      - name: Read active release
+        id: release
+        run: |
+          release_id=$(python3 -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["release_id"])')
+          echo "id=$release_id" >> "$GITHUB_OUTPUT"
+
+      - name: Build website
+        env:
+          RELEASE_ID: ${{ steps.release.outputs.id }}
+        run: |
+          python3 scripts/build_site.py --release-dir "release-assets/$RELEASE_ID" --output _site --allow-draft
+
+      - name: Validate website
+        run: |
+          python3 tests/validate_site.py _site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
   deploy:
-    needs: validate
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Prepare static site
-        run: |
-          mkdir site
-          cp src/index.html site/index.html
-          cp src/script.js site/script.js
-          cp src/style.css site/style.css
-          cp -R src/assets site/assets
-          cp -R data site/data
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

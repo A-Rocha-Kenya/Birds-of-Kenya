@@ -1,103 +1,186 @@
 # Birds of Kenya
 
-An interactive, browser-based checklist of bird species and subspecies recorded in Kenya. The site loads the repository's checklist data into a searchable, sortable, filterable table and provides links to external taxonomic and biodiversity resources.
+The **sixth edition of the *Checklist of the Birds of Kenya*** continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019. It is a public, reproducible, and versioned account of the bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
 
-The checklist is based on the *Checklist of the Birds of Kenya, 5th Edition (2019)*. The repository data has also received later taxonomy and identifier updates; the most recent committed update is from November 2023.
+The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
-## What is included
+## Nature Kenya—the East Africa Natural History Society
 
-- 1,185 checklist records spanning 107 scientific families.
-- Common and scientific names, family names, and the 2019 Kenyan checklist order.
-- Residency, migration, endemicity, rarity, historical-record, and extinction flags.
-- IUCN Red List categories, BirdLife status, and waterbird classifications.
-- Cross-references to ADU/Kenya Bird Map Atlas, Avibase, Wikidata, iNaturalist, ITIS, IUCN, Observation.org, GBIF, eBird/Clements, IOC, Howard & Moore, and HBW/BirdLife taxonomies where identifiers are available.
-- Source materials for the 2019 fifth edition in PDF, DOC, and XLSX formats.
+[Nature Kenya](https://naturekenya.org/) is the East Africa Natural History Society (EANHS) in Kenya. Founded in 1909, it is a membership-based organization that invites everyone to join an active society, participate in the study of nature, and support conservation activities.
 
-The interactive table initially hides the scientific and English family columns, BirdLife status, and the two waterbird columns. They can be revealed with the table's column controls.
+## Organizations and contributors
 
-## Use the checklist
+- **Publisher and institutional home:** Nature Kenya—the East Africa Natural History Society
+- **Partners and contributing organizations:** A Rocha Kenya; National Museums of Kenya (NMK); Kenya Bird Map; eBird Kenya; East African Rarities Committee (EARC)
+- **Named contributors:** Brian Finch; Colin Jackson; Don Turner; Fleur Ng’weno; James Bradley (eBird record management); John Fanshawe; Nigel Hunter; Okech; Raphaël Nussbaumer (data curation); Richard Stratton Hatfield; Victor Ikawa; Washington Wachira
 
-1. Sort one or more columns using the column headers.
-2. Open a header menu to filter by values or conditions.
-3. Resize or freeze columns, and show or hide columns, from the table context menu.
-4. Select **Export View Table** to download the current filtered view as `Birds_of_Kenya_2019.csv`.
-5. Click an identifier in the table to open the corresponding external resource.
+The publication, interactive website, downloadable data, and taxonomy comparison are assembled from the same versioned release. The full editorial metadata is maintained in [`publication/publication.toml`](publication/publication.toml).
 
-The site is read-only: filtering, column settings, and exports affect only the browser session and the downloaded file, never `data/main.csv`.
+## Data source
 
-## Repository layout
+Each release pins one [eBird Basic Dataset](https://ebird.org/about/download-ebird-data-products) month, its matching [eBird taxonomy](https://www.birds.cornell.edu/clementschecklist/download/), and one compatible [AviList](https://www.avilist.org/) version. In addition, four curated tables are used for (1) sensitive species, (2) exceptional eBird-to-AviList alignments, (3) version-scoped exotic-code corrections, and (4) Kenya checklist categories.
 
-| Path | Purpose |
-| --- | --- |
-| [`src/index.html`](src/index.html) | Accessible page markup and pinned external library imports. |
-| [`src/script.js`](src/script.js) | Parses the CSV, configures the table, calculates summaries, builds safe identifier links, and exports the visible view. |
-| [`src/style.css`](src/style.css) | Responsive page, controls, summary cards, and loading/error styling. |
-| [`data/main.csv`](data/main.csv) | Canonical machine-readable checklist: UTF-8 CSV with 1,185 data records and 68 columns. |
-| [`data/sources/`](data/sources/) | Original fifth-edition checklist documents in PDF, DOC, and XLSX formats. |
-| [`src/assets/`](src/assets/) | A Rocha Kenya logo assets used as the site favicon. |
-| [`tests/validate_data.py`](tests/validate_data.py) | Standard-library data quality checks run before deployment. |
-| [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | GitHub Pages validation and deployment workflow. |
+## Checklist policy
 
-## Data dictionary
+The [checklist policy](docs/policy.md) defines the scope, evidence, stewardship, categories, and publication rules.
 
-`data/main.csv` is the canonical data file. Blank values mean that the relevant value or identifier is not supplied. The website preserves all CSV fields, except that the individual status flags below are collapsed into one displayed `status` column.
+## Checklist build logic
 
-| Fields | Description |
-| --- | --- |
-| `sort`, `sort_1996`, `sort_2009` | Display-order keys for the 2019, 1996, and 2009 Kenyan checklists. |
-| `family_scientific`, `family_english`, `common_name`, `scientific_name` | Core taxonomy and names. |
-| `AM`, `AMR`, `E`, `EX`, `HIST`, `IO`, `MM`, `N`, `NR`, `NRR`, `OM`, `PM`, `PMR`, `RAR`, `RS`, `SO`, `VIO`, `VM`, `VN`, `VO`, `VP`, `VSO`, `VSA` | Checklist status flags; their meanings are listed below. |
-| `red_list`, `status_birdlife` | IUCN Red List category and BirdLife designation (Endemic, Introduced species, or Rare/Accidental). |
-| `water_bird`, `strict_water_bird` | Waterbird classifications recorded as `TRUE` when applicable. |
-| `ADU`, `avibaseid`, `wikiDataID`, `iNaturalisttaxonID`, `ITIS`, `IUCNtaxonID`, `ObservationorgID`, `GBIFID` | Identifiers for external biodiversity and taxonomy services. |
-| `IOC--sort`, `IOC--rank`, `IOC--scientific_name`, `IOC--common_name`, `IOC--note`, `IOC--breeding_range`, `IOC--nonbreeding_range` | IOC taxonomy mapping, notes, and ranges. |
-| `Clements--sort`, `Clements--code`, `Clements--rank`, `Clements--scientific_name`, `Clements--common_name`, `Clements--range` | eBird/Clements taxonomy mapping and range. |
-| `H&M--sort`, `H&M--rank`, `H&M--scientific_name`, `H&M--common_name`, `H&M--range` | Howard & Moore taxonomy mapping and range. |
-| `HBW&BL--SISRecID`, `HBW&BL--rank`, `HBW&BL--scientific_name`, `HBW&BL--common_name`, `HBW&BL--note` | Handbook of the Birds of the World / BirdLife taxonomy mapping and notes. |
-| `entry_checklist_of_kenya`, `note_2009`, `note_2019` | Original 2019 checklist entry plus notes associated with the 2009 and 2019 checklists. |
+The [checklist build documentation](docs/release-pipeline.md) defines exactly how the pinned source
+data and curated decisions become `dist/<release-id>/checklist.csv`. It covers taxonomy matching,
+observation clustering, evidence routing, AviList mapping, sensitive species, outputs, and audits. It
+does not describe publication or website deployment.
 
-### Status codes
+## Release and publication workflow
 
-| Code | Meaning |
-| --- | --- |
-| `AM` / `AMR` | Afrotropical migrant / Afrotropical migrant and resident. |
-| `E` | Endemic species or race. |
-| `EX` | Species thought to have become extinct in Kenya. |
-| `HIST` | No record for 50 years (no record since 1968 or earlier). |
-| `IO` / `VIO` | Visitor / vagrant from north-west Indian Ocean islands. |
-| `MM` / `VM` | Migrant / vagrant from the Malagasy region. |
-| `N` / `NR` | Nomadic or wanderer / nomadic or wanderer and resident. |
-| `NRR` | Not recently recorded (during 1969–1999). |
-| `OM` / `VO` | Migrant / vagrant from the Oriental region. |
-| `PM` / `PMR` / `VP` | Palaearctic migrant / Palaearctic migrant and resident / Palaearctic vagrant. |
-| `RAR` | Fewer than five East African Rarities Committee records at publication. |
-| `RS` | Visitor from the Red Sea. |
-| `SO` / `VSO` | Visitor / vagrant from the Southern Ocean or Antarctica. |
-| `VN` | Vagrant from the Nearctic region. |
-| `VSA` | Vagrant from southern Africa. |
+Run these stages in order. The checklist can be rebuilt repeatedly during review; only stage public
+assets after the checklist and all publication products have been accepted.
 
-## KE-v2019b preparation
+### 1. Prepare the release
 
-`data/v2019.1/main.csv` is a corrected, reduced historical version of `data/v2019.0/main.csv`. It retains the published checklist fields, the historical order fields, waterbird fields, and `avibaseid`; it excludes external identifiers, external taxonomy mappings, range fields, and Red List/BirdLife status fields.
-
-Run the preparation and key validation with:
+Place the licensed EBD, matching eBird taxonomy, and AviList files at the paths configured in
+`config/release.toml`. Update `publication/publication.toml` to use the same release ID and release
+directory. The commands below obtain the active ID from the publication metadata:
 
 ```sh
-python3 scripts/migrate_2019_to_2019b.py
-python3 tests/validate_2019b.py
+release_id=$(python3 -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["release_id"])')
 ```
 
-`data/v2019.1/repairs.csv` is keyed by the original `sort` value. Validation writes any missing, duplicate, or malformed `sort` and `avibaseid` values to `data/v2019.1/audit_errors.csv`.
+### 2. Build and validate the checklist
 
-## Source documents
+```sh
+uv run python scripts/build_release.py config/release.toml
+uv run python tests/validate_release_pipeline.py
+uv run python tests/validate_release.py "dist/$release_id"
+uv run python tests/validate_publication.py publication/publication.toml
+```
 
-The project includes the original source files:
+Review `dist/$release_id/checklist.csv`, `manifest.json`, and every file under `audit/`. If a curated
+mapping, category, sensitive-species entry, or exotic-code correction changes, rebuild and validate
+again. Publication validation ensures that the release ID, configured release directory, and generated
+manifest agree. The complete `dist/<release-id>/` directory is the canonical local release output.
 
-- [PDF checklist](data/sources/2019%20Checklist%20of%20the%20Birds%20of%20Kenya%205th%20Edition%20%282019%29.pdf)
-- [Word checklist](data/sources/2019%20Checklist%20of%20the%20Birds%20of%20Kenya%205th%20Edition%20%282019%29.doc)
-- [Excel checklist](data/sources/2019%20Checklist%20of%20the%20Birds%20of%20Kenya%205th%20Edition%20%282019%29.xlsx)
+### 3. Generate and review the release comparison
+
+For the first EBD/AviList release, generate the one-time comparison with the corrected 2019.1
+edition:
+
+```sh
+uv run python scripts/compare_2019.1_to_2026.0.py
+uv run python scripts/render_2019.1_taxonomy_report.py
+```
+
+The first command writes the comparison CSV, JSON, HTML, and review audits. The second renders the
+accepted comparison PDF. Review the generated files under `dist/$release_id/comparison/` before
+continuing. The detailed procedure is documented in
+[`docs/2019.1-to-2026.0.md`](docs/2019.1-to-2026.0.md).
+
+For later releases, compare the previous public checklist with the new checklist:
+
+```sh
+uv run python scripts/compare_releases.py \
+  "release-assets/<previous-release-id>/checklist.csv" \
+  "dist/$release_id/checklist.csv" \
+  "dist/$release_id/comparison"
+```
+
+### 4. Prepare the GBIF/IPT package
+
+Complete the citation, publisher, licence, rights holder, and other known publication fields in
+`publication/publication.toml`, then run:
+
+```sh
+uv run python tests/validate_publication.py publication/publication.toml
+uv run python scripts/build_ipt_checklist.py publication/publication.toml
+uv run python tests/validate_ipt_checklist.py "dist/$release_id/gbif"
+```
+
+Upload `dist/$release_id/gbif/checklist.csv` to IPT and map it to the GBIF Taxon core definition
+recorded in `ipt-metadata.json`. It contains a normalized kingdom-to-species hierarchy linked by
+`parentNameUsageID`. `acceptedNameUsageID` is blank because this export contains accepted taxa only;
+use it only if synonym or misapplied-name records are added later. Taxon concepts cite the pinned
+AviList release through `nameAccordingTo` and `nameAccordingToID`. English names are mapped directly
+to the Taxon core's `vernacularName` field with the ISO 639-1 language code `en`. There are no IPT
+extension tables. Use `ipt-metadata.json` to complete the IPT metadata form. GBIF publication is an
+external manual step.
+After publication, record the GBIF dataset URL and DOI in `publication/publication.toml`, complete
+the publication and editorial dates, and change `status` from `draft` to the final status.
+
+### 5. Render the final checklist PDF
+
+```sh
+uv run python tests/validate_publication.py publication/publication.toml
+uv run python scripts/render_checklist_pdf.py publication/publication.toml --keep-typ
+```
+
+The PDF is written into the canonical `dist/$release_id/` bundle. Category definitions are maintained
+in `data/curation/category_definitions.csv`; species assignments are maintained in
+`data/curation/categories.csv`, except `water_bird`, which is derived during the checklist build.
+
+### 6. Build a local website preview
+
+Before staging, the website can be built directly from the complete local release:
+
+```sh
+uv run python scripts/build_site.py \
+  --release-dir "dist/$release_id" \
+  --output _site \
+  --allow-draft
+uv run python tests/validate_site.py _site
+uv run python scripts/serve_site.py
+```
+
+The preview server starts at `http://127.0.0.1:8000` when available, otherwise it uses the next free local port and prints the URL. Stop it with `Ctrl+C`.
+
+`--allow-draft` allows the website to be previewed or deployed before the formal release metadata is
+complete. The publication status is informational and does not control GitHub Pages deployment.
+
+### 7. Stage the accepted public assets
+
+Once the checklist, audits, comparison, GBIF package, metadata, PDF, and website preview have been
+reviewed and accepted:
+
+```sh
+uv run python scripts/stage_release_assets.py
+```
+
+This copies, without transforming, `manifest.json`, `checklist.csv`, the checklist PDF, the
+comparison CSV/JSON, and the comparison PDF when available from `dist/$release_id/` into the tracked
+`release-assets/$release_id/` directory. It excludes raw inputs, audits, latest records,
+supplementary taxa, and GBIF export files.
+
+### 8. Verify and publish the staged website
+
+```sh
+uv run python scripts/build_site.py \
+  --release-dir "release-assets/$release_id" \
+  --output _site
+uv run python tests/validate_site.py _site
+```
+
+Commit the accepted source changes, `publication/publication.toml`, and
+`release-assets/$release_id/`. Push the publication branch to update GitHub Pages. When the formal
+release is ready, create an annotated Git tag named exactly `$release_id` and a GitHub Release with
+the same name. GitHub Actions rebuilds and validates the website from the committed staged assets
+before deploying GitHub Pages, regardless of the publication status.
+
+Publishing organizations, project partners, data sources, and contributors are described at the start of this README and maintained in `publication/publication.toml`.
 
 
-## License
+## Structure
 
-The included PDF identifies the original checklist as copyright © Bird Committee, Nature Kenya—the East Africa Natural History Society, 2019. It does not state a Creative Commons, open-source, or other reuse license. [`LICENSE`](LICENSE) records this conservative position: do not assume permission to redistribute or reuse the checklist data or source documents. Contact [Nature Kenya](https://naturekenya.org/) or the relevant rights holder for clarification.
+| Layer | Location | Role |
+| --- | --- | --- |
+| Release configuration | [`config/release.toml`](config/release.toml) | Pins the source versions and paths for the release being prepared. |
+| External inputs | `data/ebird/`, `data/avilist/` | Local licensed EBD and versioned taxonomy sources. |
+| Project decisions | [`data/curation/`](data/curation) | Maintained mappings, corrections, categories, and sensitive-species membership. |
+| Release build | [`scripts/build_release.py`](scripts/build_release.py) | Produces the ignored `dist/<release-id>/` bundle. |
+| Website release assets | `release-assets/<release-id>/` | Versioned public website inputs staged from a local release build. |
+| Publication source | [`publication/`](publication) | Editable metadata and prose used by the PDF and website. |
+| Website source | [`website/`](website) | Maintained home, checklist, and changes pages. |
+| Public website | GitHub Pages | Builds the live website from the active, versioned public asset bundle. |
+
+
+## Data use and licensing
+
+The new checklist data and publication material are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), matching the GBIF checklist dataset. The repository code is licensed under MIT. The 2019 edition, raw eBird data, AviList source files, and other third-party material retain their own terms; see [`LICENSE`](LICENSE).
