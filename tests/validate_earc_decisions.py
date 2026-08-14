@@ -29,7 +29,7 @@ def main():
     identifiers = [row["decision_id"] for row in decisions]
     if len(identifiers) != len(set(identifiers)):
         raise ValueError("EARC decision IDs must be unique")
-    if len(decisions) != 10 or {row["decision"] for row in decisions} != {"accepted", "rejected"}:
+    if len(decisions) != 11 or {row["decision"] for row in decisions} != {"accepted", "rejected"}:
         raise ValueError("unexpected curated EARC decision coverage")
     if any(not row["avilist_id"] for row in decisions):
         raise ValueError("EARC decisions must use a current AviList identifier")
@@ -59,7 +59,7 @@ def main():
     if [group["pending_earc"] for group in old_comparison["groups"]] != [False, True]:
         raise ValueError("site builder did not derive pending EARC for a legacy comparison")
 
-    print("Validated 10 EARC decisions, rejected-taxon exclusion, and legacy-site compatibility")
+    print("Validated 11 EARC decisions, rejected-taxon exclusion, and legacy-site compatibility")
 
 
 if __name__ == "__main__":

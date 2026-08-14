@@ -13,7 +13,6 @@ legacy-map-008,replacement,curated_mapping,avibase-00DA9D91,Common Gull,Larus ca
 legacy-map-009,lump,curated_mapping,avibase-42720061,Baltic Gull,Larus fuscus fuscus,avibase-2D52E3A5,Lesser Black-backed Gull,Larus fuscus
 legacy-map-009,lump,curated_mapping,avibase-4592C07E,Heuglin’s Gull,Larus (fuscus) heuglini ,avibase-2D52E3A5,Lesser Black-backed Gull,Larus fuscus
 legacy-map-010,lump,curated_mapping,avibase-943CDEAC,Little Tern,Sternula albifrons,avibase-17310BF0,Little Tern,Sternula albifrons
-legacy-map-010,lump,curated_mapping,avibase-4B21F4D8,Saunders’s Tern,Sternula (albifrons) saundersi,avibase-17310BF0,Little Tern,Sternula albifrons
 legacy-map-011,replacement,curated_mapping,avibase-F76E7B80,Woolly-necked Stork,Ciconia episcopus,avibase-5157C558,African Woolly-necked Stork,Ciconia microscelis
 legacy-map-012,replacement,curated_mapping,avibase-36DF115B,Striated Heron,Butorides striata,avibase-7085B8A0,Little Heron,Butorides atricapilla
 legacy-map-013,lump,curated_mapping,avibase-7C15B36B,Dimorphic Egret, Egretta (garzetta) dimorpha,avibase-F2858F9F,Little Egret,Egretta garzetta
@@ -193,6 +192,7 @@ stable-avibase-43CAAEE3,name_change,stable_avilist_id,avibase-43CAAEE3,White-win
 stable-avibase-45C55FDE,name_change,stable_avilist_id,avibase-45C55FDE,Orange Ground Thrush,Zoothera gurneyi (race raineyi),avibase-45C55FDE,Orange Ground Thrush,Geokichla gurneyi
 stable-avibase-4971D1EF,name_change,stable_avilist_id,avibase-4971D1EF,Heuglin’s Bustard,Ardeotis heuglinii,avibase-4971D1EF,Heuglin's Bustard,Neotis heuglinii
 stable-avibase-49D9148A,name_change,stable_avilist_id,avibase-49D9148A,Great White Egret,Ardea alba,avibase-49D9148A,Great Egret,Ardea alba
+stable-avibase-4B21F4D8,name_change,stable_avilist_id,avibase-4B21F4D8,Saunders’s Tern,Sternula (albifrons) saundersi,avibase-4B21F4D8,Saunders's Tern,Sternula saundersi
 stable-avibase-4C7B3D81,name_change,stable_avilist_id,avibase-4C7B3D81,Bush Pipit,Anthus caffer,avibase-4C7B3D81,Bushveld Pipit,Anthus caffer
 stable-avibase-4FD242D0,name_change,stable_avilist_id,avibase-4FD242D0,Gabon Nightjar,Caprimulgus fossii,avibase-4FD242D0,Square-tailed Nightjar,Caprimulgus fossii
 stable-avibase-4FDBC0CB,name_change,stable_avilist_id,avibase-4FDBC0CB,Denham’s Bustard,Ardeotis denhami ,avibase-4FDBC0CB,Denham's Bustard,Neotis denhami

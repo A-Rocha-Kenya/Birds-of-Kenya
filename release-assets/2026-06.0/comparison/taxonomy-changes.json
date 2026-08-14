@@ -1,13 +1,13 @@
 {
   "from_release": "2019.1",
   "to_release": "2026-06.0",
-  "group_count": 375,
+  "group_count": 376,
   "relationship_counts": {
     "added": 19,
     "lump": 27,
     "many_to_many": 6,
     "replacement": 29,
-    "retained": 288,
+    "retained": 289,
     "split": 4,
     "unresolved": 2
   },
@@ -2525,7 +2525,6 @@
       "cardinality": "n:1",
       "relationship_label": "n:1",
       "tags": [
-        "english_name",
         "scientific_name"
       ],
       "title": "Little Tern",
@@ -2545,12 +2544,6 @@
           "english": "Little Tern",
           "scientific": "Sternula (albifrons) albifrons",
           "family": "Laridae"
-        },
-        {
-          "id": "avibase-4B21F4D8",
-          "english": "Saunders’s Tern",
-          "scientific": "Sternula (albifrons) saundersi",
-          "family": "Laridae"
         }
       ],
       "new": [
@@ -2567,6 +2560,52 @@
         }
       ],
       "earc_decisions": [],
+      "pending_earc": false
+    },
+    {
+      "id": "stable-avibase-4B21F4D8",
+      "relationship": "retained",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "scientific_name",
+        "curated_species"
+      ],
+      "title": "Saunders's Tern",
+      "sort_order": 4455.0,
+      "order": "Charadriiformes",
+      "family": "Laridae",
+      "family_english": "Skimmers, Noddies, Terns, and Gulls",
+      "old": [
+        {
+          "id": "avibase-4B21F4D8",
+          "english": "Saunders’s Tern",
+          "scientific": "Sternula (albifrons) saundersi",
+          "family": "Laridae"
+        }
+      ],
+      "new": [
+        {
+          "id": "avibase-4B21F4D8",
+          "english": "Saunders's Tern",
+          "scientific": "Sternula saundersi",
+          "family": "Laridae",
+          "sequence": 4455.0,
+          "ebird_codes": [
+            "sauter2"
+          ],
+          "taxonomy_comment": ""
+        }
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0386",
+          "decision": "accepted",
+          "report_year": "2025",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/308564",
+          "reference": "Turner (2025b): 61"
+        }
+      ],
       "pending_earc": false
     },
     {
