@@ -77,7 +77,7 @@ const bindFilters = () => {
   }));
 };
 
-fetch('../data/taxonomy-changes.json?v=20260813-1')
+fetch('../data/taxonomy-changes.json?v=20260814-2')
   .then(response => {
     if (!response.ok) throw new Error('Comparison data unavailable');
     return response.json();
