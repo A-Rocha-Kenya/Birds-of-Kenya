@@ -41,6 +41,35 @@ fetch(resolveSitePath('data/site.json'))
     document.querySelectorAll('[data-gbif-pending]').forEach(element => {
       element.hidden = Boolean(site.gbif.dataset_url || site.gbif.doi_url);
     });
+
+    document.querySelectorAll('[data-contributors]').forEach(list => {
+      list.replaceChildren();
+      site.contributors.forEach(contributor => {
+        const item = document.createElement('li');
+        const details = [`Role: ${contributor.roles.join(', ')}`];
+        if (contributor.affiliations.length) details.push(`Affiliation: ${contributor.affiliations.join('; ')}`);
+        item.dataset.tooltip = details.join('\n');
+        const name = document.createElement('span');
+        name.textContent = contributor.name;
+        item.append(name);
+
+        if (contributor.orcid) {
+          const link = document.createElement('a');
+          link.className = 'orcid-link';
+          link.href = contributor.orcid;
+          link.target = '_blank';
+          link.rel = 'noreferrer';
+          link.setAttribute('aria-label', `Open ${contributor.name}'s ORCID record`);
+          const icon = document.createElement('img');
+          icon.src = `${siteRoot}assets/images/orcid-id.svg`;
+          icon.alt = 'ORCID iD';
+          link.append(icon);
+          item.append(link);
+        }
+
+        list.append(item);
+      });
+    });
   })
   .catch(() => {
     document.querySelectorAll('[data-site-status]').forEach(element => {

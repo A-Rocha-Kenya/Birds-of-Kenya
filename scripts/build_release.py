@@ -731,7 +731,7 @@ def build(config_path, force_compaction=False):
                 "observations": None,
                 "first": "",
                 "last": "",
-                "exotic_status": "native",
+                "exotic_status": curated_species[avilist_id].get("exotic_status", "native") or "native",
                 "membership_source": "curated_species",
                 "sensitive": "FALSE",
             }

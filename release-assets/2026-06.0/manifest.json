@@ -37,7 +37,7 @@
     },
     "curated_species_path": {
       "path": "data/curation/curated_species.csv",
-      "sha256": "61f56f22cc373180267b952f4ca772a80212e6abacac038b1d2a7f30d52fbd1f"
+      "sha256": "7b81fa6d7d453cf5e5e0e5c42d55d2b6871a11e3fffe85add7c855d0f99c8553"
     }
   },
   "counts": {
@@ -56,8 +56,8 @@
     "curated_species": 5,
     "curated_sensitive_species_without_ebd_records": 2,
     "species_by_exotic_status": {
-      "native": 1142,
-      "naturalized": 3
+      "native": 1140,
+      "naturalized": 5
     },
     "taxonomic_entities_by_exotic_status": {
       "escapee": 8,

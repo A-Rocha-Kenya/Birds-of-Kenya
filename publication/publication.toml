@@ -23,6 +23,8 @@ dataset_id = "https://github.com/A-Rocha-Kenya/Birds-of-Kenya"
 description = "A reproducible country checklist of bird species represented in Kenya, based on a pinned eBird Basic Dataset and AviList taxonomy."
 country = "Kenya"
 country_code = "KE"
+taxonomic_reference = "AviList Core Team. 2026. AviList: The Global Avian Checklist, v2025b."
+taxonomic_reference_id = "https://doi.org/10.2173/avilist.v2025b"
 
 [publisher]
 name = "Nature Kenya—the East Africa Natural History Society"
@@ -76,10 +78,18 @@ orcid = ""
 email = ""
 
 [[editorial.credits]]
+id = "kenya-bird-map"
+name = "Kenya Bird Map"
+type = "organization"
+roles = ["partner", "contributor"]
+orcid = ""
+email = "kenyabirdmap@naturekenya.org"
+
+[[editorial.credits]]
 id = "earc"
 name = "East African Rarities Committee (EARC)"
 type = "organization"
-roles = ["contributor"]
+roles = ["partner", "contributor"]
 orcid = ""
 email = ""
 
@@ -92,12 +102,36 @@ orcid = ""
 email = ""
 
 [[editorial.credits]]
+id = "raphael-nussbaumer"
+name = "Raphaël Nussbaumer"
+type = "person"
+roles = ["data curator", "contributor"]
+orcid = "https://orcid.org/0000-0002-8185-1020"
+email = ""
+
+[[editorial.credits]]
+id = "james-bradley"
+name = "James Bradley"
+type = "person"
+roles = ["eBird record manager", "contributor"]
+orcid = ""
+email = "jalopyjamo@gmail.com"
+
+[[editorial.credits]]
 id = "victor"
 name = "Victor Ikawa"
 type = "person"
 roles = ["contributor"]
 orcid = ""
 email = "ikawaj@gmail.com"
+
+[[editorial.credits]]
+id = "brian-finch"
+name = "Brian Finch"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = ""
 
 [[editorial.credits]]
 id = "fleur"
@@ -142,19 +176,19 @@ orcid = ""
 email = "washingtonwachira@gmail.com"
 
 [[editorial.credits]]
-id = "james-bradley"
-name = "James Bradley"
+id = "don-turner"
+name = "Don Turner"
 type = "person"
-roles = ["eBird record manager", "contributor"]
+roles = ["contributor"]
 orcid = ""
-email = "jalopyjamo@gmail.com"
+email = ""
 
 [[editorial.credits]]
-id = "raphael-nussbaumer"
-name = "Raphaël Nussbaumer"
+id = "john-fanshawe"
+name = "John Fanshawe"
 type = "person"
-roles = ["data curator", "contributor"]
-orcid = "https://orcid.org/0000-0002-8185-1020"
+roles = ["contributor"]
+orcid = ""
 email = ""
 
 [[editorial.credits]]

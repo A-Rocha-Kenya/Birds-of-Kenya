@@ -91,6 +91,16 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
             "citation": citation or "Formal publication metadata is being prepared.",
             "publisher": metadata["publisher"]["name"],
         },
+        "contributors": [
+            {
+                "name": credit["name"],
+                "roles": credit["roles"],
+                "affiliations": credit.get("affiliations", []),
+                "orcid": credit["orcid"],
+            }
+            for credit in metadata["editorial"]["credits"]
+            if credit["type"] == "person"
+        ],
         "gbif": {
             "dataset_url": metadata["gbif"]["dataset_url"].strip(),
             "doi": gbif_doi,

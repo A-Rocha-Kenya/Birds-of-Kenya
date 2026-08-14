@@ -1,6 +1,20 @@
 # Birds of Kenya
 
-A reproducible, versioned checklist of bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
+The **sixth edition of the *Checklist of the Birds of Kenya*** continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019. It is a public, reproducible, and versioned account of the bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
+
+The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
+
+## Nature Kenya—the East Africa Natural History Society
+
+[Nature Kenya](https://naturekenya.org/) is the East Africa Natural History Society (EANHS) in Kenya. Founded in 1909, it is a membership-based organization that invites everyone to join an active society, participate in the study of nature, and support conservation activities.
+
+## Organizations and contributors
+
+- **Publisher and institutional home:** Nature Kenya—the East Africa Natural History Society
+- **Partners and contributing organizations:** A Rocha Kenya; National Museums of Kenya (NMK); Kenya Bird Map; eBird Kenya; East African Rarities Committee (EARC)
+- **Named contributors:** Raphaël Nussbaumer (data curation); James Bradley (eBird record management); Victor Ikawa; Brian Finch; Fleur Ng’weno; Colin Jackson; Nigel Hunter; Okech; Washington Wachira; Don Turner; John Fanshawe; Richard Stratton Hatfield
+
+The publication, interactive website, downloadable data, and taxonomy comparison are assembled from the same versioned release. The full editorial metadata is maintained in [`publication/publication.toml`](publication/publication.toml).
 
 ## Data source
 
@@ -81,8 +95,14 @@ uv run python scripts/build_ipt_checklist.py publication/publication.toml
 uv run python tests/validate_ipt_checklist.py "dist/$release_id/gbif"
 ```
 
-Upload `dist/$release_id/gbif/checklist.csv` to IPT as a Checklist resource and use
-`ipt-metadata.json` to complete the IPT metadata form. GBIF publication is an external manual step.
+Upload `dist/$release_id/gbif/checklist.csv` to IPT and map it to the GBIF Taxon core definition
+recorded in `ipt-metadata.json`. It contains a normalized kingdom-to-species hierarchy linked by
+`parentNameUsageID`. `acceptedNameUsageID` is blank because this export contains accepted taxa only;
+use it only if synonym or misapplied-name records are added later. Taxon concepts cite the pinned
+AviList release through `nameAccordingTo` and `nameAccordingToID`. English names are mapped directly
+to the Taxon core's `vernacularName` field with the ISO 639-1 language code `en`. There are no IPT
+extension tables. Use `ipt-metadata.json` to complete the IPT metadata form. GBIF publication is an
+external manual step.
 After publication, record the GBIF dataset URL and DOI in `publication/publication.toml`, complete
 the publication and editorial dates, and change `status` from `draft` to the final status.
 
@@ -144,9 +164,7 @@ release is ready, create an annotated Git tag named exactly `$release_id` and a 
 the same name. GitHub Actions rebuilds and validates the website from the committed staged assets
 before deploying GitHub Pages, regardless of the publication status.
 
-The official publishing organization is Nature Kenya—the East Africa Natural History Society.
-Partner organizations are Nature Kenya, A Rocha Kenya, and the National Museums of Kenya (NMK).
-Contributors are maintained in `publication/publication.toml`.
+Publishing organizations, project partners, data sources, and contributors are described at the start of this README and maintained in `publication/publication.toml`.
 
 
 ## Structure

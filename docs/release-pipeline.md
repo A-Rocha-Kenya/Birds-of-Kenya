@@ -77,7 +77,7 @@ Join `data/curation/sensitive_species.csv` to AviList by `avilist_id`. When a cu
 
 For a sensitive species added through curation, populate taxonomy, names, and the eBird species code from the pinned AviList release. Leave `source_avibase_ids`, observation count, and first/last dates blank: absence of publishable EBD rows is not evidence of zero observations. Write every curated entry and its membership route to `audit/sensitive_species.csv`.
 
-Species in `curated_species.csv` are added with `membership_source=curated_species` and `sensitive=FALSE`. They use AviList taxonomy and names, and have blank observation summaries when no qualifying EBD evidence is present.
+Species in `curated_species.csv` are added with `membership_source=curated_species` and `sensitive=FALSE`. The table carries their curated `exotic_status`; they use AviList taxonomy and names, and have blank observation summaries when no qualifying EBD evidence is present.
 
 ### 7. Write the checklist and supporting tables
 

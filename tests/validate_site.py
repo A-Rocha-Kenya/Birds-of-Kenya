@@ -16,6 +16,10 @@ def main():
     required_paths = [
         "index.html", "checklist/index.html", "changes/index.html",
         "assets/style.css", "assets/site.js", "checklist/checklist.js",
+        "assets/images/nature-kenya-logo.png", "assets/images/a-rocha-kenya-logo.svg",
+        "assets/images/kenya-bird-map-logo.png", "assets/images/avilist-logo.png", "assets/images/ebird-kenya-logo.svg",
+        "assets/images/national-museums-kenya-logo.png", "assets/images/orcid-id.svg",
+        "assets/images/east-african-rarities-committee-logo.png",
         "changes/changes.js", "data/site.json", "data/checklist.csv", "data/category-definitions.json",
         "data/taxonomy-changes.json", "data/manifest.json", ".nojekyll",
     ]
@@ -61,6 +65,10 @@ def main():
     changes_page = (site / "changes" / "index.html").read_text(encoding="utf-8")
     if 'href="checklist/"' not in home or 'href="changes/"' not in home:
         raise ValueError("home page does not link to both primary site sections")
+    if "Sixth edition" not in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
+        raise ValueError("home page does not present the checklist publishing history")
+    if "Nature Kenya" not in home or "data-contributors" not in home:
+        raise ValueError("home page does not present the organization and contributor credits")
     if "data-download=\"checklist_pdf\"" not in home + checklist_page + changes_page:
         raise ValueError("checklist PDF is not promoted across the website")
     if "data-gbif-link" not in home + checklist_page:

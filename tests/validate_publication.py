@@ -84,7 +84,10 @@ def main():
         raise ValueError("PDF family and species order must follow AviList sequence")
     if metadata["checklist"]["include_references"]:
         raise ValueError("references are not part of the requested PDF")
-    ipt_required = {"resource_shortname", "dataset_id", "description", "country", "country_code"}
+    ipt_required = {
+        "resource_shortname", "dataset_id", "description", "country", "country_code",
+        "taxonomic_reference", "taxonomic_reference_id",
+    }
     missing_ipt_fields = sorted(ipt_required - metadata["ipt"].keys())
     if missing_ipt_fields:
         raise ValueError(f"missing IPT fields: {', '.join(missing_ipt_fields)}")

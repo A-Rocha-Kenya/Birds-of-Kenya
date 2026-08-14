@@ -7,12 +7,19 @@ import json
 import tomllib
 from collections import Counter
 from pathlib import Path
+from urllib.parse import quote
+
+from build_release import read_xlsx
 
 
 ROOT = Path(__file__).resolve().parents[1]
+TAXON_CORE = "https://rs.gbif.org/core/dwc_taxon_2025-07-10.xml"
 FIELDS = [
-    "taxonID", "datasetID", "datasetName", "scientificName", "taxonRank", "taxonomicStatus",
-    "vernacularName", "kingdom", "phylum", "class", "order", "family", "taxonRemarks",
+    "taxonID", "taxonConceptID", "parentNameUsageID", "acceptedNameUsageID",
+    "nameAccordingToID", "nameAccordingTo", "datasetID", "datasetName", "scientificName",
+    "scientificNameAuthorship", "taxonRank", "taxonomicStatus", "nomenclaturalCode",
+    "kingdom", "phylum", "class", "order", "family", "genus", "specificEpithet",
+    "vernacularName", "language", "taxonRemarks",
 ]
 
 
@@ -23,6 +30,55 @@ def root_path(value):
 def read_csv(path):
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def higher_taxon_id(dataset_id, rank, name):
+    return f"{dataset_id}#taxon-{rank}-{quote(name, safe='')}"
+
+
+def species_taxon_id(dataset_id, avilist_id):
+    return f"{dataset_id}#taxon-species-{avilist_id}"
+
+
+def species_concept_id(avilist_id):
+    return f"https://avibase.bsc-eoc.org/species.jsp?avibaseid={avilist_id.removeprefix('avibase-')}"
+
+
+def write_csv(path, fields, rows):
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def taxon_record(taxon_id, parent_id, name, rank, dataset_id, dataset_name, name_according_to_id,
+                 name_according_to, authority="", taxon_concept_id="", **classification):
+    scientific_name = f"{name} {authority}" if authority else name
+    return {
+        "taxonID": taxon_id,
+        "taxonConceptID": taxon_concept_id,
+        "parentNameUsageID": parent_id,
+        "acceptedNameUsageID": "",
+        "nameAccordingToID": name_according_to_id,
+        "nameAccordingTo": name_according_to,
+        "datasetID": dataset_id,
+        "datasetName": dataset_name,
+        "scientificName": scientific_name,
+        "scientificNameAuthorship": authority,
+        "taxonRank": rank,
+        "taxonomicStatus": "accepted",
+        "nomenclaturalCode": "ICZN",
+        "kingdom": "Animalia",
+        "phylum": classification.get("phylum", ""),
+        "class": classification.get("class_name", ""),
+        "order": classification.get("order", ""),
+        "family": classification.get("family", ""),
+        "genus": classification.get("genus", ""),
+        "specificEpithet": classification.get("specific_epithet", ""),
+        "vernacularName": classification.get("vernacular_name", ""),
+        "language": classification.get("language", ""),
+        "taxonRemarks": classification.get("remarks", ""),
+    }
 
 
 def main():
@@ -47,30 +103,88 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     checklist_path = output_dir / "checklist.csv"
     metadata_path = output_dir / "ipt-metadata.json"
+    for obsolete_path in [output_dir / "vernacular_names.csv", output_dir / "distributions.csv"]:
+        obsolete_path.unlink(missing_ok=True)
     ipt = metadata["ipt"]
+    dataset_id = ipt["dataset_id"]
+    dataset_name = metadata["document"]["title"]
+    avilist_version = manifest["avilist_version"]
+    name_according_to_id = ipt["taxonomic_reference_id"].strip()
+    name_according_to = ipt["taxonomic_reference"].strip()
+    if not name_according_to_id.endswith(f"avilist.{avilist_version}") or avilist_version not in name_according_to:
+        raise ValueError("IPT taxonomic reference does not match the release AviList version")
     citation = metadata["document"]["recommended_citation"].strip()
     license_value = metadata["publisher"]["licence"].strip()
     rights_holder = metadata["publisher"]["copyright_holder"].strip()
 
-    with checklist_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS)
-        writer.writeheader()
-        for row in sorted(rows, key=lambda item: float(item["sequence"])):
-            writer.writerow({
-                "taxonID": row["avilist_id"],
-                "datasetID": ipt["dataset_id"],
-                "datasetName": metadata["document"]["title"],
-                "scientificName": row["scientific_name"],
-                "taxonRank": "species",
-                "taxonomicStatus": "accepted",
-                "vernacularName": row["english_name"],
-                "kingdom": "Animalia",
-                "phylum": "Chordata",
-                "class": "Aves",
-                "order": row["order"],
-                "family": row["family"],
-                "taxonRemarks": f"Kenya checklist; membership source: {row['membership_source']}; regional status: {row['exotic_status']}.",
-            })
+    ordered_rows = sorted(rows, key=lambda item: float(item["sequence"]))
+    avilist_path = root_path(manifest["sources"]["avilist_path"]["path"])
+    avilist_rows = read_xlsx(avilist_path)
+    avilist_by_rank_name = {
+        (row["Taxon_rank"], row["Scientific_name"]): row for row in avilist_rows
+        if row.get("Taxon_rank") in {"order", "family", "genus", "species"}
+    }
+    avilist_by_id = {row["AvibaseID"]: row for row in avilist_rows if row.get("AvibaseID")}
+    family_orders = {}
+    genus_families = {}
+    for row in ordered_rows:
+        family_orders.setdefault(row["family"], row["order"])
+        genus = row["scientific_name"].split()[0]
+        genus_families.setdefault(genus, row["family"])
+        if family_orders[row["family"]] != row["order"]:
+            raise ValueError(f"family {row['family']} occurs in more than one order")
+        if genus_families[genus] != row["family"]:
+            raise ValueError(f"genus {genus} occurs in more than one family")
+
+    taxon_rows = [
+        taxon_record(higher_taxon_id(dataset_id, "kingdom", "Animalia"), "", "Animalia", "kingdom",
+                     dataset_id, dataset_name, name_according_to_id, name_according_to),
+        taxon_record(higher_taxon_id(dataset_id, "phylum", "Chordata"), higher_taxon_id(dataset_id, "kingdom", "Animalia"),
+                     "Chordata", "phylum", dataset_id, dataset_name, name_according_to_id, name_according_to,
+                     phylum="Chordata"),
+        taxon_record(higher_taxon_id(dataset_id, "class", "Aves"), higher_taxon_id(dataset_id, "phylum", "Chordata"),
+                     "Aves", "class", dataset_id, dataset_name, name_according_to_id, name_according_to,
+                     phylum="Chordata", class_name="Aves"),
+    ]
+    for order in dict.fromkeys(row["order"] for row in ordered_rows):
+        authority = avilist_by_rank_name[("order", order)]["Authority"]
+        taxon_rows.append(taxon_record(
+            higher_taxon_id(dataset_id, "order", order), higher_taxon_id(dataset_id, "class", "Aves"), order, "order",
+            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            phylum="Chordata", class_name="Aves", order=order,
+        ))
+    for family, order in family_orders.items():
+        authority = avilist_by_rank_name[("family", family)]["Authority"]
+        taxon_rows.append(taxon_record(
+            higher_taxon_id(dataset_id, "family", family), higher_taxon_id(dataset_id, "order", order), family, "family",
+            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            phylum="Chordata", class_name="Aves", order=order, family=family,
+        ))
+    for genus, family in genus_families.items():
+        order = family_orders[family]
+        authority = avilist_by_rank_name[("genus", genus)]["Authority"]
+        taxon_rows.append(taxon_record(
+            higher_taxon_id(dataset_id, "genus", genus), higher_taxon_id(dataset_id, "family", family), genus, "genus",
+            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            phylum="Chordata", class_name="Aves", order=order, family=family, genus=genus,
+        ))
+
+    for row in ordered_rows:
+        genus = row["scientific_name"].split()[0]
+        specific_epithet = row["scientific_name"].split()[1]
+        taxon_id = species_taxon_id(dataset_id, row["avilist_id"])
+        authority = avilist_by_id[row["avilist_id"]]["Authority"]
+        taxon_rows.append(taxon_record(
+            taxon_id, higher_taxon_id(dataset_id, "genus", genus), row["scientific_name"], "species",
+            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            taxon_concept_id=species_concept_id(row["avilist_id"]), phylum="Chordata", class_name="Aves",
+            order=row["order"], family=row["family"], genus=genus, specific_epithet=specific_epithet,
+            vernacular_name=row["english_name"], language="en",
+            remarks=(f"Checklist membership source: {row['membership_source']}; "
+                     f"regional status: {row['exotic_status']}.")
+        ))
+
+    write_csv(checklist_path, FIELDS, taxon_rows)
 
     missing_publish_metadata = [
         label for label, value in {
@@ -121,6 +235,7 @@ def main():
             "citation": citation,
             "license": license_value,
             "rights_holder": rights_holder,
+            "taxon_core": TAXON_CORE,
         },
         "contacts": {
             "organization": metadata["publisher"]["name"].strip(),
@@ -138,12 +253,14 @@ def main():
             "ebird_taxonomy_version": manifest["ebird_taxonomy_version"],
             "avilist_version": manifest["avilist_version"],
             "checklist_taxa": len(rows),
-            "source": "checklist.csv; one accepted AviList species per Kenya checklist entry",
+            "taxon_core_records": len(taxon_rows),
+            "source": "checklist.csv Taxon core with normalized hierarchy; one accepted AviList species per Kenya checklist entry",
         },
         "missing_publish_metadata": missing_publish_metadata,
     }
     metadata_path.write_text(json.dumps(ipt_metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(rows):,} Darwin Core checklist taxa to {checklist_path.relative_to(ROOT)}")
+    display_path = checklist_path.relative_to(ROOT) if checklist_path.is_relative_to(ROOT) else checklist_path
+    print(f"Wrote {len(rows):,} species in {len(taxon_rows):,} Darwin Core taxon records to {display_path}")
     if missing_publish_metadata:
         print(f"Complete before IPT publication: {', '.join(missing_publish_metadata)}")
 
