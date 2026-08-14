@@ -4,6 +4,7 @@
 import argparse
 import json
 import shutil
+import tempfile
 import tomllib
 from pathlib import Path
 
@@ -36,7 +37,7 @@ def main():
     output = args.output_root.resolve() / release_id
 
     manifest = json.loads(require(source / "manifest.json").read_text(encoding="utf-8"))
-    if manifest["release_id"] != release_id:
+    if manifest["release_id"] != release_id or source.name != release_id:
         raise ValueError("publication metadata and release manifest identifiers do not match")
 
     comparison_pdfs = list((source / "comparison").glob("Taxonomy-changes-*.pdf"))
@@ -44,17 +45,32 @@ def main():
         raise ValueError("release has more than one taxonomy comparison PDF")
 
     assets = [
-        (source / "manifest.json", output / "manifest.json"),
-        (source / "checklist.csv", output / "checklist.csv"),
-        (source / metadata["render"]["output_filename"], output / metadata["render"]["output_filename"]),
-        (source / "comparison" / "taxonomy-changes.json", output / "comparison" / "taxonomy-changes.json"),
-        (source / "comparison" / "taxonomy-changes.csv", output / "comparison" / "taxonomy-changes.csv"),
+        (source / "manifest.json", Path("manifest.json")),
+        (source / "checklist.csv", Path("checklist.csv")),
+        (source / metadata["render"]["output_filename"], Path(metadata["render"]["output_filename"])),
+        (source / "comparison" / "taxonomy-changes.json", Path("comparison/taxonomy-changes.json")),
+        (source / "comparison" / "taxonomy-changes.csv", Path("comparison/taxonomy-changes.csv")),
     ]
     if comparison_pdfs:
         comparison_pdf = comparison_pdfs[0]
-        assets.append((comparison_pdf, output / "comparison" / comparison_pdf.name))
-    for source_path, output_path in assets:
-        copy(require(source_path), output_path)
+        assets.append((comparison_pdf, Path("comparison") / comparison_pdf.name))
+    assets = [(require(source_path), relative_path) for source_path, relative_path in assets]
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=f".{release_id}-", dir=output.parent) as temporary:
+        temporary = Path(temporary)
+        staging = temporary / release_id
+        for source_path, relative_path in assets:
+            copy(source_path, staging / relative_path)
+        previous = temporary / "previous"
+        if output.exists():
+            output.rename(previous)
+        try:
+            staging.rename(output)
+        except OSError:
+            if previous.exists():
+                previous.rename(output)
+            raise
 
     print(f"Staged {len(assets)} public assets in {output}")
 

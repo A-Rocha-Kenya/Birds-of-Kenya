@@ -29,8 +29,10 @@ def main():
     identifiers = [row["decision_id"] for row in decisions]
     if len(identifiers) != len(set(identifiers)):
         raise ValueError("EARC decision IDs must be unique")
-    if len(decisions) != 8 or any(row["decision"] != "accepted" for row in decisions):
+    if len(decisions) != 10 or {row["decision"] for row in decisions} != {"accepted", "rejected"}:
         raise ValueError("unexpected curated EARC decision coverage")
+    if any(not row["avilist_id"] for row in decisions):
+        raise ValueError("EARC decisions must use a current AviList identifier")
 
     groups = renderer.taxonomy_groups(
         renderer.read_csv(renderer.LEGACY),
@@ -41,9 +43,9 @@ def main():
     additions_and_removals = [group for group in groups if group["cardinality"] in {"0:1", "1:0"}]
     decided = [group for group in additions_and_removals if group["earc_decisions"]]
     pending = [group for group in additions_and_removals if group["pending_earc"]]
-    if (len(additions_and_removals), len(decided), len(pending)) != (30, 8, 22):
+    if (len(additions_and_removals), len(decided), len(pending)) != (29, 10, 19):
         raise ValueError("pending EARC must equal additions/removals minus matched decisions")
-    if sum(bool(group["new"]) for group in pending) != 16:
+    if sum(bool(group["new"]) for group in pending) != 13:
         raise ValueError("unexpected number of current checklist species pending EARC")
 
     old_comparison = {"groups": [
@@ -54,7 +56,7 @@ def main():
     if [group["pending_earc"] for group in old_comparison["groups"]] != [False, True]:
         raise ValueError("site builder did not derive pending EARC for a legacy comparison")
 
-    print("Validated 8 relevant EARC decisions, 8 decided changes, and legacy-site compatibility")
+    print("Validated 10 EARC decisions, 10 decided changes, and legacy-site compatibility")
 
 
 if __name__ == "__main__":

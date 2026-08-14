@@ -189,7 +189,7 @@ show_checkboxes = true
 checkbox_count = 5
 show_category_legend = true
 category_display = "symbol_and_code"
-include_family_index = true
+include_family_index = false
 include_notes_page = false
 include_references = false
 

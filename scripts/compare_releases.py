@@ -10,11 +10,12 @@ from pathlib import Path
 
 CORE_FIELDS = {
     "sequence", "avilist_id", "order", "family", "family_english_name",
-    "scientific_name", "english_name", "ebird_species_code", "membership_source",
+    "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "membership_source",
     "sensitive", "exotic_status",
     "source_avibase_ids", "observations", "observation_record_count", "first_observation_date",
     "last_observation_date", "ebd_taxon_concept_ids", "ebd_source_categories",
     "mapping_methods", "record_count_lt_5", "last_record_year",
+    "iucn_red_list_category", "birdlife_datazone_url", "birds_of_the_world_url",
 }
 FIELDS = [
     "change", "avilist_id", "old_scientific_name", "new_scientific_name",
@@ -43,7 +44,7 @@ def compare(old_rows, new_rows):
             change = "removed"
         elif set(changed_fields) & category_fields:
             change = "categories_changed"
-        elif set(changed_fields) & {"scientific_name", "english_name", "order", "family", "family_english_name"}:
+        elif set(changed_fields) & {"scientific_name", "english_name", "taxonomy_comment", "order", "family", "family_english_name"}:
             change = "taxonomy_changed"
         elif set(changed_fields) & {"membership_source", "sensitive", "exotic_status", "observations", "observation_record_count", "first_observation_date", "last_observation_date", "source_avibase_ids", "ebird_species_code"}:
             change = "evidence_changed"
@@ -61,6 +62,69 @@ def compare(old_rows, new_rows):
             "changed_fields": ";".join(changed_fields),
         })
     return changes
+
+
+def release_label(checklist_path):
+    manifest = checklist_path.parent / "manifest.json"
+    if manifest.exists():
+        return json.loads(manifest.read_text(encoding="utf-8"))["release_id"]
+    return checklist_path.parent.name
+
+
+def public_taxon(row):
+    if not row:
+        return None
+    return {
+        "id": row["avilist_id"],
+        "english": row.get("english_name", ""),
+        "scientific": row.get("scientific_name", ""),
+        "family": row.get("family", ""),
+        "sequence": float(row["sequence"]) if row.get("sequence") else None,
+        "ebird_codes": list(filter(None, row.get("ebird_species_code", "").split(";"))),
+        "taxonomy_comment": row.get("taxonomy_comment", ""),
+    }
+
+
+def website_comparison(old_rows, new_rows, changes, old_name, new_name):
+    old = {row["avilist_id"]: row for row in old_rows}
+    new = {row["avilist_id"]: row for row in new_rows}
+    labels = {
+        "added": "New",
+        "removed": "Discontinued",
+        "taxonomy_changed": "Taxonomy/name changed",
+        "evidence_changed": "Evidence/status changed",
+        "categories_changed": "Categories changed",
+    }
+    groups = []
+    for change in changes:
+        identifier = change["avilist_id"]
+        before = old.get(identifier)
+        after = new.get(identifier)
+        reference = after or before
+        changed_fields = change["changed_fields"].split(";")
+        cardinality = "0:1" if before is None else "1:0" if after is None else "1:1"
+        groups.append({
+            "id": f"release-change-{identifier}",
+            "relationship": change["change"],
+            "cardinality": cardinality,
+            "relationship_label": labels[change["change"]],
+            "tags": [field for field in ["english_name", "scientific_name"] if field in changed_fields],
+            "title": reference.get("english_name") or reference.get("scientific_name") or identifier,
+            "sort_order": float(reference["sequence"]) if reference.get("sequence") else 1e12,
+            "order": reference.get("order", ""),
+            "family": reference.get("family", ""),
+            "family_english": reference.get("family_english_name", ""),
+            "old": [public_taxon(before)] if before else [],
+            "new": [public_taxon(after)] if after else [],
+        })
+    groups.sort(key=lambda group: (group["sort_order"], group["id"]))
+    return {
+        "from_release": old_name,
+        "to_release": new_name,
+        "group_count": len(groups),
+        "relationship_counts": dict(sorted(Counter(group["relationship"] for group in groups).items())),
+        "groups": groups,
+    }
 
 
 def write_csv(path, rows):
@@ -116,11 +180,21 @@ def main():
     parser.add_argument("new", type=Path, help="new checklist.csv")
     parser.add_argument("output", type=Path, help="comparison output directory")
     args = parser.parse_args()
-    rows = compare(read_csv(args.old), read_csv(args.new))
+    old_rows = read_csv(args.old)
+    new_rows = read_csv(args.new)
+    old_name = release_label(args.old)
+    new_name = release_label(args.new)
+    rows = compare(old_rows, new_rows)
     args.output.mkdir(parents=True, exist_ok=True)
     write_csv(args.output / "changes.csv", rows)
-    write_markdown(args.output / "changelog.md", args.old.parent.name, args.new.parent.name, rows)
-    write_html(args.output / "migration-report.html", args.old.parent.name, args.new.parent.name, rows)
+    write_csv(args.output / "taxonomy-changes.csv", rows)
+    write_markdown(args.output / "changelog.md", old_name, new_name, rows)
+    write_html(args.output / "migration-report.html", old_name, new_name, rows)
+    payload = website_comparison(old_rows, new_rows, rows, old_name, new_name)
+    (args.output / "taxonomy-changes.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
     print(f"Wrote {args.output} ({len(rows):,} material changes)")
 
 

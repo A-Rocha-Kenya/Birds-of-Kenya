@@ -44,7 +44,12 @@ def main():
         raise ValueError("website exposes hidden status categories")
     if {"AM", "IO", "VIO"} & set(rows[0]):
         raise ValueError("website checklist exposes hidden status fields")
-    if sum(row["pending_earc"] == "TRUE" for row in rows) != 16:
+    pending_earc_ids = {
+        row["id"]
+        for group in comparison["groups"] if group.get("pending_earc")
+        for row in group["new"]
+    }
+    if {row["avilist_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
         raise ValueError("website checklist has incorrect pending EARC coverage")
 
     missing_downloads = [path for path in metadata["downloads"].values() if path and not (site / path).exists()]

@@ -165,6 +165,18 @@ def main():
     )
     if [row["change"] for row in changes] != ["taxonomy_changed", "added"]:
         raise ValueError("release comparison classification failed")
+    comparison = compare.website_comparison(
+        [{"avilist_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"}],
+        [
+            {"avilist_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"},
+            {"avilist_id": "avibase-00000002", "sequence": "2", "scientific_name": "Gamma delta", "english_name": "Gamma", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "gamma1"},
+        ],
+        changes, "old-release", "new-release",
+    )
+    if comparison["to_release"] != "new-release" or comparison["group_count"] != 2:
+        raise ValueError("website release comparison metadata failed")
+    if [group["cardinality"] for group in comparison["groups"]] != ["1:1", "0:1"]:
+        raise ValueError("website release comparison grouping failed")
     print("Validated release naming, evidence aggregation, eBird code mapping, categories, and comparison")
 
 

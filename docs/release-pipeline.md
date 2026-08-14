@@ -1,12 +1,15 @@
-# Release pipeline
+# Checklist build logic
 
-This document describes the operational definition that makes the release reproducible, following the [checklist policy](policy.md) with:
+This document defines how the pinned source data and curated decisions become the canonical
+`checklist.csv`, following the [checklist policy](policy.md). The build runs with:
 
 ```python
 uv run python scripts/build_release.py config/release.toml
 ```
 
-The release ID and directory name are identical and are derived as `<ebd_version>.<release_revision>`, for example `2026-06.0`.
+The release ID and directory name are identical and are derived as
+`<ebd_version>.<release_revision>`, for example `2026-06.0`. Publication comparison, PDF, GBIF,
+website, and release steps are documented in the repository [README](../README.md).
 
 ## Inputs
 
@@ -22,7 +25,11 @@ Defined in `config/release.toml`:
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avilist_id`, with rationale and reference under `data/curation/` |
 
-## Pipeline
+The release build consumes local source files; it does not download them automatically. Obtain the
+licensed EBD archive from eBird and the matching taxonomy CSV from the eBird/Clements source, then
+place them at the configured paths.
+
+## Checklist construction
 
 ### 1. Derive `REPORTED_SPECIES_CODE`
 
@@ -66,7 +73,7 @@ Join `data/curation/sensitive_species.csv` to AviList by `avilist_id`. When a cu
 
 For a sensitive species added through curation, populate taxonomy, names, and the eBird species code from the pinned AviList release. Leave `source_avibase_ids`, observation count, and first/last dates blank: absence of publishable EBD rows is not evidence of zero observations. Write every curated entry and its membership route to `audit/sensitive_species.csv`.
 
-### 7. Generate the release tables
+### 7. Write the checklist and supporting tables
 
 `checklist.csv` contains one row per resolved AviList species:
 
@@ -100,32 +107,6 @@ The local compact summary retains both `record_count` (original EBD row count) a
 `supplementary_taxa.csv` retains Escapee observations and requested non-species taxa with equivalent observation summary fields. Its grain is `source_taxon_concept_id + exotic_status`; it uses the pinned eBird taxonomy for sequence, hierarchy, and names and deliberately has no `avilist_id`. A species may therefore occur in the main checklist from qualifying observations and in this table from its Escapee observations. Its companion, `supplementary_taxa_latest_records.csv`, contains at most five rows per taxon-status group.
 
 Checklist and species comments are retained only in the ignored local derived data. They are not included in the release table.
-
-### 8. Validation
-
-Run the validators after the release tables:
-
-```sh
-uv run python tests/validate_release.py dist/<release-id>
-uv run python scripts/build_ipt_checklist.py publication/publication.toml
-uv run python tests/validate_ipt_checklist.py dist/<release-id>/gbif
-```
-
-The release validator checks the generated tables, audit counts, manifest counts, identifiers,
-observation summaries, status values, curated sensitive-species rows, and latest-record limits. The
-IPT validator checks the Darwin Core Taxon checklist, taxon identifiers, Kenya coverage, accepted-species
-status, and metadata record count.
-
-### 9. Stage public website assets
-
-After validation, stage the small public subset needed by GitHub Pages:
-
-```sh
-uv run python scripts/stage_release_assets.py
-```
-
-This writes `release-assets/<release-id>/` with the manifest, checklist CSV and PDF, and taxonomy-comparison JSON, CSV, and PDF. These files are committed with the release branch; raw source data, audit files, and `dist/` remain local.
-
 
 ## EBD reference metadata
 

@@ -91,7 +91,7 @@ def checklist_markup(rows, definitions, checkbox_count):
                 f"[{boxes}], [{typst_content(row['english_name'])} "
                 f"#emph({typst_string(row['scientific_name'])}){suffix}])]"
             )
-        parts.append(f"#stack(spacing: 0.08em, {', '.join(row_markup)})")
+        parts.append(f"#stack(spacing: 0.16em, {', '.join(row_markup)})")
     return "\n".join(parts)
 
 
@@ -188,7 +188,11 @@ def main():
     args = parser.parse_args()
     metadata_path = args.metadata.resolve()
     metadata = tomllib.loads(metadata_path.read_text(encoding="utf-8"))
-    rows = read_csv(root_path(metadata["sources"]["release_directory"]) / "checklist.csv")
+    release = root_path(metadata["sources"]["release_directory"]).resolve()
+    manifest = json.loads((release / "manifest.json").read_text(encoding="utf-8"))
+    if metadata["release_id"] != release.name or metadata["release_id"] != manifest["release_id"]:
+        raise ValueError("publication release_id does not match its release directory and manifest")
+    rows = read_csv(release / "checklist.csv")
     definitions = [
         definition for definition in read_csv(root_path(metadata["sources"]["category_definitions"]))
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
@@ -196,7 +200,7 @@ def main():
 
     policy = markdown_to_typst(root_path(metadata["sources"]["policy"]))
     typst_dir = ROOT / "tmp" / "pdfs" / metadata["release_id"]
-    output_dir = ROOT / "dist" / metadata["release_id"]
+    output_dir = release
     typst_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
     typst_path = typst_dir / "checklist.typ"

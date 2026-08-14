@@ -50,11 +50,9 @@ def annotate_earc(comparison, decision_rows):
             "decision": decision["decision"],
             "report_year": decision["report_year_published"],
             "source_url": decision["source_url"],
+            "reference": decision["reference"],
         }
-        for field in ("legacy_avilist_id", "current_avilist_id"):
-            identifier = decision[field].strip()
-            if identifier:
-                decisions_by_taxon.setdefault(identifier, []).append(public_decision)
+        decisions_by_taxon.setdefault(decision["avilist_id"].strip(), []).append(public_decision)
 
     for group in comparison["groups"]:
         if "pending_earc" in group:
@@ -174,7 +172,7 @@ def main():
     downloads = {
         "checklist_pdf": f"downloads/{checklist_pdf.name}",
         "checklist_csv": f"downloads/Birds-of-Kenya-{manifest['release_id']}.csv",
-        "comparison_csv": "downloads/Taxonomy-changes-2019.1-to-2026.0.csv",
+        "comparison_csv": f"downloads/Taxonomy-changes-{comparison['from_release']}-to-{comparison['to_release']}.csv",
         "comparison_pdf": f"downloads/{comparison_pdf.name}" if comparison_pdf else "",
     }
 

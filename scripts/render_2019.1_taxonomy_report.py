@@ -178,10 +178,9 @@ def annotate_earc(groups, decision_rows):
             "decision": row["decision"],
             "report_year": row["report_year_published"],
             "source_url": row["source_url"],
+            "reference": row["reference"],
         }
-        for field in ("legacy_avilist_id", "current_avilist_id"):
-            if row[field].strip():
-                decisions_by_taxon[row[field].strip()].append(decision)
+        decisions_by_taxon[row["avilist_id"].strip()].append(decision)
 
     for group in groups:
         taxon_ids = {row["id"] for side in ("old", "new") for row in group[side]}
