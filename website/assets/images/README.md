@@ -1,5 +1,7 @@
 # Partner logo sources
 
+`favicon.svg` is an original Birds of Kenya site mark using the Kenyan flag palette. Its simplified lilac-breasted roller profile is adapted from [Hugo Gruson's CC0 PhyloPic silhouette](https://www.phylopic.org/images/086d2b94-f13c-47ab-9538-c9b71d97f934).
+
 The website stores local copies so the partner panel does not depend on third-party servers at runtime. Retrieved 14 August 2026 from the organizations' official websites:
 
 - `nature-kenya-logo.png`: <https://naturekenya.org/wp-content/themes/nature_kenya/images/nature-kenya-logo.png>

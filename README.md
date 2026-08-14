@@ -12,7 +12,7 @@ The corporate author is the **Bird Committee of Nature Kenya—the East Africa N
 
 - **Publisher and institutional home:** Nature Kenya—the East Africa Natural History Society
 - **Partners and contributing organizations:** A Rocha Kenya; National Museums of Kenya (NMK); Kenya Bird Map; eBird Kenya; East African Rarities Committee (EARC)
-- **Named contributors:** Raphaël Nussbaumer (data curation); James Bradley (eBird record management); Victor Ikawa; Brian Finch; Fleur Ng’weno; Colin Jackson; Nigel Hunter; Okech; Washington Wachira; Don Turner; John Fanshawe; Richard Stratton Hatfield
+- **Named contributors:** Brian Finch; Colin Jackson; Don Turner; Fleur Ng’weno; James Bradley (eBird record management); John Fanshawe; Nigel Hunter; Okech; Raphaël Nussbaumer (data curation); Richard Stratton Hatfield; Victor Ikawa; Washington Wachira
 
 The publication, interactive website, downloadable data, and taxonomy comparison are assembled from the same versioned release. The full editorial metadata is maintained in [`publication/publication.toml`](publication/publication.toml).
 

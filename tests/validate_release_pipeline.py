@@ -124,6 +124,16 @@ def main():
         else:
             raise ValueError("manually curated historical category was accepted")
 
+        safring_numbers_path = directory / "safring_numbers.csv"
+        safring_numbers_path.write_text(
+            "avilist_id,safring_numbers,match_basis,source_avibase_ids,note\n"
+            "avibase-00000001,12;34,direct_avilist_id,avibase-00000001,Example mapping\n",
+            encoding="utf-8",
+        )
+        safring_numbers = build.read_safring_numbers(safring_numbers_path, avilist_by_id)
+        if safring_numbers["avibase-00000001"] != "12;34":
+            raise ValueError("SAFRING number crosswalk parsing failed")
+
         overrides_path = directory / "ebird_avilist_overrides.csv"
         overrides_path.write_text(
             "reported_species_code,avilist_id,note\nalpha2,avibase-00000001,Example alignment\n",

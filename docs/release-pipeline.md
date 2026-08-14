@@ -21,6 +21,7 @@ Defined in `config/release.toml`:
 | Clements/eBird taxonomy | Taxonomy year | `ebird_taxonomy_version`, `ebird_taxonomy_path` | CSV with `TAXON_CONCEPT_ID`, `SPECIES_CODE`, and `REPORT_AS` under `data/ebird/` |
 | AviList | Pinned release | `avilist_version`, `avilist_path` | Extended AviList workbook under `data/avilist/` |
 | Project categories | Repository revision | `categories_path` | CSV keyed by `avilist_id` under `data/curation/` |
+| KBM number crosswalk | Repository revision | `safring_numbers_path` | CSV keyed by `avilist_id`; retains one or more positive SAFRING numbers and their matching basis |
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avilist_id`, with rationale and reference under `data/curation/` |
@@ -79,7 +80,11 @@ For a sensitive species added through curation, populate taxonomy, names, and th
 
 Species in `curated_species.csv` are added with `membership_source=curated_species` and `sensitive=FALSE`. The table carries their curated `exotic_status`; they use AviList taxonomy and names, and have blank observation summaries when no qualifying EBD evidence is present.
 
-### 7. Write the checklist and supporting tables
+### 7. Add KBM numbers
+
+Join `data/curation/safring_numbers.csv` to the final species by `avilist_id`. Match the final `avilist_id` directly to the KBM species-list `avibase_id` first. Use an EBD `source_avibase_ids` match only when no direct positive SAFRING number is available, and record that fallback in `match_basis`. Preserve multiple identifiers with semicolons; do not use blank or `0` values as KBM identifiers.
+
+### 8. Write the checklist and supporting tables
 
 `checklist.csv` contains one row per resolved AviList species:
 
@@ -88,6 +93,7 @@ Species in `curated_species.csv` are added with `membership_source=curated_speci
 | `sequence`, `avilist_id`, `order`, `family`, `family_english_name`, `scientific_name`, `english_name` | AviList |
 | `ebird_species_code` | Reportable eBird species code or codes folded into the row |
 | `source_avibase_ids` | EBD `TAXON CONCEPT ID` values contributing evidence |
+| `safring_numbers` | Curated KBM/SAFRING number or numbers, keyed by the final `avilist_id`; multiple values are separated by semicolons |
 | `membership_source` | `ebd` or `curated_sensitive_species` |
 | `sensitive` | `TRUE` for entries in the curated sensitive-species table; otherwise `FALSE` |
 | `exotic_status` | Derived regional status: `native`, `naturalized`, or `provisional` |
@@ -97,6 +103,8 @@ Species in `curated_species.csv` are added with `membership_source=curated_speci
 `HIST` is `TRUE` when the latest qualifying Kenyan eBird record predates the configured release reference date by more than 50 years. `RAR` is `TRUE` when the release contains fewer than five derived observations for the species; an observation clusters eBird reports within three calendar months and 3 km. It is a review aid, not a conservation assessment. `water_bird` is `TRUE` when the AviList family is one of the 33 families covered by the Ramsar Convention's [Waterbird Population Estimates scope](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf), otherwise `FALSE`. None of these derived fields is maintained in `categories.csv`.
 
 The local compact summary retains both `record_count` (original EBD row count) and `observations` (the derived spatial estimate). The public `checklist.csv` contains only `observations`; raw record counts remain in local derived tables and the manifest for provenance.
+
+`audit/safring_numbers_missing.csv` lists final checklist species without a curated SAFRING mapping, so unresolved KBM links can be reviewed without becoming a curation input.
 
 `latest_records.csv` contains at most five rows per `avilist_id` with:
 

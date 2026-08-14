@@ -56,6 +56,7 @@ REPORTED_FIELDS = [
 CHECKLIST_FIELDS = [
     "sequence", "avilist_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
+    "safring_numbers",
     "membership_source", "sensitive", "exotic_status", "observations",
     "first_observation_date", "last_observation_date", "iucn_red_list_category",
     "birdlife_datazone_url", "birds_of_the_world_url",
@@ -81,6 +82,9 @@ EXOTIC_OVERRIDE_FIELDS = [
 SENSITIVE_AUDIT_FIELDS = [
     "avilist_id", "scientific_name", "english_name", "ebird_species_code",
     "membership_source", "reason", "reference",
+]
+SAFRING_MISSING_AUDIT_FIELDS = [
+    "avilist_id", "english_name", "scientific_name", "source_avibase_ids", "membership_source", "match_status",
 ]
 
 
@@ -148,6 +152,7 @@ def release_id(config):
 def source_paths(config):
     return {key: ROOT / config[key] for key in [
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
+        "safring_numbers_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
         "sensitive_species_path", "curated_species_path",
     ]}
@@ -634,6 +639,35 @@ def read_categories(path):
     return {row["avilist_id"]: row for row in rows}, fields
 
 
+def read_safring_numbers(path, avilist_by_id):
+    rows = read_csv(path)
+    required = {"avilist_id", "safring_numbers", "match_basis", "source_avibase_ids", "note"}
+    if not rows:
+        return {}
+    missing = required - set(rows[0])
+    if missing:
+        raise ValueError(f"safring_numbers.csv is missing columns: {', '.join(sorted(missing))}")
+    identifiers = [row["avilist_id"].strip() for row in rows]
+    duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
+    if any(not identifier for identifier in identifiers) or duplicates:
+        raise ValueError("safring_numbers.csv avilist_id values must be nonblank and unique")
+    safring_numbers = {}
+    for row in rows:
+        identifier = row["avilist_id"].strip()
+        taxon = avilist_by_id.get(identifier)
+        if not taxon or taxon["Taxon_rank"].lower() != "species":
+            raise ValueError(f"safring_numbers.csv contains a missing or non-species AviList ID: {identifier}")
+        values = [value.strip() for value in row["safring_numbers"].split(";") if value.strip()]
+        if not values or any(not value.isdigit() or int(value) <= 0 for value in values):
+            raise ValueError(f"safring_numbers.csv contains an invalid SAFRING number for {identifier}")
+        if len(values) != len(set(values)):
+            raise ValueError(f"safring_numbers.csv contains duplicate SAFRING numbers for {identifier}")
+        if not row["match_basis"].strip():
+            raise ValueError(f"safring_numbers.csv contains a blank match_basis for {identifier}")
+        safring_numbers[identifier] = ";".join(sorted(values, key=int))
+    return safring_numbers
+
+
 def merge_evidence(target, row, code):
     target["codes"].add(code)
     target["source_ids"].update(filter(None, row["source_avibase_ids"].split(";")))
@@ -667,6 +701,7 @@ def build(config_path, force_compaction=False):
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
     curated_species = read_curated_species(paths["curated_species_path"], avilist_by_id)
     categories, category_fields = read_categories(paths["categories_path"])
+    safring_numbers = read_safring_numbers(paths["safring_numbers_path"], avilist_by_id)
     output_category_fields = category_fields + DERIVED_CATEGORY_FIELDS
 
     observations = {}
@@ -764,6 +799,7 @@ def build(config_path, force_compaction=False):
             "taxonomy_comment": taxon["Decision_summary"].strip(),
             "ebird_species_code": ";".join(sorted(evidence["codes"])),
             "source_avibase_ids": ";".join(sorted(evidence["source_ids"])),
+            "safring_numbers": safring_numbers.get(identifier, ""),
             "membership_source": evidence["membership_source"],
             "sensitive": evidence["sensitive"],
             "exotic_status": evidence["exotic_status"],
@@ -782,6 +818,14 @@ def build(config_path, force_compaction=False):
         })
     checklist.sort(key=lambda row: float(row["sequence"]))
     latest_rows = [{"avilist_id": identifier, **item[2]} for identifier in sorted(latest) for item in sorted(latest[identifier], reverse=True)]
+    missing_safring_rows = [{
+        "avilist_id": row["avilist_id"],
+        "english_name": row["english_name"],
+        "scientific_name": row["scientific_name"],
+        "source_avibase_ids": row["source_avibase_ids"],
+        "membership_source": row["membership_source"],
+        "match_status": "no_curated_safring_mapping",
+    } for row in checklist if not row["safring_numbers"]]
 
     identifier = release_id(config)
     output = ROOT / "dist" / identifier
@@ -793,6 +837,7 @@ def build(config_path, force_compaction=False):
         for row in entity_latest
     ])
     write_csv(output / "audit" / "ebd_taxa_not_in_avilist.csv", REPORTED_FIELDS + ["mapping_result"], unmapped)
+    write_csv(output / "audit" / "safring_numbers_missing.csv", SAFRING_MISSING_AUDIT_FIELDS, missing_safring_rows)
     write_csv(output / "audit" / "excluded_non_species_observations.csv", [
         "category", "scientific_name", "record_count",
     ], excluded)

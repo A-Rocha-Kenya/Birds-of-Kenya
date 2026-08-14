@@ -11,7 +11,7 @@ corporate_author = "Bird Committee, Nature Kenya—the East Africa Natural Histo
 version_label = "2026-06.0"
 publication_date = ""
 editorial_cutoff_date = ""
-recommended_citation = "Bird Committee, Nature Kenya—the East Africa Natural History Society. (2026). Checklist of the Birds of Kenya (Sixth edition, version 2026-06.0). Nature Kenya—the East Africa Natural History Society."
+recommended_citation = "Bird Committee (2026). Checklist of the Birds of Kenya (version 2026-06.0). Nature Kenya—the East Africa Natural History Society."
 
 [gbif]
 dataset_url = ""
@@ -102,32 +102,25 @@ orcid = ""
 email = ""
 
 [[editorial.credits]]
-id = "raphael-nussbaumer"
-name = "Raphaël Nussbaumer"
-type = "person"
-roles = ["data curator", "contributor"]
-orcid = "https://orcid.org/0000-0002-8185-1020"
-email = ""
-
-[[editorial.credits]]
-id = "james-bradley"
-name = "James Bradley"
-type = "person"
-roles = ["eBird record manager", "contributor"]
-orcid = ""
-email = "jalopyjamo@gmail.com"
-
-[[editorial.credits]]
-id = "victor"
-name = "Victor Ikawa"
+id = "brian-finch"
+name = "Brian Finch"
 type = "person"
 roles = ["contributor"]
 orcid = ""
-email = "ikawaj@gmail.com"
+email = ""
 
 [[editorial.credits]]
-id = "brian-finch"
-name = "Brian Finch"
+id = "colin"
+name = "Colin Jackson"
+type = "person"
+roles = ["contributor"]
+orcid = "https://orcid.org/0000-0003-2280-1397"
+email = "colin.jackson@arocha.org"
+affiliations = ["A Rocha Kenya", "International Wader Study Group", "University of Cape Town"]
+
+[[editorial.credits]]
+id = "don-turner"
+name = "Don Turner"
 type = "person"
 roles = ["contributor"]
 orcid = ""
@@ -143,13 +136,20 @@ email = "fleurngweno@gmail.com"
 alternate_emails = ["fleur@africaonline.co.ke"]
 
 [[editorial.credits]]
-id = "colin"
-name = "Colin Jackson"
+id = "james-bradley"
+name = "James Bradley"
+type = "person"
+roles = ["eBird record manager", "contributor"]
+orcid = ""
+email = "jalopyjamo@gmail.com"
+
+[[editorial.credits]]
+id = "john-fanshawe"
+name = "John Fanshawe"
 type = "person"
 roles = ["contributor"]
-orcid = "https://orcid.org/0000-0003-2280-1397"
-email = "colin.jackson@arocha.org"
-affiliations = ["A Rocha Kenya", "International Wader Study Group", "University of Cape Town"]
+orcid = ""
+email = ""
 
 [[editorial.credits]]
 id = "nigel"
@@ -168,27 +168,11 @@ orcid = ""
 email = "wokech@hotmail.com"
 
 [[editorial.credits]]
-id = "washington"
-name = "Washington Wachira"
+id = "raphael-nussbaumer"
+name = "Raphaël Nussbaumer"
 type = "person"
-roles = ["contributor"]
-orcid = ""
-email = "washingtonwachira@gmail.com"
-
-[[editorial.credits]]
-id = "don-turner"
-name = "Don Turner"
-type = "person"
-roles = ["contributor"]
-orcid = ""
-email = ""
-
-[[editorial.credits]]
-id = "john-fanshawe"
-name = "John Fanshawe"
-type = "person"
-roles = ["contributor"]
-orcid = ""
+roles = ["data curator", "contributor"]
+orcid = "https://orcid.org/0000-0002-8185-1020"
 email = ""
 
 [[editorial.credits]]
@@ -198,6 +182,22 @@ type = "person"
 roles = ["contributor"]
 orcid = "https://orcid.org/0000-0001-8419-6589"
 email = ""
+
+[[editorial.credits]]
+id = "victor"
+name = "Victor Ikawa"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "ikawaj@gmail.com"
+
+[[editorial.credits]]
+id = "washington"
+name = "Washington Wachira"
+type = "person"
+roles = ["contributor"]
+orcid = ""
+email = "washingtonwachira@gmail.com"
 
 [source_credits]
 ebird = "eBird Basic Dataset for Kenya, release 2026-06"

@@ -27,6 +27,7 @@ def main():
     unmapped = read_csv(release / "audit" / "ebd_taxa_not_in_avilist.csv")
     exotic_overrides = read_csv(release / "audit" / "exotic_code_overrides.csv")
     sensitive_species = read_csv(release / "audit" / "sensitive_species.csv")
+    missing_safring = read_csv(release / "audit" / "safring_numbers_missing.csv")
     manifest = json.loads((release / "manifest.json").read_text(encoding="utf-8"))
 
     if manifest["release_id"] != release.name:
@@ -35,6 +36,14 @@ def main():
     duplicates = [key for key, count in Counter(identifiers).items() if count > 1]
     if any(not key for key in identifiers) or duplicates:
         raise ValueError("checklist avilist_id values must be nonblank and unique")
+    if {row["avilist_id"] for row in missing_safring} != {
+        row["avilist_id"] for row in checklist if not row["safring_numbers"]
+    }:
+        raise ValueError("SAFRING mapping audit does not match checklist coverage")
+    for row in checklist:
+        safring_numbers = [value for value in row.get("safring_numbers", "").split(";") if value]
+        if any(not value.isdigit() or int(value) <= 0 for value in safring_numbers) or len(safring_numbers) != len(set(safring_numbers)):
+            raise ValueError("checklist contains an invalid SAFRING number")
     required = ["scientific_name", "english_name", "ebird_species_code", "membership_source", "sensitive", "exotic_status"]
     if any(not row[field] for row in checklist for field in required):
         raise ValueError("checklist contains a blank required value")

@@ -90,6 +90,7 @@ const columns = [
   'first_observation_date',
   'last_observation_date',
   'avilist_id',
+  'safring_numbers',
   'ebird_species_code'
 ];
 
@@ -108,6 +109,7 @@ const columnLabels = {
   first_observation_date: 'First record',
   last_observation_date: 'Latest record',
   avilist_id: 'AviList ID',
+  safring_numbers: 'KBM',
   ebird_species_code: 'eBird code'
 };
 
@@ -117,11 +119,24 @@ const headerDescriptions = {
   iucn_red_list_category: 'Global IUCN Red List category',
   birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
   birds_of_the_world_url: 'Open the Birds of the World species account',
+  safring_numbers: 'KBM SAFRING identifier or identifiers linked to this AviList species',
   observations: 'Number of eBird observation clusters within three calendar months and 3 km'
 };
 
-const hiddenColumns = ['sequence', 'family_english_name', 'first_observation_date'];
-const defaultVisibleColumns = columns.filter(field => !hiddenColumns.includes(field));
+const defaultVisibleColumns = [
+  'sequence',
+  'english_name',
+  'scientific_name',
+  'status',
+  'iucn_red_list_category',
+  'avilist_id',
+  'ebird_species_code',
+  'safring_numbers',
+  'birds_of_the_world_url',
+  'birdlife_datazone_url',
+  'observations',
+  'last_observation_date'
+];
 const savedVisibleColumns = JSON.parse(localStorage.getItem('birds-of-kenya-visible-columns') || '[]');
 const restoredVisibleColumns = savedVisibleColumns.filter(field => columns.includes(field));
 let visibleColumns = restoredVisibleColumns.length ? restoredVisibleColumns : [...defaultVisibleColumns];
@@ -213,6 +228,22 @@ const avilistIdRenderer = function(instance, td, row, col, prop, value) {
   td.appendChild(link);
 };
 
+const safringNumbersRenderer = function(instance, td, row, col, prop, value) {
+  Handsontable.renderers.TextRenderer.apply(this, arguments);
+  td.textContent = '';
+  if (!value) return;
+  value.split(';').forEach((number, index) => {
+    if (index) td.appendChild(document.createTextNode('; '));
+    const link = document.createElement('a');
+    link.href = `https://kenya.birdmap.africa/species/${encodeURIComponent(number)}`;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = number;
+    link.title = `Open KBM SAFRING number ${number} in a new tab`;
+    td.appendChild(link);
+  });
+};
+
 const columnDefinitions = columns.map(field => {
   const definition = { data: field, renderer: 'text' };
   if (field === 'english_name') {
@@ -224,6 +255,7 @@ const columnDefinitions = columns.map(field => {
   if (field === 'birdlife_datazone_url') definition.renderer = resourceLinkRenderer('Data Zone');
   if (field === 'birds_of_the_world_url') definition.renderer = resourceLinkRenderer('Birds of the World');
   if (field === 'avilist_id') definition.renderer = avilistIdRenderer;
+  if (field === 'safring_numbers') definition.renderer = safringNumbersRenderer;
   if (field === 'observations') {
     definition.renderer = numberRenderer;
     definition.className = 'number';

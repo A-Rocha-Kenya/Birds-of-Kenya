@@ -16,7 +16,7 @@ def main():
     required_paths = [
         "index.html", "checklist/index.html", "changes/index.html",
         "assets/style.css", "assets/site.js", "checklist/checklist.js",
-        "assets/images/nature-kenya-logo.png", "assets/images/a-rocha-kenya-logo.svg",
+        "assets/images/favicon.svg", "assets/images/nature-kenya-logo.png", "assets/images/a-rocha-kenya-logo.svg",
         "assets/images/kenya-bird-map-logo.png", "assets/images/avilist-logo.png", "assets/images/ebird-kenya-logo.svg",
         "assets/images/national-museums-kenya-logo.png", "assets/images/orcid-id.svg",
         "assets/images/east-african-rarities-committee-logo.png",
@@ -73,7 +73,9 @@ def main():
         raise ValueError("checklist PDF is not promoted across the website")
     if "data-gbif-link" not in home + checklist_page:
         raise ValueError("GBIF publication links are not represented in the website source")
-
+    checklist_script = (site / "checklist" / "checklist.js").read_text(encoding="utf-8")
+    if "safring_numbers" not in checklist_script or "https://kenya.birdmap.africa/species/" not in checklist_script:
+        raise ValueError("website checklist does not link KBM numbers to Kenya Bird Map")
     print(f"Validated assembled website: three pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")
 
 
