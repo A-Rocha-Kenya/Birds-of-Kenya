@@ -112,8 +112,8 @@ uv run python scripts/serve_site.py
 
 The preview server starts at `http://127.0.0.1:8000` when available, otherwise it uses the next free local port and prints the URL. Stop it with `Ctrl+C`.
 
-Use `--allow-draft` only for local preview. A final production build must use completed publication
-metadata and omit that option.
+`--allow-draft` allows the website to be previewed or deployed before the formal release metadata is
+complete. The publication status is informational and does not control GitHub Pages deployment.
 
 ### 7. Stage the accepted public assets
 
@@ -139,11 +139,10 @@ uv run python tests/validate_site.py _site
 ```
 
 Commit the accepted source changes, `publication/publication.toml`, and
-`release-assets/$release_id/`. Create an annotated Git tag named exactly `$release_id` and a GitHub
-Release with the same name, then push the publication branch and tag. GitHub Actions rebuilds and
-validates the website from the committed staged assets before deploying GitHub Pages.
-Draft metadata is built and validated in CI as a preview check but is not deployed; deployment runs
-only when `publication.toml` has a non-draft status and complete publication fields.
+`release-assets/$release_id/`. Push the publication branch to update GitHub Pages. When the formal
+release is ready, create an annotated Git tag named exactly `$release_id` and a GitHub Release with
+the same name. GitHub Actions rebuilds and validates the website from the committed staged assets
+before deploying GitHub Pages, regardless of the publication status.
 
 The official publishing organization is Nature Kenya—the East Africa Natural History Society.
 Partner organizations are Nature Kenya, A Rocha Kenya, and the National Museums of Kenya (NMK).

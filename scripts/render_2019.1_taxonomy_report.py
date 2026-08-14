@@ -46,6 +46,11 @@ def normalized(values, normalize_value=lambda value: value):
 
 
 def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
+    rejected_ids = {
+        row["avilist_id"].strip() for row in read_csv(EARC_DECISIONS)
+        if row["decision"].strip().casefold() == "rejected"
+    }
+    current_rows = [row for row in current_rows if row["avilist_id"] not in rejected_ids]
     comparison = load_comparison()
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
     new_by_id = {row["avilist_id"]: row for row in current_rows}
@@ -101,6 +106,8 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
                 tags.append("classification")
         old_names = [row["common_name"].strip() for row in old_rows]
         new_names = [row["english_name"].strip() for row in new_rows]
+        if any(row.get("membership_source") == "curated_species" for row in new_rows):
+            tags.append("curated_species")
         cardinality = (
             "1:1" if len(old_rows) == 1 and len(new_rows) == 1 else
             "n:1" if len(old_rows) > 1 and len(new_rows) == 1 else

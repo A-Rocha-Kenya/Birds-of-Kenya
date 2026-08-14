@@ -24,6 +24,8 @@ Defined in `config/release.toml`:
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avilist_id`, with rationale and reference under `data/curation/` |
+| EARC decisions | Repository revision | fixed `data/curation/earc_decisions.csv` | Accepted and rejected national-list decisions keyed by `avilist_id` |
+| Curated checklist species | Repository revision | `curated_species_path` | Species-level checklist additions keyed by `avilist_id`, with reason and reference |
 
 The release build consumes local source files; it does not download them automatically. Obtain the
 licensed EBD archive from eBird and the matching taxonomy CSV from the eBird/Clements source, then
@@ -63,6 +65,8 @@ Group supported compact rows by `REPORTED_SPECIES_CODE`. Sum `record_count` and 
 
 Derive the regional checklist status using eBird's precedence: Native, Naturalized, Provisional, Escapee. The main checklist can contain Native, Naturalized, and Provisional species. Escapee-only species remain in the taxonomic-entity output and do not count toward the checklist total.
 
+Species with a curated EARC decision of `rejected` are removed from the checklist evidence and latest-record output before the public tables are written. The same rejected IDs are excluded from the 2019.1-to-2026.0 comparison.
+
 ### 5. Join reportable species to AviList
 
 Apply `data/curation/ebird_avilist_overrides.csv` first, then match all remaining `REPORTED_SPECIES_CODE` values exactly to AviList `Species_code_Cornell_Lab`. Each override must point to an AviList species and records a documented, versioned taxonomy-alignment decision. The build never infers a species by promoting an AviList subspecies to its parent. Codes not resolved by either route go to `audit/ebd_taxa_not_in_avilist.csv`.
@@ -72,6 +76,8 @@ Apply `data/curation/ebird_avilist_overrides.csv` first, then match all remainin
 Join `data/curation/sensitive_species.csv` to AviList by `avilist_id`. When a curated sensitive species already has qualifying EBD evidence, retain its EBD membership and mark it `sensitive=TRUE`. When it is absent from the EBD, add the AviList species with `membership_source=curated_sensitive_species` and `sensitive=TRUE`.
 
 For a sensitive species added through curation, populate taxonomy, names, and the eBird species code from the pinned AviList release. Leave `source_avibase_ids`, observation count, and first/last dates blank: absence of publishable EBD rows is not evidence of zero observations. Write every curated entry and its membership route to `audit/sensitive_species.csv`.
+
+Species in `curated_species.csv` are added with `membership_source=curated_species` and `sensitive=FALSE`. They use AviList taxonomy and names, and have blank observation summaries when no qualifying EBD evidence is present.
 
 ### 7. Write the checklist and supporting tables
 

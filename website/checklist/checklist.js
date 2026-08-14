@@ -117,7 +117,7 @@ const headerDescriptions = {
   iucn_red_list_category: 'Global IUCN Red List category',
   birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
   birds_of_the_world_url: 'Open the Birds of the World species account',
-  observations: 'Number of same-day eBird observations within 1 km clusters'
+  observations: 'Number of eBird observation clusters within three calendar months and 3 km'
 };
 
 const hiddenColumns = ['sequence', 'family_english_name', 'first_observation_date'];

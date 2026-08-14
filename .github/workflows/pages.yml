@@ -25,8 +25,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      publication_status: ${{ steps.release.outputs.status }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -35,41 +33,28 @@ jobs:
         id: release
         run: |
           release_id=$(python3 -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["release_id"])')
-          publication_status=$(python3 -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["status"])')
           echo "id=$release_id" >> "$GITHUB_OUTPUT"
-          echo "status=$publication_status" >> "$GITHUB_OUTPUT"
 
-      - name: Build draft website preview
-        if: steps.release.outputs.status == 'draft'
+      - name: Build website
         env:
           RELEASE_ID: ${{ steps.release.outputs.id }}
         run: |
           python3 scripts/build_site.py --release-dir "release-assets/$RELEASE_ID" --output _site --allow-draft
-
-      - name: Build final website
-        if: steps.release.outputs.status != 'draft'
-        env:
-          RELEASE_ID: ${{ steps.release.outputs.id }}
-        run: |
-          python3 scripts/build_site.py --release-dir "release-assets/$RELEASE_ID" --output _site
 
       - name: Validate website
         run: |
           python3 tests/validate_site.py _site
 
       - name: Configure GitHub Pages
-        if: steps.release.outputs.status != 'draft'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        if: steps.release.outputs.status != 'draft'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
     needs: build
-    if: needs.build.outputs.publication_status != 'draft'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

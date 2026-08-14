@@ -38,7 +38,7 @@ def main():
     required = ["scientific_name", "english_name", "ebird_species_code", "membership_source", "sensitive", "exotic_status"]
     if any(not row[field] for row in checklist for field in required):
         raise ValueError("checklist contains a blank required value")
-    if any(row["membership_source"] not in {"ebd", "curated_sensitive_species"} for row in checklist):
+    if any(row["membership_source"] not in {"ebd", "curated_sensitive_species", "curated_species"} for row in checklist):
         raise ValueError("checklist contains an invalid membership source")
     if any(row["sensitive"] not in {"TRUE", "FALSE"} for row in checklist):
         raise ValueError("checklist contains an invalid sensitive flag")
@@ -46,6 +46,8 @@ def main():
         raise ValueError("EBD checklist evidence contains a blank observation summary")
     if any(row["sensitive"] != "TRUE" or any(row[field] for field in ["observations", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "curated_sensitive_species"):
         raise ValueError("curated sensitive membership must be flagged and must not invent observation summaries")
+    if any(row["sensitive"] != "FALSE" for row in checklist if row["membership_source"] == "curated_species"):
+        raise ValueError("curated checklist membership must not be flagged as sensitive")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in checklist if row["first_observation_date"] and row["last_observation_date"]):
         raise ValueError("checklist contains an invalid observation-date range")
     if any(row["exotic_status"] not in {"native", "naturalized", "provisional"} for row in checklist):

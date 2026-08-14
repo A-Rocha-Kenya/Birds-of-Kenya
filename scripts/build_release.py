@@ -18,6 +18,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
+EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 COMPACTION_SCHEMA_VERSION = 5
 OBSERVATION_RADIUS_KM = 3.0
@@ -88,6 +89,10 @@ def read_csv(path):
         return list(csv.DictReader(handle))
 
 
+def rejected_earc_ids(path=EARC_DECISIONS):
+    return {row["avilist_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
+
+
 def read_xlsx(path):
     with zipfile.ZipFile(path) as archive:
         shared = []
@@ -144,7 +149,7 @@ def source_paths(config):
     return {key: ROOT / config[key] for key in [
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
-        "sensitive_species_path",
+        "sensitive_species_path", "curated_species_path",
     ]}
 
 
@@ -597,6 +602,19 @@ def read_sensitive_species(path, avilist_by_id):
     return {row["avilist_id"].strip(): row for row in rows}
 
 
+def read_curated_species(path, avilist_by_id):
+    rows = read_csv(path)
+    identifiers = [row["avilist_id"].strip() for row in rows]
+    duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
+    if any(not identifier for identifier in identifiers) or duplicates:
+        raise ValueError("curated_species.csv avilist_id values must be nonblank and unique")
+    for identifier in identifiers:
+        taxon = avilist_by_id.get(identifier)
+        if not taxon or taxon["Taxon_rank"].lower() != "species":
+            raise ValueError(f"curated_species.csv contains a missing or non-species AviList ID: {identifier}")
+    return {row["avilist_id"].strip(): row for row in rows}
+
+
 def read_categories(path):
     if not path.exists():
         return {}, []
@@ -644,8 +662,10 @@ def build(config_path, force_compaction=False):
         compact, compact_latest, taxonomy_index(paths["ebird_taxonomy_path"])
     )
     avilist_by_code, avilist_by_id = avilist_indexes(read_xlsx(paths["avilist_path"]))
+    rejected_ids = rejected_earc_ids()
     overrides = read_ebird_avilist_overrides(paths["ebird_avilist_overrides_path"], avilist_by_id)
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
+    curated_species = read_curated_species(paths["curated_species_path"], avilist_by_id)
     categories, category_fields = read_categories(paths["categories_path"])
     output_category_fields = category_fields + DERIVED_CATEGORY_FIELDS
 
@@ -700,11 +720,32 @@ def build(config_path, force_compaction=False):
             "reference": curated_sensitive["reference"],
         })
 
+    for avilist_id in curated_species:
+        if avilist_id not in observations:
+            taxon = avilist_by_id[avilist_id]
+            observations[avilist_id] = {
+                "taxon": taxon,
+                "codes": {taxon["Species_code_Cornell_Lab"]},
+                "source_ids": set(),
+                "count": None,
+                "observations": None,
+                "first": "",
+                "last": "",
+                "exotic_status": "native",
+                "membership_source": "curated_species",
+                "sensitive": "FALSE",
+            }
+
     latest = defaultdict(list)
     for row in reported_latest:
         identifier = code_to_avilist.get(row["REPORTED_SPECIES_CODE"])
-        if identifier:
+        if identifier and identifier not in rejected_ids:
             push_latest(latest[identifier], row)
+
+    observations = {
+        identifier: evidence for identifier, evidence in observations.items()
+        if identifier not in rejected_ids
+    }
 
     checklist = []
     used_categories = set()
@@ -790,6 +831,7 @@ def build(config_path, force_compaction=False):
                 int(row["record_count"]) for row in exotic_override_audit
             ),
             "curated_sensitive_species": len(sensitive_audit),
+            "curated_species": len(curated_species),
             "curated_sensitive_species_without_ebd_records": sum(
                 row["membership_source"] == "curated_sensitive_species" for row in sensitive_audit
             ),
