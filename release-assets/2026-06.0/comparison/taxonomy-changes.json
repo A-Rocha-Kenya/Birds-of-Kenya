@@ -1,15 +1,15 @@
 {
   "from_release": "2019.1",
   "to_release": "2026-06.0",
-  "group_count": 380,
+  "group_count": 375,
   "relationship_counts": {
-    "added": 22,
+    "added": 19,
     "lump": 27,
     "many_to_many": 6,
-    "replacement": 24,
-    "retained": 289,
+    "replacement": 29,
+    "retained": 288,
     "split": 4,
-    "unresolved": 8
+    "unresolved": 2
   },
   "groups": [
     {
@@ -45,7 +45,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-90AAE188",
@@ -71,33 +73,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
-    },
-    {
-      "id": "added-avibase-1F9D883E",
-      "relationship": "added",
-      "cardinality": "0:1",
-      "relationship_label": "New",
-      "tags": [],
-      "title": "Ruddy Shelduck",
-      "sort_order": 391.0,
-      "order": "Anseriformes",
-      "family": "Anatidae",
-      "family_english": "Ducks, Swans, and Geese",
-      "old": [],
-      "new": [
-        {
-          "id": "avibase-1F9D883E",
-          "english": "Ruddy Shelduck",
-          "scientific": "Tadorna ferruginea",
-          "family": "Anatidae",
-          "sequence": 391.0,
-          "ebird_codes": [
-            "rudshe"
-          ],
-          "taxonomy_comment": ""
-        }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-FA831F65",
@@ -132,7 +110,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BC6C3CCE",
@@ -167,7 +147,9 @@
           ],
           "taxonomy_comment": "Taxon carolinensis is treated as a subspecies of Anas crecca based on high levels of introgression, coupled with a lack of known differences in courtship vocalization. Although mitochondrial DNA data show a relatively deep divergence between these taxa (Peters et al. 2012), a lack of genomic divergence (McLaughlin et al. 2020; Spaulding et al. 2023) indicates that male-mediated gene flow is extensive."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-001",
@@ -226,7 +208,9 @@
           ],
           "taxonomy_comment": "Taxa edouardi (polytypic, including barbata) and verreauxi (polytypic) are treated as species separate from Guttera pucherani (monotypic) based on differences in plumage, eye color, and bare parts color. However, further research is needed including investigation of potential hybrid zones and formal bioacoustic analysis. Genetic data would also be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-ECD7C1D8",
@@ -261,7 +245,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3D25568A",
@@ -296,7 +282,9 @@
           ],
           "taxonomy_comment": "Taxon elgonensis is treated as a monotypic species separate from Scleroptila psilolaema (monotypic) based on plumage, vocalizations, and genetics (Hunter et al. 2019; Turner et al. 2020)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8E833C63",
@@ -331,7 +319,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A15F6836",
@@ -366,7 +356,9 @@
           ],
           "taxonomy_comment": "Taxon whytei is split from Scleroptila shelleyi based on plumage and genetics. Mitochondrial DNA data (Mandiwana-Neudani et al. 2019) indicate species-level divergence between these taxa but intra-generic relationships remain poorly resolved (Mandiwana-Neudani et al. 2019; Kimball et al. 2021)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8004C7E5",
@@ -401,7 +393,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-CAA45AC6",
@@ -437,7 +431,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-CAFE345D",
@@ -472,7 +468,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-81474844",
@@ -508,7 +506,9 @@
           ],
           "taxonomy_comment": "Taxon atrifrons is treated as conspecific with Pternistis castaneicollis based on available evidence. Divergence in mitochondrial DNA and phenotypic traits (Töpfer et al. 2014) is more consistent with subspecies status in francolins (Bloomer & Crowe 1998)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A7E59764",
@@ -543,7 +543,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F5A73AAA",
@@ -578,7 +580,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1B11690B",
@@ -613,7 +617,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-003",
@@ -661,7 +667,9 @@
           ],
           "taxonomy_comment": "Taxon leopoldi (monotypic) is treated as a subspecies of Crinifer personatus, as plumage differences are modest and variable within each taxon, and no behavioral or ecological differences have been identified; genetic data would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2AA4BC58",
@@ -696,7 +704,9 @@
           ],
           "taxonomy_comment": "Corythaixoides and Criniferoides are placed in the genus Crinifer based on a combination of nuclear and mitochondrial DNA data (Veron & Winney 2000; Njabo & Sorenson 2009; Perktaş et al. 2020)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-10B14696",
@@ -731,7 +741,9 @@
           ],
           "taxonomy_comment": "Corythaixoides and Criniferoides are placed in the genus Crinifer based on a combination of nuclear and mitochondrial DNA data (Veron & Winney 2000; Njabo & Sorenson 2009; Perktaş et al. 2020)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2C7BA3A6",
@@ -766,40 +778,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
-    },
-    {
-      "id": "stable-avibase-22952180",
-      "relationship": "retained",
-      "cardinality": "1:1",
-      "relationship_label": "1:1",
-      "tags": [],
-      "title": "Schalow's Turaco",
-      "sort_order": 1741.0,
-      "order": "Musophagiformes",
-      "family": "Musophagidae",
-      "family_english": "Turacos",
-      "old": [
-        {
-          "id": "avibase-22952180",
-          "english": "Schalow's Turaco",
-          "scientific": "Tauraco Schalowi",
-          "family": "Musophagidae"
-        }
       ],
-      "new": [
-        {
-          "id": "avibase-22952180",
-          "english": "Schalow's Turaco",
-          "scientific": "Tauraco schalowi",
-          "family": "Musophagidae",
-          "sequence": 1741.0,
-          "ebird_codes": [
-            "schtur1"
-          ],
-          "taxonomy_comment": ""
-        }
-      ]
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-4FDBC0CB",
@@ -834,7 +815,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-4971D1EF",
@@ -869,7 +852,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-002",
@@ -902,7 +887,9 @@
           ],
           "taxonomy_comment": "Taxon burchellii (polytypic, including fasciipygialis) is treated as a species separate from Centropus superciliosus based on plumage differences, supported by limited hybridization in areas of contact (Harrison et al. 1997). However, ecological and vocal differences have not been documented, suggesting further research is warranted."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3A46A20C",
@@ -937,7 +924,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E0D521B7",
@@ -972,7 +961,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-DDEF7228",
@@ -998,7 +989,17 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0314",
+          "decision": "accepted",
+          "report_year": "2023",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/255546",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-70BD722B",
@@ -1033,7 +1034,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-65FE8029",
@@ -1068,7 +1071,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BBA263C2",
@@ -1103,7 +1108,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-23D5FC36",
@@ -1138,7 +1145,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BDF442F2",
@@ -1173,7 +1182,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-64DDD14D",
@@ -1208,7 +1219,9 @@
           ],
           "taxonomy_comment": "Anthropoides (polytypic) and Bugeranus (monotypic) are placed in the genus Grus based on available evidence. Analysis of complete mitochondrial genomes (Krajewski et al. 2010), and multilocus DNA data (Fain et al. 2007) failed to resolve basal relationships among these genera, indicating that they are best retained in an expanded Grus pending further research."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5B443EDE",
@@ -1243,7 +1256,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-09A0F2EB",
@@ -1278,7 +1293,9 @@
           ],
           "taxonomy_comment": "Taxon egregia is placed in the monotypic genus Crecopsis based on nuclear and genomic DNA evidence of non-monophyly with Crex crex (Garcia-R et al. 2020; Kirchman et al. 2021)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7E257242",
@@ -1313,7 +1330,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A927C1AE",
@@ -1348,7 +1367,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-005",
@@ -1383,7 +1404,9 @@
           ],
           "taxonomy_comment": "The Porphyrio porphyrio complex is treated as a single polytypic species pending further research. Sometimes treated as six species based largely on mitochondrial-dominated DNA data (Sangster 1998; Garcia-R & Trewick 2015; Verry et al. 2023) that indicate deep divergences and paraphyly with respect to the two species of takahe, P. mantelli and P. hochstetteri. Available nuclear DNA data (Garcia-R & Trewick 2015) are mostly uninformative and mtDNA divergence times may be over-estimated. Further research incorporating denser sampling of nuclear DNA will be needed to determine species limits in this complex."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-13967506",
@@ -1418,7 +1441,9 @@
           ],
           "taxonomy_comment": "Taxon marginalis is placed in the genus Aenigmatolimnas based on nuclear (Garcia-R et al. 2020) and genomic DNA (Kirchman et al. 2021) evidence. Formerly placed in Amaurornis, deep divergence combined with differences in morphology, ecology, and biogeography indicate that marginalis is best treated as a monotypic genus."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C7DB323E",
@@ -1453,7 +1478,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8DAF86A1",
@@ -1488,7 +1515,9 @@
           ],
           "taxonomy_comment": "Taxon bifrontatus is treated as a subspecies of Thinornis tricollaris based on available evidence. Although the two taxa differ in plumage and mitochondrial DNA (Dos Remedios et al. 2020) the levels are more consistent with subspecific differentiation. A more comprehensive analysis based on genomic DNA may be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-35EC3BBF",
@@ -1523,7 +1552,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F7D5320E",
@@ -1558,7 +1589,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2F23EDC6",
@@ -1593,7 +1626,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F5E92B22",
@@ -1628,7 +1663,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D531B5D3",
@@ -1663,7 +1700,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-42D3918F",
@@ -1698,7 +1737,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-83D95620",
@@ -1733,7 +1774,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D0FA8EBE",
@@ -1768,7 +1811,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-074251A3",
@@ -1803,7 +1848,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-881C954D",
@@ -1838,7 +1885,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-264D0351",
@@ -1873,7 +1922,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-006",
@@ -1909,7 +1960,9 @@
           ],
           "taxonomy_comment": "Taxon atrifrons (polytypic, including pamirensis and schaeferi) is treated as a species separate from Anarhynchus mongolus based on genomic DNA data, supported by vocalizations (Wei et al. 2022a)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-98B9C10B",
@@ -1944,7 +1997,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0F0DCC2F",
@@ -1979,7 +2034,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-61F0E581",
@@ -2014,7 +2071,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-214B3533",
@@ -2049,7 +2108,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-AA4385A2",
@@ -2084,7 +2145,9 @@
           ],
           "taxonomy_comment": "Taxon seebohmi is treated as a subspecies of Anarhynchus alexandrinus, as the evidentiary basis for a split is weak. Vocal differences between seebohmi and alexandrinus have not been documented; there are only minor morphometric differences between the two (Niroshan et al. 2023), for which clinal variation has not been ruled out; mitochondrial DNA divergence is negligible, and there is no support for seebohmi as the earliest-diverged lineage in this complex (Niroshan et al. 2023)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-007",
@@ -2119,7 +2182,9 @@
           ],
           "taxonomy_comment": "Taxon hudsonicus (polytypic, including rufiventris) is treated as a species separate from Numenius phaeopus based on morphology and deep genomic DNA divergence (McLaughlin et al. 2020; Tan et al. 2023). However, vocalizations seem similar, and a formal bioacoustic analysis is lacking."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-EE61E2CA",
@@ -2154,7 +2219,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-18A19380",
@@ -2189,7 +2256,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0874B4D5",
@@ -2224,7 +2293,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C130193B",
@@ -2259,7 +2330,9 @@
           ],
           "taxonomy_comment": "Taxon africanus is placed in the monotypic genus Smutsornis based on multilocus DNA data (Černý & Natale 2022), supported by differences in behavior, downy chick patterning, and syringeal structure (Brown & Ward 1990)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-29D50ED5",
@@ -2294,7 +2367,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-DE0A72A7",
@@ -2329,7 +2404,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-39086887",
@@ -2364,7 +2441,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1D446440",
@@ -2399,7 +2478,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7CB8F5B7",
@@ -2434,33 +2515,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
-    },
-    {
-      "id": "added-avibase-4D5D2BC3",
-      "relationship": "added",
-      "cardinality": "0:1",
-      "relationship_label": "New",
-      "tags": [],
-      "title": "Brown Skua",
-      "sort_order": 4318.0,
-      "order": "Charadriiformes",
-      "family": "Stercorariidae",
-      "family_english": "Jaegers and Skuas",
-      "old": [],
-      "new": [
-        {
-          "id": "avibase-4D5D2BC3",
-          "english": "Brown Skua",
-          "scientific": "Stercorarius antarcticus",
-          "family": "Stercorariidae",
-          "sequence": 4318.0,
-          "ebird_codes": [
-            "brnsku3"
-          ],
-          "taxonomy_comment": ""
-        }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-010",
@@ -2508,7 +2565,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-43CAAEE3",
@@ -2543,7 +2602,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-526978C4",
@@ -2578,7 +2639,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-F89FD6E3",
@@ -2604,7 +2667,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "added-avibase-86182656",
@@ -2630,19 +2695,31 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0385",
+          "decision": "accepted",
+          "report_year": "2025",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/308564",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-008",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
+      "relationship": "replacement",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "curated_species"
+      ],
       "title": "Common Gull",
-      "sort_order": 4589.5,
+      "sort_order": 4593.0,
       "order": "Charadriiformes",
       "family": "Laridae",
-      "family_english": "Gulls, Terns and Skimmers",
+      "family_english": "Skimmers, Noddies, Terns, and Gulls",
       "old": [
         {
           "id": "avibase-00DA9D91",
@@ -2651,7 +2728,29 @@
           "family": "Laridae"
         }
       ],
-      "new": []
+      "new": [
+        {
+          "id": "avibase-00DA9D91",
+          "english": "Common Gull",
+          "scientific": "Larus canus",
+          "family": "Laridae",
+          "sequence": 4593.0,
+          "ebird_codes": [
+            "mewgul"
+          ],
+          "taxonomy_comment": "Taxon brachyrhynchus is treated as a monotypic species separate from Larus canus based on differences in display vocalizations and mitochondrial DNA divergence without evidence of introgression, supported by minor differences in morphology (Sternkopf 2011; Adriaens & Gibbins 2016)."
+        }
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0007",
+          "decision": "accepted",
+          "report_year": "2009",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/108247",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-93CA037F",
@@ -2677,7 +2776,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "legacy-map-009",
@@ -2725,7 +2826,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-7EE005BD",
@@ -2751,7 +2854,17 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0353",
+          "decision": "accepted",
+          "report_year": "2025",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/308564",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-C412CD62",
@@ -2777,7 +2890,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-D295D249",
@@ -2812,7 +2927,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-ACE8EADE",
@@ -2847,7 +2964,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C5FB15C6",
@@ -2882,7 +3001,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-AAC2D613",
@@ -2917,10 +3038,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-068",
+      "id": "legacy-map-067",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -2953,7 +3076,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0F14ECE4",
@@ -2988,7 +3113,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-011",
@@ -3024,16 +3151,21 @@
           ],
           "taxonomy_comment": "Taxon microscelis (monotypic) is treated as a species separate from Ciconia episcopus (polytypic) based on consistent differences in morphology (including plumage) and biogeographic considerations, the taxa being allopatric on separate continents."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-014",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
-      "title": "Christmas Island Frigatebird",
-      "sort_order": 5025.0,
+      "relationship": "replacement",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "english_name",
+        "curated_species"
+      ],
+      "title": "Christmas Frigatebird",
+      "sort_order": 5015.0,
       "order": "Suliformes",
       "family": "Fregatidae",
       "family_english": "Frigatebirds",
@@ -3045,7 +3177,29 @@
           "family": "Fregatidae"
         }
       ],
-      "new": []
+      "new": [
+        {
+          "id": "avibase-67200E8E",
+          "english": "Christmas Frigatebird",
+          "scientific": "Fregata andrewsi",
+          "family": "Fregatidae",
+          "sequence": 5015.0,
+          "ebird_codes": [
+            "chifri1"
+          ],
+          "taxonomy_comment": ""
+        }
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0100",
+          "decision": "accepted",
+          "report_year": "2016",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/139746",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-015",
@@ -3078,7 +3232,9 @@
           ],
           "taxonomy_comment": "Taxon brewsteri (polytypic, including etesiaca) is treated as a species separate from Sula leucogaster based on differences in plumage, soft part colors, and behavior, including mostly assortative mating in sympatry (VanderWerf et al. 2023), combined with mitochondrial DNA divergence (Morris-Pocock et al. 2011)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E255DCE1",
@@ -3113,7 +3269,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-550DE745",
@@ -3148,7 +3306,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0F42F11A",
@@ -3183,7 +3343,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-87EEBD3E",
@@ -3218,7 +3380,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7AAD57AC",
@@ -3253,7 +3417,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3C12AA44",
@@ -3288,7 +3454,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-DF32B1F9",
@@ -3324,7 +3492,9 @@
           ],
           "taxonomy_comment": "Taxon dimorpha is treated as a subspecies of Egretta garzetta (polytypic, including Australasian immaculata) based on available evidence. Sometimes split as a separate species, or treated as a subspecies of gularis, based largely on the presence of a dark morph, the bare parts color and bill form suggest that dimorpha is better treated as a subspecies of E. garzetta. Furthermore, the name nigripes is considered invalid (nigripes=immaculata) as some syntypes appear to be of hybrid origin, and phenotypic intermediacy suggests widespread intergradation between garzetta and immaculata in the Sundaic region."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-013",
@@ -3366,7 +3536,9 @@
           ],
           "taxonomy_comment": "Taxon dimorpha is treated as a subspecies of Egretta garzetta (polytypic, including Australasian immaculata) based on available evidence. Sometimes split as a separate species, or treated as a subspecies of gularis, based largely on the presence of a dark morph, the bare parts color and bill form suggest that dimorpha is better treated as a subspecies of E. garzetta. Furthermore, the name nigripes is considered invalid (nigripes=immaculata) as some syntypes appear to be of hybrid origin, and phenotypic intermediacy suggests widespread intergradation between garzetta and immaculata in the Sundaic region."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-012",
@@ -3402,7 +3574,9 @@
           ],
           "taxonomy_comment": "Four species are recognized in the Butorides striata complex based on the genomic DNA evidence of Mendales (2023): monotypic B. sundevalli from Galapagos; polytypic B. virescens from North America; monotypic B. striata from South America; and a polytypic Old World B. atricapilla group. While further splits in the B. atricapilla group may be warranted, genetic sampling was too geographically limited to properly assess these; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-EA2C460A",
@@ -3437,7 +3611,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-49D9148A",
@@ -3472,7 +3648,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C3ABF863",
@@ -3507,7 +3685,9 @@
           ],
           "taxonomy_comment": "Three monotypic species are recognized in the Ardea intermedia sensu lato complex based on differences in breeding bare parts color, plumage, and morphology, and possibly in display and vocalizations: A. intermedia; A. brachyrhyncha; and A. plumifera. However, genetic data are lacking and further work is needed to corroborate this split."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-AB1CB216",
@@ -3543,7 +3723,9 @@
           ],
           "taxonomy_comment": "2025-0902)) Taxon coromanda is treated as a species separate from Ardea ibis based on consistent differences in proportions and breeding plumage. A comprehensive genetic review is needed. 2025-1187)) Bubulcus is merged into Ardea based on the genomic DNA evidence of Hruska et al. (2023)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A526534E",
@@ -3578,7 +3760,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D36F4D98",
@@ -3613,7 +3797,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-80D4B0FE",
@@ -3648,7 +3834,9 @@
           ],
           "taxonomy_comment": "Caprimulgus centralasicus is a synonym of C. europaeus based on genetic analysis of the holotype (and sole specimen) (Schweizer et al. 2020a). It probably represents an example of subspecies plumipes but cannot be assigned with confidence based on available morphological and genetic data."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E93A0F33",
@@ -3683,7 +3871,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-004",
@@ -3731,7 +3921,9 @@
           ],
           "taxonomy_comment": "Taxon nigriscapularis is treated as a subspecies of Caprimulgus pectoralis due to overlap in vocalizations (Dowsett & Dowsett-Lemaire 1993) and morphometrics (Jackson 2013), and minimal plumage differences (Louette 1990). Limited genetic data confirm monophyly of this group, with nigriscapularis as the most divergent lineage (Han et al. 2010); due to limited genomic sampling and potential mitochondrial DNA introgression, further genetic studies are desirable."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-4FD242D0",
@@ -3766,7 +3958,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-B21A37E7",
@@ -3801,7 +3995,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-018",
@@ -3836,7 +4032,9 @@
           ],
           "taxonomy_comment": "Tyto alba sensu lato is split into three polytypic species (T. furcata, T. javanica, and T. alba) based on genetics (Aliabadian et al. 2016; Uva et al. 2018) and vocalizations (Robb 2015). Mitochondrial-dominated DNA data (Uva et al. 2018) also placed T. glaucops within the furcata group, while T. nigrobrunnea and T. rosenbergii resolved as part of the javanica group; genomic data are needed to better understand species relationships in this complex."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E561A180",
@@ -3871,7 +4069,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-023D6E38",
@@ -3906,7 +4106,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-250123FB",
@@ -3941,7 +4143,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-019",
@@ -4000,7 +4204,9 @@
           ],
           "taxonomy_comment": "Taxon milesi is treated as a monotypic species separate from Bubo africanus (monotypic) based on clear vocal differences, as well as differences in plumage and iris color (Robb 2015; Collar & Boesman 2019)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-034B2A6A",
@@ -4035,7 +4241,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-EBD3129B",
@@ -4071,7 +4279,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-22832FF4",
@@ -4106,7 +4316,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-97C47F3E",
@@ -4141,7 +4353,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C505EA72",
@@ -4176,7 +4390,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-81DB7410",
@@ -4211,7 +4427,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-648936C0",
@@ -4246,7 +4464,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1192205B",
@@ -4281,7 +4501,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-76B512B1",
@@ -4316,7 +4538,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7DF00403",
@@ -4351,7 +4575,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-51FD3E3C",
@@ -4386,7 +4612,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-9A418C45",
@@ -4421,7 +4649,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-35A1472C",
@@ -4456,7 +4686,9 @@
           ],
           "taxonomy_comment": "Taxon toussenelii (polytypic) is placed in Aerospiza tachiro (polytypic), based on vocal and behavioral similarities (Dowsett & Dowsett-Lemaire 1991, 1993). Recognition of a broader A. tachiro is supported by available mitochondrial DNA data (Breman et al. 2013; Jordaens et al. 2015)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-CE1CF6FD",
@@ -4491,7 +4723,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1A0ECB6E",
@@ -4526,7 +4760,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8492E4B7",
@@ -4561,7 +4797,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-819AB823",
@@ -4597,7 +4835,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-016",
@@ -4651,7 +4891,9 @@
           ],
           "taxonomy_comment": "Taxon aegyptius (polytypic, including parasitus) is treated as conspecific with Milvus migrans pending further research. Although the aegyptius complex is morphologically distinctive, mitochondrial DNA data (Johnson et al. 2005; Andreyenkova et al. 2021) do not recover the group as monophyletic, and geographic patterns do not align with currently recognized subspecies. All taxa are retained within a single species until more comprehensive nuclear or genomic data are available."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A19B0CF4",
@@ -4686,7 +4928,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-017",
@@ -4728,7 +4972,9 @@
           ],
           "taxonomy_comment": "Taxon bannermani (monotypic) is treated as a subspecies of Buteo buteo (polytypic) based on available evidence. Size-related characters clearly align bannermani with B. buteo, but plumage characters are highly variable and largely uninformative (Kruckenhauser et al. 2004). Conversely, limited mitochondrial DNA data align bannermani with B. rufinus (Clouet & Wink 2000; Kruckenhauser et al. 2004) and there is evidence of genetic introgression within B. buteo and related species (Jowers et al. 2019); further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1FDDABDB",
@@ -4763,7 +5009,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-ADDB3611",
@@ -4798,7 +5046,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-020",
@@ -4852,19 +5102,26 @@
           ],
           "taxonomy_comment": "Taxon africana (monotypic) is treated as a subspecies of Upupa epops (polytypic) based on minor plumage differences, contiguous ranges, and a lack of vocal differences (Dowsett & Dowsett-Lemaire 1993)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-021",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
-      "title": "Forest Wood-hoopoe",
-      "sort_order": 8878.29411764706,
+      "relationship": "replacement",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "english_name",
+        "scientific_name",
+        "classification",
+        "curated_species"
+      ],
+      "title": "Forest Wood Hoopoe",
+      "sort_order": 8874.0,
       "order": "Bucerotiformes",
-      "family": "Upupidae",
-      "family_english": "Hoopoe",
+      "family": "Phoeniculidae",
+      "family_english": "Wood Hoopoes and Scimitarbills",
       "old": [
         {
           "id": "avibase-8CC7216A",
@@ -4873,7 +5130,21 @@
           "family": "Upupidae"
         }
       ],
-      "new": []
+      "new": [
+        {
+          "id": "avibase-8CC7216A",
+          "english": "Forest Wood Hoopoe",
+          "scientific": "Rhinopomastus castaneiceps",
+          "family": "Phoeniculidae",
+          "sequence": 8874.0,
+          "ebird_codes": [
+            "forwoo1"
+          ],
+          "taxonomy_comment": "Taxon castaneiceps is placed in the genus Rhinopomastus based on similarities in vocal and social behavior (Dowsett-Lemaire & Dowsett 2014). Sometimes placed in Phoeniculus based on plumage, castaneiceps reportedly lacks the rattle call typical of this genus; genetic and bioacoustic analyses needed."
+        }
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-28CACA8F",
@@ -4909,7 +5180,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-76FAC9A5",
@@ -4945,7 +5218,9 @@
           ],
           "taxonomy_comment": "Taxon granti (monotypic) is treated as a subspecies of Phoeniculus damarensis based on minor differences in plumage. May form a species complex with P. purpureus (Turner 2017); further research required."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-68A80086",
@@ -4981,7 +5256,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D1FFB474",
@@ -5017,7 +5294,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-AF75AC32",
@@ -5052,7 +5331,9 @@
           ],
           "taxonomy_comment": "Five species are recognized in the Tockus erythrorhynchus complex based on a combination of plumage, bare parts color, vocalizations, genetics (Kemp & Delport 2002; Viseshakul et al. 2011; Gonzalez et al. 2013), and hybrid zone dynamics (Delport et al. 2004): T. erythrorhynchus; T. ruahae; T. kempi; T. rufirostris; and T. damarensis. Mitochondrial DNA data (Gonzalez et al. 2013) suggested that these may divide into two groups: northern erythrorhynchus, kempi, and ruahae and southern rufirostris and damarensis. Further research is needed in areas of parapatry to assess levels of gene flow and a more comprehensive genetic review would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-02428AC1",
@@ -5087,7 +5368,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BB456342",
@@ -5122,7 +5405,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2624054E",
@@ -5157,7 +5442,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7451A628",
@@ -5192,7 +5479,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-30238523",
@@ -5218,7 +5507,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "added-avibase-D0C68FE0",
@@ -5244,7 +5535,9 @@
           ],
           "taxonomy_comment": "Taxon lafresnayii is treated as a monotypic species separate from Merops variegatus (polytypic) based on plumage, size, vocalizations, and habitat. Sometimes treated as conspecific with montane M. oreobates but differs in plumage, and possibly vocalizations; occasional reports of intermediacy in some plumage traits (Turner 2010) requires investigation. Genetic data needed to affirm species limits in this complex."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-B85B93BB",
@@ -5279,7 +5572,9 @@
           ],
           "taxonomy_comment": "Taxon lafresnayii is treated as a monotypic species separate from Merops variegatus (polytypic) based on plumage, size, vocalizations, and habitat. Sometimes treated as conspecific with montane M. oreobates but differs in plumage, and possibly vocalizations; occasional reports of intermediacy in some plumage traits (Turner 2010) requires investigation. Genetic data needed to affirm species limits in this complex."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-66AA3934",
@@ -5314,7 +5609,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-AC89B8FF",
@@ -5349,7 +5646,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F9F5CAB0",
@@ -5384,7 +5683,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-028",
@@ -5420,7 +5721,9 @@
           ],
           "taxonomy_comment": "Taxon goffinii (polytypic, including togoensis) is treated as a species separate from Trachylaemus purpuratus based on plumage, facial bare parts color, and genetics. Deep mitochondrial DNA divergence (Moyle 2004) supports recognition of an eastern (purpuratus) and western clade but it is unclear if the western sample represented goffinii or togoensis. Pending further genetic research incorporating broader taxon sampling, togoensis is treated as a subspecies of T. goffinii."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-023",
@@ -5469,7 +5772,9 @@
           ],
           "taxonomy_comment": "Trachyphonus darnaudii is treated as a single polytypic species based on available evidence. Taxa usambiro and emini sometimes treated as separate species but plumage and morphological differences are relatively modest. Furthermore, although usambiro is vocally distinct, and possibly allopatric, behavioral responses led Short & Horne (1985a) to recognize a single species in this complex. Mitochondrial DNA data are limited (Barker & Lanyon 2000; Moyle 2004; Brown et al. 2008) and a more thorough analysis of morphology, vocalizations and genetics would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-024",
@@ -5490,7 +5795,9 @@
           "family": "Rhamphastidae (Lybiinae)"
         }
       ],
-      "new": []
+      "new": [],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-95054CA5",
@@ -5527,7 +5834,9 @@
           ],
           "taxonomy_comment": "Taxon cinereiceps (monotypic) is treated as a subspecies of Gymnobucco bonapartei, as the evidentiary basis for a split is weak. The distributions of bonapartei and cinereiceps appear to be continuous, with a cline of increasing size eastwards, and a broad hybrid zone. Although differences in iris color occur (Chapin 1939) there is no evidence of behavioral, ecological, or genetic differences to support species status."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-025",
@@ -5576,7 +5885,9 @@
           ],
           "taxonomy_comment": "Taxon makawai is treated as a synonym of Pogoniulus bilineatus based on analysis of mitochondrial and nuclear DNA (Kirschel et al. 2018). Although plumage differences are striking, the single specimen of makawai is embedded within P. bilineatus suggesting that it is an aberrant color-morph; field observations have also failed to locate additional individuals of makawai (Dowsett et al. 2008)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-026",
@@ -5613,7 +5924,9 @@
           ],
           "taxonomy_comment": "Taxon uropygialis (polytypic, including affinis) is treated as a species separate from Pogoniulus pusillus based on Kirschel et al. (2021)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-724266B4",
@@ -5649,7 +5962,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-439FE608",
@@ -5685,7 +6000,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-027",
@@ -5734,7 +6051,9 @@
           ],
           "taxonomy_comment": "The monotypic taxa leucogaster and senex are treated as subspecies of Lybius leucocephalus based on available evidence. Although sometimes split as separate species, plumage differences seem modest, ecologically the taxa are similar, and subspecies senex and albicauda are reported to interbreed (Short & Horne 1985a). Further evidence may show that the geographically isolated subspecies leucogaster warrants separation; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8DB3F1A2",
@@ -5769,7 +6088,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-022",
@@ -5817,7 +6138,9 @@
           ],
           "taxonomy_comment": "Taxon conirostris (polytypic, including ussheri) is treated as conspecific with Indicator minor based on the lack of clear-cut ecological, vocal, and plumage differences. Vocalizations appear to be indistinguishable (Short & Horne 1985b), reports of sympatric breeding (Friedmann 1969) have not been substantiated, and genetic data (Sonet et al. 2011) are uninformative; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D0A5FADB",
@@ -5852,7 +6175,9 @@
           ],
           "taxonomy_comment": "Taxon taeniolaema (polytypic, including hausburgi) is treated as a species separate from Campethera tullbergi based on pronounced differences in underparts plumage, supported by divergence in nuclear and mitochondrial DNA (Fuchs et al. 2017a). Vocalizations are poorly known and a formal bioacoustic analysis may be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BD7C4F70",
@@ -5887,7 +6212,9 @@
           ],
           "taxonomy_comment": "Taxa permista and cailliautii (polytypic) are treated as conspecific with Campethera maculosa based on available evidence. Sometimes treated as two or three species based on plumage, taxon permista is only weakly differentiated from maculosa and hybridizes with the phenotypically distinctive cailliautii (Chapin 1952; Prigogine 1987). Divergence in nuclear and mitochondrial DNA (Fuchs et al. 2017a) is modest, and vocalizations of all seem similar, suggesting they are best treated as conspecific pending further research."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C5585051",
@@ -5922,7 +6249,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2700C97D",
@@ -5957,7 +6286,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-77D82F60",
@@ -5992,7 +6323,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-9FF4EDB5",
@@ -6027,7 +6360,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E5DF48FC",
@@ -6062,7 +6397,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-902E9F69",
@@ -6098,7 +6435,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-029",
@@ -6146,7 +6485,9 @@
           ],
           "taxonomy_comment": "Taxon rupicolus is split from Falco tinnunculus based on genetics (Groombridge et al. 2002; Fuchs et al. 2015) and plumage. Inclusion of rupicolus in F. tinnunculus renders that species polyphyletic based on nuclear and mitochondrial DNA (Fuchs et al. 2015). Taxon rupicolus also shows reduced sexual dichromatism compared to most subspecies, but additional genetic research is needed to resolve the status of other forms within the F. tinnunculus complex, particularly neglectus and alexandri."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-6A64EFCB",
@@ -6181,7 +6522,9 @@
           ],
           "taxonomy_comment": "The African taxa ruficollis and horsbrughi sometimes are split from Asian nominate Falco chicquera (e.g., del Hoyo & Collar 2014) but the evidentiary basis for a split is considered weak. Differences in plumage are relatively minor and mitochondrial DNA data (Wink & Sauer-Gürth 2000, 2004) are more consistent with subspecies level divergence. Documentation of ecological differences and genomic data might add greater perspective to this proposed split."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-030",
@@ -6229,7 +6572,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0ECD9D58",
@@ -6264,7 +6609,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-69661C7D",
@@ -6299,66 +6646,24 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
-    },
-    {
-      "id": "added-avibase-6B1CFC3C",
-      "relationship": "added",
-      "cardinality": "0:1",
-      "relationship_label": "New",
-      "tags": [],
-      "title": "Rose-ringed Parakeet",
-      "sort_order": 11950.0,
-      "order": "Psittaciformes",
-      "family": "Psittaculidae",
-      "family_english": "Old World Parrots",
-      "old": [],
-      "new": [
-        {
-          "id": "avibase-6B1CFC3C",
-          "english": "Rose-ringed Parakeet",
-          "scientific": "Psittacula krameri",
-          "family": "Psittaculidae",
-          "sequence": 11950.0,
-          "ebird_codes": [
-            "rorpar"
-          ],
-          "taxonomy_comment": ""
-        }
-      ]
-    },
-    {
-      "id": "legacy-map-031",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
-      "title": "Yellow-collared Lovebird",
-      "sort_order": 12205.75,
-      "order": "Passeriformes",
-      "family": "Psitaculidae",
-      "family_english": "Lovebirds",
-      "old": [
-        {
-          "id": "avibase-4396F4F1",
-          "english": "Yellow-collared Lovebird",
-          "scientific": "Agapornis personatus",
-          "family": "Psitaculidae"
-        }
       ],
-      "new": []
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "legacy-map-032",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
-      "title": "Fischer’s Lovebird",
-      "sort_order": 12299.5,
-      "order": "Passeriformes",
-      "family": "Psitaculidae",
-      "family_english": "Lovebirds",
+      "relationship": "replacement",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "classification",
+        "curated_species"
+      ],
+      "title": "Fischer's Lovebird",
+      "sort_order": 12119.0,
+      "order": "Psittaciformes",
+      "family": "Psittaculidae",
+      "family_english": "Old World Parrots",
       "old": [
         {
           "id": "avibase-E1EE00F7",
@@ -6367,28 +6672,59 @@
           "family": "Psitaculidae"
         }
       ],
-      "new": []
+      "new": [
+        {
+          "id": "avibase-E1EE00F7",
+          "english": "Fischer's Lovebird",
+          "scientific": "Agapornis fischeri",
+          "family": "Psittaculidae",
+          "sequence": 12119.0,
+          "ebird_codes": [
+            "fislov1"
+          ],
+          "taxonomy_comment": ""
+        }
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-033",
-      "relationship": "unresolved",
-      "cardinality": "1:0",
-      "relationship_label": "Discontinued",
-      "tags": [],
-      "title": "Hybrid Lovebird",
-      "sort_order": 12393.25,
-      "order": "Passeriformes",
-      "family": "Psitaculidae",
-      "family_english": "Lovebirds",
+      "id": "legacy-map-031",
+      "relationship": "replacement",
+      "cardinality": "1:1",
+      "relationship_label": "1:1",
+      "tags": [
+        "classification",
+        "curated_species"
+      ],
+      "title": "Yellow-collared Lovebird",
+      "sort_order": 12120.0,
+      "order": "Psittaciformes",
+      "family": "Psittaculidae",
+      "family_english": "Old World Parrots",
       "old": [
         {
-          "id": "avibase-7B0E2F01",
-          "english": "Hybrid Lovebird",
-          "scientific": "Agapornis fischeri x personatus",
+          "id": "avibase-4396F4F1",
+          "english": "Yellow-collared Lovebird",
+          "scientific": "Agapornis personatus",
           "family": "Psitaculidae"
         }
       ],
-      "new": []
+      "new": [
+        {
+          "id": "avibase-4396F4F1",
+          "english": "Yellow-collared Lovebird",
+          "scientific": "Agapornis personatus",
+          "family": "Psittaculidae",
+          "sequence": 12120.0,
+          "ebird_codes": [
+            "yeclov"
+          ],
+          "taxonomy_comment": ""
+        }
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C7B05F46",
@@ -6423,7 +6759,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7DCA1C1E",
@@ -6458,7 +6796,9 @@
           ],
           "taxonomy_comment": "Taxon minuta is retained in the monotypic genus Bocagia based on genetics (Fuchs et al. 2012b) and sexual differences in plumage (Harris & Franklin 2000). Nonetheless, it remains closely aligned with the genus Tchagra."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FA7A6D02",
@@ -6493,7 +6833,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-641068BB",
@@ -6528,7 +6870,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0BC36521",
@@ -6563,7 +6907,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F3DCCA8F",
@@ -6598,7 +6944,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E7DC526A",
@@ -6633,10 +6981,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-034",
+      "id": "legacy-map-033",
       "relationship": "many_to_many",
       "cardinality": "n:n",
       "relationship_label": "n:n",
@@ -6691,7 +7041,9 @@
           ],
           "taxonomy_comment": "Laniarius major (polytypic) is provisionally split from L. aethiopicus (monotypic) based on available mitochondrial DNA evidence (Nguembock et al. 2008). Broader geographic and genetic sampling is needed to determine species limits in these groups."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0868B50D",
@@ -6726,7 +7078,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3402C9BB",
@@ -6761,7 +7115,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7DC78D7A",
@@ -6796,7 +7152,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3B66D504",
@@ -6831,7 +7189,9 @@
           ],
           "taxonomy_comment": "Taxon ansorgei is retained as a subspecies of Platysteira concreta pending further investigation. Considerable variation in plumage (Harris & Franklin 2000) occurs within P. concreta sensu lato, but a more comprehensive analysis of behavior and vocalizations is required. While mitochondrial DNA analyses have identified some deep divergences within the complex (Njabo et al. 2008; Fuchs et al. 2004; Erard et al. 2019), taxon sampling is incomplete, making any splits premature."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D91540DE",
@@ -6866,7 +7226,9 @@
           ],
           "taxonomy_comment": "Taxon reichenowi is retained as a subspecies of Batis mixta based on genetic evidence and reassessment of plumages following Fjeldså et al. (2006). Plumages within this complex are variable and mitochondrial DNA data showed reichenowi nested within B. mixta; genomic and vocal evidence would be needed to justify a split."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C5C38D98",
@@ -6901,7 +7263,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5A58B69A",
@@ -6936,7 +7300,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-90D0D245",
@@ -6971,7 +7337,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E27EEDC5",
@@ -7007,7 +7375,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-418C7CCB",
@@ -7042,7 +7412,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-95A2F6E7",
@@ -7077,7 +7449,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-84249EE3",
@@ -7112,10 +7486,12 @@
           ],
           "taxonomy_comment": "Taxon sharpei (polytypic, including occidentalis) is treated as a species separate from Dicrurus ludwigii based on analysis of plumage, proportions, and vocalizations (Fishpool et al. 2021), and genetics. Mitochondrial DNA data (Fuchs et al. 2017b, 2018b) do not recover D. ludwigii sensu lato as monophyletic, with sharpei being more closely aligned to D. atripennis. Although a relatively deep mtDNA divergence separates sharpei and occidentalis (Fuchs et al. 2018b) they are treated as conspecific pending further research."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-035",
+      "id": "legacy-map-034",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -7154,10 +7530,12 @@
           ],
           "taxonomy_comment": "Taxon divaricatus (polytypic, including lugubris) is treated as conspecific with Dicrurus adsimilis based on available evidence. Phenotypic differences are not pronounced (shade of plumage gloss, and length of wing and tail fork), and nuclear DNA data (Fuchs et al. 2018a) recover them as monophyletic. Earlier suggestions of non-monophyly based on a short section of mitochondrial DNA (Fuchs et al. 2017b) appear to be the result of mitochondrial DNA capture in divaricatus west of Lake Chad."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-036",
+      "id": "legacy-map-035",
       "relationship": "unresolved",
       "cardinality": "1:0",
       "relationship_label": "Discontinued",
@@ -7175,7 +7553,9 @@
           "family": "Laniidae"
         }
       ],
-      "new": []
+      "new": [],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-EE7915A2",
@@ -7210,7 +7590,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-866D07A0",
@@ -7245,7 +7627,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-562E17AB",
@@ -7280,7 +7664,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-9DBAAB1D",
@@ -7315,7 +7701,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-56209052",
@@ -7350,10 +7738,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-045",
+      "id": "legacy-map-044",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -7386,7 +7776,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-6F967270",
@@ -7421,10 +7813,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-046",
+      "id": "legacy-map-045",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -7469,7 +7863,9 @@
           ],
           "taxonomy_comment": "Taxon sylviella (polytypic) is treated as conspecific with Anthoscopus caroli pending further research. Plumage differences within this complex are variable, vocalizations incompletely studied, and distributions uncertain. Reports of intergrades also need to be assessed (White 1963)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5C70AA7D",
@@ -7504,7 +7900,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C8880D28",
@@ -7539,7 +7937,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5C54F8C9",
@@ -7574,7 +7974,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-610FFD8E",
@@ -7610,7 +8012,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-92FDBAF0",
@@ -7645,7 +8049,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-97D7865F",
@@ -7680,7 +8086,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2F66131B",
@@ -7715,7 +8123,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-9164F314",
@@ -7750,7 +8160,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A3E077E6",
@@ -7785,7 +8197,9 @@
           ],
           "taxonomy_comment": "Taxa gilletti (polytypic) and rufa (polytypic) are placed in the genus Calendulauda, rather than Mirafra, based on the multilocus and genomic DNA of Alström et al. (2023)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A990EB0B",
@@ -7820,7 +8234,9 @@
           ],
           "taxonomy_comment": "Taxon alopex (polytypic) is treated as a subspecies of Calendulauda africanoides (polytypic) based on available evidence. Mitochondrial DNA divergence is relatively weak (Alström et al. 2013), as are differences in morphology (Donald & Alström 2024)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-AB507233",
@@ -7846,10 +8262,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
-      "id": "legacy-map-047",
+      "id": "legacy-map-046",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -7881,7 +8299,9 @@
           ],
           "taxonomy_comment": "Taxon cantillans (polytypic) is treated as conspecific with Mirafra javanica (polytypic) based on genetics. Although the two have been recovered as monophyletic clades (Alström et al. 2013), mitochondrial DNA divergence is modest, and diagnostic plumage traits are lacking (Donald & Alström in press)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D0EAD8A3",
@@ -7916,7 +8336,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C49FA9A8",
@@ -7951,10 +8373,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-048",
+      "id": "legacy-map-047",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -7986,10 +8410,12 @@
           ],
           "taxonomy_comment": "2025-0218)) Taxon sharpii is treated as a monotypic species separate from Corypha africana based on genetics. Mitochondrial-dominated DNA (Alström et al. 2023) and genome-wide data (Alström et al. 2024) indicate that C. africana sensu lato is not monophyletic, with sharpii forming a deeply divergent clade along with C. hypermetra and C. somalica. Differences in plumage and proportions (Donald & Alström 2024) also support species recognition for sharpii. 2025-1204)) Five new polytypic species are recognized in the genus Corypha based on an integrative study of plumage, morphometrics, vocalizations, and genetics (Alström et al. 2023): C. kidepoensis (including kathangorensis) is treated as a species separate from C. hypermetra (polytypic, including gallarum); C. athi (including harterti); C. nigrescens (including nyikae); C. kabalii (including irwini and malbranti); and C. kurrae (including bamendae, batesi, henrici, and stresemanni) are treated as species separate from C. africana. Taxon irwini is poorly known, and sometimes synonymized with C. africana gomesi. However, based on analysis of specimens (n=2) there are clear differences from a specimen of gomesi (and the type description), and the one irwini that has been analysed genetically was found to be very closely related to kabalii and malbranti (although gomesi has yet to be analysed genetically)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-049",
+      "id": "legacy-map-048",
       "relationship": "split",
       "cardinality": "1:n",
       "relationship_label": "1:n",
@@ -8033,7 +8459,9 @@
           ],
           "taxonomy_comment": "Five new polytypic species are recognized in the genus Corypha based on integrative analysis of morphology (including plumage), vocalizations, and genetics (Alström et al. 2023, 2024): C. kidepoensis (including kathangorensis) is treated as a species separate from C. hypermetra (polytypic, including gallarum); C. athi (including harterti), C. nigrescens (including nyikae), C. kabalii (including irwini and malbranti), and C. kurrae (including bamendae, batesi, henrici, and stresemanni) are treated as species separate from C. africana. Taxon irwinii is poorly known, and sometimes synonymized with C. africana gomesi. However, based on analysis of specimens (n=2) there are clear differences from a specimen of gomesi (and the type description), and the one irwinii that has been analysed genetically was found to be very closely related to kabalii and malbranti (although gomesi has yet to be analysed genetically)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-419AEB97",
@@ -8068,7 +8496,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5351025C",
@@ -8103,7 +8533,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FCDA4F09",
@@ -8138,7 +8570,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-61CECCA7",
@@ -8173,10 +8607,12 @@
           ],
           "taxonomy_comment": "Taxon athensis (monotypic) is treated as a subspecies of Alaudala somalica (polytypic) based on available evidence. Plumage differences are slight, vocal differences have not been documented, and genetic data are lacking."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-050",
+      "id": "legacy-map-049",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -8221,7 +8657,9 @@
           ],
           "taxonomy_comment": "Taxon leucopsis is retained as a subspecies of Sylvietta brachyura based on inconsistent plumage differences and evidence for dialectal variation in vocalizations; further research is required to determine species limits."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7D340BF9",
@@ -8256,7 +8694,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1E7CADC2",
@@ -8291,7 +8731,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-DC456636",
@@ -8326,7 +8768,9 @@
           ],
           "taxonomy_comment": "The polytypic brevicaudata group is retained in Camaroptera brachyura based on present evidence. Sometimes split based on plumage and habitat differences, the grey-backed brevicaudata group and green-backed brachyura group are vocally similar (Dowsett & Dowsett-Lemaire 1980), and hybridize in areas of contact (White 1962; Zimmerman et al. 2001). Available mitochondrial DNA data (Nguembock et al. 2007) identified deep divergences between brevicaudata, harterti, and brachyura, but further research is needed to define species limits in this group."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D5549C6D",
@@ -8361,10 +8805,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-051",
+      "id": "legacy-map-050",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -8409,7 +8855,9 @@
           ],
           "taxonomy_comment": "Taxon flavocincta (polytypic) is retained as a subspecies of Apalis flavida pending further research. Proposed differences in habitat, plumage, and vocalizations are not sufficient to warrant a split in this geographically variable complex; the possibility of intergradation between flavocincta and adjacent forms also requires investigation (Ash & Atkins 2009)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-4FE76868",
@@ -8444,10 +8892,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-067",
+      "id": "legacy-map-066",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -8480,7 +8930,9 @@
           ],
           "taxonomy_comment": "Taxon stronachi is treated as a monotypic species separate from Apalis karamojae based on differences in plumage, vocalizations, and behavior (Nalwanga et al. 2016; Boesman & Collar 2023)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C67FD539",
@@ -8516,7 +8968,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D8177CEC",
@@ -8551,10 +9005,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-052",
+      "id": "legacy-map-051",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -8584,10 +9040,12 @@
           ],
           "taxonomy_comment": "Taxon bailunduensis is treated as a monotypic species separate from Cisticola aberrans (polytypic, including emini) based on vocalizations coupled with morphological and ecological differences (del Hoyo & Collar 2016)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-053",
+      "id": "legacy-map-052",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -8620,7 +9078,9 @@
           ],
           "taxonomy_comment": "Taxon distinctus is treated as a monotypic species separate from Cisticola lais on the basis of divergence in mitochondrial DNA, with distinctus recovered as sister to C. subruficapilla (Davies 2014). Apparent differences in plumage, song, and habitat have been reported, but the two taxa are very similar in plumage and reports of vocal differences are conflicting (Dowsett & Dowsett-Lemaire 1993; Zimmerman et al. 2001; Stevenson & Fanshawe 2020); further research needed to confirm this split."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-3DF3F9B9",
@@ -8646,7 +9106,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-F936B680",
@@ -8681,7 +9143,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FBDCA962",
@@ -8717,7 +9181,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BAE527A2",
@@ -8752,7 +9218,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-EBBD09CA",
@@ -8787,10 +9255,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-054",
+      "id": "legacy-map-053",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -8829,7 +9299,9 @@
           ],
           "taxonomy_comment": "Taxon baeticatus (polytypic) is treated as conspecific with Acrocephalus scirpaceus (polytypic) based on relatively low differentiation in vocalizations (Dowsett-Lemaire & Dowsett 1987), morphology, and genetics (Olsson et al. 2016; Pavia et al. 2018) across the geographic range of this complex. Furthermore, mitochondrial DNA data (Olsson et al. 2016) do not provide strong support for a two-species treatment; further research warranted."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-A630DB2C",
@@ -8855,7 +9327,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-2470FC01",
@@ -8890,7 +9364,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D6A69E06",
@@ -8925,7 +9401,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D2854489",
@@ -8960,10 +9438,12 @@
           ],
           "taxonomy_comment": "Taxon cowani is treated as a monotypic species separate from Riparia paludicola based on a relatively deep genomic DNA divergence (Brown 2019), supported by plumage and vocalizations. However, a comprehensive review of morphological, vocal, and genetic variation across the R. paludicola complex would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-056",
+      "id": "legacy-map-055",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -8996,7 +9476,9 @@
           ],
           "taxonomy_comment": "2025-1041)) Three polytypic species are recognized in the Ptyonoprogne fuligula complex based on a combination of plumage, size, vocalizations, and genetics (Brown 2019): P. fuligula (including anderssoni and pretoriae); P. rufigula (including bansoensis and pusilla); and P. obsoleta (all remaining subspecies). Further research to assess gene flow in areas of contact would be informative. 2025-1211)) Taxon pusilla is treated as a subspecies of Ptyonoprogne rufigula, rather than of P. obsoleta, based on biogeography and plumage (Ash & Atkins 2009)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-30FEC6BE",
@@ -9031,7 +9513,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-958F4A5E",
@@ -9066,10 +9550,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-055",
+      "id": "legacy-map-054",
       "relationship": "many_to_many",
       "cardinality": "n:n",
       "relationship_label": "n:n",
@@ -9125,7 +9611,9 @@
           ],
           "taxonomy_comment": "Five species are recognized in the Cecropis daurica complex based on a combination of plumage, vocalizations, and evidence from mitochondrial (Sheldon et al. 2005) and genomic DNA data (Brown 2019; Schield et al. 2024): monotypic C. hyperythra based on plumage and vocalizations; monotypic C. badia based on plumage, size, and parapatry with populations of daurica; polytypic C. daurica involving a merger of most populations of temperate-migratory daurica and tropical Asian striolata based on clinality in plumage and genetic paraphyly; monotypic C. rufula based on plumage, genetics, and a zone of parapatry with populations of C. daurica; and polytypic C. melanocrissus based on plumage and genetics. A comprehensive review of this complex integrating formal bioacoustic analyses, broad genomic sampling, and phenotypic variation, is desirable."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-572C4C7F",
@@ -9160,7 +9648,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F6B77E64",
@@ -9195,7 +9685,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E22B8495",
@@ -9230,7 +9722,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-132E0773",
@@ -9265,7 +9759,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-79A45DAF",
@@ -9300,7 +9796,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5D82C13B",
@@ -9335,7 +9833,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5A94FEAE",
@@ -9370,7 +9870,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-1D9175EA",
@@ -9396,10 +9898,12 @@
           ],
           "taxonomy_comment": "Taxon ugandae is treated as a species separate from Bleda notatus based on a combination of mitochondrial-dominated DNA data (Huntley & Voelker 2016), plumage, morphometrics, and vocal differences."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
-      "id": "legacy-map-058",
+      "id": "legacy-map-057",
       "relationship": "many_to_many",
       "cardinality": "n:n",
       "relationship_label": "n:n",
@@ -9455,10 +9959,12 @@
           ],
           "taxonomy_comment": "Taxon kikuyuensis is treated as a species separate from Arizelocichla nigriceps based on plumage, vocalizations, and genetics. Although plumage differences are obvious, information from mitochondrial DNA (Shakya & Sheldon 2017; De Santis et al. 2018) is restricted to short fragments, and formal bioacoustic analyses are lacking; further research would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-059",
+      "id": "legacy-map-058",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -9491,10 +9997,12 @@
           ],
           "taxonomy_comment": "Taxon striifacies (polytypic, including olivaceiceps) is treated as a species separate from Arizelocichla milanjensis based on available evidence. Sometimes split into 3 species (A. milanjensis, A. striifacies and A. olivaceiceps) but plumage differences support a 2-species treatment with milanjensis, the most distinctive taxon, separated at the species level. Genetic data are fragmentary but mitochondrial DNA (Shakya & Sheldon 2017) supports separation of striifacies from milanjensis. Nevertheless, a comprehensive genetic study and investigation of contact zones is needed to confirm species limits in this group."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-057",
+      "id": "legacy-map-056",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -9527,7 +10035,9 @@
           ],
           "taxonomy_comment": "Taxon flavigula (polytypic, including soror) is treated as a species separate from Atimastillas flavicollis based on plumage and vocalizations. Although plumages are geographically variable they show an abrupt transition, with an apparent lack of intergradation, where their ranges approach. Available genetic data are fragmentary (Moyle & Marks 2006; Johansson et al. 2007; Fregin et al. 2012a) and comparative data lacking; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0EA5F2E1",
@@ -9562,7 +10072,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FA137697",
@@ -9597,10 +10109,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-060",
+      "id": "legacy-map-059",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -9645,10 +10159,12 @@
           ],
           "taxonomy_comment": "Taxon placidus is treated as a subspecies of Phyllastrephus cabanisi (polytypic, including sucosus) based on available evidence. Sometimes treated as separate species based on morphology (Dowsett 1972), taxon sucosus has been shown to be intermediate in size between the two (Dowsett-Lemaire 1990; Dowsett & Dowsett-Lemaire 1993), and they lack significant vocal, behavioral, and ecological differences. Genetic data are fragmentary (Johansson et al. 2007; De Santis et al. 2018), and largely uninformative; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-061",
+      "id": "legacy-map-060",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -9693,7 +10209,9 @@
           ],
           "taxonomy_comment": "The Pycnonotus barbatus complex is treated as a single polytypic species based on available evidence. Sometimes split into four species (P. barbatus, P. somaliensis, P. dodsoni, and P. tricolor); however, plumage differences are minor, intermediate phenotypes and potential hybrids have been reported (e.g., Turner & Pearson 2015), and vocal differences appear negligible. Although ad hoc mitochondrial DNA data are available for some taxa (Sorenson & Payne 2001; Moyle & Marks 2006; Fuchs et al. 2009, 2018c; Dejtaradol et al. 2016; Huntley & Voelker 2016) a comprehensive genetic review of this complex is lacking; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-61F9065B",
@@ -9728,7 +10246,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1EA60B94",
@@ -9763,7 +10283,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-982C918E",
@@ -9798,7 +10320,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0DCD05BE",
@@ -9833,7 +10357,9 @@
           ],
           "taxonomy_comment": "Taxon minula (polytypic, including margelanica) and taxon althaea (monotypic) are treated as conspecific with Curruca curruca pending further research. Analyses of mitochondrial DNA (Olsson et al. 2013a), genome-wide DNA data (Abdilzadeh et al. 2023), and stable isotopes (Votier et al. 2016) suggest that this complex should be treated as more than one species, but more comprehensive genomic and vocal analyses are needed to better define species limits."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-16FEF081",
@@ -9868,7 +10394,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-14AFBA82",
@@ -9903,7 +10431,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F80D69C2",
@@ -9938,7 +10468,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-33C35018",
@@ -9964,7 +10496,9 @@
           ],
           "taxonomy_comment": "The Zosterops senegalensis complex is split into five species based mostly on Martins et al. (2020): polytypic Z. senegalensis; polytypic Z. stuhlmanni; polytypic Z. anderssoni; polytypic Z. kasaicus; and monotypic Z. stenocricotus. Mitochondrial DNA data consistently recover members of the Z. senegalensis sensu lato complex as non-monophyletic (Melo et al. 2011; Cox et al. 2014; Martins et al. 2020) leading to the recognition of five species. However, geographic sampling is limited and supporting information from genomic data, which may provide an additional perspective on species limits in this complex, are lacking."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "added-avibase-A23B8E7A",
@@ -9990,10 +10524,20 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0304",
+          "decision": "accepted",
+          "report_year": "2022",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/229442",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-063",
+      "id": "legacy-map-062",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -10026,10 +10570,12 @@
           ],
           "taxonomy_comment": "Taxon kaffensis (polytypic, including kulalensis) is treated as a species separate from Zosterops poliogastrus based mostly on mitochondrial DNA evidence (Martins et al. 2020), and apparent parapatry between nominate kaffensis and poliogastrus. Although sometimes split into three species, the status of the isolated taxon kulalensis remains uncertain as it is somewhat intermediate in plumage between poliogastrus and kaffensis, but larger than both; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-062",
+      "id": "legacy-map-061",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -10059,7 +10605,9 @@
           ],
           "taxonomy_comment": "The Zosterops senegalensis complex is split into five species based mostly on Martins et al. (2020): polytypic Z. senegalensis; polytypic Z. stuhlmanni; polytypic Z. anderssoni; polytypic Z. kasaicus; and monotypic Z. stenocricotus. Mitochondrial DNA data consistently recover members of the Z. senegalensis sensu lato complex as non-monophyletic (Melo et al. 2011; Cox et al. 2014; Martins et al. 2020) leading to the recognition of five species. However, geographic sampling is limited and supporting information from genomic data, which may provide an additional perspective on species limits in this complex, are lacking."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A14D3117",
@@ -10094,10 +10642,12 @@
           ],
           "taxonomy_comment": "Taxon distans is treated as a monotypic species separate from Illadopsis rufipennis (polytypic) based on strong vocal differences (Boesman 2016eee), supported by divergence in some plumage traits, and genetics with mitochondrial DNA data recovering I. rufipennis as non-monophyletic (Fjeldså & Bowie 2021). Taxon puguensis is treated as a synonym of distans based on a lack of evidence of distinctness."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-064",
+      "id": "legacy-map-063",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -10142,7 +10692,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A51A5F84",
@@ -10178,7 +10730,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7471E71D",
@@ -10213,7 +10767,9 @@
           ],
           "taxonomy_comment": "The original spelling was Tanagra erythroryncha, but the species was soon moved into the genus Buphagus, and many modern sources have emended the original spelling to \"erythrorhynchus\" (with an -rh). In 2023, by some measures, the usage of the -rh spelling was roughly an order of magnitude higher than the usage of the original -r spelling, but by other measures, it was only ~4 times higher, which is not considered as a prevailing usage by most practitioners, hence arguing in favor of the retention of the original -r spelling. Additionally, erythroryncha is not an adjective but a poorly formed noun, and its ending can therefore not be adjusted according to the gender of the genus. Therefore, the original spelling \"erythroryncha\" is retained."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-24208346",
@@ -10248,7 +10804,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1350773F",
@@ -10283,7 +10841,9 @@
           ],
           "taxonomy_comment": "Taxon sharpii is placed in the monospecific genus Pholia and taxon femoralis is placed in a monospecific Arizelopsar based on morphology and genetics. Sometimes placed in Poeoptera, but mitochondrial DNA divergences among these three genera are relatively deep (Lovette & Rubenstein 2007)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-295B9665",
@@ -10318,7 +10878,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A77D4A77",
@@ -10353,7 +10915,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-60A39CF9",
@@ -10388,7 +10952,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C54DCA26",
@@ -10423,7 +10989,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-45C55FDE",
@@ -10458,7 +11026,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-428DA7CD",
@@ -10493,7 +11063,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A0DC8E87",
@@ -10528,7 +11100,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-92908926",
@@ -10563,7 +11137,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-B68BD0D2",
@@ -10598,10 +11174,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-065",
+      "id": "legacy-map-064",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -10646,7 +11224,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5EA2B90C",
@@ -10681,7 +11261,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-6E95C4A9",
@@ -10716,7 +11298,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-230A0342",
@@ -10751,7 +11335,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-2455B82B",
@@ -10777,7 +11363,9 @@
           ],
           "taxonomy_comment": "Taxa pyrrholaemus (monotypic) and mabirae (polytypic, including sanghensis) are treated as species separate from Stiphrornis erythrothorax (polytypic, including gabonensis, dahomeyensis, inexpectatus, and xanthogaster) based on plumage and genetics (Beresford & Cracraft 1999; Schmidt et al. 2008; Voelker et al. 2013, 2017). Sometimes treated as five species, mitochondrial-dominated DNA data have revealed three deeply diverged lineages within this complex (Voelker et al. 2017) consistent with a 3-species treatment. Further bioacoustic and genetic research is needed to better define distributional and taxonomic limits within this complex."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-8B7A6FE9",
@@ -10812,7 +11400,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-9616C96E",
@@ -10847,7 +11437,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-53EABB81",
@@ -10882,7 +11474,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-16BD42DD",
@@ -10917,7 +11511,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3846F8A8",
@@ -10952,7 +11548,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BB05D1FC",
@@ -10987,7 +11585,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-345658E9",
@@ -11022,7 +11622,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-A38BABE1",
@@ -11058,7 +11660,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-25C26AB9",
@@ -11093,7 +11697,9 @@
           ],
           "taxonomy_comment": "Taxon polioptera (polytypic) is placed in Sheppardia based on genetics (Beresford 2003; Sangster et al. 2010; Zhao et al. 2023). Although previously placed in Cossypha, multilocus data (Zhao et al. 2023) provide strong support for this alternative placement."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-73BD4B29",
@@ -11128,7 +11734,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BE56C141",
@@ -11163,7 +11771,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-6E352E18",
@@ -11198,7 +11808,9 @@
           ],
           "taxonomy_comment": "Taxon speculigera is treated as a monotypic species separate from Ficedula hypoleuca (polytypic) based on phenotypic and genetic (Sætre et al. 2001a, 2001b) evidence, including genomic data (Nater et al. 2015)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-3380CFC5",
@@ -11224,7 +11836,9 @@
           ],
           "taxonomy_comment": "2025-0171)) Taxon stejnegeri is treated as conspecific with Saxicola maurus pending further research. Although mitochondrial DNA data (Zink et al. 2009; Illera et al. 2008) indicate the presence of deep divergences within the Asian stonechats, not all taxa have been sampled. Furthermore, unsampled taxa have senior scientific names and may be closely related to stejnegeri; consequently, the split of stejnegeri is considered premature; genomic data required. 2025-0172)) Saxicola torquatus is treated as three species based on available evidence: S. maurus (Asian stonechats, polytypic); S. torquatus (African stonechats, polytypic); and S. rubicola (European stonechats, polytypic). Genomic (Van Doren et al. 2017) and mitochondrial DNA data (Zink et al. 2009; Illera et al. 2008) do not recover S. torquatus sensu lato as monophyletic, with S. dacotiae embedded within it. A more comprehensive taxonomic review of this complex is required given the ecological and phenotypic similarities among these species."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": true
     },
     {
       "id": "stable-avibase-CF2E9674",
@@ -11259,7 +11873,9 @@
           ],
           "taxonomy_comment": "2025-0170)) Taxon sibilla is treated as conspecific with Saxicola torquatus (polytypic) pending further research. Mitochondrial DNA data (Woog et al. 2008) revealed a relatively deep divergence between sibilla and S. t. axillaris, but taxon sampling is incomplete, and historical introgression has not been ruled out; a comprehensive genetic review based on genomic DNA is required. 2025-0172)) Saxicola torquatus is treated as three species based on available evidence: S. maurus (Asian stonechats, polytypic); S. torquatus (African stonechats, polytypic); and S. rubicola (European stonechats, polytypic). Genomic (Van Doren et al. 2017) and mitochondrial DNA data (Zink et al. 2009; Illera et al. 2008) do not recover S. torquatus sensu lato as monophyletic, with S. dacotiae embedded within it. A more comprehensive taxonomic review of this complex is required given the ecological and phenotypic similarities among these species."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8EB0AB41",
@@ -11294,7 +11910,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-E09F7223",
@@ -11329,7 +11947,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-535524BE",
@@ -11355,7 +11975,17 @@
           ],
           "taxonomy_comment": "Taxon collaris (monotypic) is treated as a subspecies of Myrmecocichla arnotti (polytypic) pending further research. Although mitochondrial DNA data (Glen et al. 2011) indicate a modest divergence, geographic sampling is limited. Additional data are needed to support a split."
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0375",
+          "decision": "accepted",
+          "report_year": "2025",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/308564",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-DF26171F",
@@ -11391,7 +12021,9 @@
           ],
           "taxonomy_comment": "Taxon melanoleuca (monotypic) is treated as a species separate from Oenanthe hispanica (monotypic) based on genetics (Aliabadian et al. 2012; Kakhki et al. 2018; Schweizer et al. 2019a, b; Zhao et al. 2023)."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-6ADB636C",
@@ -11426,7 +12058,9 @@
           ],
           "taxonomy_comment": "2025-0161)) Taxon frenata is treated as a monotypic species separate from Oenanthe bottae (monotypic) based on modest plumage differences. Forming a complex with O. heuglinii and O. isabellina (Zhao et al. 2023), plumage differences among African species are relatively weak and mitochondrial DNA divergence is modest (Zhao et al. 2023). Although genetic data for O. bottae are lacking, its plumage is considered the most distinct, prompting recognition of frenata as a separate species. Further research is needed and may result in a taxonomic revision of this complex. 2025-N030)) The earliest mention of the name has the spelling heuglinii, attributed to a work by von Heuglin (1869: 346-7), wherein the latter author credited Hartlaub & Finsch for the description."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-CD8DEBE3",
@@ -11461,7 +12095,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FC1BE879",
@@ -11496,10 +12132,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-037",
+      "id": "legacy-map-036",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -11531,7 +12169,9 @@
           ],
           "taxonomy_comment": "Taxon tephrolaemus is treated as a species separate from Anthreptes rectirostris based on abrupt differences in male plumage across a well-documented zoogeographical barrier, supported by vocalizations (Dowsett-Lemaire & Dowsett 2014). Genetic data would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1611F295",
@@ -11566,7 +12206,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-B0E7740F",
@@ -11601,7 +12243,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0B4F3AA2",
@@ -11636,7 +12280,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C1CBA33A",
@@ -11671,7 +12317,9 @@
           ],
           "taxonomy_comment": "Use of \"veroxii\" is the correct original spelling and clearly represents an unusual but intended Latinization of the genitive of the name \"Verreaux\". Any other spelling is an unjustified emendation."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D33D2F6D",
@@ -11706,10 +12354,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-038",
+      "id": "legacy-map-037",
       "relationship": "split",
       "cardinality": "1:n",
       "relationship_label": "1:n",
@@ -11753,10 +12403,12 @@
           ],
           "taxonomy_comment": "Taxon melanogastrus is treated as a species separate from Cinnyris pulchellus based on an abrupt transition in male plumage (belly color), the absence of intermediate phenotypes, and apparent vocal differences (Boesman 2016m). However, a formal bioacoustic analysis, and evidence from genetics or behavior, would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-039",
+      "id": "legacy-map-038",
       "relationship": "replacement",
       "cardinality": "1:1",
       "relationship_label": "1:1",
@@ -11788,7 +12440,9 @@
           ],
           "taxonomy_comment": "Taxon hellmayri (polytypic, including kinneari) is treated as a species separate from Cinnyris habessinicus based on differences in male and female plumages, larger size, and reportedly different vocalizations (Shirihai & Svensson 2018). Formal bioacoustic and genetic analyses would be informative."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C7708C70",
@@ -11823,7 +12477,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-94C71DF6",
@@ -11858,7 +12514,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2C504059",
@@ -11893,7 +12551,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5011E123",
@@ -11928,7 +12588,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2379E3EB",
@@ -11963,7 +12625,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-341298B9",
@@ -11998,7 +12662,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2A2CC7B3",
@@ -12033,7 +12699,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-19D053B3",
@@ -12068,10 +12736,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-040",
+      "id": "legacy-map-039",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -12116,10 +12786,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-041",
+      "id": "legacy-map-040",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -12164,10 +12836,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-066",
+      "id": "legacy-map-065",
       "relationship": "split",
       "cardinality": "1:n",
       "relationship_label": "1:n",
@@ -12211,7 +12885,9 @@
           ],
           "taxonomy_comment": "Taxon laticauda (polytypic, including suahelicus) is split from Euplectes ardens (monotypic) based on differences in plumage, molts, and tail length. A genetic analysis dominated by mitochondrial DNA data places E. l. suahelicus as a divergent sister lineage to E. ardens (Prager et al. 2008) in support of this treatment; as nominate E. laticauda was not included in the analysis, further genetic work is desirable."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-3153FE22",
@@ -12246,10 +12922,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-069",
+      "id": "legacy-map-068",
       "relationship": "split",
       "cardinality": "1:n",
       "relationship_label": "1:n",
@@ -12293,7 +12971,9 @@
           ],
           "taxonomy_comment": "Taxon jubaensis is treated as a monotypic species separate from Anaplectes rubriceps (polytypic) based on plumage differences. Taxon leuconotos is retained as a subspecies of A. rubriceps based on plumage similarities and the presence of a broad zone of hybridization between them."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C97A5C39",
@@ -12328,7 +13008,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-ACF0F1A2",
@@ -12363,7 +13045,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-7D6F12FE",
@@ -12398,10 +13082,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-042",
+      "id": "legacy-map-041",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -12446,7 +13132,9 @@
           ],
           "taxonomy_comment": "Taxon nigriceps (polytypic) is treated as conspecific with Spermestes bicolor (polytypic) based on available evidence. Reports of parapatry have not been confirmed and genetic data are limited (Arnaiz-Villena et al. 2009; Olsson & Alström 2020); further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-1A6B766A",
@@ -12481,7 +13169,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F3B46894",
@@ -12516,7 +13206,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-B15F4C49",
@@ -12551,7 +13243,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-842FF43C",
@@ -12586,7 +13280,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-50BF77FB",
@@ -12621,7 +13317,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8E5252EB",
@@ -12656,7 +13354,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2CC91390",
@@ -12691,7 +13391,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-50490520",
@@ -12726,7 +13428,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-FCD72CEE",
@@ -12761,10 +13465,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-044",
+      "id": "legacy-map-043",
       "relationship": "lump",
       "cardinality": "n:1",
       "relationship_label": "n:1",
@@ -12803,7 +13509,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F375B25B",
@@ -12838,7 +13546,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-DB4998D1",
@@ -12873,7 +13583,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-2B55E679",
@@ -12908,10 +13620,12 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
-      "id": "legacy-map-043",
+      "id": "legacy-map-042",
       "relationship": "many_to_many",
       "cardinality": "n:n",
       "relationship_label": "n:n",
@@ -12967,7 +13681,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5983D677",
@@ -13002,7 +13718,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-70129CB1",
@@ -13037,7 +13755,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0D7CC717",
@@ -13072,7 +13792,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-4C7B3D81",
@@ -13107,7 +13829,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-5108E1D3",
@@ -13142,7 +13866,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-C978ABCC",
@@ -13178,7 +13904,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D12CDD0F",
@@ -13213,7 +13941,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-69EB514A",
@@ -13248,7 +13978,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0CEB2DA6",
@@ -13283,7 +14015,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-F3618305",
@@ -13318,7 +14052,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-8E8B3DB9",
@@ -13353,7 +14089,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-D1C1A026",
@@ -13388,7 +14126,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-72386016",
@@ -13423,7 +14163,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-BB11EE7F",
@@ -13458,7 +14200,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-CDF4A106",
@@ -13493,7 +14237,9 @@
           ],
           "taxonomy_comment": ""
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     },
     {
       "id": "added-avibase-17E7F90B",
@@ -13519,7 +14265,17 @@
           ],
           "taxonomy_comment": "Taxon septemstriata is treated as conspecific with Emberiza tahapisi, although its status as a valid taxon remains unresolved. The single specimen included in the genetic study of Olsson et al. (2013b) had the plumage of tahapisi but the mitochondrial DNA of E. goslingi; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [
+        {
+          "decision_id": "EARC-0345",
+          "decision": "accepted",
+          "report_year": "2023",
+          "source_url": "https://www.ajol.info/index.php/scopus/article/view/255546",
+          "reference": ""
+        }
+      ],
+      "pending_earc": false
     },
     {
       "id": "stable-avibase-0C571D99",
@@ -13554,7 +14310,9 @@
           ],
           "taxonomy_comment": "Taxon septemstriata is treated as conspecific with Emberiza tahapisi, although its status as a valid taxon remains unresolved. The single specimen included in the genetic study of Olsson et al. (2013b) had the plumage of tahapisi but the mitochondrial DNA of E. goslingi; further research needed."
         }
-      ]
+      ],
+      "earc_decisions": [],
+      "pending_earc": false
     }
   ]
 }
