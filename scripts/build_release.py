@@ -152,7 +152,7 @@ def release_id(config):
 def source_paths(config):
     return {key: ROOT / config[key] for key in [
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
-        "safring_numbers_path",
+        "kbm_species_list_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
         "sensitive_species_path", "curated_species_path",
     ]}
@@ -639,33 +639,29 @@ def read_categories(path):
     return {row["avilist_id"]: row for row in rows}, fields
 
 
-def read_safring_numbers(path, avilist_by_id):
-    rows = read_csv(path)
-    required = {"avilist_id", "safring_numbers", "match_basis", "source_avibase_ids", "note"}
-    if not rows:
-        return {}
+def read_kbm_numbers(path):
+    with path.open(encoding="cp1252", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {"SAFRING_No", "avibase_id"}
     missing = required - set(rows[0])
     if missing:
-        raise ValueError(f"safring_numbers.csv is missing columns: {', '.join(sorted(missing))}")
-    identifiers = [row["avilist_id"].strip() for row in rows]
-    duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
-    if any(not identifier for identifier in identifiers) or duplicates:
-        raise ValueError("safring_numbers.csv avilist_id values must be nonblank and unique")
-    safring_numbers = {}
+        raise ValueError(f"KBM species list is missing columns: {', '.join(sorted(missing))}")
+    numbers_by_avibase_id = defaultdict(set)
     for row in rows:
-        identifier = row["avilist_id"].strip()
-        taxon = avilist_by_id.get(identifier)
-        if not taxon or taxon["Taxon_rank"].lower() != "species":
-            raise ValueError(f"safring_numbers.csv contains a missing or non-species AviList ID: {identifier}")
-        values = [value.strip() for value in row["safring_numbers"].split(";") if value.strip()]
-        if not values or any(not value.isdigit() or int(value) <= 0 for value in values):
-            raise ValueError(f"safring_numbers.csv contains an invalid SAFRING number for {identifier}")
-        if len(values) != len(set(values)):
-            raise ValueError(f"safring_numbers.csv contains duplicate SAFRING numbers for {identifier}")
-        if not row["match_basis"].strip():
-            raise ValueError(f"safring_numbers.csv contains a blank match_basis for {identifier}")
-        safring_numbers[identifier] = ";".join(sorted(values, key=int))
-    return safring_numbers
+        identifier = row["avibase_id"].strip()
+        number = row["SAFRING_No"].strip()
+        if identifier and number and number != "0":
+            if not number.isdigit() or int(number) <= 0:
+                raise ValueError(f"KBM species list contains an invalid SAFRING number: {number}")
+            numbers_by_avibase_id[identifier].add(str(int(number)))
+    return numbers_by_avibase_id
+
+
+def safring_numbers(identifier, source_avibase_ids, numbers_by_avibase_id):
+    numbers = numbers_by_avibase_id.get(identifier, set())
+    if not numbers:
+        numbers = set().union(*(numbers_by_avibase_id.get(source_id, set()) for source_id in source_avibase_ids))
+    return ";".join(sorted(numbers, key=int))
 
 
 def merge_evidence(target, row, code):
@@ -701,7 +697,7 @@ def build(config_path, force_compaction=False):
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
     curated_species = read_curated_species(paths["curated_species_path"], avilist_by_id)
     categories, category_fields = read_categories(paths["categories_path"])
-    safring_numbers = read_safring_numbers(paths["safring_numbers_path"], avilist_by_id)
+    kbm_numbers = read_kbm_numbers(paths["kbm_species_list_path"])
     output_category_fields = category_fields + DERIVED_CATEGORY_FIELDS
 
     observations = {}
@@ -799,7 +795,7 @@ def build(config_path, force_compaction=False):
             "taxonomy_comment": taxon["Decision_summary"].strip(),
             "ebird_species_code": ";".join(sorted(evidence["codes"])),
             "source_avibase_ids": ";".join(sorted(evidence["source_ids"])),
-            "safring_numbers": safring_numbers.get(identifier, ""),
+            "safring_numbers": safring_numbers(identifier, evidence["source_ids"], kbm_numbers),
             "membership_source": evidence["membership_source"],
             "sensitive": evidence["sensitive"],
             "exotic_status": evidence["exotic_status"],

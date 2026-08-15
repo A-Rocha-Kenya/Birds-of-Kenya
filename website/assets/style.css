@@ -458,6 +458,14 @@ input[type="search"]:focus { border-color: var(--green); box-shadow: 0 0 0 3px r
 .dialog-close { cursor: pointer; width: 2rem; height: 2rem; border: 0; border-radius: 50%; color: var(--green-dark); background: var(--green-soft); font-size: 1.4rem; line-height: 1; }
 .dialog-close:hover { background: #d2e7da; }
 
+.policy-main { width: min(100%, 860px); padding-top: 2.5rem; padding-bottom: 5rem; }
+.policy-article { border: 1px solid var(--line); border-radius: 16px; padding: clamp(1.4rem, 4vw, 3rem); background: var(--card); box-shadow: var(--shadow); }
+.policy-article h2 { margin: 2.2rem 0 .65rem; color: var(--green-dark); font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; }
+.policy-article h2:first-child { margin-top: 0; }
+.policy-article p { margin: 0 0 1rem; color: #35443c; line-height: 1.75; }
+.policy-article a { color: var(--green); text-underline-offset: 3px; }
+.policy-article code { border-radius: 4px; padding: .08rem .28rem; background: var(--green-soft); font-size: .9em; }
+
 footer {
   display: flex;
   gap: 1rem;

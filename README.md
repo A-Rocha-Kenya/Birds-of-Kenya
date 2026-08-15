@@ -33,8 +33,18 @@ does not describe publication or website deployment.
 
 ## Release and publication workflow
 
-Run these stages in order. The checklist can be rebuilt repeatedly during review; only stage public
-assets after the checklist and all publication products have been accepted.
+For routine checklist and website updates, run one command:
+
+```sh
+uv run python scripts/refresh_website.py
+```
+
+It rebuilds and validates the checklist, replaces the tracked public release assets, and builds and
+validates `_site` from those same assets. The local preview and GitHub Pages therefore consume the
+same generated checklist. Commit the changed `release-assets/<release-id>/` files with the source
+changes. Push `main`; GitHub Actions deploys that exact bundle.
+
+The individual stages below remain available when publication products need separate editorial review.
 
 ### 1. Prepare the release
 
@@ -117,16 +127,11 @@ The PDF is written into the canonical `dist/$release_id/` bundle. Category defin
 in `data/curation/category_definitions.csv`; species assignments are maintained in
 `data/curation/categories.csv`, except `water_bird`, which is derived during the checklist build.
 
-### 6. Build a local website preview
+### 6. Build a local website preview from the deployable release
 
-Before staging, the website can be built directly from the complete local release:
+After running `scripts/refresh_website.py`, serve the already validated `_site` directory:
 
 ```sh
-uv run python scripts/build_site.py \
-  --release-dir "dist/$release_id" \
-  --output _site \
-  --allow-draft
-uv run python tests/validate_site.py _site
 uv run python scripts/serve_site.py
 ```
 

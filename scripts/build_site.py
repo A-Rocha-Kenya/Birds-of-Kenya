@@ -3,7 +3,9 @@
 
 import argparse
 import csv
+import html
 import json
+import re
 import shutil
 import tempfile
 import tomllib
@@ -16,6 +18,8 @@ WEBSITE = ROOT / "website"
 PUBLICATION = ROOT / "publication" / "publication.toml"
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
+POLICY_CONTENT_MARKER = "<!-- POLICY_CONTENT -->"
+INLINE_MARKDOWN = re.compile(r"(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)")
 
 
 def read_csv(path):
@@ -40,6 +44,49 @@ def write_csv(path, fields, rows):
         writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+
+
+def render_inline_markdown(text):
+    rendered = []
+    position = 0
+    for match in INLINE_MARKDOWN.finditer(text):
+        rendered.append(html.escape(text[position:match.start()]))
+        token = match.group()
+        link = re.fullmatch(r"\[([^\]]+)\]\(([^)]+)\)", token)
+        if link:
+            rendered.append(f'<a href="{html.escape(link.group(2), quote=True)}">{html.escape(link.group(1))}</a>')
+        elif token.startswith("**"):
+            rendered.append(f"<strong>{render_inline_markdown(token[2:-2])}</strong>")
+        elif token.startswith("`"):
+            rendered.append(f"<code>{html.escape(token[1:-1])}</code>")
+        else:
+            rendered.append(f"<em>{render_inline_markdown(token[1:-1])}</em>")
+        position = match.end()
+    rendered.append(html.escape(text[position:]))
+    return "".join(rendered)
+
+
+def render_policy(markdown):
+    rendered = []
+    paragraph = []
+
+    def flush_paragraph():
+        if paragraph:
+            rendered.append(f"<p>{render_inline_markdown(' '.join(paragraph))}</p>")
+            paragraph.clear()
+
+    for line in markdown.splitlines():
+        if line.startswith("#"):
+            flush_paragraph()
+            level = len(line) - len(line.lstrip("#"))
+            if level > 1:
+                rendered.append(f"<h{level}>{render_inline_markdown(line[level:].strip())}</h{level}>")
+        elif line.strip():
+            paragraph.append(line.strip())
+        else:
+            flush_paragraph()
+    flush_paragraph()
+    return "\n".join(rendered)
 
 
 def annotate_earc(comparison, decision_rows):
@@ -147,6 +194,7 @@ def main():
         raise ValueError("website, publication, and release identifiers do not match")
 
     checklist = require(release / "checklist.csv")
+    policy = require(ROOT / metadata["sources"]["policy"])
     rows = read_csv(checklist)
     all_category_definitions = read_csv(require(ROOT / metadata["sources"]["category_definitions"]))
     category_definitions = [
@@ -191,6 +239,14 @@ def main():
     with tempfile.TemporaryDirectory(prefix="birds-of-kenya-site-", dir=output.parent) as temporary:
         staging = Path(temporary) / "site"
         shutil.copytree(WEBSITE, staging)
+        policy_page = staging / "policy" / "index.html"
+        policy_template = policy_page.read_text(encoding="utf-8")
+        if POLICY_CONTENT_MARKER not in policy_template:
+            raise ValueError("website policy page is missing its content marker")
+        policy_page.write_text(
+            policy_template.replace(POLICY_CONTENT_MARKER, render_policy(policy.read_text(encoding="utf-8"))),
+            encoding="utf-8",
+        )
         write_csv(staging / "data" / "checklist.csv", public_fields, public_rows)
         (staging / "data" / "category-definitions.json").write_text(
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

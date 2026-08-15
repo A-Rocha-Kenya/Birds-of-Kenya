@@ -32,5 +32,3 @@ The project may maintain Kenya-specific categories. The public checklist current
 ## Changes
 
 Each new release should explain what changed: source coverage, taxonomy, names, categories, and unresolved records. An added or removed row is a question for interpretation, not automatically an arrival, disappearance, split, or lump.
-
-## Acknowledgements

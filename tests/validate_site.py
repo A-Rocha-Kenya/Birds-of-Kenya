@@ -14,7 +14,7 @@ def main():
     site = args.site.resolve()
 
     required_paths = [
-        "index.html", "checklist/index.html", "changes/index.html",
+        "index.html", "checklist/index.html", "changes/index.html", "policy/index.html",
         "assets/style.css", "assets/site.js", "checklist/checklist.js",
         "assets/images/favicon.svg", "assets/images/nature-kenya-logo.png", "assets/images/a-rocha-kenya-logo.svg",
         "assets/images/kenya-bird-map-logo.png", "assets/images/avilist-logo.png", "assets/images/ebird-kenya-logo.svg",
@@ -37,6 +37,8 @@ def main():
     identifiers = [row["avilist_id"] for row in rows]
     if len(rows) != manifest["counts"]["species"] or len(identifiers) != len(set(identifiers)):
         raise ValueError("website checklist does not match the release manifest")
+    if "safring_numbers" not in rows[0] or not any(row["safring_numbers"].strip() for row in rows):
+        raise ValueError("website checklist contains no KBM numbers")
     if metadata["release"]["id"] != manifest["release_id"] or comparison["to_release"] != manifest["release_id"]:
         raise ValueError("website, comparison, and manifest release identifiers do not match")
     endemic_species = sum(bool(row["E"].strip()) for row in rows)
@@ -63,8 +65,15 @@ def main():
     home = (site / "index.html").read_text(encoding="utf-8")
     checklist_page = (site / "checklist" / "index.html").read_text(encoding="utf-8")
     changes_page = (site / "changes" / "index.html").read_text(encoding="utf-8")
+    policy_page = (site / "policy" / "index.html").read_text(encoding="utf-8")
     if 'href="checklist/"' not in home or 'href="changes/"' not in home:
         raise ValueError("home page does not link to both primary site sections")
+    if 'href="../policy/"' not in checklist_page:
+        raise ValueError("checklist page does not link to the checklist policy")
+    if ("Taxonomy and species names" not in policy_page or "Acceptance rules" not in policy_page
+            or 'href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya/issues/3"' not in policy_page
+            or "POLICY_CONTENT" in policy_page):
+        raise ValueError("website policy page was not generated from the checklist policy")
     if "Sixth edition" not in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
         raise ValueError("home page does not present the checklist publishing history")
     if "Nature Kenya" not in home or "data-contributors" not in home:
@@ -76,7 +85,9 @@ def main():
     checklist_script = (site / "checklist" / "checklist.js").read_text(encoding="utf-8")
     if "safring_numbers" not in checklist_script or "https://kenya.birdmap.africa/species/" not in checklist_script:
         raise ValueError("website checklist does not link KBM numbers to Kenya Bird Map")
-    print(f"Validated assembled website: three pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")
+    if "columnHeaders: true" not in checklist_script:
+        raise ValueError("current-view CSV export does not include column headers")
+    print(f"Validated assembled website: four pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")
 
 
 if __name__ == "__main__":

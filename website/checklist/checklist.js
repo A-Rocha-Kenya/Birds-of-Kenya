@@ -446,6 +446,7 @@ exportButton.addEventListener('click', () => {
   if (!exportPlugin) return;
   exportPlugin.downloadFile('csv', {
     columnDelimiter: ',',
+    columnHeaders: true,
     exportHiddenColumns: false,
     exportHiddenRows: false,
     fileExtension: 'csv',

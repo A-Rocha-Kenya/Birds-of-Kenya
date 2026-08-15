@@ -21,7 +21,7 @@ Defined in `config/release.toml`:
 | Clements/eBird taxonomy | Taxonomy year | `ebird_taxonomy_version`, `ebird_taxonomy_path` | CSV with `TAXON_CONCEPT_ID`, `SPECIES_CODE`, and `REPORT_AS` under `data/ebird/` |
 | AviList | Pinned release | `avilist_version`, `avilist_path` | Extended AviList workbook under `data/avilist/` |
 | Project categories | Repository revision | `categories_path` | CSV keyed by `avilist_id` under `data/curation/` |
-| KBM number crosswalk | Repository revision | `safring_numbers_path` | CSV keyed by `avilist_id`; retains one or more positive SAFRING numbers and their matching basis |
+| KBM species list | Repository revision | `kbm_species_list_path` | KBM CSV containing positive SAFRING numbers and Avibase IDs |
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avilist_id`, with rationale and reference under `data/curation/` |
@@ -82,7 +82,7 @@ Species in `curated_species.csv` are added with `membership_source=curated_speci
 
 ### 7. Add KBM numbers
 
-Join `data/curation/safring_numbers.csv` to the final species by `avilist_id`. Match the final `avilist_id` directly to the KBM species-list `avibase_id` first. Use an EBD `source_avibase_ids` match only when no direct positive SAFRING number is available, and record that fallback in `match_basis`. Preserve multiple identifiers with semicolons; do not use blank or `0` values as KBM identifiers.
+Read `data/KBM/general_specielist_UO.csv` directly. Match each final `avilist_id` to the KBM `avibase_id` first, then use its EBD `source_avibase_ids` only when no direct positive SAFRING number is available. Preserve multiple identifiers with semicolons; do not use blank or `0` values as KBM identifiers. This avoids a second generated crosswalk becoming stale.
 
 ### 8. Write the checklist and supporting tables
 

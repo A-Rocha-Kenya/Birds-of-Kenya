@@ -23,6 +23,10 @@
       "path": "data/curation/categories.csv",
       "sha256": "0b9ba9da143f6fbfca03ad57125c8b550a5b86818e4307abaddf100697bc94c1"
     },
+    "kbm_species_list_path": {
+      "path": "data/KBM/general_specielist_UO.csv",
+      "sha256": "1d5d3188f8c33ddccb3746ec8f08d9cd5e9cdceb4a15459cbd74a3cd3c61eb70"
+    },
     "ebird_avilist_overrides_path": {
       "path": "data/curation/ebird_avilist_overrides.csv",
       "sha256": "ce16bd34fae9191a940e8376ac98dfd008e29f42bd94c89a1070cd7432814a91"
