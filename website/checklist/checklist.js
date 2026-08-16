@@ -215,6 +215,8 @@ const numberRenderer = function(instance, td, row, col, prop, value) {
 
 const avibaseIdRenderer = function(instance, td, row, col, prop, value) {
   Handsontable.renderers.TextRenderer.apply(this, arguments);
+  td.textContent = '';
+  if (!value) return;
   const code = value.replace(/^avibase-/, '');
   const link = document.createElement('a');
   link.href = `https://avibase.bsc-eoc.org/species.jsp?avibaseid=${encodeURIComponent(code)}`;
@@ -222,7 +224,6 @@ const avibaseIdRenderer = function(instance, td, row, col, prop, value) {
   link.rel = 'noreferrer';
   link.textContent = code;
   link.title = `Open ${value} in a new tab`;
-  td.textContent = '';
   td.appendChild(link);
 };
 
