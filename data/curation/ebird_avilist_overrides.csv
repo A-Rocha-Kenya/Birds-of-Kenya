@@ -1,3 +1,3 @@
-reported_species_code,avilist_id,note
+reported_species_code,avibase_id,note
 purswa2,avibase-AC1E791E,eBird treats African Swamphen (Porphyrio madagascariensis) as a species; AviList v2025b retains madagascariensis within Purple Swamphen (Porphyrio porphyrio).
 sibsto1,avibase-3380CFC5,eBird's Siberian Stonechat code has no direct AviList Cornell-code match in AviList v2025b; both sources identify Saxicola maurus.

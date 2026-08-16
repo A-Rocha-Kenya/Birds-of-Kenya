@@ -20,7 +20,7 @@ def main():
         comparison = source / "comparison"
         comparison.mkdir(parents=True)
         (source / "manifest.json").write_text(json.dumps({"release_id": release_id}), encoding="utf-8")
-        (source / "checklist.csv").write_text("avilist_id\navibase-example\n", encoding="utf-8")
+        (source / "checklist.csv").write_text("avibase_id\navibase-example\n", encoding="utf-8")
         (source / "checklist.pdf").write_bytes(b"pdf")
         (comparison / "taxonomy-changes.json").write_text("{}\n", encoding="utf-8")
         (comparison / "taxonomy-changes.csv").write_text("change\n", encoding="utf-8")

@@ -25,8 +25,8 @@ def main():
     with (ROOT / "data" / "curation" / "categories.csv").open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
 
-    species = {row["avilist_id"] for row in rows if row["E"] == "TRUE"}
-    subspecies = {row["avilist_id"] for row in rows if row["ES"] == "TRUE"}
+    species = {row["avibase_id"] for row in rows if row["E"] == "TRUE"}
+    subspecies = {row["avibase_id"] for row in rows if row["ES"] == "TRUE"}
     if species != SPECIES_ENDEMICS:
         raise ValueError("endemic species assignments do not match the approved list")
     if species & subspecies:

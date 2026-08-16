@@ -99,7 +99,7 @@ def annotate_earc(comparison, decision_rows):
             "source_url": decision["source_url"],
             "reference": decision["reference"],
         }
-        decisions_by_taxon.setdefault(decision["avilist_id"].strip(), []).append(public_decision)
+        decisions_by_taxon.setdefault(decision["avibase_id"].strip(), []).append(public_decision)
 
     for group in comparison["groups"]:
         if "pending_earc" in group:
@@ -218,7 +218,7 @@ def main():
         for row in group["new"]
     }
     for row in public_rows:
-        row["pending_earc"] = "TRUE" if row["avilist_id"] in pending_earc_ids else ""
+        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
     public_fields.append("pending_earc")
 
     checklist_pdf = require(release / metadata["render"]["output_filename"])

@@ -105,17 +105,17 @@ def main():
     with tempfile.TemporaryDirectory() as directory:
         directory = Path(directory)
         categories_path = directory / "categories.csv"
-        categories_path.write_text("avilist_id,AM\navibase-00000001,TRUE\n", encoding="utf-8")
+        categories_path.write_text("avibase_id,AM\navibase-00000001,TRUE\n", encoding="utf-8")
         categories, fields = build.read_categories(categories_path)
         if fields != ["AM"] or categories["avibase-00000001"]["AM"] != "TRUE":
             raise ValueError("categories keying failed")
 
-        categories_path.write_text("avilist_id,AM,E\n", encoding="utf-8")
+        categories_path.write_text("avibase_id,AM,E\n", encoding="utf-8")
         categories, fields = build.read_categories(categories_path)
         if categories or fields != ["AM", "E"]:
             raise ValueError("empty categories schema was not preserved")
 
-        categories_path.write_text("avilist_id,HIST\n", encoding="utf-8")
+        categories_path.write_text("avibase_id,HIST\n", encoding="utf-8")
         try:
             build.read_categories(categories_path)
         except ValueError as error:
@@ -137,7 +137,7 @@ def main():
 
         overrides_path = directory / "ebird_avilist_overrides.csv"
         overrides_path.write_text(
-            "reported_species_code,avilist_id,note\nalpha2,avibase-00000001,Example alignment\n",
+            "reported_species_code,avibase_id,note\nalpha2,avibase-00000001,Example alignment\n",
             encoding="utf-8",
         )
         overrides = build.read_ebird_avilist_overrides(overrides_path, avilist_by_id)
@@ -156,7 +156,7 @@ def main():
 
         sensitive_path = directory / "sensitive_species.csv"
         sensitive_path.write_text(
-            "avilist_id,reason,reference\n"
+            "avibase_id,reason,reference\n"
             "avibase-00000002,Sensitive species,https://example.org/gamma\n",
             encoding="utf-8",
         )
@@ -168,19 +168,19 @@ def main():
         raise ValueError("Ramsar waterbird family definition is incorrect")
 
     changes = compare.compare(
-        [{"avilist_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "AM": ""}],
+        [{"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "AM": ""}],
         [
-            {"avilist_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Alpha", "AM": ""},
-            {"avilist_id": "avibase-00000002", "scientific_name": "Gamma delta", "english_name": "Gamma", "AM": "TRUE"},
+            {"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Alpha", "AM": ""},
+            {"avibase_id": "avibase-00000002", "scientific_name": "Gamma delta", "english_name": "Gamma", "AM": "TRUE"},
         ],
     )
     if [row["change"] for row in changes] != ["taxonomy_changed", "added"]:
         raise ValueError("release comparison classification failed")
     comparison = compare.website_comparison(
-        [{"avilist_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"}],
+        [{"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"}],
         [
-            {"avilist_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"},
-            {"avilist_id": "avibase-00000002", "sequence": "2", "scientific_name": "Gamma delta", "english_name": "Gamma", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "gamma1"},
+            {"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"},
+            {"avibase_id": "avibase-00000002", "sequence": "2", "scientific_name": "Gamma delta", "english_name": "Gamma", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "gamma1"},
         ],
         changes, "old-release", "new-release",
     )

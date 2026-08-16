@@ -89,7 +89,7 @@ const columns = [
   'observations',
   'first_observation_date',
   'last_observation_date',
-  'avilist_id',
+  'avibase_id',
   'safring_numbers',
   'ebird_species_code'
 ];
@@ -108,7 +108,7 @@ const columnLabels = {
   observations: 'eBird observations',
   first_observation_date: 'First record',
   last_observation_date: 'Latest record',
-  avilist_id: 'AviList ID',
+  avibase_id: 'Avibase ID',
   safring_numbers: 'KBM',
   ebird_species_code: 'eBird code'
 };
@@ -129,7 +129,7 @@ const defaultVisibleColumns = [
   'scientific_name',
   'status',
   'iucn_red_list_category',
-  'avilist_id',
+  'avibase_id',
   'ebird_species_code',
   'safring_numbers',
   'birds_of_the_world_url',
@@ -215,7 +215,7 @@ const numberRenderer = function(instance, td, row, col, prop, value) {
   if (!value) td.title = 'Observation evidence is not published for this sensitive species';
 };
 
-const avilistIdRenderer = function(instance, td, row, col, prop, value) {
+const avibaseIdRenderer = function(instance, td, row, col, prop, value) {
   Handsontable.renderers.TextRenderer.apply(this, arguments);
   const code = value.replace(/^avibase-/, '');
   const link = document.createElement('a');
@@ -254,7 +254,7 @@ const columnDefinitions = columns.map(field => {
   if (field === 'iucn_red_list_category') definition.renderer = conservationRenderer;
   if (field === 'birdlife_datazone_url') definition.renderer = resourceLinkRenderer('Data Zone');
   if (field === 'birds_of_the_world_url') definition.renderer = resourceLinkRenderer('Birds of the World');
-  if (field === 'avilist_id') definition.renderer = avilistIdRenderer;
+  if (field === 'avibase_id') definition.renderer = avibaseIdRenderer;
   if (field === 'safring_numbers') definition.renderer = safringNumbersRenderer;
   if (field === 'observations') {
     definition.renderer = numberRenderer;
@@ -314,7 +314,7 @@ const searchableText = row => [
   row.family,
   row.family_english_name,
   row.status,
-  row.avilist_id,
+  row.avibase_id,
   row.ebird_species_code,
   row.exotic_status
 ].join(' ').toLowerCase();

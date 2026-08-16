@@ -54,7 +54,7 @@ REPORTED_FIELDS = [
     "first_observation_date", "last_observation_date",
 ]
 CHECKLIST_FIELDS = [
-    "sequence", "avilist_id", "order", "family", "family_english_name",
+    "sequence", "avibase_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
     "safring_numbers",
     "membership_source", "sensitive", "exotic_status", "observations",
@@ -62,7 +62,7 @@ CHECKLIST_FIELDS = [
     "birdlife_datazone_url", "birds_of_the_world_url",
 ]
 PUBLIC_RECORD_FIELDS = [
-    "avilist_id", "sampling_event_identifier", "source_taxon_concept_id",
+    "avibase_id", "sampling_event_identifier", "source_taxon_concept_id",
     "exotic_code", "global_unique_identifier", "observation_date", "observation_count",
 ]
 ENTITY_FIELDS = [
@@ -80,11 +80,11 @@ EXOTIC_OVERRIDE_FIELDS = [
     "corrected_exotic_code", "record_count", "reason",
 ]
 SENSITIVE_AUDIT_FIELDS = [
-    "avilist_id", "scientific_name", "english_name", "ebird_species_code",
+    "avibase_id", "scientific_name", "english_name", "ebird_species_code",
     "membership_source", "reason", "reference",
 ]
 SAFRING_MISSING_AUDIT_FIELDS = [
-    "avilist_id", "english_name", "scientific_name", "source_avibase_ids", "membership_source", "match_status",
+    "avibase_id", "english_name", "scientific_name", "source_avibase_ids", "membership_source", "match_status",
 ]
 
 
@@ -94,7 +94,7 @@ def read_csv(path):
 
 
 def rejected_earc_ids(path=EARC_DECISIONS):
-    return {row["avilist_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
+    return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
 
 
 def read_xlsx(path):
@@ -586,38 +586,38 @@ def read_ebird_avilist_overrides(path, avilist_by_id):
     overrides = {}
     for row in rows:
         code = row["reported_species_code"].strip()
-        avilist_id = row["avilist_id"].strip()
-        taxon = avilist_by_id.get(avilist_id)
+        avibase_id = row["avibase_id"].strip()
+        taxon = avilist_by_id.get(avibase_id)
         if not taxon or taxon["Taxon_rank"].lower() != "species":
-            raise ValueError(f"ebird_avilist_overrides.csv maps {code} to a missing or non-species AviList ID: {avilist_id}")
+            raise ValueError(f"ebird_avilist_overrides.csv maps {code} to a missing or non-species Avibase ID: {avibase_id}")
         overrides[code] = taxon
     return overrides
 
 
 def read_sensitive_species(path, avilist_by_id):
     rows = read_csv(path)
-    identifiers = [row["avilist_id"].strip() for row in rows]
+    identifiers = [row["avibase_id"].strip() for row in rows]
     duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
     if any(not identifier for identifier in identifiers) or duplicates:
-        raise ValueError("sensitive_species.csv avilist_id values must be nonblank and unique")
+        raise ValueError("sensitive_species.csv avibase_id values must be nonblank and unique")
     for identifier in identifiers:
         taxon = avilist_by_id.get(identifier)
         if not taxon or taxon["Taxon_rank"].lower() != "species":
-            raise ValueError(f"sensitive_species.csv contains a missing or non-species AviList ID: {identifier}")
-    return {row["avilist_id"].strip(): row for row in rows}
+            raise ValueError(f"sensitive_species.csv contains a missing or non-species Avibase ID: {identifier}")
+    return {row["avibase_id"].strip(): row for row in rows}
 
 
 def read_curated_species(path, avilist_by_id):
     rows = read_csv(path)
-    identifiers = [row["avilist_id"].strip() for row in rows]
+    identifiers = [row["avibase_id"].strip() for row in rows]
     duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
     if any(not identifier for identifier in identifiers) or duplicates:
-        raise ValueError("curated_species.csv avilist_id values must be nonblank and unique")
+        raise ValueError("curated_species.csv avibase_id values must be nonblank and unique")
     for identifier in identifiers:
         taxon = avilist_by_id.get(identifier)
         if not taxon or taxon["Taxon_rank"].lower() != "species":
-            raise ValueError(f"curated_species.csv contains a missing or non-species AviList ID: {identifier}")
-    return {row["avilist_id"].strip(): row for row in rows}
+            raise ValueError(f"curated_species.csv contains a missing or non-species Avibase ID: {identifier}")
+    return {row["avibase_id"].strip(): row for row in rows}
 
 
 def read_categories(path):
@@ -625,18 +625,18 @@ def read_categories(path):
         return {}, []
     with path.open(encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
-        fields = [field for field in reader.fieldnames or [] if field != "avilist_id"]
+        fields = [field for field in reader.fieldnames or [] if field != "avibase_id"]
         rows = list(reader)
     derived = sorted(set(fields) & set(DERIVED_CATEGORY_FIELDS))
     if derived:
         raise ValueError(f"categories.csv contains derived category columns: {', '.join(derived)}")
-    identifiers = [row["avilist_id"].strip() for row in rows]
+    identifiers = [row["avibase_id"].strip() for row in rows]
     if any(not identifier for identifier in identifiers):
-        raise ValueError("categories.csv contains a blank avilist_id")
+        raise ValueError("categories.csv contains a blank avibase_id")
     duplicates = sorted(identifier for identifier, count in Counter(identifiers).items() if count > 1)
     if duplicates:
-        raise ValueError(f"categories.csv contains duplicate avilist_id values: {', '.join(duplicates)}")
-    return {row["avilist_id"]: row for row in rows}, fields
+        raise ValueError(f"categories.csv contains duplicate avibase_id values: {', '.join(duplicates)}")
+    return {row["avibase_id"]: row for row in rows}, fields
 
 
 def read_kbm_numbers(path):
@@ -722,14 +722,14 @@ def build(config_path, force_compaction=False):
         merge_evidence(item, row, code)
 
     sensitive_audit = []
-    for avilist_id, curated_sensitive in sensitive_species.items():
-        taxon = avilist_by_id[avilist_id]
-        evidence = observations.get(avilist_id)
+    for avibase_id, curated_sensitive in sensitive_species.items():
+        taxon = avilist_by_id[avibase_id]
+        evidence = observations.get(avibase_id)
         membership_source = "ebd" if evidence else "curated_sensitive_species"
         if evidence:
             evidence["sensitive"] = "TRUE"
         else:
-            observations[avilist_id] = {
+            observations[avibase_id] = {
                 "taxon": taxon,
                 "codes": {taxon["Species_code_Cornell_Lab"]},
                 "source_ids": set(),
@@ -742,7 +742,7 @@ def build(config_path, force_compaction=False):
                 "sensitive": "TRUE",
             }
         sensitive_audit.append({
-            "avilist_id": avilist_id,
+            "avibase_id": avibase_id,
             "scientific_name": taxon["Scientific_name"],
             "english_name": taxon["English_name_AviList"],
             "ebird_species_code": taxon["Species_code_Cornell_Lab"],
@@ -751,10 +751,10 @@ def build(config_path, force_compaction=False):
             "reference": curated_sensitive["reference"],
         })
 
-    for avilist_id in curated_species:
-        if avilist_id not in observations:
-            taxon = avilist_by_id[avilist_id]
-            observations[avilist_id] = {
+    for avibase_id in curated_species:
+        if avibase_id not in observations:
+            taxon = avilist_by_id[avibase_id]
+            observations[avibase_id] = {
                 "taxon": taxon,
                 "codes": {taxon["Species_code_Cornell_Lab"]},
                 "source_ids": set(),
@@ -762,7 +762,7 @@ def build(config_path, force_compaction=False):
                 "observations": None,
                 "first": "",
                 "last": "",
-                "exotic_status": curated_species[avilist_id].get("exotic_status", "native") or "native",
+                "exotic_status": curated_species[avibase_id].get("exotic_status", "native") or "native",
                 "membership_source": "curated_species",
                 "sensitive": "FALSE",
             }
@@ -786,7 +786,7 @@ def build(config_path, force_compaction=False):
         used_categories.add(identifier)
         checklist.append({
             "sequence": taxon["Sequence"],
-            "avilist_id": identifier,
+            "avibase_id": identifier,
             "order": taxon["Order"],
             "family": taxon["Family"],
             "family_english_name": taxon["Family_English_name"],
@@ -813,9 +813,9 @@ def build(config_path, force_compaction=False):
             "water_bird": "TRUE" if taxon["Family"] in WATERBIRD_FAMILIES else "FALSE",
         })
     checklist.sort(key=lambda row: float(row["sequence"]))
-    latest_rows = [{"avilist_id": identifier, **item[2]} for identifier in sorted(latest) for item in sorted(latest[identifier], reverse=True)]
+    latest_rows = [{"avibase_id": identifier, **item[2]} for identifier in sorted(latest) for item in sorted(latest[identifier], reverse=True)]
     missing_safring_rows = [{
-        "avilist_id": row["avilist_id"],
+        "avibase_id": row["avibase_id"],
         "english_name": row["english_name"],
         "scientific_name": row["scientific_name"],
         "source_avibase_ids": row["source_avibase_ids"],
@@ -837,8 +837,8 @@ def build(config_path, force_compaction=False):
     write_csv(output / "audit" / "excluded_non_species_observations.csv", [
         "category", "scientific_name", "record_count",
     ], excluded)
-    write_csv(output / "audit" / "unused_category_rows.csv", ["avilist_id"] + category_fields, [
-        row for avilist_id, row in categories.items() if avilist_id not in used_categories
+    write_csv(output / "audit" / "unused_category_rows.csv", ["avibase_id"] + category_fields, [
+        row for avibase_id, row in categories.items() if avibase_id not in used_categories
     ])
     write_csv(output / "audit" / "exotic_code_overrides.csv", EXOTIC_OVERRIDE_FIELDS, exotic_override_audit)
     write_csv(output / "audit" / "sensitive_species.csv", SENSITIVE_AUDIT_FIELDS, sensitive_audit)

@@ -34,7 +34,7 @@ def main():
     comparison = json.loads((site / "data" / "taxonomy-changes.json").read_text(encoding="utf-8"))
     categories = json.loads((site / "data" / "category-definitions.json").read_text(encoding="utf-8"))
 
-    identifiers = [row["avilist_id"] for row in rows]
+    identifiers = [row["avibase_id"] for row in rows]
     if len(rows) != manifest["counts"]["species"] or len(identifiers) != len(set(identifiers)):
         raise ValueError("website checklist does not match the release manifest")
     if "safring_numbers" not in rows[0] or not any(row["safring_numbers"].strip() for row in rows):
@@ -55,7 +55,7 @@ def main():
         for group in comparison["groups"] if group.get("pending_earc")
         for row in group["new"]
     }
-    if {row["avilist_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
+    if {row["avibase_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
         raise ValueError("website checklist has incorrect pending EARC coverage")
 
     missing_downloads = [path for path in metadata["downloads"].values() if path and not (site / path).exists()]

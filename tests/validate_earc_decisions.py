@@ -31,8 +31,8 @@ def main():
         raise ValueError("EARC decision IDs must be unique")
     if len(decisions) != 11 or {row["decision"] for row in decisions} != {"accepted", "rejected"}:
         raise ValueError("unexpected curated EARC decision coverage")
-    if any(not row["avilist_id"] for row in decisions):
-        raise ValueError("EARC decisions must use a current AviList identifier")
+    if any(not row["avibase_id"] for row in decisions):
+        raise ValueError("EARC decisions must use a current Avibase identifier")
 
     groups = renderer.taxonomy_groups(
         renderer.read_csv(renderer.LEGACY),
@@ -40,7 +40,7 @@ def main():
         renderer.read_csv(renderer.MAPPING),
     )
     groups = renderer.annotate_earc(groups, decisions)
-    rejected_ids = {row["avilist_id"] for row in decisions if row["decision"] == "rejected"}
+    rejected_ids = {row["avibase_id"] for row in decisions if row["decision"] == "rejected"}
     if rejected_ids & {row["id"] for group in groups for side in ("old", "new") for row in group[side]}:
         raise ValueError("rejected EARC taxa must be absent from the comparison")
     additions_and_removals = [group for group in groups if group["cardinality"] in {"0:1", "1:0"}]

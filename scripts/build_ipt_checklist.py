@@ -36,12 +36,12 @@ def higher_taxon_id(dataset_id, rank, name):
     return f"{dataset_id}#taxon-{rank}-{quote(name, safe='')}"
 
 
-def species_taxon_id(dataset_id, avilist_id):
-    return f"{dataset_id}#taxon-species-{avilist_id}"
+def species_taxon_id(dataset_id, avibase_id):
+    return f"{dataset_id}#taxon-species-{avibase_id}"
 
 
-def species_concept_id(avilist_id):
-    return f"https://avibase.bsc-eoc.org/species.jsp?avibaseid={avilist_id.removeprefix('avibase-')}"
+def species_concept_id(avibase_id):
+    return f"https://avibase.bsc-eoc.org/species.jsp?avibaseid={avibase_id.removeprefix('avibase-')}"
 
 
 def write_csv(path, fields, rows):
@@ -94,10 +94,10 @@ def main():
         raise ValueError("publication release_id does not match its release directory and manifest")
 
     rows = read_csv(release / "checklist.csv")
-    identifiers = [row["avilist_id"] for row in rows]
+    identifiers = [row["avibase_id"] for row in rows]
     duplicates = [key for key, count in Counter(identifiers).items() if count > 1]
     if any(not key for key in identifiers) or duplicates:
-        raise ValueError("checklist avilist_id values must be nonblank and unique")
+        raise ValueError("checklist avibase_id values must be nonblank and unique")
 
     output_dir = (args.output_dir or release / "gbif").resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -172,12 +172,12 @@ def main():
     for row in ordered_rows:
         genus = row["scientific_name"].split()[0]
         specific_epithet = row["scientific_name"].split()[1]
-        taxon_id = species_taxon_id(dataset_id, row["avilist_id"])
-        authority = avilist_by_id[row["avilist_id"]]["Authority"]
+        taxon_id = species_taxon_id(dataset_id, row["avibase_id"])
+        authority = avilist_by_id[row["avibase_id"]]["Authority"]
         taxon_rows.append(taxon_record(
             taxon_id, higher_taxon_id(dataset_id, "genus", genus), row["scientific_name"], "species",
             dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
-            taxon_concept_id=species_concept_id(row["avilist_id"]), phylum="Chordata", class_name="Aves",
+            taxon_concept_id=species_concept_id(row["avibase_id"]), phylum="Chordata", class_name="Aves",
             order=row["order"], family=row["family"], genus=genus, specific_epithet=specific_epithet,
             vernacular_name=row["english_name"], language="en",
             remarks=(f"Checklist membership source: {row['membership_source']}; "

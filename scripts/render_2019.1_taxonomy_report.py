@@ -47,13 +47,13 @@ def normalized(values, normalize_value=lambda value: value):
 
 def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
     rejected_ids = {
-        row["avilist_id"].strip() for row in read_csv(EARC_DECISIONS)
+        row["avibase_id"].strip() for row in read_csv(EARC_DECISIONS)
         if row["decision"].strip().casefold() == "rejected"
     }
-    current_rows = [row for row in current_rows if row["avilist_id"] not in rejected_ids]
+    current_rows = [row for row in current_rows if row["avibase_id"] not in rejected_ids]
     comparison = load_comparison()
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
-    new_by_id = {row["avilist_id"]: row for row in current_rows}
+    new_by_id = {row["avibase_id"]: row for row in current_rows}
     mapping = comparison.read_mapping_rows(mapping_rows, old_by_id, new_by_id)
     edges = comparison.mapping_edges(mapping, old_by_id)
     current_sorted = sorted(current_rows, key=lambda row: number(row["sequence"]))
@@ -139,7 +139,7 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
             ],
             "new": [
                 {
-                    "id": row["avilist_id"], "english": row["english_name"].strip(),
+                    "id": row["avibase_id"], "english": row["english_name"].strip(),
                     "scientific": row["scientific_name"].strip(), "family": row["family"],
                     "sequence": number(row["sequence"]),
                     "ebird_codes": [code for code in row.get("ebird_species_code", "").split(";") if code],
@@ -172,8 +172,8 @@ def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
             groups.append(make_group(f"stable-{identifier}", "retained", [old], [new]))
     connected_new_ids = (set(old_by_id) & set(new_by_id)) | mapped_new_ids
     for row in current_rows:
-        if row["avilist_id"] not in connected_new_ids:
-            groups.append(make_group(f"added-{row['avilist_id']}", "added", [], [row]))
+        if row["avibase_id"] not in connected_new_ids:
+            groups.append(make_group(f"added-{row['avibase_id']}", "added", [], [row]))
     return sorted(groups, key=lambda group: (group["sort_order"], group["id"]))
 
 
@@ -187,7 +187,7 @@ def annotate_earc(groups, decision_rows):
             "source_url": row["source_url"],
             "reference": row["reference"],
         }
-        decisions_by_taxon[row["avilist_id"].strip()].append(decision)
+        decisions_by_taxon[row["avibase_id"].strip()].append(decision)
 
     for group in groups:
         taxon_ids = {row["id"] for side in ("old", "new") for row in group[side]}
@@ -222,7 +222,7 @@ main{{max-width:1240px;margin:auto;padding:1.15rem 1.25rem 5rem}}.result-line{{d
 </style></head>
 <body><header class="hero"><div class="eyebrow">Birds of Kenya · Taxonomy review</div><h1>From the 2019 checklist to AviList 2026</h1><p class="lede">A taxonomically ordered view of name changes and concept changes. Relationships are labelled by historical-to-current concept cardinality.</p>
 </header>
-<div class="toolbar-wrap"><div class="toolbar"><div class="top-controls"><input id="search" type="search" placeholder="Search names, families or AviList IDs" aria-label="Search taxonomy changes"><button class="clear" id="clear">Clear filters</button></div>
+<div class="toolbar-wrap"><div class="toolbar"><div class="top-controls"><input id="search" type="search" placeholder="Search names, families or Avibase IDs" aria-label="Search taxonomy changes"><button class="clear" id="clear">Clear filters</button></div>
 <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div><div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div></div></div>
 <main><div class="result-line"><span id="resultCount"></span><span>Ordered by current AviList sequence</span></div><div class="column-legend" aria-hidden="true"><span>2019.1 historical concept</span><span></span><span>2026.0 current concept</span></div><div id="report"></div></main>
 <footer>Generated from the corrected v2019.1 checklist, the 2026.0 checklist and the project’s one-time taxonomy mapping. This is a review aid, not a taxonomic authority.</footer>

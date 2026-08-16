@@ -25,7 +25,7 @@ def old_row(identifier, name, am="", endemic=""):
 
 def new_row(identifier, name):
     return {
-        "avilist_id": identifier, "english_name": name, "scientific_name": name,
+        "avibase_id": identifier, "english_name": name, "scientific_name": name,
         "family": "Exampleidae", "family_english_name": "Examples", "source_avibase_ids": "",
     }
 
@@ -44,24 +44,24 @@ def main():
         new_row("new-lump", "New lump"),
     ]
     mapping = [
-        {"old_avilist_id": "old-split", "new_avilist_ids": "new-a;new-b"},
-        {"old_avilist_id": "old-lump-a", "new_avilist_ids": "new-lump"},
-        {"old_avilist_id": "old-lump-b", "new_avilist_ids": "new-lump"},
-        {"old_avilist_id": "unresolved", "new_avilist_ids": ""},
+        {"old_avibase_id": "old-split", "new_avibase_ids": "new-a;new-b"},
+        {"old_avibase_id": "old-lump-a", "new_avibase_ids": "new-lump"},
+        {"old_avibase_id": "old-lump-b", "new_avibase_ids": "new-lump"},
+        {"old_avibase_id": "unresolved", "new_avibase_ids": ""},
     ]
 
     changes, unresolved, current_only, audit, converted = comparison.compare(
         old, current, mapping, ["AM", "E"],
     )
     expected = [
-        {"avilist_id": "stable", "AM": "TRUE", "E": ""},
-        {"avilist_id": "new-a", "AM": "", "E": "TRUE"},
-        {"avilist_id": "new-b", "AM": "", "E": "TRUE"},
-        {"avilist_id": "new-lump", "AM": "", "E": ""},
+        {"avibase_id": "stable", "AM": "TRUE", "E": ""},
+        {"avibase_id": "new-a", "AM": "", "E": "TRUE"},
+        {"avibase_id": "new-b", "AM": "", "E": "TRUE"},
+        {"avibase_id": "new-lump", "AM": "", "E": ""},
     ]
     if converted != expected:
         raise ValueError("category flags were not propagated through curated mappings")
-    if [row["old_avilist_id"] for row in unresolved] != ["unresolved"]:
+    if [row["old_avibase_id"] for row in unresolved] != ["unresolved"]:
         raise ValueError("blank mappings were not preserved as unresolved")
     if Counter(row["relationship"] for row in changes) != {"split": 2, "lump": 2, "unresolved": 1}:
         raise ValueError("split and lump relationships were not derived from the minimal mapping")

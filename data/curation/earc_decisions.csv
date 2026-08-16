@@ -1,4 +1,4 @@
-decision_id,decision,common_name,scientific_name,report_year_published,observation_date_start,source_url,reference,avilist_id
+decision_id,decision,common_name,scientific_name,report_year_published,observation_date_start,source_url,reference,avibase_id
 EARC-0007,accepted,Common Gull,Larus canus,2009,2005-12-01,https://www.ajol.info/index.php/scopus/article/view/108247,,avibase-00DA9D91
 EARC-0100,accepted,Christmas Island Frigatebird,Fregata andrewsi,2016,1969-01-01,https://www.ajol.info/index.php/scopus/article/view/139746,,avibase-67200E8E
 EARC-0304,accepted,Broad-ringed (Kilimanjaro) White-eye,Zosterops eurycricotus,2022,2021-05-12,https://www.ajol.info/index.php/scopus/article/view/229442,,avibase-A23B8E7A

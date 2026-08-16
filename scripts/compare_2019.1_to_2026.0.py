@@ -19,17 +19,17 @@ OUTPUT = ROOT / "dist" / "2026-06.0" / "comparison"
 
 CHANGE_FIELDS = [
     "group_id", "relationship", "mapping_basis",
-    "old_avilist_id", "old_english_name", "old_scientific_name",
-    "new_avilist_id", "new_english_name", "new_scientific_name",
+    "old_avibase_id", "old_english_name", "old_scientific_name",
+    "new_avibase_id", "new_english_name", "new_scientific_name",
 ]
 CATEGORY_AUDIT_FIELDS = [
-    "old_avilist_id", "old_english_name", "old_scientific_name",
-    "categories", "resolution", "new_avilist_ids",
+    "old_avibase_id", "old_english_name", "old_scientific_name",
+    "categories", "resolution", "new_avibase_ids",
 ]
 UNRESOLVED_FIELDS = [
-    "old_avilist_id", "old_english_name", "old_scientific_name", "categories",
+    "old_avibase_id", "old_english_name", "old_scientific_name", "categories",
 ]
-CURRENT_ONLY_FIELDS = ["new_avilist_id", "new_english_name", "new_scientific_name"]
+CURRENT_ONLY_FIELDS = ["new_avibase_id", "new_english_name", "new_scientific_name"]
 
 
 def read_csv(path):
@@ -38,7 +38,7 @@ def read_csv(path):
 
 
 def rejected_earc_ids(path=EARC_DECISIONS):
-    return {row["avilist_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
+    return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
 
 
 def write_csv(path, fields, rows):
@@ -110,7 +110,7 @@ def mapping_edges(mapping, old_ids=None):
 
 def category_fields(categories_path):
     with categories_path.open(encoding="utf-8-sig", newline="") as handle:
-        return [field for field in csv.DictReader(handle).fieldnames or [] if field != "avilist_id"]
+        return [field for field in csv.DictReader(handle).fieldnames or [] if field != "avibase_id"]
 
 
 def normalized_english_name(value):
@@ -136,10 +136,10 @@ def change_row(group_id, relationship, basis, old, new):
         "group_id": group_id,
         "relationship": relationship,
         "mapping_basis": basis,
-        "old_avilist_id": old.get("avibaseid", ""),
+        "old_avibase_id": old.get("avibaseid", ""),
         "old_english_name": old.get("common_name", ""),
         "old_scientific_name": old.get("scientific_name", ""),
-        "new_avilist_id": new.get("avilist_id", ""),
+        "new_avibase_id": new.get("avibase_id", ""),
         "new_english_name": new.get("english_name", ""),
         "new_scientific_name": new.get("scientific_name", ""),
     }
@@ -147,7 +147,7 @@ def change_row(group_id, relationship, basis, old, new):
 
 def compare(legacy_rows, current_rows, mapping_rows, fields):
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
-    new_by_id = {row["avilist_id"]: row for row in current_rows}
+    new_by_id = {row["avibase_id"]: row for row in current_rows}
     mapping = read_mapping_rows(mapping_rows, old_by_id, new_by_id)
     edges = mapping_edges(mapping, old_by_id)
     mapped_new_ids = {target for targets in mapping.values() for target in targets}
@@ -160,7 +160,7 @@ def compare(legacy_rows, current_rows, mapping_rows, fields):
         old, new = old_by_id[identifier], new_by_id[identifier]
         relationship = changed_direct_relationship(old, new)
         if relationship:
-            changes.append(change_row(f"stable-{identifier}", relationship, "stable_avilist_id", old, new))
+            changes.append(change_row(f"stable-{identifier}", relationship, "stable_avibase_id", old, new))
 
     converted = defaultdict(lambda: {field: "" for field in fields})
     category_audit = []
@@ -172,7 +172,7 @@ def compare(legacy_rows, current_rows, mapping_rows, fields):
         if identifier in mapping:
             resolution = "mapped_taxonomic_change" if targets else "no_current_equivalent"
         elif identifier in new_by_id:
-            resolution = "stable_avilist_id"
+            resolution = "stable_avibase_id"
             targets = [identifier]
         else:
             resolution = "not_curated"
@@ -184,18 +184,18 @@ def compare(legacy_rows, current_rows, mapping_rows, fields):
             for field in assigned:
                 converted[target][field] = "TRUE"
 
-        if assigned or resolution != "stable_avilist_id":
+        if assigned or resolution != "stable_avibase_id":
             category_audit.append({
-                "old_avilist_id": identifier,
+                "old_avibase_id": identifier,
                 "old_english_name": old["common_name"],
                 "old_scientific_name": old["scientific_name"],
                 "categories": ";".join(assigned),
                 "resolution": resolution,
-                "new_avilist_ids": ";".join(targets),
+                "new_avibase_ids": ";".join(targets),
             })
         if resolution in {"no_current_equivalent", "not_curated"}:
             unresolved.append({
-                "old_avilist_id": identifier,
+                "old_avibase_id": identifier,
                 "old_english_name": old["common_name"],
                 "old_scientific_name": old["scientific_name"],
                 "categories": ";".join(assigned),
@@ -204,45 +204,45 @@ def compare(legacy_rows, current_rows, mapping_rows, fields):
     connected_new_ids = (set(old_by_id) & set(new_by_id)) | mapped_new_ids
     current_only = [
         {
-            "new_avilist_id": row["avilist_id"],
+            "new_avibase_id": row["avibase_id"],
             "new_english_name": row["english_name"],
             "new_scientific_name": row["scientific_name"],
         }
-        for row in current_rows if row["avilist_id"] not in connected_new_ids
+        for row in current_rows if row["avibase_id"] not in connected_new_ids
     ]
     converted_rows = [
-        {"avilist_id": row["avilist_id"], **converted[row["avilist_id"]]}
+        {"avibase_id": row["avibase_id"], **converted[row["avibase_id"]]}
         for row in current_rows
     ]
     return changes, unresolved, current_only, category_audit, converted_rows
 
 
 def read_mapping_rows(rows, old_by_id, new_by_id):
-    identifiers = [row["old_avilist_id"].strip() for row in rows]
+    identifiers = [row["old_avibase_id"].strip() for row in rows]
     duplicates = [identifier for identifier, count in Counter(identifiers).items() if count > 1]
     if any(not identifier for identifier in identifiers) or duplicates:
-        raise ValueError("taxonomy mapping old_avilist_id values must be nonblank and unique")
+        raise ValueError("taxonomy mapping old_avibase_id values must be nonblank and unique")
     mapping = {}
     for row in rows:
-        old_id = row["old_avilist_id"].strip()
+        old_id = row["old_avibase_id"].strip()
         if old_id not in old_by_id:
-            raise ValueError(f"unknown old_avilist_id: {old_id}")
-        targets = [item.strip() for item in re.split(r"[;\r\n]+", row["new_avilist_ids"]) if item.strip()]
+            raise ValueError(f"unknown old_avibase_id: {old_id}")
+        targets = [item.strip() for item in re.split(r"[;\r\n]+", row["new_avibase_ids"]) if item.strip()]
         unknown = [target for target in targets if target not in new_by_id]
         if unknown:
-            raise ValueError(f"unknown current AviList ID for {old_id}: {', '.join(unknown)}")
+            raise ValueError(f"unknown current Avibase ID for {old_id}: {', '.join(unknown)}")
         mapping[old_id] = targets
     return mapping
 
 
 def write_summary(path, changes, unresolved, current_only, category_audit, converted_rows):
     relationships = Counter(row["relationship"] for row in changes)
-    mapped_old = {row["old_avilist_id"] for row in changes if row["mapping_basis"] == "curated_mapping" and row["new_avilist_id"]}
-    pending_categories = sum(row["resolution"] != "stable_avilist_id" and bool(row["categories"]) for row in category_audit)
+    mapped_old = {row["old_avibase_id"] for row in changes if row["mapping_basis"] == "curated_mapping" and row["new_avibase_id"]}
+    pending_categories = sum(row["resolution"] != "stable_avibase_id" and bool(row["categories"]) for row in category_audit)
     relationship_table = "".join(f"| {name} | {count:,} |\n" for name, count in sorted(relationships.items()))
     path.write_text(
         "# v2019.1 to 2026.0 taxonomy and category migration\n\n"
-        "The maintained crosswalk has only `old_avilist_id` and `new_avilist_ids`. Relationship groups "
+        "The maintained crosswalk has only `old_avibase_id` and `new_avibase_ids`. Relationship groups "
         "are derived automatically. Categories cross stable IDs automatically; changed concepts remain "
         "in the category audit for a separate decision.\n\n"
         "## Taxonomic change edges\n\n| Relationship | Edges |\n| --- | ---: |\n"
@@ -271,7 +271,7 @@ def main():
 
     legacy_rows = read_csv(args.legacy)
     rejected_ids = rejected_earc_ids()
-    current_rows = [row for row in read_csv(args.current) if row["avilist_id"] not in rejected_ids]
+    current_rows = [row for row in read_csv(args.current) if row["avibase_id"] not in rejected_ids]
     mapping_rows = read_csv(args.mapping)
     fields = category_fields(args.categories)
     changes, unresolved, current_only, audit, converted = compare(
@@ -283,10 +283,10 @@ def main():
     write_csv(args.output / "unresolved-old-taxa.csv", UNRESOLVED_FIELDS, unresolved)
     write_csv(args.output / "current-only-taxa.csv", CURRENT_ONLY_FIELDS, current_only)
     write_csv(args.output / "category-migration-audit.csv", CATEGORY_AUDIT_FIELDS, audit)
-    write_csv(args.output / "categories-converted.csv", ["avilist_id", *fields], converted)
+    write_csv(args.output / "categories-converted.csv", ["avibase_id", *fields], converted)
     write_summary(args.output / "legacy-summary.md", changes, unresolved, current_only, audit, converted)
     if args.write_categories:
-        write_csv(args.categories, ["avilist_id", *fields], converted)
+        write_csv(args.categories, ["avibase_id", *fields], converted)
 
     subprocess.run([
         sys.executable, str(ROOT / "scripts" / "render_2019.1_taxonomy_report.py"),

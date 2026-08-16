@@ -20,13 +20,13 @@ Defined in `config/release.toml`:
 | eBird Basic Dataset for Kenya | `YYYY-MM` | `ebd_version`, `ebd_path` | Zipped tab-separated EBD under `data/ebird/` |
 | Clements/eBird taxonomy | Taxonomy year | `ebird_taxonomy_version`, `ebird_taxonomy_path` | CSV with `TAXON_CONCEPT_ID`, `SPECIES_CODE`, and `REPORT_AS` under `data/ebird/` |
 | AviList | Pinned release | `avilist_version`, `avilist_path` | Extended AviList workbook under `data/avilist/` |
-| Project categories | Repository revision | `categories_path` | CSV keyed by `avilist_id` under `data/curation/` |
+| Project categories | Repository revision | `categories_path` | CSV keyed by `avibase_id` under `data/curation/` |
 | KBM species list | Repository revision | `kbm_species_list_path` | KBM CSV containing positive SAFRING numbers and Avibase IDs |
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
-| Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avilist_id`, with rationale and reference under `data/curation/` |
-| EARC decisions | Repository revision | fixed `data/curation/earc_decisions.csv` | Accepted and rejected national-list decisions keyed by `avilist_id` |
-| Curated checklist species | Repository revision | `curated_species_path` | Species-level checklist additions keyed by `avilist_id`, with reason and reference |
+| Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avibase_id`, with rationale and reference under `data/curation/` |
+| EARC decisions | Repository revision | fixed `data/curation/earc_decisions.csv` | Accepted and rejected national-list decisions keyed by `avibase_id` |
+| Curated checklist species | Repository revision | `curated_species_path` | Species-level checklist additions keyed by `avibase_id`, with reason and reference |
 
 The release build consumes local source files; it does not download them automatically. Obtain the
 licensed EBD archive from eBird and the matching taxonomy CSV from the eBird/Clements source, then
@@ -74,7 +74,7 @@ Apply `data/curation/ebird_avilist_overrides.csv` first, then match all remainin
 
 ### 6. Add curated sensitive species
 
-Join `data/curation/sensitive_species.csv` to AviList by `avilist_id`. When a curated sensitive species already has qualifying EBD evidence, retain its EBD membership and mark it `sensitive=TRUE`. When it is absent from the EBD, add the AviList species with `membership_source=curated_sensitive_species` and `sensitive=TRUE`.
+Join `data/curation/sensitive_species.csv` to AviList by `avibase_id`. When a curated sensitive species already has qualifying EBD evidence, retain its EBD membership and mark it `sensitive=TRUE`. When it is absent from the EBD, add the AviList species with `membership_source=curated_sensitive_species` and `sensitive=TRUE`.
 
 For a sensitive species added through curation, populate taxonomy, names, and the eBird species code from the pinned AviList release. Leave `source_avibase_ids`, observation count, and first/last dates blank: absence of publishable EBD rows is not evidence of zero observations. Write every curated entry and its membership route to `audit/sensitive_species.csv`.
 
@@ -82,7 +82,7 @@ Species in `curated_species.csv` are added with `membership_source=curated_speci
 
 ### 7. Add KBM numbers
 
-Read `data/KBM/general_specielist_UO.csv` directly. Match each final `avilist_id` to the KBM `avibase_id` first, then use its EBD `source_avibase_ids` only when no direct positive SAFRING number is available. Preserve multiple identifiers with semicolons; do not use blank or `0` values as KBM identifiers. This avoids a second generated crosswalk becoming stale.
+Read `data/KBM/general_specielist_UO.csv` directly. Match each final `avibase_id` to the KBM `avibase_id` first, then use its EBD `source_avibase_ids` only when no direct positive SAFRING number is available. Preserve multiple identifiers with semicolons; do not use blank or `0` values as KBM identifiers. This avoids a second generated crosswalk becoming stale.
 
 ### 8. Write the checklist and supporting tables
 
@@ -90,15 +90,15 @@ Read `data/KBM/general_specielist_UO.csv` directly. Match each final `avilist_id
 
 | Columns | Origin |
 | --- | --- |
-| `sequence`, `avilist_id`, `order`, `family`, `family_english_name`, `scientific_name`, `english_name` | AviList |
+| `sequence`, `avibase_id`, `order`, `family`, `family_english_name`, `scientific_name`, `english_name` | AviList |
 | `ebird_species_code` | Reportable eBird species code or codes folded into the row |
 | `source_avibase_ids` | EBD `TAXON CONCEPT ID` values contributing evidence |
-| `safring_numbers` | Curated KBM/SAFRING number or numbers, keyed by the final `avilist_id`; multiple values are separated by semicolons |
+| `safring_numbers` | Curated KBM/SAFRING number or numbers, keyed by the final `avibase_id`; multiple values are separated by semicolons |
 | `membership_source` | `ebd` or `curated_sensitive_species` |
 | `sensitive` | `TRUE` for entries in the curated sensitive-species table; otherwise `FALSE` |
 | `exotic_status` | Derived regional status: `native`, `naturalized`, or `provisional` |
 | `observations`, `first_observation_date`, `last_observation_date` | Reports clustered within three calendar months and 3 km; blank for curated sensitive species without EBD rows |
-| Additional category columns | Project `categories.csv`, joined by `avilist_id`, plus derived `HIST`, `RAR`, and `water_bird` |
+| Additional category columns | Project `categories.csv`, joined by `avibase_id`, plus derived `HIST`, `RAR`, and `water_bird` |
 
 `HIST` is `TRUE` when the latest qualifying Kenyan eBird record predates the configured release reference date by more than 50 years. `RAR` is `TRUE` when the release contains fewer than five derived observations for the species; an observation clusters eBird reports within three calendar months and 3 km. It is a review aid, not a conservation assessment. `water_bird` is `TRUE` when the AviList family is one of the 33 families covered by the Ramsar Convention's [Waterbird Population Estimates scope](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf), otherwise `FALSE`. None of these derived fields is maintained in `categories.csv`.
 
@@ -106,11 +106,11 @@ The local compact summary retains both `record_count` (original EBD row count) a
 
 `audit/safring_numbers_missing.csv` lists final checklist species without a curated SAFRING mapping, so unresolved KBM links can be reviewed without becoming a curation input.
 
-`latest_records.csv` contains at most five rows per `avilist_id` with:
+`latest_records.csv` contains at most five rows per `avibase_id` with:
 
 | Column | EBD origin |
 | --- | --- |
-| `avilist_id` | Resolved AviList species key |
+| `avibase_id` | Resolved AviList species key |
 | `sampling_event_identifier` | `SAMPLING EVENT IDENTIFIER` |
 | `source_taxon_concept_id` | `TAXON CONCEPT ID` |
 | `exotic_code` | Effective observation-level EBD exotic code |
@@ -118,7 +118,7 @@ The local compact summary retains both `record_count` (original EBD row count) a
 | `observation_date` | `OBSERVATION DATE` |
 | `observation_count` | `OBSERVATION COUNT` |
 
-`supplementary_taxa.csv` retains Escapee observations and requested non-species taxa with equivalent observation summary fields. Its grain is `source_taxon_concept_id + exotic_status`; it uses the pinned eBird taxonomy for sequence, hierarchy, and names and deliberately has no `avilist_id`. A species may therefore occur in the main checklist from qualifying observations and in this table from its Escapee observations. Its companion, `supplementary_taxa_latest_records.csv`, contains at most five rows per taxon-status group.
+`supplementary_taxa.csv` retains Escapee observations and requested non-species taxa with equivalent observation summary fields. Its grain is `source_taxon_concept_id + exotic_status`; it uses the pinned eBird taxonomy for sequence, hierarchy, and names and deliberately has no `avibase_id`. A species may therefore occur in the main checklist from qualifying observations and in this table from its Escapee observations. Its companion, `supplementary_taxa_latest_records.csv`, contains at most five rows per taxon-status group.
 
 Checklist and species comments are retained only in the ignored local derived data. They are not included in the release table.
 

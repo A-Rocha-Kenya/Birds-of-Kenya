@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 CORE_FIELDS = {
-    "sequence", "avilist_id", "order", "family", "family_english_name",
+    "sequence", "avibase_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "membership_source",
     "sensitive", "exotic_status",
     "source_avibase_ids", "observations", "observation_record_count", "first_observation_date",
@@ -18,7 +18,7 @@ CORE_FIELDS = {
     "iucn_red_list_category", "birdlife_datazone_url", "birds_of_the_world_url",
 }
 FIELDS = [
-    "change", "avilist_id", "old_scientific_name", "new_scientific_name",
+    "change", "avibase_id", "old_scientific_name", "new_scientific_name",
     "old_english_name", "new_english_name", "old_observations",
     "new_observations", "changed_fields",
 ]
@@ -30,8 +30,8 @@ def read_csv(path):
 
 
 def compare(old_rows, new_rows):
-    old = {row["avilist_id"]: row for row in old_rows}
-    new = {row["avilist_id"]: row for row in new_rows}
+    old = {row["avibase_id"]: row for row in old_rows}
+    new = {row["avibase_id"]: row for row in new_rows}
     category_fields = (set(old_rows[0]) | set(new_rows[0])) - CORE_FIELDS if old_rows and new_rows else set()
     changes = []
     for identifier in sorted(set(old) | set(new)):
@@ -52,7 +52,7 @@ def compare(old_rows, new_rows):
             continue
         changes.append({
             "change": change,
-            "avilist_id": identifier,
+            "avibase_id": identifier,
             "old_scientific_name": before.get("scientific_name", ""),
             "new_scientific_name": after.get("scientific_name", ""),
             "old_english_name": before.get("english_name", ""),
@@ -75,7 +75,7 @@ def public_taxon(row):
     if not row:
         return None
     return {
-        "id": row["avilist_id"],
+        "id": row["avibase_id"],
         "english": row.get("english_name", ""),
         "scientific": row.get("scientific_name", ""),
         "family": row.get("family", ""),
@@ -86,8 +86,8 @@ def public_taxon(row):
 
 
 def website_comparison(old_rows, new_rows, changes, old_name, new_name):
-    old = {row["avilist_id"]: row for row in old_rows}
-    new = {row["avilist_id"]: row for row in new_rows}
+    old = {row["avibase_id"]: row for row in old_rows}
+    new = {row["avibase_id"]: row for row in new_rows}
     labels = {
         "added": "New",
         "removed": "Discontinued",
@@ -97,7 +97,7 @@ def website_comparison(old_rows, new_rows, changes, old_name, new_name):
     }
     groups = []
     for change in changes:
-        identifier = change["avilist_id"]
+        identifier = change["avibase_id"]
         before = old.get(identifier)
         after = new.get(identifier)
         reference = after or before
@@ -138,7 +138,7 @@ def write_markdown(path, old_name, new_name, rows):
     counts = Counter(row["change"] for row in rows)
     path.write_text(
         f"# {old_name} to {new_name}\n\n"
-        "Differences are computed by `avilist_id`. Added and removed identifiers are review prompts: "
+        "Differences are computed by `avibase_id`. Added and removed identifiers are review prompts: "
         "a taxonomic split, lump, or identifier replacement may require an explicit migration mapping.\n\n"
         "| Change | Taxa |\n| --- | ---: |\n"
         f"| Added | {counts['added']:,} |\n"
@@ -163,14 +163,14 @@ table{{border-collapse:collapse;width:100%;font-size:.9rem}}th,td{{padding:.55re
 th{{position:sticky;top:0;background:#f3f6f4}}.added{{color:#176b36}}.removed{{color:#a12828}}.count{{font-variant-numeric:tabular-nums}}
 </style></head><body><h1>{title}</h1><p id="summary"></p>
 <div class="controls"><input id="search" type="search" placeholder="Search names or identifiers"><span id="filters"></span></div>
-<table><thead><tr><th>Change</th><th>AviList ID</th><th>Previous</th><th>New</th><th>Fields</th></tr></thead><tbody id="rows"></tbody></table>
+<table><thead><tr><th>Change</th><th>Avibase ID</th><th>Previous</th><th>New</th><th>Fields</th></tr></thead><tbody id="rows"></tbody></table>
 <script>const data={data};let selected='all';
 const labels={{all:'All',added:'Added',removed:'Removed',taxonomy_changed:'Taxonomy/name',evidence_changed:'Evidence/status',categories_changed:'Categories'}};
 const counts=Object.fromEntries(Object.keys(labels).map(k=>[k,k==='all'?data.length:data.filter(x=>x.change===k).length]));
 filters.innerHTML=Object.entries(labels).map(([k,v])=>`<button data-filter="${{k}}">${{v}} (${{counts[k]}})</button>`).join(' ');
 summary.textContent=`${{data.length.toLocaleString()}} material changes between the two releases.`;
 function esc(x){{const e=document.createElement('span');e.textContent=x||'';return e.innerHTML}}
-function render(){{const q=search.value.toLowerCase();const shown=data.filter(x=>(selected==='all'||x.change===selected)&&Object.values(x).join(' ').toLowerCase().includes(q));rows.innerHTML=shown.map(x=>`<tr><td class="${{x.change}}">${{esc(labels[x.change])}}</td><td>${{esc(x.avilist_id)}}</td><td><b>${{esc(x.old_english_name)}}</b><br><i>${{esc(x.old_scientific_name)}}</i><br><span class="count">${{esc(x.old_observations)}}</span></td><td><b>${{esc(x.new_english_name)}}</b><br><i>${{esc(x.new_scientific_name)}}</i><br><span class="count">${{esc(x.new_observations)}}</span></td><td>${{esc(x.changed_fields)}}</td></tr>`).join('')}}
+function render(){{const q=search.value.toLowerCase();const shown=data.filter(x=>(selected==='all'||x.change===selected)&&Object.values(x).join(' ').toLowerCase().includes(q));rows.innerHTML=shown.map(x=>`<tr><td class="${{x.change}}">${{esc(labels[x.change])}}</td><td>${{esc(x.avibase_id)}}</td><td><b>${{esc(x.old_english_name)}}</b><br><i>${{esc(x.old_scientific_name)}}</i><br><span class="count">${{esc(x.old_observations)}}</span></td><td><b>${{esc(x.new_english_name)}}</b><br><i>${{esc(x.new_scientific_name)}}</i><br><span class="count">${{esc(x.new_observations)}}</span></td><td>${{esc(x.changed_fields)}}</td></tr>`).join('')}}
 filters.addEventListener('click',e=>{{if(e.target.dataset.filter){{selected=e.target.dataset.filter;render()}}}});search.addEventListener('input',render);render();</script></body></html>""", encoding="utf-8")
 
 

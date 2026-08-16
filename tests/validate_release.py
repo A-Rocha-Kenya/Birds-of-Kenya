@@ -32,12 +32,12 @@ def main():
 
     if manifest["release_id"] != release.name:
         raise ValueError("release directory name must equal manifest release_id")
-    identifiers = [row["avilist_id"] for row in checklist]
+    identifiers = [row["avibase_id"] for row in checklist]
     duplicates = [key for key, count in Counter(identifiers).items() if count > 1]
     if any(not key for key in identifiers) or duplicates:
-        raise ValueError("checklist avilist_id values must be nonblank and unique")
-    if {row["avilist_id"] for row in missing_safring} != {
-        row["avilist_id"] for row in checklist if not row["safring_numbers"]
+        raise ValueError("checklist avibase_id values must be nonblank and unique")
+    if {row["avibase_id"] for row in missing_safring} != {
+        row["avibase_id"] for row in checklist if not row["safring_numbers"]
     }:
         raise ValueError("SAFRING mapping audit does not match checklist coverage")
     for row in checklist:
@@ -75,11 +75,11 @@ def main():
         raise ValueError("checklist historical status does not match the last observation date")
     if any((row["RAR"] == "TRUE") != (bool(row["observations"]) and int(row["observations"]) < 5) for row in checklist):
         raise ValueError("checklist rarity status is inconsistent")
-    latest_counts = Counter(row["avilist_id"] for row in latest)
+    latest_counts = Counter(row["avibase_id"] for row in latest)
     if any(identifier not in set(identifiers) for identifier in latest_counts):
-        raise ValueError("latest_records contains an avilist_id absent from checklist")
+        raise ValueError("latest_records contains an avibase_id absent from checklist")
     if any(count > 5 for count in latest_counts.values()):
-        raise ValueError("latest_records contains more than five rows for an avilist_id")
+        raise ValueError("latest_records contains more than five rows for an avibase_id")
     entity_keys = [(row["source_taxon_concept_id"], row["exotic_status"]) for row in entities]
     if any(not identifier for identifier, status in entity_keys) or len(entity_keys) != len(set(entity_keys)):
         raise ValueError("supplementary_taxa source_taxon_concept_id and exotic_status pairs must be nonblank and unique")
