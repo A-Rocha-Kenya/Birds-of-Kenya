@@ -41,15 +41,16 @@ def main():
         raise ValueError("website checklist contains no KBM numbers")
     if metadata["release"]["id"] != manifest["release_id"] or comparison["to_release"] != manifest["release_id"]:
         raise ValueError("website, comparison, and manifest release identifiers do not match")
-    endemic_species = sum(bool(row["E"].strip()) for row in rows)
-    if metadata["counts"]["endemic_species"] != f"{endemic_species:,}":
-        raise ValueError("website endemic-species count is incorrect")
+    if "endemic_species" in metadata["counts"]:
+        raise ValueError("website metadata exposes discontinued endemic status")
     if not categories or {"code", "label", "display_group", "display_order"} - set(categories[0]):
         raise ValueError("website category definitions are incomplete")
     if any(category["display_group"] in {"Regular movement", "Regional visitors", "Regional vagrants"} for category in categories):
         raise ValueError("website exposes hidden status categories")
-    if {"AM", "IO", "VIO"} & set(rows[0]):
+    if {"E", "ES", "AM", "IO", "VIO"} & set(rows[0]):
         raise ValueError("website checklist exposes hidden status fields")
+    if {"E", "ES"} & {category["code"] for category in categories}:
+        raise ValueError("website category definitions expose discontinued endemic status")
     pending_earc_ids = {
         row["id"]
         for group in comparison["groups"] if group.get("pending_earc")
@@ -66,12 +67,16 @@ def main():
     checklist_page = (site / "checklist" / "index.html").read_text(encoding="utf-8")
     changes_page = (site / "changes" / "index.html").read_text(encoding="utf-8")
     policy_page = (site / "policy" / "index.html").read_text(encoding="utf-8")
-    if 'href="checklist/"' not in home or 'href="changes/"' not in home:
-        raise ValueError("home page does not link to both primary site sections")
-    if 'href="../policy/"' not in checklist_page:
-        raise ValueError("checklist page does not link to the checklist policy")
+    if 'href="checklist/"' not in home or 'href="changes/"' not in home or home.count('href="policy/"') < 2:
+        raise ValueError("home page does not link to all primary site sections")
+    if any(page.count('href="../policy/"') < 2 for page in (checklist_page, changes_page)):
+        raise ValueError("section pages do not link to the checklist policy in both navigation areas")
+    if "Explore the checklist" in policy_page:
+        raise ValueError("policy page still includes the Explore the checklist link")
     if ("Taxonomy and species names" not in policy_page or "Acceptance rules" not in policy_page
-            or 'href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya/issues/3"' not in policy_page
+            or 'href="https://www.eararities.org/"' not in policy_page
+            or "defining authority" not in policy_page
+            or "Pending Committee decision" in policy_page
             or "POLICY_CONTENT" in policy_page):
         raise ValueError("website policy page was not generated from the checklist policy")
     if "Sixth edition" not in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
@@ -87,6 +92,8 @@ def main():
         raise ValueError("website checklist does not link KBM numbers to Kenya Bird Map")
     if "columnHeaders: true" not in checklist_script:
         raise ValueError("current-view CSV export does not include column headers")
+    if "data-filter=\"endemic\"" in checklist_page or "endemicCount" in checklist_script:
+        raise ValueError("checklist page exposes the discontinued endemic filter")
     print(f"Validated assembled website: four pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")
 
 

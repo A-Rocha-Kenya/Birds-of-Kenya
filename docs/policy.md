@@ -11,9 +11,9 @@ This checklist follows AviList v2025b. It supplies the taxon identity, order, fa
 The public checklist is species-level for the current release, following AviList.
 Using [eBird taxonomic definitions](https://support.ebird.org/en/support/solutions/articles/48000837816-the-ebird-taxonomy#anchorISSF), subspecies (ISSF) are rolled up to species level, as are intergrades and forms when possible (as defined by the eBird `REPORT_AS` code). Slashes and unidentified taxa are not included. Hybrids and domestic forms are available in a separate table.
 
-Following [eBird exotic status](https://support.ebird.org/en/support/solutions/articles/48001218430-exotic-and-introduced-species-in-ebird), we retain only native, naturalized, and provisional species. Escapees are exported in the same list together with hybrids and domestic forms.
+Following [eBird exotic status](https://support.ebird.org/en/support/solutions/articles/48001218430-exotic-and-introduced-species-in-ebird), the main checklist retains native, naturalized, and provisional species. Escapee records, hybrids, domestic taxa, and other retained non-species entities are published separately in the supplementary taxa tables.
 
-Sensitive species flagged by eBird (Taita's and Saker Falcon) are included manually as they are not included in the EBD.
+Taita Falcon and Saker Falcon are maintained in the sensitive-species curation table because their publishable records may be obscured or withheld from the EBD. When qualifying EBD evidence is unavailable, they remain in the checklist without an inferred observation count or first and last observation dates.
 
 ## Geographic scope
 
@@ -21,14 +21,20 @@ The geographic scope is the Kenya coverage used to obtain the EBD, which closely
 
 ## Categories
 
-The project may maintain Kenya-specific categories. The public checklist currently presents **Kenya status** categories for endemism, historical occurrence, and rarity. These are editorial interpretations, not automatic consequences of an external taxonomic database. Waterbird status is the exception: it is an **ecological association** derived from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
+The public checklist distinguishes categories derived for each release from external statuses and editorial review flags. They describe different things and must not be treated as interchangeable.
 
-`RAR` is a derived review aid for species with fewer than five observations in a release. An observation clusters eBird reports within three calendar months and 3 km. It must not be confused with an East African Rarities Committee threshold or a conservation assessment. An introduced label requires its own definition, evidence, and approval. Historical status is derived when the latest Kenyan eBird record is more than 50 years before a release’s reference date.
+**Release-derived categories.** `HIST` identifies a species whose latest qualifying Kenyan eBird record is more than 50 years before the release reference date. `RAR` identifies an EBD-supported species with fewer than five derived observations in the release; one observation clusters eBird reports within three calendar months and 3 km. `RAR` is only a review aid: it is not an [East African Rarities Committee (EARC)](https://www.eararities.org/) decision or threshold, and it is not a conservation assessment. `W` identifies a waterbird from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
+
+**External statuses and review flags.** The Status column labels naturalized and provisional species from eBird exotic status; native species are unlabelled, while escapee-only species are outside the main checklist. `S` marks sensitive species whose observation evidence is withheld. `Pending EARC` is the website review flag described below, not a checklist category and not an EARC decision. The separate Conservation column displays the global IUCN Red List category supplied by AviList.
 
 ## Acceptance rules
 
-**Pending Committee decision: [#3](https://github.com/A-Rocha-Kenya/Birds-of-Kenya/issues/3).** Define the minimum evidence and approval route for additions, removals, status changes, and corrections. The decision should specify whether new rare or disputed taxa require EARC acceptance or a refereed publication, how routine changes are handled, and the required decision record: source, record date, decision date, outcome, rationale, and responsible reviewer.
+The [East African Rarities Committee (EARC)](https://www.eararities.org/) is the defining authority for the acceptance of new, very rare, or disputed national records. Its remit includes new species and up to the fifth national record, and it may also assess records of species considered extinct or possibly extinct, long-unrecorded residents, and major range extensions.
+
+An accepted EARC decision establishes record acceptance for checklist purposes. A rejected EARC decision excludes the mapped taxon from the checklist, its latest-record output, and edition comparisons. A refereed publication or other documented evidence may support an EARC submission or help interpret a record, but it does not replace an EARC decision where the record falls within EARC's remit.
+
+A species surfaced by the evidence pipeline before a matching EARC decision is recorded may remain visible provisionally. When it appears as an addition to or removal from the 2019.1 checklist, the website marks it `Pending EARC`. This flag means that the repository has no mapped EARC decision for the change; it does not itself confirm that a submission is active, and it must not be read as acceptance.
 
 ## Changes
 
-Each new release should explain what changed: source coverage, taxonomy, names, categories, and unresolved records. An added or removed row is a question for interpretation, not automatically an arrival, disappearance, split, or lump.
+Each new release should explain what changed: source coverage, taxonomy, names, categories, EARC decisions, and unresolved records. An added or removed row is a question for interpretation, not automatically an arrival, disappearance, split, or lump. The comparison distinguishes taxonomic concept changes from additions and removals and exposes the applicable EARC decision or `Pending EARC` flag.

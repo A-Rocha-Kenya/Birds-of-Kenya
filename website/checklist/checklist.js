@@ -24,12 +24,10 @@ let exportPlugin;
 let allRows = [];
 const selectedFilters = new Set();
 
-const statusColumns = ['E', 'ES', 'HIST', 'RAR'];
+const statusColumns = ['HIST', 'RAR'];
 const hiddenCategoryGroups = new Set(['Regular movement', 'Regional visitors', 'Regional vagrants']);
 let statusDisplayTokens = {};
-let statusDescriptions = {
-  E: 'Endemic species', ES: 'Endemic subspecies', HIST: 'Historical occurrence', RAR: 'Rare'
-};
+let statusDescriptions = {HIST: 'Historical occurrence', RAR: 'Rare'};
 const originStatusDefinitions = [
   {
     code: 'naturalized', label: 'Naturalized', definition: 'Established non-native species in Kenya',
@@ -297,7 +295,6 @@ const renderColumnPicker = () => {
 const selectedColumns = select => [...select.selectedOptions].map(option => option.value);
 
 const matchesFilter = (row, filter) => {
-  if (filter === 'endemic') return truthy(row.E);
   if (filter === 'historical') return truthy(row.HIST);
   if (filter === 'rare') return truthy(row.RAR);
   if (filter === 'waterbird') return truthy(row.water_bird);
@@ -334,7 +331,6 @@ const renderView = () => {
 
 const setFilterCounts = rows => {
   const setText = (id, value) => { document.getElementById(id).textContent = value.toLocaleString(); };
-  setText('endemicCount', rows.filter(row => truthy(row.E)).length);
   setText('historicalCount', rows.filter(row => truthy(row.HIST)).length);
   setText('rareCount', rows.filter(row => truthy(row.RAR)).length);
   setText('waterbirdFilterCount', rows.filter(row => truthy(row.water_bird)).length);

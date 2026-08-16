@@ -18,6 +18,7 @@ WEBSITE = ROOT / "website"
 PUBLICATION = ROOT / "publication" / "publication.toml"
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
+HIDDEN_CATEGORY_CODES = {"E", "ES"}
 POLICY_CONTENT_MARKER = "<!-- POLICY_CONTENT -->"
 INLINE_MARKDOWN = re.compile(r"(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)")
 
@@ -114,7 +115,6 @@ def annotate_earc(comparison, decision_rows):
 def public_metadata(metadata, manifest, rows, comparison, downloads):
     gbif_doi = metadata["gbif"]["doi"].strip()
     citation = metadata["document"]["recommended_citation"].strip()
-    endemic_species = sum(bool(row["E"].strip()) for row in rows)
     return {
         "release": {
             "id": manifest["release_id"],
@@ -125,7 +125,6 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
         "counts": {
             "species": f"{len(rows):,}",
             "families": f"{len({row['family'] for row in rows}):,}",
-            "endemic_species": f"{endemic_species:,}",
             "sensitive_species": f"{manifest['counts']['curated_sensitive_species']:,}",
         },
         "sources": {
@@ -200,10 +199,12 @@ def main():
     category_definitions = [
         definition for definition in all_category_definitions
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
+        and definition["code"] not in HIDDEN_CATEGORY_CODES
     ]
     hidden_category_codes = {
         definition["code"] for definition in all_category_definitions
         if definition["display_group"] in HIDDEN_CATEGORY_GROUPS
+        or definition["code"] in HIDDEN_CATEGORY_CODES
     }
     public_rows = [{field: value for field, value in row.items() if field not in hidden_category_codes} for row in rows]
     public_fields = [field for field in rows[0] if field not in hidden_category_codes]

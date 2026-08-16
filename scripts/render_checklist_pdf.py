@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
+HIDDEN_CATEGORY_CODES = {"E", "ES"}
 ACCENT = 'rgb("2d6a4f")'
 MUTED = 'rgb("5b6470")'
 
@@ -196,6 +197,7 @@ def main():
     definitions = [
         definition for definition in read_csv(root_path(metadata["sources"]["category_definitions"]))
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
+        and definition["code"] not in HIDDEN_CATEGORY_CODES
     ]
 
     policy = markdown_to_typst(root_path(metadata["sources"]["policy"]))
