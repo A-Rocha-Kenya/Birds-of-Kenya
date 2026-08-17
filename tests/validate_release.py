@@ -47,7 +47,7 @@ def main():
     required = ["scientific_name", "english_name", "ebird_species_code", "membership_source", "sensitive", "exotic_status"]
     if any(not row[field] for row in checklist for field in required):
         raise ValueError("checklist contains a blank required value")
-    if any(row["membership_source"] not in {"ebd", "curated_sensitive_species", "curated_species"} for row in checklist):
+    if any(row["membership_source"] not in {"ebd", "curated_sensitive_species", "curated_species", "accepted_earc"} for row in checklist):
         raise ValueError("checklist contains an invalid membership source")
     if any(row["sensitive"] not in {"TRUE", "FALSE"} for row in checklist):
         raise ValueError("checklist contains an invalid sensitive flag")
@@ -57,6 +57,12 @@ def main():
         raise ValueError("curated sensitive membership must be flagged and must not invent observation summaries")
     if any(row["sensitive"] != "FALSE" for row in checklist if row["membership_source"] == "curated_species"):
         raise ValueError("curated checklist membership must not be flagged as sensitive")
+    if any(
+        row["sensitive"] != "FALSE" or row["observations"] != "0"
+        or row["first_observation_date"] or row["last_observation_date"]
+        for row in checklist if row["membership_source"] == "accepted_earc"
+    ):
+        raise ValueError("accepted EARC membership without EBD evidence must have zero observations and no observation dates")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in checklist if row["first_observation_date"] and row["last_observation_date"]):
         raise ValueError("checklist contains an invalid observation-date range")
     if any(row["exotic_status"] not in {"native", "naturalized", "provisional"} for row in checklist):
@@ -73,7 +79,7 @@ def main():
         for row in checklist
     ):
         raise ValueError("checklist historical status does not match the last observation date")
-    if any((row["RAR"] == "TRUE") != (bool(row["observations"]) and int(row["observations"]) < 5) for row in checklist):
+    if any((row["RAR"] == "TRUE") != (row["observations"] != "" and int(row["observations"]) < 5) for row in checklist):
         raise ValueError("checklist rarity status is inconsistent")
     latest_counts = Counter(row["avibase_id"] for row in latest)
     if any(identifier not in set(identifiers) for identifier in latest_counts):

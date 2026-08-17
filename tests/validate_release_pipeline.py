@@ -46,6 +46,8 @@ def main():
         raise ValueError("historical status should not apply at exactly 50 years")
     if "RAR" not in build.DERIVED_CATEGORY_FIELDS:
         raise ValueError("rarity status must be derived")
+    if "avibase-67200E8E" not in build.accepted_earc_ids():
+        raise ValueError("accepted EARC taxa must be available to the release build")
 
     clustered = [
         {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.0},

@@ -97,6 +97,10 @@ def rejected_earc_ids(path=EARC_DECISIONS):
     return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
 
 
+def accepted_earc_ids(path=EARC_DECISIONS):
+    return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "accepted"}
+
+
 def read_xlsx(path):
     with zipfile.ZipFile(path) as archive:
         shared = []
@@ -693,6 +697,7 @@ def build(config_path, force_compaction=False):
     )
     avilist_by_code, avilist_by_id = avilist_indexes(read_xlsx(paths["avilist_path"]))
     rejected_ids = rejected_earc_ids()
+    accepted_ids = accepted_earc_ids()
     overrides = read_ebird_avilist_overrides(paths["ebird_avilist_overrides_path"], avilist_by_id)
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
     curated_species = read_curated_species(paths["curated_species_path"], avilist_by_id)
@@ -750,6 +755,22 @@ def build(config_path, force_compaction=False):
             "reason": curated_sensitive["reason"],
             "reference": curated_sensitive["reference"],
         })
+
+    for avibase_id in accepted_ids:
+        if avibase_id not in observations:
+            taxon = avilist_by_id[avibase_id]
+            observations[avibase_id] = {
+                "taxon": taxon,
+                "codes": {taxon["Species_code_Cornell_Lab"]},
+                "source_ids": set(),
+                "count": 0,
+                "observations": 0,
+                "first": "",
+                "last": "",
+                "exotic_status": "native",
+                "membership_source": "accepted_earc",
+                "sensitive": "FALSE",
+            }
 
     for avibase_id in curated_species:
         if avibase_id not in observations:

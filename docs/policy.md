@@ -4,7 +4,9 @@ The *Checklist of the Birds of Kenya* is a public, living account of birds repre
 
 ## Taxonomy and species names
 
-This checklist follows AviList v2025b. It supplies the taxon identity, order, family, scientific name, and default English name. This checklist does not maintain a competing taxonomy or alternative names.
+This checklist follows AviList v2025b. It supplies the taxon identity, order, family, scientific name, and the English name displayed in this edition. AviList v2025 adopted the IOC World Bird List v15.1 English names as its default where taxonomy aligned.
+
+From AviList v2026 onward, AviList's English Names Committee will recommend the global-standard English names. Future editions of this checklist will adopt those AviList names by default. See AviList's [English Names Committee terms of reference](https://www.avilist.org/tor/).
 
 ## Taxonomic resolution
 
@@ -13,7 +15,7 @@ Using [eBird taxonomic definitions](https://support.ebird.org/en/support/solutio
 
 Following [eBird exotic status](https://support.ebird.org/en/support/solutions/articles/48001218430-exotic-and-introduced-species-in-ebird), the main checklist retains native, naturalized, and provisional species. Escapee records, hybrids, domestic taxa, and other retained non-species entities are published separately in the supplementary taxa tables.
 
-Taita Falcon and Saker Falcon are maintained in the sensitive-species curation table because their publishable records may be obscured or withheld from the EBD. When qualifying EBD evidence is unavailable, they remain in the checklist without an inferred observation count or first and last observation dates.
+Taita Falcon and Saker Falcon are classified as sensitive-species in eBird and their records are withheld from the EBD.
 
 ## Geographic scope
 
@@ -23,7 +25,7 @@ The geographic scope is the Kenya coverage used to obtain the EBD, which closely
 
 The public checklist distinguishes categories derived for each release from external statuses and editorial review flags. They describe different things and must not be treated as interchangeable.
 
-**Release-derived categories.** `HIST` identifies a species whose latest qualifying Kenyan eBird record is more than 50 years before the release reference date. `RAR` identifies an EBD-supported species with fewer than five derived observations in the release; one observation clusters eBird reports within three calendar months and 3 km. `RAR` is only a review aid: it is not an [East African Rarities Committee (EARC)](https://www.eararities.org/) decision or threshold, and it is not a conservation assessment. `W` identifies a waterbird from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
+**Release-derived categories.** `HIST` identifies a species whose latest qualifying Kenyan eBird record is more than 50 years before the release reference date. `RAR` identifies a species with fewer than five release observations; one observation clusters eBird reports within three calendar months and 3 km. A species admitted solely through an accepted [East African Rarities Committee (EARC)](https://www.eararities.org/) decision has `0` eBird observations and is marked `RAR`. `RAR` is only a review aid: it is not an EARC decision or threshold, and it is not a conservation assessment. `W` identifies a waterbird from AviList family placement using the 33-family scope of the Ramsar Convention's [Waterbird Population Estimates](https://www.ramsar.org/sites/default/files/2024-03/SC63_20_waterbird_population_estimates_e.pdf).
 
 **External statuses and review flags.** The Status column labels naturalized and provisional species from eBird exotic status; native species are unlabelled, while escapee-only species are outside the main checklist. `S` marks sensitive species whose observation evidence is withheld. `Pending EARC` is the website review flag described below, not a checklist category and not an EARC decision. The separate Conservation column displays the global IUCN Red List category supplied by AviList.
 

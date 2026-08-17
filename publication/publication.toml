@@ -7,11 +7,11 @@ language = "en-KE"
 title = "Checklist of the Birds of Kenya"
 short_title = "Birds of Kenya"
 edition = "Sixth edition"
-corporate_author = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+corporate_author = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 version_label = "2026-06.0"
 publication_date = ""
 editorial_cutoff_date = ""
-recommended_citation = "Bird Committee (2026). Checklist of the Birds of Kenya (version 2026-06.0). Nature Kenya—the East Africa Natural History Society."
+recommended_citation = "Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version 2026-06.0)."
 
 [gbif]
 dataset_url = ""
@@ -33,7 +33,7 @@ address = "The Nature Kenya office is at the National Museums of Kenya, Museum H
 telephone = "(+254) (0)777 149200 / (0)776 149200 / (0)701 149200 and (0)780 149200"
 email = "office@naturekenya.org"
 website = "https://www.naturekenya.org"
-copyright_holder = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+copyright_holder = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 copyright_year = "2026"
 licence = "https://creativecommons.org/licenses/by/4.0/"
 
@@ -43,11 +43,11 @@ supersedes_release = "v2019.1"
 edition_statement = "Sixth edition"
 
 [editorial]
-approving_body = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+approving_body = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 
 [[editorial.credits]]
 id = "bird-committee"
-name = "Bird Committee, Nature Kenya—the East Africa Natural History Society"
+name = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 type = "organization"
 roles = ["corporate author"]
 orcid = ""

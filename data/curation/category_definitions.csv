@@ -2,7 +2,7 @@ code,label,definition,display_group,display_token,display_order,authority,assess
 E,Endemic species,Species endemic to Kenya,Kenya status,E,10,Bird Committee,Geographic scope and endemicity assessments require approval,draft
 ES,Endemic subspecies,Subspecies endemic to Kenya,Kenya status,ES,11,Bird Committee,Geographic scope and endemicity assessments require approval,draft
 HIST,Historical occurrence,Latest Kenyan eBird record is more than 50 years before the release reference date,Kenya status,HIST,12,Derived from EBD,Calculated from the latest qualifying EBD record at every release,approved
-RAR,Rare,Fewer than five derived observations in this release. Observations cluster eBird reports within three calendar months and 3 km,Kenya status,RAR,13,Derived from EBD,Calculated from the release observation estimate; not a conservation assessment,approved
+RAR,Rare,Fewer than five release observations. Observations cluster eBird reports within three calendar months and 3 km; accepted EARC species without eBird evidence are recorded as 0,Kenya status,RAR,13,Derived from release evidence,Calculated from the release observation estimate; not a conservation assessment,approved
 AM,Afrotropical migrant,Afrotropical migrant,Regular movement,AM,20,Bird Committee,Definition and current assignments require approval,draft
 AMR,Afrotropical migrant and resident populations,Afrotropical migrants occur alongside resident or non-migratory individuals,Regular movement,AM+R,21,Bird Committee,Definition and current assignments require approval,draft
 MM,Malagasy migrant,Migrant from the Malagasy region,Regular movement,MM,22,Bird Committee,Definition and current assignments require approval,draft

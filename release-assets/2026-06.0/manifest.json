@@ -21,7 +21,7 @@
     },
     "categories_path": {
       "path": "data/curation/categories.csv",
-      "sha256": "0b9ba9da143f6fbfca03ad57125c8b550a5b86818e4307abaddf100697bc94c1"
+      "sha256": "bbfd6ac6c5450f1dd72af8b38f6bb506c3e241f60af2332b53a36bd84c5585e3"
     },
     "kbm_species_list_path": {
       "path": "data/KBM/general_specielist_UO.csv",
@@ -29,7 +29,7 @@
     },
     "ebird_avilist_overrides_path": {
       "path": "data/curation/ebird_avilist_overrides.csv",
-      "sha256": "ce16bd34fae9191a940e8376ac98dfd008e29f42bd94c89a1070cd7432814a91"
+      "sha256": "3cd859668479dd09d98cc5ca5503397961be3bb853c8f70a56b9cf81f44c401a"
     },
     "ebird_exotic_overrides_path": {
       "path": "data/curation/ebird_exotic_overrides.csv",
@@ -37,11 +37,11 @@
     },
     "sensitive_species_path": {
       "path": "data/curation/sensitive_species.csv",
-      "sha256": "aac3571b63af713fc80a7496cb62d505a189f6e37c1c30cdcce9347c2f0c6d18"
+      "sha256": "b453e8d441a155d856393be827ff8e7442b3bc7c19be72877601e8de88f41728"
     },
     "curated_species_path": {
       "path": "data/curation/curated_species.csv",
-      "sha256": "6181656bf6bf1e808ba6dd6c336f53314d2f1b12e3857f1195c57610bcdfebff"
+      "sha256": "ff7c84271470d2d13ec87914655482b98350f0926ca8eb2eb4ca63189c3d16c5"
     }
   },
   "counts": {
