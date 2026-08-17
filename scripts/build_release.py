@@ -20,9 +20,10 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parents[1]
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-COMPACTION_SCHEMA_VERSION = 5
+COMPACTION_SCHEMA_VERSION = 6
 OBSERVATION_RADIUS_KM = 3.0
 OBSERVATION_WINDOW_MONTHS = 3
+TRAVEL_DISTANCE_CAP_KM = 10.0
 SPECIES_EVIDENCE_CATEGORIES = {"species", "issf"}
 ENTITY_CATEGORIES = {"domestic", "hybrid"}
 EXOTIC_STATUS = {"": "native", "N": "naturalized", "P": "provisional", "X": "escapee"}
@@ -229,7 +230,7 @@ def is_historical(last_observation_date, reference_date, years):
 
 
 def count_observations(records, radius_km=OBSERVATION_RADIUS_KM, window_months=OBSERVATION_WINDOW_MONTHS):
-    """Count spatial clusters of retained EBD records within three calendar months and 3 km."""
+    """Count spatial clusters of retained EBD records within three calendar months."""
     points = sorted(records, key=lambda record: record["observation_date"])
     parents = list(range(len(points)))
 
@@ -244,7 +245,14 @@ def count_observations(records, radius_km=OBSERVATION_RADIUS_KM, window_months=O
         if left != right:
             parents[right] = left
 
+    def travel_extension_km(record):
+        if record.get("protocol_name") != "Traveling":
+            return 0.0
+        return min(float(record.get("effort_distance_km") or 0) / 2, TRAVEL_DISTANCE_CAP_KM / 2)
+
+    maximum_distance = radius_km + TRAVEL_DISTANCE_CAP_KM / 2
     cell_size = radius_km / 111.2
+    cell_radius = math.ceil(maximum_distance / radius_km)
     cells = defaultdict(deque)
     for left, first in enumerate(points):
         if first["latitude"] is None or first["longitude"] is None:
@@ -252,17 +260,18 @@ def count_observations(records, radius_km=OBSERVATION_RADIUS_KM, window_months=O
         first_date = datetime.date.fromisoformat(first["observation_date"])
         cutoff = subtract_months(first_date, window_months)
         cell = (math.floor(first["latitude"] / cell_size), math.floor(first["longitude"] / cell_size))
-        for latitude_cell in range(cell[0] - 1, cell[0] + 2):
-            for longitude_cell in range(cell[1] - 1, cell[1] + 2):
+        for latitude_cell in range(cell[0] - cell_radius, cell[0] + cell_radius + 1):
+            for longitude_cell in range(cell[1] - cell_radius, cell[1] + cell_radius + 1):
                 candidates = cells[(latitude_cell, longitude_cell)]
                 while candidates and datetime.date.fromisoformat(points[candidates[0]]["observation_date"]) < cutoff:
                     candidates.popleft()
                 for right in candidates:
                     second = points[right]
+                    threshold = radius_km + max(travel_extension_km(first), travel_extension_km(second))
                     if distance_km(
                         (first["latitude"], first["longitude"]),
                         (second["latitude"], second["longitude"]),
-                    ) <= radius_km:
+                    ) <= threshold:
                         union(left, right)
         cells[cell].append(left)
     return len({find(index) for index in range(len(points))})
@@ -421,6 +430,7 @@ def prepare_ebd(paths, ebd_version, force=False):
         "schema_version": COMPACTION_SCHEMA_VERSION,
         "observation_radius_km": OBSERVATION_RADIUS_KM,
         "observation_window_months": OBSERVATION_WINDOW_MONTHS,
+        "travel_distance_cap_km": TRAVEL_DISTANCE_CAP_KM,
         "ebd_sha256": checksum(paths["ebd_path"]),
         "ebird_taxonomy_sha256": checksum(paths["ebird_taxonomy_path"]),
         "ebird_exotic_overrides_sha256": checksum(paths["ebird_exotic_overrides_path"]),
@@ -510,6 +520,8 @@ def prepare_ebd(paths, ebd_version, force=False):
                 "observation_date": date,
                 "latitude": record["latitude"],
                 "longitude": record["longitude"],
+                "protocol_name": row["PROTOCOL NAME"].strip(),
+                "effort_distance_km": row["EFFORT DISTANCE KM"].strip(),
             })
             push_latest(latest[key], record)
     finally:

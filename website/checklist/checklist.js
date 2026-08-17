@@ -118,7 +118,7 @@ const headerDescriptions = {
   birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
   birds_of_the_world_url: 'Open the Birds of the World species account',
   safring_numbers: 'KBM SAFRING identifier or identifiers linked to this AviList species',
-  observations: 'Number of eBird observation clusters within three calendar months and 3 km'
+  observations: 'Number of eBird observation clusters within three calendar months and 3 km, extended by travelling-checklist effort (up to 5 km)'
 };
 
 const defaultVisibleColumns = [

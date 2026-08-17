@@ -60,6 +60,14 @@ def main():
     if build.count_observations(clustered) != 3:
         raise ValueError("three-month three-kilometre observation clustering failed")
 
+    travelling = [
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.0, "protocol_name": "Traveling", "effort_distance_km": "15"},
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.06, "protocol_name": "Incidental", "effort_distance_km": ""},
+        {"observation_date": "2024-01-01", "latitude": 0.0, "longitude": 0.1, "protocol_name": "Incidental", "effort_distance_km": ""},
+    ]
+    if build.count_observations(travelling) != 2:
+        raise ValueError("travelling-checklist observation clustering failed")
+
     reported, latest = build.aggregate_reported([
         {"ebd_category": "species", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "3", "first_observation_date": "2020-01-01", "last_observation_date": "2021-01-01"},
         {"ebd_category": "issf", "exotic_code": "P", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-2", "record_count": "4", "first_observation_date": "2019-01-01", "last_observation_date": "2022-01-01"},

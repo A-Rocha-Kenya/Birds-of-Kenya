@@ -47,11 +47,11 @@
   "counts": {
     "species": 1146,
     "species_records": 4636644,
-    "species_observations": 1137339,
+    "species_observations": 875097,
     "latest_records": 5441,
     "taxonomic_entities": 13,
     "taxonomic_entity_records": 4562,
-    "taxonomic_entity_observations": 1109,
+    "taxonomic_entity_observations": 828,
     "taxonomic_entity_latest_records": 44,
     "curated_ebird_avilist_overrides_used": 2,
     "curated_exotic_code_overrides_used": 2,
