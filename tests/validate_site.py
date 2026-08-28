@@ -58,6 +58,8 @@ def main():
     }
     if {row["avibase_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
         raise ValueError("website checklist has incorrect pending EARC coverage")
+    if "pending_earc" not in rows[0]:
+        raise ValueError("website checklist export is missing the pending EARC column")
 
     missing_downloads = [path for path in metadata["downloads"].values() if path and not (site / path).exists()]
     if missing_downloads:
@@ -92,6 +94,8 @@ def main():
         raise ValueError("website checklist does not link KBM numbers to Kenya Bird Map")
     if "columnHeaders: true" not in checklist_script:
         raise ValueError("current-view CSV export does not include column headers")
+    if "pending_earc" not in checklist_script:
+        raise ValueError("current-view CSV export does not expose the pending EARC column")
     if "data-filter=\"endemic\"" in checklist_page or "endemicCount" in checklist_script:
         raise ValueError("checklist page exposes the discontinued endemic filter")
     print(f"Validated assembled website: four pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")

@@ -52,19 +52,19 @@ An applied exotic-code correction produces a build warning and an audit containi
 
 Use the effective observation-level exotic code when routing evidence:
 
-| EBD taxon type | Native, `N`, or `P` | `X` |
+| EBD taxon type | Native or `N` | `X` |
 | --- | --- | --- |
 | `species`, `issf`, or `form` with `REPORT_AS` | Reportable-species evidence | Taxonomic-entity stream |
-| `domestic` with `REPORT_AS` | Reportable-species evidence only for `N` or `P` | Taxonomic-entity stream |
+| `domestic` with `REPORT_AS` | Reportable-species evidence only for `N` | Taxonomic-entity stream |
 | `hybrid`, unreported `form`, and other retained non-species entities | Taxonomic-entity stream | Taxonomic-entity stream |
 
-`N` means Naturalized, `P` Provisional, and `X` Escapee. Hybrids and other non-species units do not become checklist species merely because they carry `N` or `P`. Aggregate unsupported groups by category and scientific name into `audit/excluded_non_species_observations.csv`.
+`N` means Naturalized and `X` Escapee. Hybrids and other non-species units do not become checklist species merely because they carry `N`. Aggregate unsupported groups by category and scientific name into `audit/excluded_non_species_observations.csv`.
 
 ### 4. Re-create reportable-species evidence
 
 Group supported compact rows by `REPORTED_SPECIES_CODE`. Sum `record_count` and `observations` and calculate the first and last observation dates across contributing compact groups; Escapee rows never contribute. Retain the contributing source Avibase IDs and the five newest qualifying observation rows.
 
-Derive the regional checklist status using eBird's precedence: Native, Naturalized, Provisional, Escapee. The main checklist can contain Native, Naturalized, and Provisional species. Escapee-only species remain in the taxonomic-entity output and do not count toward the checklist total.
+Derive the regional checklist status using eBird's precedence: Native, Naturalized, Escapee. The main checklist can contain Native and Naturalized species. Escapee-only species remain in the taxonomic-entity output and do not count toward the checklist total.
 
 Species with a curated EARC decision of `rejected` are removed from the checklist evidence and latest-record output before the public tables are written. The same rejected IDs are excluded from the 2019.1-to-2026.0 comparison.
 
@@ -96,7 +96,7 @@ Read `data/KBM/general_specielist_UO.csv` directly. Match each final `avibase_id
 | `safring_numbers` | Curated KBM/SAFRING number or numbers, keyed by the final `avibase_id`; multiple values are separated by semicolons |
 | `membership_source` | `ebd` or `curated_sensitive_species` |
 | `sensitive` | `TRUE` for entries in the curated sensitive-species table; otherwise `FALSE` |
-| `exotic_status` | Derived regional status: `native`, `naturalized`, or `provisional` |
+| `exotic_status` | Derived regional status: `native` or `naturalized` |
 | `observations`, `first_observation_date`, `last_observation_date` | Reports clustered within three calendar months and 3 km, extended by up to 5 km for travelling-checklist effort; blank for curated sensitive species without EBD rows |
 | Additional category columns | Project `categories.csv`, joined by `avibase_id`, plus derived `HIST`, `RAR`, and `water_bird` |
 
@@ -130,7 +130,7 @@ Checklist and species comments are retained only in the ignored local derived da
 | `GLOBAL UNIQUE IDENTIFIER` | Retained-record identity; not used for taxonomy mapping. |
 | `SAMPLING EVENT IDENTIFIER` | Checklist reference in the retained-record table. |
 | `CATEGORY` | Determines species/ISSF evidence and exclusions. |
-| `EXOTIC CODE` | Observation-level Native/blank, Naturalized (`N`), Provisional (`P`), or Escapee (`X`) routing and status. |
+| `EXOTIC CODE` | Observation-level Native/blank, Naturalized (`N`), or Escapee (`X`) routing and status. |
 | `TAXON CONCEPT ID` | Sole join key from EBD to the matching eBird taxonomy. |
 | `COMMON NAME` | Not used. |
 | `SCIENTIFIC NAME` | Compaction identity and traceability only. |

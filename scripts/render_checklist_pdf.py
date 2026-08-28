@@ -12,7 +12,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
-HIDDEN_CATEGORY_CODES = {"E", "ES"}
+HIDDEN_CATEGORY_CODES = {"E", "ES", "water_bird"}
+PDF_STATUS_DEFINITIONS = [
+    {"code": "NAT", "label": "Naturalized", "definition": "Established non-native species in Kenya", "display_group": "Origin status", "display_token": "NAT", "display_order": "55"},
+    {"code": "PE", "label": "Pending EARC", "definition": "Added since 2019 and not represented in the curated EARC decision list", "display_group": "Review status", "display_token": "PE", "display_order": "59"},
+    {"code": "S", "label": "Sensitive species", "definition": "Species with observation details withheld for conservation reasons", "display_group": "Data handling", "display_token": "S", "display_order": "60"},
+    {"code": "IUCN", "label": "Conservation concern", "definition": "Global IUCN Red List category above Least Concern", "display_group": "Conservation status", "display_token": "NT–EX", "display_order": "70"},
+]
+CONSERVATION_CONCERN_CODES = {"NT", "VU", "EN", "CR", "EW", "EX"}
+IUCN_COLORS = {
+    "NT": 'rgb("78923e")',
+    "VU": 'rgb("b5752a")',
+    "EN": 'rgb("bf5a27")',
+    "CR": 'rgb("9f2d2d")',
+    "EW": 'rgb("9f2d2d")',
+    "EX": 'rgb("9f2d2d")',
+}
 ACCENT = 'rgb("2d6a4f")'
 MUTED = 'rgb("5b6470")'
 
@@ -58,15 +73,27 @@ def typst_text(value, size=None, weight=None, style=None, fill=None):
     return f"#text({suffix})[{typst_string(value)}]" if suffix else f"[{typst_string(value)}]"
 
 
+def badge_markup(token, fill='rgb(230, 240, 234)', text_fill=ACCENT, size="6.2pt"):
+    return (
+        f"#box(fill: {fill}, inset: (x: 2pt, y: 1pt), radius: 2pt)["
+        f"#text(size: {size}, weight: \"bold\", fill: {text_fill})[{typst_content(token)}]]"
+    )
+
+
 def category_chips(row, definitions):
     chips = []
     for definition in definitions:
-        if row.get(definition["code"]) == "TRUE":
-            token = definition["display_token"]
-            chips.append(
-                f"#box(fill: rgb(230, 240, 234), inset: (x: 2pt, y: 1pt), radius: 2pt)["
-                f"#text(size: 6.2pt, weight: \"bold\", fill: {ACCENT})[{typst_content(token)}]]"
-            )
+        code = definition["code"]
+        assigned = (
+            row.get(code) == "TRUE"
+            or code == "NAT" and row.get("exotic_status") == "naturalized"
+            or code == "PE" and row.get("pending_earc") == "TRUE"
+            or code == "S" and row.get("sensitive") == "TRUE"
+            or code == "IUCN" and row.get("iucn_red_list_category") in CONSERVATION_CONCERN_CODES
+        )
+        if assigned:
+            token = row["iucn_red_list_category"] if code == "IUCN" else definition["display_token"]
+            chips.append(badge_markup(token, IUCN_COLORS[token], "white") if code == "IUCN" else badge_markup(token))
     return " ".join(chips) if chips else ""
 
 
@@ -105,10 +132,15 @@ def category_key_markup(definitions):
     for group, group_definitions in groups.items():
         rows = []
         for definition in group_definitions:
+            if definition["code"] == "IUCN":
+                badge = " #h(0.12em) ".join(badge_markup(code, IUCN_COLORS[code], "white", "7pt") for code in ("NT", "VU", "EN", "CR"))
+                key_width = "7.5em"
+            else:
+                badge = badge_markup(definition["display_token"], size="7pt")
+                key_width = "4.5em"
             rows.append(
-                f"#grid(columns: (4.5em, 1fr), gutter: 0.45em, align: (left, horizon), "
-                f"[#box(fill: rgb(230, 240, 234), inset: (x: 2pt, y: 1pt), radius: 2pt)["
-                f"#text(size: 7pt, weight: \"bold\", fill: {ACCENT})[{typst_content(definition['display_token'])}]]], "
+                f"#grid(columns: ({key_width}, 1fr), gutter: 0.45em, align: (left, horizon), "
+                f"[{badge}], "
                 f"[#text(weight: \"bold\")[{typst_content(definition['label'])}] "
                 f"#text(size: 8.2pt, fill: {MUTED})[{typst_content('- ' + definition['definition'])}]])"
             )
@@ -198,7 +230,15 @@ def main():
         definition for definition in read_csv(root_path(metadata["sources"]["category_definitions"]))
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
         and definition["code"] not in HIDDEN_CATEGORY_CODES
-    ]
+    ] + PDF_STATUS_DEFINITIONS
+    comparison = json.loads((release / "comparison" / "taxonomy-changes.json").read_text(encoding="utf-8"))
+    pending_earc_ids = {
+        row["id"]
+        for group in comparison["groups"] if group.get("pending_earc")
+        for row in group["new"]
+    }
+    for row in rows:
+        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
 
     policy = markdown_to_typst(root_path(metadata["sources"]["policy"]))
     typst_dir = ROOT / "tmp" / "pdfs" / metadata["release_id"]

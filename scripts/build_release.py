@@ -26,8 +26,8 @@ OBSERVATION_WINDOW_MONTHS = 3
 TRAVEL_DISTANCE_CAP_KM = 10.0
 SPECIES_EVIDENCE_CATEGORIES = {"species", "issf"}
 ENTITY_CATEGORIES = {"domestic", "hybrid"}
-EXOTIC_STATUS = {"": "native", "N": "naturalized", "P": "provisional", "X": "escapee"}
-EXOTIC_PRIORITY = {"native": 0, "naturalized": 1, "provisional": 2, "escapee": 3}
+EXOTIC_STATUS = {"": "native", "N": "naturalized", "X": "escapee"}
+EXOTIC_PRIORITY = {"native": 0, "naturalized": 1, "escapee": 2}
 WATERBIRD_FAMILIES = frozenset({
     "Anatidae", "Anhimidae", "Anhingidae", "Anseranatidae", "Aramidae", "Ardeidae",
     "Balaenicipitidae", "Burhinidae", "Charadriidae", "Chionidae", "Ciconiidae",
@@ -299,7 +299,7 @@ def is_species_evidence(row):
         return True
     if row["ebd_category"] == "form" and row["ebird_report_as"]:
         return True
-    return row["ebd_category"] == "domestic" and row["ebird_report_as"] and row["exotic_code"] in {"N", "P"}
+    return row["ebd_category"] == "domestic" and row["ebird_report_as"] and row["exotic_code"] == "N"
 
 
 def is_taxonomic_entity(row):

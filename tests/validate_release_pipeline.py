@@ -70,7 +70,7 @@ def main():
 
     reported, latest = build.aggregate_reported([
         {"ebd_category": "species", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "3", "first_observation_date": "2020-01-01", "last_observation_date": "2021-01-01"},
-        {"ebd_category": "issf", "exotic_code": "P", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-2", "record_count": "4", "first_observation_date": "2019-01-01", "last_observation_date": "2022-01-01"},
+        {"ebd_category": "issf", "exotic_code": "N", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-2", "record_count": "4", "first_observation_date": "2019-01-01", "last_observation_date": "2022-01-01"},
         {"ebd_category": "species", "exotic_code": "X", "REPORTED_SPECIES_CODE": "alpha1", "source_taxon_concept_id": "source-1", "record_count": "2", "first_observation_date": "2022-02-01", "last_observation_date": "2022-02-02"},
     ], [])
     if reported[0]["record_count"] != 7 or reported[0]["first_observation_date"] != "2019-01-01" or reported[0]["last_observation_date"] != "2022-01-01" or reported[0]["exotic_status"] != "naturalized":

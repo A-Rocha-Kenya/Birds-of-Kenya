@@ -30,12 +30,8 @@ let statusDisplayTokens = {};
 let statusDescriptions = {HIST: 'Historical occurrence', RAR: 'Rare'};
 const originStatusDefinitions = [
   {
-    code: 'naturalized', label: 'Naturalized', definition: 'Established non-native species in Kenya',
-    display_group: 'Origin status', display_token: 'Naturalized', display_order: 55
-  },
-  {
-    code: 'provisional', label: 'Provisional', definition: 'eBird provisional origin status',
-    display_group: 'Origin status', display_token: 'Provisional', display_order: 56
+    code: 'NAT', label: 'Naturalized', definition: 'Established non-native species in Kenya',
+    display_group: 'Origin status', display_token: 'NAT', display_order: 55
   }
 ];
 const reviewStatusDefinition = {
@@ -81,6 +77,7 @@ const columns = [
   'family',
   'family_english_name',
   'status',
+  'pending_earc',
   'iucn_red_list_category',
   'birdlife_datazone_url',
   'birds_of_the_world_url',
@@ -100,6 +97,7 @@ const columnLabels = {
   family: 'Family',
   family_english_name: 'Family name',
   status: 'Status',
+  pending_earc: 'Pending EARC',
   iucn_red_list_category: 'Conservation',
   birdlife_datazone_url: 'BirdLife Data Zone',
   birds_of_the_world_url: 'Birds of the World',
@@ -114,6 +112,7 @@ const columnLabels = {
 const headerDescriptions = {
   sequence: 'Current AviList taxonomic sequence',
   status: 'Kenya checklist status codes; open Codes & notes for definitions',
+  pending_earc: 'TRUE when added since 2019 without a matching curated EARC decision',
   iucn_red_list_category: 'Global IUCN Red List category',
   birdlife_datazone_url: 'Open the BirdLife Data Zone species page',
   birds_of_the_world_url: 'Open the Birds of the World species account',
@@ -126,6 +125,7 @@ const defaultVisibleColumns = [
   'english_name',
   'scientific_name',
   'status',
+  'pending_earc',
   'iucn_red_list_category',
   'avibase_id',
   'ebird_species_code',
@@ -271,7 +271,7 @@ const enrichRow = row => ({
     ...(truthy(row.pending_earc) ? ['PE'] : []),
     ...(truthy(row.sensitive) ? ['S'] : []),
     ...(truthy(row.water_bird) ? ['W'] : []),
-    ...(row.exotic_status !== 'native' ? [row.exotic_status] : [])
+    ...(row.exotic_status === 'naturalized' ? ['NAT'] : [])
   ].join(', ')
 });
 

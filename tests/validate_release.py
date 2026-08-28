@@ -65,7 +65,7 @@ def main():
         raise ValueError("accepted EARC membership without EBD evidence must have zero observations and no observation dates")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in checklist if row["first_observation_date"] and row["last_observation_date"]):
         raise ValueError("checklist contains an invalid observation-date range")
-    if any(row["exotic_status"] not in {"native", "naturalized", "provisional"} for row in checklist):
+    if any(row["exotic_status"] not in {"native", "naturalized"} for row in checklist):
         raise ValueError("checklist contains an invalid exotic status")
     if "EX" in checklist[0]:
         raise ValueError("checklist must not contain an extinct category")
@@ -94,7 +94,7 @@ def main():
         raise ValueError("supplementary_taxa contains a blank required value")
     if any(row["first_observation_date"] > row["last_observation_date"] for row in entities):
         raise ValueError("supplementary_taxa contains an invalid observation-date range")
-    if any(row["exotic_status"] not in {"native", "naturalized", "provisional", "escapee"} for row in entities):
+    if any(row["exotic_status"] not in {"native", "naturalized", "escapee"} for row in entities):
         raise ValueError("supplementary_taxa contains an invalid exotic status")
     entity_latest_counts = Counter((row["source_taxon_concept_id"], row["exotic_status"]) for row in entity_latest)
     if any(key not in set(entity_keys) for key in entity_latest_counts):
