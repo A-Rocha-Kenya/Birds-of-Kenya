@@ -9,6 +9,8 @@ import tomllib
 from collections import OrderedDict
 from pathlib import Path
 
+from publication_metadata import load
+
 
 ROOT = Path(__file__).resolve().parents[1]
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
@@ -30,6 +32,13 @@ IUCN_COLORS = {
 }
 ACCENT = 'rgb("2d6a4f")'
 MUTED = 'rgb("5b6470")'
+BADGE_COLORS = {
+    "HIST": ('rgb("e7edf5")', 'rgb("49657c")'),
+    "RAR": ('rgb("e6f2ed")', ACCENT),
+    "NAT": ('rgb("f8ecd7")', 'rgb("98621a")'),
+    "PE": ('rgb("f7e5e3")', 'rgb("9a3e38")'),
+    "S": ('rgb("eee8f5")', 'rgb("6b4c86")'),
+}
 
 
 def root_path(value):
@@ -80,6 +89,13 @@ def badge_markup(token, fill='rgb(230, 240, 234)', text_fill=ACCENT, size="6.2pt
     )
 
 
+def category_badge(code, token, size="6.2pt"):
+    if code == "IUCN":
+        return badge_markup(token, IUCN_COLORS[token], "white", size)
+    fill, text_fill = BADGE_COLORS.get(code, ('rgb(230, 240, 234)', ACCENT))
+    return badge_markup(token, fill, text_fill, size)
+
+
 def category_chips(row, definitions):
     chips = []
     for definition in definitions:
@@ -93,7 +109,7 @@ def category_chips(row, definitions):
         )
         if assigned:
             token = row["iucn_red_list_category"] if code == "IUCN" else definition["display_token"]
-            chips.append(badge_markup(token, IUCN_COLORS[token], "white") if code == "IUCN" else badge_markup(token))
+            chips.append(category_badge(code, token))
     return " ".join(chips) if chips else ""
 
 
@@ -117,35 +133,28 @@ def checklist_markup(rows, definitions, checkbox_count):
             row_markup.append(
                 f"[#grid(columns: (3.8em, 1fr), gutter: 0.35em, align: (left, horizon), "
                 f"[{boxes}], [{typst_content(row['english_name'])} "
-                f"#emph({typst_string(row['scientific_name'])}){suffix}])]"
+                f"#text(size: 8.2pt, fill: {MUTED})[#emph({typst_string(row['scientific_name'])})]{suffix}])]"
             )
-        parts.append(f"#stack(spacing: 0.16em, {', '.join(row_markup)})")
+        parts.append(f"#stack(spacing: 0.28em, {', '.join(row_markup)})")
     return "\n".join(parts)
 
 
 def category_key_markup(definitions):
-    groups = OrderedDict()
+    rows = []
     for definition in sorted(definitions, key=lambda item: int(item["display_order"])):
-        groups.setdefault(definition["display_group"], []).append(definition)
-
-    sections = []
-    for group, group_definitions in groups.items():
-        rows = []
-        for definition in group_definitions:
-            if definition["code"] == "IUCN":
-                badge = " #h(0.12em) ".join(badge_markup(code, IUCN_COLORS[code], "white", "7pt") for code in ("NT", "VU", "EN", "CR"))
-                key_width = "7.5em"
-            else:
-                badge = badge_markup(definition["display_token"], size="7pt")
-                key_width = "4.5em"
-            rows.append(
-                f"#grid(columns: ({key_width}, 1fr), gutter: 0.45em, align: (left, horizon), "
-                f"[{badge}], "
-                f"[#text(weight: \"bold\")[{typst_content(definition['label'])}] "
-                f"#text(size: 8.2pt, fill: {MUTED})[{typst_content('- ' + definition['definition'])}]])"
-            )
-        sections.append(f"#text(size: 9.5pt, weight: \"bold\", fill: {ACCENT})[{typst_content(group)}]\n" + "\n".join(rows))
-    return "\n#v(0.55em)\n".join(sections)
+        if definition["code"] == "IUCN":
+            badge = " #h(0.12em) ".join(category_badge("IUCN", code, "7pt") for code in ("NT", "VU", "EN", "CR"))
+            key_width = "7.5em"
+        else:
+            badge = category_badge(definition["code"], definition["display_token"], "7pt")
+            key_width = "4.5em"
+        rows.append(
+            f"#grid(columns: ({key_width}, 1fr), gutter: 0.45em, align: (left, horizon), "
+            f"[{badge}], "
+            f"[#text(weight: \"bold\")[{typst_content(definition['label'])}] "
+            f"#text(size: 8.2pt, fill: {MUTED})[{typst_content('- ' + definition['definition'])}]])"
+        )
+    return "\n#v(0.45em)\n".join(rows)
 
 
 def family_index_markup(rows):
@@ -165,8 +174,21 @@ def build_typst(metadata, rows, definitions, policy):
     checklist = metadata["checklist"]
     edition = document["edition"]
     subtitle = document.get("subtitle", "")
+    edition_markup = f'''#v(7mm)
+  #text(size: 13pt, weight: "bold", fill: {ACCENT})[{typst_content(edition)}]''' if edition else ""
     subtitle_markup = f'''#v(4mm)
   #text(size: 13pt, fill: {MUTED})[{typst_content(subtitle)}]''' if subtitle else ""
+    publisher = metadata["publisher"]
+    publisher_markup = f'''#v(17mm)
+  #text(size: 9pt, weight: "bold", fill: {ACCENT})[{typst_content(publisher["imprint"])}]
+  #v(2mm)
+  #text(size: 7.5pt, fill: {MUTED})[{typst_content(f"© {publisher['copyright_holder']}, {publisher['copyright_year']} · CC BY 4.0")}]
+  #v(2mm)
+  #text(size: 7.5pt, fill: {MUTED})[{typst_content(publisher["address"])}]
+  #v(1.5mm)
+  #text(size: 7.5pt, fill: {MUTED})[{typst_content(f"{publisher['email']} · {publisher['website']}")}]
+  #v(3mm)
+  #text(size: 7.5pt, fill: {MUTED})[{typst_content("Recommended citation: " + document["recommended_citation"])}]'''
     title_page = f'''#set page(
   paper: "{render["paper_size"]}",
   margin: (top: 15mm, bottom: 14mm, left: 13mm, right: 13mm),
@@ -184,12 +206,10 @@ def build_typst(metadata, rows, definitions, policy):
   #v(8mm)
   #text(size: 25pt, weight: "bold")[{typst_content(document["title"])}]
   {subtitle_markup}
-  #v(7mm)
-  #text(size: 13pt, weight: "bold", fill: {ACCENT})[{typst_content(edition)}]
+  {edition_markup}
   #v(4mm)
   #text(size: 11pt, weight: "bold", fill: {ACCENT})[{typst_content(document["version_label"])}]
-  #v(20mm)
-  #text(size: 9pt, fill: {MUTED})[{typst_content("Draft editorial edition")}]
+  {publisher_markup}
 ]
 #pagebreak()
 
@@ -197,14 +217,10 @@ def build_typst(metadata, rows, definitions, policy):
 #pagebreak()
 = Category key
 
-#text(size: 8.5pt, fill: {MUTED})[{typst_content("Draft definitions shown for editorial review. Final category meanings and assignments require approval.")}]
-#v(0.35em)
 {category_key_markup(definitions)}
 #pagebreak()
 = The checklist
 
-#text(size: 8.5pt, fill: {MUTED})[{typst_content("Grouped by family and ordered by AviList sequence. Category chips are shown only where the release contains an assignment.")}]
-#v(0.25em)
 {checklist_markup(rows, definitions, int(checklist["checkbox_count"]))}
 '''
     if checklist["include_family_index"]:
@@ -217,10 +233,11 @@ def build_typst(metadata, rows, definitions, policy):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("metadata", type=Path)
+    parser.add_argument("--profile", type=Path, help="Optional public-facing publication profile")
     parser.add_argument("--keep-typ", action="store_true")
     args = parser.parse_args()
     metadata_path = args.metadata.resolve()
-    metadata = tomllib.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata = load(metadata_path, args.profile.resolve() if args.profile else None)
     release = root_path(metadata["sources"]["release_directory"]).resolve()
     manifest = json.loads((release / "manifest.json").read_text(encoding="utf-8"))
     if metadata["release_id"] != release.name or metadata["release_id"] != manifest["release_id"]:
@@ -230,7 +247,10 @@ def main():
         definition for definition in read_csv(root_path(metadata["sources"]["category_definitions"]))
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
         and definition["code"] not in HIDDEN_CATEGORY_CODES
-    ] + PDF_STATUS_DEFINITIONS
+    ] + [
+        definition for definition in PDF_STATUS_DEFINITIONS
+        if definition["code"] != "PE" or metadata["checklist"].get("show_pending_earc", True)
+    ]
     comparison = json.loads((release / "comparison" / "taxonomy-changes.json").read_text(encoding="utf-8"))
     pending_earc_ids = {
         row["id"]
@@ -240,7 +260,8 @@ def main():
     for row in rows:
         row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
 
-    policy = markdown_to_typst(root_path(metadata["sources"]["policy"]))
+    introduction = metadata["sources"].get("introduction") or metadata["sources"]["policy"]
+    policy = markdown_to_typst(root_path(introduction))
     typst_dir = ROOT / "tmp" / "pdfs" / metadata["release_id"]
     output_dir = release
     typst_dir.mkdir(parents=True, exist_ok=True)

@@ -210,6 +210,7 @@ sensitive_record_limitation = "Some sensitive records may be obscured in the sou
 [sources]
 release_directory = "dist/2026-06.0"
 policy = "docs/policy.md"
+introduction = ""
 category_definitions = "data/curation/category_definitions.csv"
 historical_edition = "data/legacy/2019.1/2019 Checklist of the Birds of Kenya 5th Edition (2019).pdf"
 
@@ -222,6 +223,7 @@ show_scientific_name = true
 show_checkboxes = true
 checkbox_count = 5
 show_category_legend = true
+show_pending_earc = true
 category_display = "symbol_and_code"
 include_family_index = false
 include_notes_page = false

@@ -123,6 +123,13 @@ uv run python tests/validate_publication.py publication/publication.toml
 uv run python scripts/render_checklist_pdf.py publication/publication.toml --keep-typ
 ```
 
+To render a public-facing editorial variant without changing the canonical release metadata, add a profile. For example, the 2026 draft uses its reader introduction and hides the Pending EARC display:
+
+```sh
+python3 scripts/render_checklist_pdf.py publication/publication.toml \
+  --profile publication/profiles/2026-draft.toml --keep-typ
+```
+
 The PDF is written into the canonical `dist/$release_id/` bundle. Category definitions are maintained
 in `data/curation/category_definitions.csv`; species assignments are maintained in
 `data/curation/categories.csv`, except `water_bird`, which is derived during the checklist build.

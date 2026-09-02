@@ -8,8 +8,10 @@ import sys
 import tomllib
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from publication_metadata import load
+
 GBIF_LICENSES = {
     "https://creativecommons.org/publicdomain/zero/1.0/",
     "https://creativecommons.org/licenses/by/4.0/",
@@ -37,9 +39,10 @@ def read_header(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("metadata", type=Path)
+    parser.add_argument("--profile", type=Path)
     args = parser.parse_args()
     metadata_path = args.metadata.resolve()
-    metadata = tomllib.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata = load(metadata_path, args.profile.resolve() if args.profile else None)
 
     missing_sections = sorted(REQUIRED_SECTIONS - metadata.keys())
     if missing_sections:
@@ -56,6 +59,8 @@ def main():
         raise ValueError("publication release_id does not match its release directory and manifest")
 
     linked_paths = [metadata["sources"]["policy"], metadata["sources"]["category_definitions"]]
+    if metadata["sources"].get("introduction"):
+        linked_paths.append(metadata["sources"]["introduction"])
     missing_paths = [value for value in linked_paths if not root_path(value).exists()]
     if missing_paths:
         raise ValueError(f"missing linked publication files: {', '.join(missing_paths)}")
