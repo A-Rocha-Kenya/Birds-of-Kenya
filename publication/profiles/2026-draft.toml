@@ -15,4 +15,6 @@ introduction = "publication/intros/2026-draft.md"
 show_pending_earc = false
 
 [render]
+paper_size = "a5"
+orientation = "portrait"
 output_filename = "Checklist-of-the-Birds-of-Kenya-2026-Draft.pdf"

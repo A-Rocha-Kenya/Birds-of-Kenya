@@ -18,7 +18,6 @@ HIDDEN_CATEGORY_CODES = {"E", "ES", "water_bird"}
 PDF_STATUS_DEFINITIONS = [
     {"code": "NAT", "label": "Naturalized", "definition": "Established non-native species in Kenya", "display_group": "Origin status", "display_token": "NAT", "display_order": "55"},
     {"code": "PE", "label": "Pending EARC", "definition": "Added since 2019 and not represented in the curated EARC decision list", "display_group": "Review status", "display_token": "PE", "display_order": "59"},
-    {"code": "S", "label": "Sensitive species", "definition": "Species with observation details withheld for conservation reasons", "display_group": "Data handling", "display_token": "S", "display_order": "60"},
     {"code": "IUCN", "label": "Conservation concern", "definition": "Global IUCN Red List category above Least Concern", "display_group": "Conservation status", "display_token": "NT–EX", "display_order": "70"},
 ]
 CONSERVATION_CONCERN_CODES = {"NT", "VU", "EN", "CR", "EW", "EX"}
@@ -37,7 +36,6 @@ BADGE_COLORS = {
     "RAR": ('rgb("e6f2ed")', ACCENT),
     "NAT": ('rgb("f8ecd7")', 'rgb("98621a")'),
     "PE": ('rgb("f7e5e3")', 'rgb("9a3e38")'),
-    "S": ('rgb("eee8f5")', 'rgb("6b4c86")'),
 }
 
 
@@ -142,12 +140,11 @@ def checklist_markup(rows, definitions, checkbox_count):
 def category_key_markup(definitions):
     rows = []
     for definition in sorted(definitions, key=lambda item: int(item["display_order"])):
+        key_width = "10em"
         if definition["code"] == "IUCN":
             badge = " #h(0.12em) ".join(category_badge("IUCN", code, "7pt") for code in ("NT", "VU", "EN", "CR"))
-            key_width = "7.5em"
         else:
             badge = category_badge(definition["code"], definition["display_token"], "7pt")
-            key_width = "4.5em"
         rows.append(
             f"#grid(columns: ({key_width}, 1fr), gutter: 0.45em, align: (left, horizon), "
             f"[{badge}], "
@@ -179,42 +176,41 @@ def build_typst(metadata, rows, definitions, policy):
     subtitle_markup = f'''#v(4mm)
   #text(size: 13pt, fill: {MUTED})[{typst_content(subtitle)}]''' if subtitle else ""
     publisher = metadata["publisher"]
-    publisher_markup = f'''#v(17mm)
-  #text(size: 9pt, weight: "bold", fill: {ACCENT})[{typst_content(publisher["imprint"])}]
+    publisher_markup = f'''#v(11mm)
+  #text(size: 9.5pt, weight: "bold", fill: {ACCENT})[{typst_content(publisher["imprint"])}]
   #v(2mm)
-  #text(size: 7.5pt, fill: {MUTED})[{typst_content(f"© {publisher['copyright_holder']}, {publisher['copyright_year']} · CC BY 4.0")}]
+  #text(size: 8.4pt, fill: {MUTED})[{typst_content(publisher["address"])}]
   #v(2mm)
-  #text(size: 7.5pt, fill: {MUTED})[{typst_content(publisher["address"])}]
-  #v(1.5mm)
-  #text(size: 7.5pt, fill: {MUTED})[{typst_content(f"{publisher['email']} · {publisher['website']}")}]
-  #v(3mm)
-  #text(size: 7.5pt, fill: {MUTED})[{typst_content("Recommended citation: " + document["recommended_citation"])}]'''
+  #text(size: 8.6pt, fill: {ACCENT})[{typst_content(f"birds@naturekenya.org · {publisher['website']}")}]
+  #v(4mm)
+  #text(size: 7.8pt, fill: {MUTED})[{typst_content("Recommended citation: " + document["recommended_citation"])}]'''
+    orientation = render.get("orientation", "portrait")
+    page_size = f'paper: "{render["paper_size"]}",' if orientation == "portrait" else "width: 210mm, height: 148mm,"
     title_page = f'''#set page(
-  paper: "{render["paper_size"]}",
-  margin: (top: 15mm, bottom: 14mm, left: 13mm, right: 13mm),
+  {page_size}
+  margin: (top: 9mm, bottom: 9mm, left: 11mm, right: 11mm),
   footer: context align(center)[#text(size: 7.5pt, fill: {MUTED})[#counter(page).display()]],
 )
-#set text(font: "Libertinus Serif", size: 9pt, lang: "en")
-#set par(leading: 0.58em, justify: true)
+#set text(font: "Libertinus Serif", size: 8.3pt, lang: "en")
+#set par(leading: 0.45em, justify: true)
 #set heading(numbering: none)
-#show heading.where(level: 1): it => block(above: 0.7em, below: 0.35em)[#text(size: 15pt, weight: "bold", fill: {ACCENT})[#it.body]]
-#show heading.where(level: 2): it => block(above: 0.55em, below: 0.2em)[#text(size: 11pt, weight: "bold", fill: {ACCENT})[#it.body]]
+#show heading.where(level: 1): it => block(above: 0.5em, below: 0.25em)[#text(size: 13pt, weight: "bold", fill: {ACCENT})[#it.body]]
+#show heading.where(level: 2): it => block(above: 0.4em, below: 0.15em)[#text(size: 10pt, weight: "bold", fill: {ACCENT})[#it.body]]
 
 #align(center)[
-  #v(22mm)
-  #rect(width: 34mm, height: 4mm, fill: {ACCENT})
-  #v(8mm)
-  #text(size: 25pt, weight: "bold")[{typst_content(document["title"])}]
+  #image("../../../website/assets/images/nature-kenya-logo.png", width: 52mm)
+  #v(7mm)
+  #text(size: 23pt, weight: "bold", fill: {ACCENT})[{typst_content(document["title"])}]
   {subtitle_markup}
   {edition_markup}
-  #v(4mm)
+  #v(3mm)
   #text(size: 11pt, weight: "bold", fill: {ACCENT})[{typst_content(document["version_label"])}]
   {publisher_markup}
 ]
 #pagebreak()
 
 {policy}
-#pagebreak()
+#v(3mm)
 = Category key
 
 {category_key_markup(definitions)}
@@ -270,7 +266,7 @@ def main():
     pdf_path = output_dir / metadata["render"]["output_filename"]
     typst_path.write_text(build_typst(metadata, rows, definitions, policy), encoding="utf-8")
 
-    subprocess.run(["quarto", "typst", "compile", str(typst_path), str(pdf_path)], check=True)
+    subprocess.run(["quarto", "typst", "compile", "--root", str(ROOT), str(typst_path), str(pdf_path)], check=True)
     print(f"Rendered {len(rows):,} species to {pdf_path.relative_to(ROOT)}")
     if not args.keep_typ:
         typst_path.unlink()
