@@ -15,7 +15,7 @@ publication metadata, asset directory, Git tag, and GitHub Release.
    and set `render.output_filename = "Checklist-of-the-Birds-of-Kenya-v2027.01.pdf"`.
    Update dates, citations, source descriptions, versioned repository links, and
    editorial prose. Use `status = "draft"` during preparation and `"released"`
-   after review. Review the GBIF/IPT metadata for the new version separately.
+   after review. Follow [the GBIF update steps](gbif-publication.md) for the existing dataset.
 3. Edit the curated tables and publication prose as needed. Keep the previous
    `release-assets/v2026.0/` directory intact. Published versions are snapshots;
    corrections after publication should receive a new release ID and tag.
@@ -54,6 +54,29 @@ historical comparison and are not steps for subsequent releases.
 The routine `refresh_website.py` command expects the release PDF and comparison
 to have already been generated. For a new release, complete the sequence above
 first; regenerate these publication products whenever their inputs change.
+
+## Preserve comparisons for version selection
+
+Each release keeps its reviewed comparison under
+`release-assets/<to-release-id>/comparison/`. Retain these directories when adding
+a new release: the existing `2019.1 → v2026.0` comparison stays alongside the new
+`v2026.0 → v2027.01` comparison. Their JSON files explicitly identify
+`from_release` and `to_release` and use the same group format for the Changes view.
+
+The website build copies every staged pair to
+`_site/data/comparisons/<to-release-id>/` and generates `data/comparisons.json`,
+listing each pair, group count, and JSON/CSV/optional PDF paths relative to the site
+root. The active release remains available at `data/taxonomy-changes.json`.
+Archived comparisons are copied as published rather than recomputed using new
+curation or EARC decisions.
+
+The Changes page currently displays the active pair. A future selector can read
+the catalog and offer `2019.1 → v2026.0` or `v2026.0 → v2027.01`, then load the
+chosen JSON and update its heading and download links. Only reviewed, built pairs
+should be selectable; arbitrary combinations, such as `2019.1 → v2027.01`, need
+their own reviewed comparison. The current convention stores one baseline
+comparison per release; additional baselines would need separate pair directories
+and catalog entries.
 
 ## Publish and preserve
 

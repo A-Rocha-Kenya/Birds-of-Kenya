@@ -264,6 +264,27 @@ def main():
         (staging / "data" / "taxonomy-changes.json").write_text(
             json.dumps(comparison, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+        # Preserve reviewed comparison pairs for a future version selector.
+        comparison_catalog = []
+        comparison_releases = {path.name: path for path in (ROOT / "release-assets").iterdir() if path.is_dir()}
+        comparison_releases[release.name] = release
+        for identifier, bundle in sorted(comparison_releases.items()):
+            pair = json.loads((bundle / "comparison" / "taxonomy-changes.json").read_text(encoding="utf-8"))
+            comparison_downloads = {}
+            for asset in sorted((bundle / "comparison").iterdir()):
+                if asset.name in {"taxonomy-changes.json", "taxonomy-changes.csv"} or asset.suffix == ".pdf":
+                    destination = f"data/comparisons/{identifier}/{asset.name}"
+                    copy(asset, staging / destination)
+                    comparison_downloads[asset.suffix.removeprefix(".")] = destination
+            comparison_catalog.append({
+                "from_release": pair["from_release"],
+                "to_release": pair["to_release"],
+                "group_count": pair["group_count"],
+                "files": comparison_downloads,
+            })
+        (staging / "data" / "comparisons.json").write_text(
+            json.dumps(comparison_catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
         copy(checklist_pdf, staging / downloads["checklist_pdf"])
         write_csv(staging / downloads["checklist_csv"], public_fields, public_rows)
         copy(comparison_csv, staging / downloads["comparison_csv"])

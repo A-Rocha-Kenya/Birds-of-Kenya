@@ -107,18 +107,14 @@ uv run python scripts/build_ipt_checklist.py publication/publication.toml
 uv run python tests/validate_ipt_checklist.py "dist/$release_id/gbif"
 ```
 
-Upload `dist/$release_id/gbif/checklist.csv` to IPT and map it to the GBIF Taxon core definition
-recorded in `ipt-metadata.json`. It contains a normalized kingdom-to-species hierarchy linked by
-`parentNameUsageID`. The export contains accepted taxa only, so it omits the unused
-`acceptedNameUsageID` column; add it only if synonym or misapplied-name records are introduced.
-Dataset identifiers and titles are entered in IPT metadata rather than repeated in each row. Taxon concepts cite the pinned
-AviList release through `nameAccordingTo` and `nameAccordingToID`. English names are mapped directly
-to the Taxon core's `vernacularName` field with the ISO 639-1 language code `en`. There are no IPT
-extension tables. Use `ipt-metadata.json` to complete the IPT metadata form. GBIF publication is an
-external manual step.
-Use the existing IPT resource. The local release is `v2026.0`, with status `released`; IPT publication/registration is a separate step. After GBIF registration, record the dataset URL and assigned DOI in `publication/publication.toml`, append the DOI to `ipt.recommended_citation`, and rebuild the publication products. See [the GBIF publishing guide](docs/gbif-publication.md) for mapping, metadata, record-review treatment, and DOI timing.
+Update the existing IPT resource with `dist/$release_id/gbif/checklist.csv` and
+changed metadata from `ipt-metadata.json`, then publish a new IPT version. Follow
+[the GBIF update guide](docs/gbif-publication.md). Keep the existing dataset
+registration; IPT publication is separate from the Git tag and GitHub Release.
 
-The GBIF table contains taxonomy and English names only. Repository categories, observation summaries, EARC flags, and internal `membership_source` values are not exported as Taxon core annotations. National-record review is described in the dataset metadata and linked review material.
+The export includes accepted taxonomy and English names with a linked
+kingdom-to-species hierarchy. Repository categories, observation summaries,
+EARC flags, and internal membership fields remain outside the GBIF Taxon core.
 
 ### 5. Render the final checklist PDF
 

@@ -21,7 +21,7 @@ def main():
         "assets/images/national-museums-kenya-logo.png", "assets/images/orcid-id.svg",
         "assets/images/east-african-rarities-committee-logo.png",
         "changes/changes.js", "data/site.json", "data/checklist.csv", "data/category-definitions.json",
-        "data/taxonomy-changes.json", "data/manifest.json", ".nojekyll",
+        "data/taxonomy-changes.json", "data/comparisons.json", "data/manifest.json", ".nojekyll",
     ]
     missing = [path for path in required_paths if not (site / path).exists()]
     if missing:
@@ -32,6 +32,17 @@ def main():
     metadata = json.loads((site / "data" / "site.json").read_text(encoding="utf-8"))
     manifest = json.loads((site / "data" / "manifest.json").read_text(encoding="utf-8"))
     comparison = json.loads((site / "data" / "taxonomy-changes.json").read_text(encoding="utf-8"))
+    comparison_catalog = json.loads((site / "data" / "comparisons.json").read_text(encoding="utf-8"))
+    pairs = [(entry["from_release"], entry["to_release"]) for entry in comparison_catalog]
+    if len(pairs) != len(set(pairs)) or (comparison["from_release"], comparison["to_release"]) not in pairs:
+        raise ValueError("comparison catalog has duplicate pairs or omits the active comparison")
+    for entry in comparison_catalog:
+        for path in entry["files"].values():
+            if not (site / path).is_file():
+                raise ValueError(f"comparison catalog asset is missing: {path}")
+        archived = json.loads((site / entry["files"]["json"]).read_text(encoding="utf-8"))
+        if (archived["from_release"], archived["to_release"], archived["group_count"]) != (entry["from_release"], entry["to_release"], entry["group_count"]):
+            raise ValueError("comparison catalog does not match its archived comparison")
     categories = json.loads((site / "data" / "category-definitions.json").read_text(encoding="utf-8"))
 
     identifiers = [row["avibase_id"] for row in rows]
