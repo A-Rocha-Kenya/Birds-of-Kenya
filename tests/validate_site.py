@@ -75,13 +75,13 @@ def main():
         raise ValueError("section pages do not link to the checklist policy in both navigation areas")
     if "Explore the checklist" in policy_page:
         raise ValueError("policy page still includes the Explore the checklist link")
-    if ("Taxonomy and species names" not in policy_page or "Acceptance rules" not in policy_page
+    if ("Taxonomy and species names" not in policy_page or "Record review" not in policy_page
             or 'href="https://www.eararities.org/"' not in policy_page
             or "defining authority" not in policy_page
             or "Pending Committee decision" in policy_page
             or "POLICY_CONTENT" in policy_page):
         raise ValueError("website policy page was not generated from the checklist policy")
-    if "Sixth edition" not in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
+    if "Sixth edition" in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
         raise ValueError("home page does not present the checklist publishing history")
     if "Nature Kenya" not in home or "data-contributors" not in home:
         raise ValueError("home page does not present the organization and contributor credits")

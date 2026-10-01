@@ -51,6 +51,12 @@ def main():
         raise ValueError("checklist contains an invalid membership source")
     if any(row["sensitive"] not in {"TRUE", "FALSE"} for row in checklist):
         raise ValueError("checklist contains an invalid sensitive flag")
+    with (Path(__file__).resolve().parents[1] / manifest["sources"]["earc_decisions_path"]["path"]).open(encoding="utf-8", newline="") as handle:
+        decisions = list(csv.DictReader(handle))
+    for row in checklist:
+        expected = ";".join(sorted({decision["decision"] for decision in decisions if decision["avibase_id"] == row["avibase_id"]}))
+        if row["earc_decision"] != expected:
+            raise ValueError("checklist EARC record-review annotations do not match curated decisions")
     if any(not all(row[field] for field in ["observations", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "ebd"):
         raise ValueError("EBD checklist evidence contains a blank observation summary")
     if any(row["sensitive"] != "TRUE" or any(row[field] for field in ["observations", "first_observation_date", "last_observation_date"]) for row in checklist if row["membership_source"] == "curated_sensitive_species"):

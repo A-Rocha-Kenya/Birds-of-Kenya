@@ -1,7 +1,7 @@
 code,label,definition,display_group,display_token,display_order,authority,assessment_rule,status
 E,Endemic species,Species endemic to Kenya,Kenya status,E,10,Bird Committee,Geographic scope and endemicity assessments require approval,draft
 ES,Endemic subspecies,Subspecies endemic to Kenya,Kenya status,ES,11,Bird Committee,Geographic scope and endemicity assessments require approval,draft
-HIST,Historical occurrence,No records after 1975,Kenya status,HIST,12,Derived from EBD,Calculated from the latest qualifying EBD record at every release,approved
+HIST,Historical occurrence,Latest qualifying Kenyan eBird record is more than 50 years before the release reference date,Kenya status,HIST,12,Derived from EBD,Calculated from the latest qualifying EBD record at every release,approved
 RAR,Rare,Fewer than five recorded observations.,Kenya status,RAR,13,Derived from release evidence,Calculated from the release observation estimate; not a conservation assessment,approved
 AM,Afrotropical migrant,Afrotropical migrant,Regular movement,AM,20,Bird Committee,Definition and current assignments require approval,draft
 AMR,Afrotropical migrant and resident populations,Afrotropical migrants occur alongside resident or non-migratory individuals,Regular movement,AM+R,21,Bird Committee,Definition and current assignments require approval,draft

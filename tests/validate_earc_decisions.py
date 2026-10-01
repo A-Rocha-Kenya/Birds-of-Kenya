@@ -41,8 +41,17 @@ def main():
     )
     groups = renderer.annotate_earc(groups, decisions)
     rejected_ids = {row["avibase_id"] for row in decisions if row["decision"] == "rejected"}
-    if rejected_ids & {row["id"] for group in groups for side in ("old", "new") for row in group[side]}:
-        raise ValueError("rejected EARC taxa must be absent from the comparison")
+    current = renderer.read_csv(renderer.CURRENT)
+    if not rejected_ids <= {row["avibase_id"] for row in current}:
+        raise ValueError("an EARC record rejection must not remove checklist species")
+    rejected_groups = renderer.annotate_earc(renderer.taxonomy_groups(
+        [], [row for row in current if row["avibase_id"] in rejected_ids], [],
+    ), decisions)
+    if len(rejected_groups) != len(rejected_ids) or any(
+        not group["earc_decisions"] or group["earc_decisions"][0]["decision"] != "rejected"
+        or group["pending_earc"] for group in rejected_groups
+    ):
+        raise ValueError("comparison must retain and annotate species with rejected EARC records")
     additions_and_removals = [group for group in groups if group["cardinality"] in {"0:1", "1:0"}]
     decided = [group for group in additions_and_removals if group["earc_decisions"]]
     pending = [group for group in additions_and_removals if group["pending_earc"]]
@@ -59,7 +68,7 @@ def main():
     if [group["pending_earc"] for group in old_comparison["groups"]] != [False, True]:
         raise ValueError("site builder did not derive pending EARC for a legacy comparison")
 
-    print("Validated 11 EARC decisions, rejected-taxon exclusion, and legacy-site compatibility")
+    print("Validated 11 EARC decisions, retained species with rejected records, and legacy-site compatibility")
 
 
 if __name__ == "__main__":

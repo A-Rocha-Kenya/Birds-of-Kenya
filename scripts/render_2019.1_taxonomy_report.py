@@ -12,10 +12,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
-CURRENT = ROOT / "dist" / "2026-06.0" / "checklist.csv"
+CURRENT = ROOT / "dist" / "v2026.0" / "checklist.csv"
 MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2026.0.csv"
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
-OUTPUT = ROOT / "dist" / "2026-06.0" / "comparison"
+OUTPUT = ROOT / "dist" / "v2026.0" / "comparison"
 PDF = OUTPUT / "Taxonomy-changes-2019.1-to-2026.0.pdf"
 COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
 
@@ -46,11 +46,6 @@ def normalized(values, normalize_value=lambda value: value):
 
 
 def taxonomy_groups(legacy_rows, current_rows, mapping_rows):
-    rejected_ids = {
-        row["avibase_id"].strip() for row in read_csv(EARC_DECISIONS)
-        if row["decision"].strip().casefold() == "rejected"
-    }
-    current_rows = [row for row in current_rows if row["avibase_id"] not in rejected_ids]
     comparison = load_comparison()
     old_by_id = {row["avibaseid"]: row for row in legacy_rows}
     new_by_id = {row["avibase_id"]: row for row in current_rows}
@@ -220,7 +215,7 @@ main{{max-width:1240px;margin:auto;padding:1.15rem 1.25rem 5rem}}.result-line{{d
 @media(max-width:760px){{.hero{{padding-top:3rem;padding-bottom:3rem}}.top-controls{{grid-template-columns:1fr}}.column-legend{{display:none}}.concept-grid{{grid-template-columns:1fr}}.arrow{{min-height:1.4rem}}.arrow .symbol{{transform:rotate(90deg)}}.card-head{{display:block}}.badges{{justify-content:flex-start;margin-top:.35rem}}.source-links{{max-width:46%}}.toolbar-wrap{{position:relative}}}}
 @media print{{.toolbar-wrap{{display:none}}.hero{{padding:1.2cm;background:#173e2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}main{{padding:.5cm}}.change-card{{box-shadow:none;break-inside:avoid}}}}
 </style></head>
-<body><header class="hero"><div class="eyebrow">Birds of Kenya · Taxonomy review</div><h1>From the 2019 checklist to AviList 2026</h1><p class="lede">A taxonomically ordered view of name changes and concept changes. Relationships are labelled by historical-to-current concept cardinality.</p>
+<body><header class="hero"><div class="eyebrow">Birds of Kenya · Taxonomy review</div><h1>From the 2019.1 to 2026.0</h1><p class="lede">A taxonomically ordered view of name changes and concept changes. Relationships are labelled by historical-to-current concept cardinality.</p>
 </header>
 <div class="toolbar-wrap"><div class="toolbar"><div class="top-controls"><input id="search" type="search" placeholder="Search names, families or Avibase IDs" aria-label="Search taxonomy changes"><button class="clear" id="clear">Clear filters</button></div>
 <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div><div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div></div></div>
@@ -246,7 +241,7 @@ def write_json(path, groups):
     relationships = Counter(group["relationship"] for group in groups)
     payload = {
         "from_release": "2019.1",
-        "to_release": "2026-06.0",
+        "to_release": "v2026.0",
         "group_count": len(groups),
         "relationship_counts": dict(sorted(relationships.items())),
         "groups": groups,

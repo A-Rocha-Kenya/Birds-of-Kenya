@@ -1,5 +1,5 @@
 {
-  "release_id": "2026-06.0",
+  "release_id": "v2026.0",
   "ebd_version": "2026-06",
   "release_revision": 0,
   "historical_reference_date": "2026-06-30",
@@ -42,13 +42,17 @@
     "curated_species_path": {
       "path": "data/curation/curated_species.csv",
       "sha256": "ff7c84271470d2d13ec87914655482b98350f0926ca8eb2eb4ca63189c3d16c5"
+    },
+    "earc_decisions_path": {
+      "path": "data/curation/earc_decisions.csv",
+      "sha256": "d89a7824cb0b299f37440e3679cd9e881e2501d2cadb0acd7a594f05f5c0848d"
     }
   },
   "counts": {
-    "species": 1146,
+    "species": 1148,
     "species_records": 4636644,
-    "species_observations": 875097,
-    "latest_records": 5441,
+    "species_observations": 875099,
+    "latest_records": 5443,
     "taxonomic_entities": 13,
     "taxonomic_entity_records": 4562,
     "taxonomic_entity_observations": 828,
@@ -60,7 +64,7 @@
     "curated_species": 6,
     "curated_sensitive_species_without_ebd_records": 2,
     "species_by_exotic_status": {
-      "native": 1141,
+      "native": 1143,
       "naturalized": 5
     },
     "taxonomic_entities_by_exotic_status": {

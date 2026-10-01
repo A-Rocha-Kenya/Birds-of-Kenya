@@ -9,8 +9,8 @@ from pathlib import Path
 
 
 REQUIRED_FIELDS = {
-    "taxonID", "taxonConceptID", "parentNameUsageID", "acceptedNameUsageID",
-    "nameAccordingToID", "nameAccordingTo", "datasetID", "datasetName", "scientificName",
+    "taxonID", "taxonConceptID", "parentNameUsageID",
+    "nameAccordingToID", "nameAccordingTo", "scientificName",
     "scientificNameAuthorship", "taxonRank", "taxonomicStatus", "nomenclaturalCode", "kingdom",
     "vernacularName", "language",
 }
@@ -35,14 +35,16 @@ def main():
     metadata = json.loads((directory / "ipt-metadata.json").read_text(encoding="utf-8"))
 
     missing = REQUIRED_FIELDS - set(rows[0])
+    if {"datasetID", "datasetName", "acceptedNameUsageID", "taxonRemarks", "membership_source", "earc_decision", "pending_earc", "HIST", "RAR", "E", "ES"} & set(rows[0]):
+        raise ValueError("GBIF Taxon core contains an omitted dataset, synonym, or review field")
     if missing:
         raise ValueError(f"checklist.csv is missing Darwin Core fields: {', '.join(sorted(missing))}")
     identifiers = [row["taxonID"] for row in rows]
     if any(not value for value in identifiers) or any(count > 1 for count in Counter(identifiers).values()):
         raise ValueError("taxonID values must be nonblank and unique")
     by_id = {row["taxonID"]: row for row in rows}
-    if any(row["taxonomicStatus"] != "accepted" or row["acceptedNameUsageID"] for row in rows):
-        raise ValueError("accepted checklist records must not use acceptedNameUsageID")
+    if any(row["taxonomicStatus"] != "accepted" for row in rows):
+        raise ValueError("all exported taxonomicStatus values must be accepted")
     avilist_version = metadata["release"]["avilist_version"]
     avilist_doi = f"https://doi.org/10.2173/avilist.{avilist_version}"
     if any(row["nameAccordingToID"] != avilist_doi or "AviList" not in row["nameAccordingTo"] for row in rows):

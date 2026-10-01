@@ -1,3 +1,4 @@
+release_id = "v2026.0"
 ebd_version = "2026-06"
 release_revision = 0
 historical_reference_date = "2026-06-30"
@@ -15,3 +16,4 @@ ebird_avilist_overrides_path = "data/curation/ebird_avilist_overrides.csv"
 ebird_exotic_overrides_path = "data/curation/ebird_exotic_overrides.csv"
 sensitive_species_path = "data/curation/sensitive_species.csv"
 curated_species_path = "data/curation/curated_species.csv"
+earc_decisions_path = "data/curation/earc_decisions.csv"

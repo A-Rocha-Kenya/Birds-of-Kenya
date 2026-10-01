@@ -10,12 +10,11 @@ from collections import Counter, defaultdict, deque
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
-CURRENT = ROOT / "dist" / "2026-06.0" / "checklist.csv"
+CURRENT = ROOT / "dist" / "v2026.0" / "checklist.csv"
 MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2026.0.csv"
 CATEGORIES = ROOT / "data" / "curation" / "categories.csv"
-OUTPUT = ROOT / "dist" / "2026-06.0" / "comparison"
+OUTPUT = ROOT / "dist" / "v2026.0" / "comparison"
 
 CHANGE_FIELDS = [
     "group_id", "relationship", "mapping_basis",
@@ -35,10 +34,6 @@ CURRENT_ONLY_FIELDS = ["new_avibase_id", "new_english_name", "new_scientific_nam
 def read_csv(path):
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
-
-
-def rejected_earc_ids(path=EARC_DECISIONS):
-    return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
 
 
 def write_csv(path, fields, rows):
@@ -270,8 +265,7 @@ def main():
     args = parser.parse_args()
 
     legacy_rows = read_csv(args.legacy)
-    rejected_ids = rejected_earc_ids()
-    current_rows = [row for row in read_csv(args.current) if row["avibase_id"] not in rejected_ids]
+    current_rows = read_csv(args.current)
     mapping_rows = read_csv(args.mapping)
     fields = category_fields(args.categories)
     changes, unresolved, current_only, audit, converted = compare(

@@ -90,19 +90,25 @@ def main():
     if metadata["checklist"]["include_references"]:
         raise ValueError("references are not part of the requested PDF")
     ipt_required = {
-        "resource_shortname", "dataset_id", "description", "country", "country_code",
-        "taxonomic_reference", "taxonomic_reference_id",
+        "resource_shortname", "description", "country", "country_code",
+        "taxonomic_reference", "taxonomic_reference_id", "creator_ids", "recommended_citation",
     }
     missing_ipt_fields = sorted(ipt_required - metadata["ipt"].keys())
     if missing_ipt_fields:
         raise ValueError(f"missing IPT fields: {', '.join(missing_ipt_fields)}")
     if metadata["ipt"]["country_code"] != "KE":
         raise ValueError("IPT checklist export must use Kenya country code KE")
+    creator_ids = metadata["ipt"]["creator_ids"]
+    if len(creator_ids) != len(set(creator_ids)) or not set(creator_ids) <= {credit["id"] for credit in metadata["editorial"]["credits"]}:
+        raise ValueError("IPT creators must be an ordered list of unique existing credit IDs")
     if metadata["publisher"]["licence"] not in GBIF_LICENSES:
         raise ValueError("publication licence must be a GBIF-supported Creative Commons licence")
+    if metadata["status"] == "released" and any(not metadata["document"][field].strip() for field in
+        ["publication_date", "editorial_cutoff_date", "recommended_citation"]):
+        raise ValueError("a released version requires dates and a citation; its GBIF DOI can be added after registration")
 
     editable = [
-        metadata["document"]["edition"], metadata["document"]["publication_date"],
+        metadata["document"]["version_label"], metadata["document"]["publication_date"],
         metadata["document"]["recommended_citation"], metadata["publisher"]["name"],
         metadata["editorial"]["approving_body"], metadata["scope"]["geographic_scope"],
     ]

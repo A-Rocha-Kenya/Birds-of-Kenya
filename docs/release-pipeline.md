@@ -7,8 +7,7 @@ This document defines how the pinned source data and curated decisions become th
 uv run python scripts/build_release.py config/release.toml
 ```
 
-The release ID and directory name are identical and are derived as
-`<ebd_version>.<release_revision>`, for example `2026-06.0`. Publication comparison, PDF, GBIF,
+The release ID is explicitly configured as `release_id`, for example `v2026.0`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF,
 website, and release steps are documented in the repository [README](../README.md).
 
 ## Inputs
@@ -25,7 +24,7 @@ Defined in `config/release.toml`:
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avibase_id`, with rationale and reference under `data/curation/` |
-| EARC decisions | Repository revision | fixed `data/curation/earc_decisions.csv` | Accepted and rejected national-list decisions keyed by `avibase_id` |
+| EARC decisions | Repository revision | `earc_decisions_path` | Accepted and rejected national-record review decisions keyed by `avibase_id` |
 | Curated checklist species | Repository revision | `curated_species_path` | Species-level checklist additions keyed by `avibase_id`, with reason and reference |
 
 The release build consumes local source files; it does not download them automatically. Obtain the
@@ -66,7 +65,7 @@ Group supported compact rows by `REPORTED_SPECIES_CODE`. Sum `record_count` and 
 
 Derive the regional checklist status using eBird's precedence: Native, Naturalized, Escapee. The main checklist can contain Native and Naturalized species. Escapee-only species remain in the taxonomic-entity output and do not count toward the checklist total.
 
-Species with a curated EARC decision of `rejected` are removed from the checklist evidence and latest-record output before the public tables are written. The same rejected IDs are excluded from the 2019.1-to-2026.0 comparison.
+EARC decisions annotate record review in `earc_decision` without excluding species or their retained source records. Accepted EARC decisions may supply membership where EBD evidence is absent. Rejected decisions do not establish taxonomic invalidity or invalidate all evidence for a species. The comparison retains these taxa and their review annotations. The EARC input is included in the manifest source hashes.
 
 ### 5. Join reportable species to AviList
 

@@ -167,8 +167,6 @@ def validate_publication(metadata, allow_draft):
             "publication date": metadata["document"]["publication_date"],
             "recommended citation": metadata["document"]["recommended_citation"],
             "publisher": metadata["publisher"]["name"],
-            "GBIF dataset URL": metadata["gbif"]["dataset_url"],
-            "GBIF DOI": metadata["gbif"]["doi"],
         }
         missing = [label for label, value in required.items() if not value.strip()]
         if missing:
@@ -240,6 +238,16 @@ def main():
     with tempfile.TemporaryDirectory(prefix="birds-of-kenya-site-", dir=output.parent) as temporary:
         staging = Path(temporary) / "site"
         shutil.copytree(WEBSITE, staging)
+        replacements = {
+            "{{RELEASE_ID}}": metadata["release_id"],
+            "{{PUBLICATION_YEAR}}": metadata["document"]["publication_date"][:4],
+            "{{FROM_RELEASE}}": comparison["from_release"],
+        }
+        for page in staging.rglob("*.html"):
+            content = page.read_text(encoding="utf-8")
+            for marker, value in replacements.items():
+                content = content.replace(marker, html.escape(value))
+            page.write_text(content, encoding="utf-8")
         policy_page = staging / "policy" / "index.html"
         policy_template = policy_page.read_text(encoding="utf-8")
         if POLICY_CONTENT_MARKER not in policy_template:

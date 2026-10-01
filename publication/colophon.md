@@ -10,12 +10,12 @@
 
 **Contributors:** Raphaël Nussbaumer; James Bradley; Victor Ikawa; Brian Finch; Fleur Ng'weno; Colin Jackson; Nigel Hunter; Okech; Washington Wachira; Don Turner; John Fanshawe; Richard Stratton Hatfield
 
-**Copyright:** [Holder, year, and licence to be confirmed]
+**Copyright:** © 2026 Bird Committee of the East Africa Natural History Society (Nature Kenya). CC BY 4.0.
 
-**Recommended citation:** [To be supplied]
+**Recommended citation:** Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0).
 
-**Contact:** [Postal address, email, and website to be supplied]
+**Contact:** Nature Kenya, P. O. Box 44486, 00100 Nairobi, Kenya; office@naturekenya.org; https://naturekenya.org.
 
-**Publication history:** Sixth edition, following previous editions published in 1981, 1986, 1996, 2009, and 2019.
+**Publication history:** Version v2026.0, following historical checklists published in 1981, 1986, 1996, 2009, and 2019.
 
 <!-- EDITOR: Add printer information only if a physical edition is commissioned. -->

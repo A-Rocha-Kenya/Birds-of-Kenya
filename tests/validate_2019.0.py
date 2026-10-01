@@ -2,11 +2,12 @@
 """Validate the checklist data used by the static site."""
 
 import csv
+import io
+import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "v2019.0" / "main.csv"
 REQUIRED = {
     "sort", "family_scientific", "family_english", "common_name", "scientific_name",
     "red_list", "status_birdlife", "water_bird", "strict_water_bird",
@@ -18,7 +19,10 @@ STATUS_FIELDS = {"AM", "AMR", "E", "EX", "HIST", "IO", "MM", "N", "NR", "NRR", "
 
 
 def main():
-    with DATA.open(encoding="utf-8-sig", newline="") as handle:
+    archived_data = subprocess.run(
+        ["git", "show", "v2019.0:data/main.csv"], cwd=ROOT, check=True, capture_output=True, text=True,
+    ).stdout
+    with io.StringIO(archived_data.lstrip("\ufeff"), newline="") as handle:
         reader = csv.DictReader(handle)
         fields = set(reader.fieldnames or [])
         missing = REQUIRED - fields

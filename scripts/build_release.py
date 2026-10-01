@@ -57,7 +57,7 @@ REPORTED_FIELDS = [
 CHECKLIST_FIELDS = [
     "sequence", "avibase_id", "order", "family", "family_english_name",
     "scientific_name", "english_name", "taxonomy_comment", "ebird_species_code", "source_avibase_ids",
-    "safring_numbers",
+    "safring_numbers", "earc_decision",
     "membership_source", "sensitive", "exotic_status", "observations",
     "first_observation_date", "last_observation_date", "iucn_red_list_category",
     "birdlife_datazone_url", "birds_of_the_world_url",
@@ -92,10 +92,6 @@ SAFRING_MISSING_AUDIT_FIELDS = [
 def read_csv(path):
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
-
-
-def rejected_earc_ids(path=EARC_DECISIONS):
-    return {row["avibase_id"].strip() for row in read_csv(path) if row["decision"].strip().casefold() == "rejected"}
 
 
 def accepted_earc_ids(path=EARC_DECISIONS):
@@ -151,7 +147,7 @@ def checksum(path):
 
 
 def release_id(config):
-    return f"{config['ebd_version']}.{int(config['release_revision'])}"
+    return config["release_id"]
 
 
 def source_paths(config):
@@ -159,7 +155,7 @@ def source_paths(config):
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "kbm_species_list_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
-        "sensitive_species_path", "curated_species_path",
+        "sensitive_species_path", "curated_species_path", "earc_decisions_path",
     ]}
 
 
@@ -708,8 +704,8 @@ def build(config_path, force_compaction=False):
         compact, compact_latest, taxonomy_index(paths["ebird_taxonomy_path"])
     )
     avilist_by_code, avilist_by_id = avilist_indexes(read_xlsx(paths["avilist_path"]))
-    rejected_ids = rejected_earc_ids()
-    accepted_ids = accepted_earc_ids()
+    earc_decisions = read_csv(paths["earc_decisions_path"])
+    accepted_ids = accepted_earc_ids(paths["earc_decisions_path"])
     overrides = read_ebird_avilist_overrides(paths["ebird_avilist_overrides_path"], avilist_by_id)
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
     curated_species = read_curated_species(paths["curated_species_path"], avilist_by_id)
@@ -803,13 +799,8 @@ def build(config_path, force_compaction=False):
     latest = defaultdict(list)
     for row in reported_latest:
         identifier = code_to_avilist.get(row["REPORTED_SPECIES_CODE"])
-        if identifier and identifier not in rejected_ids:
+        if identifier:
             push_latest(latest[identifier], row)
-
-    observations = {
-        identifier: evidence for identifier, evidence in observations.items()
-        if identifier not in rejected_ids
-    }
 
     checklist = []
     used_categories = set()
@@ -818,6 +809,7 @@ def build(config_path, force_compaction=False):
         curated = categories.get(identifier, {})
         used_categories.add(identifier)
         checklist.append({
+            "earc_decision": ";".join(sorted({row["decision"] for row in earc_decisions if row["avibase_id"] == identifier})),
             "sequence": taxon["Sequence"],
             "avibase_id": identifier,
             "order": taxon["Order"],

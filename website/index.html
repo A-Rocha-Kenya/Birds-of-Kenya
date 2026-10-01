@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Checklist of the Birds of Kenya · Bird Committee of EANHS</title>
-  <meta name="description" content="The sixth edition of the Checklist of the Birds of Kenya, published by the Bird Committee of the East Africa Natural History Society (Nature Kenya).">
+  <meta name="description" content="Version {{RELEASE_ID}} of the Checklist of the Birds of Kenya, published by the Bird Committee of the East Africa Natural History Society (Nature Kenya).">
   <meta name="theme-color" content="#173e2e">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +25,9 @@
 
   <header class="hero home-hero">
     <div class="hero-inner">
-      <p class="eyebrow">Bird Committee of the East Africa Natural History Society · Sixth edition · <span data-site="release.label">2026-06.0</span></p>
+      <p class="eyebrow">Bird Committee of the East Africa Natural History Society · <span data-site="release.label">{{RELEASE_ID}}</span></p>
       <h1>Checklist of the Birds of Kenya</h1>
-      <p class="lede">Published by the Bird Committee of the East Africa Natural History Society (Nature Kenya). The sixth edition continues a checklist tradition dating to 1981—now updated as a reproducible, evidence-based account of the birds represented in Kenya.</p>
+      <p class="lede">Published by the Bird Committee of the East Africa Natural History Society (Nature Kenya). This version continues a checklist tradition dating to 1981—now updated as a reproducible, evidence-based account of the birds represented in Kenya.</p>
       <div class="hero-links">
         <a class="hero-link primary" href="checklist/">Explore the checklist <span aria-hidden="true">→</span></a>
         <a class="hero-link" data-download="checklist_pdf" href="#">Download the PDF <span aria-hidden="true">↓</span></a>
@@ -38,13 +38,13 @@
   <main>
     <section class="edition-intro" aria-labelledby="edition-heading">
       <div>
-        <p class="section-label">Sixth edition</p>
+        <p class="section-label">Publishing history</p>
         <h2 id="edition-heading">A living checklist with a long history</h2>
       </div>
       <div class="edition-copy">
-        <p>This edition follows checklists published in 1981, 1986, 1996, 2009, and 2019. It carries that national record forward while making the evidence, editorial decisions, and changes between editions easier to inspect.</p>
+        <p>This checklist follows those published in 1981, 1986, 1996, 2009, and 2019. It carries that national record forward while making the evidence, editorial decisions, and changes between versions easier to inspect.</p>
         <ol class="edition-history" aria-label="Publishing history">
-          <li><span>1981</span></li><li><span>1986</span></li><li><span>1996</span></li><li><span>2009</span></li><li><span>2019</span></li><li class="current"><span>2026</span><small>Sixth edition</small></li>
+          <li><span>1981</span></li><li><span>1986</span></li><li><span>1996</span></li><li><span>2009</span></li><li><span>2019</span></li><li class="current"><span>{{PUBLICATION_YEAR}}</span><small>{{RELEASE_ID}}</small></li>
         </ol>
       </div>
     </section>
@@ -53,7 +53,7 @@
       <article class="summary-card stat-card species-card"><span data-site="counts.species">—</span><small>bird species recorded in Kenya</small></article>
       <article class="summary-card stat-card family-card"><span data-site="counts.families">—</span><small>families in this checklist</small></article>
       <article class="summary-card source-card taxonomy-card"><a class="summary-logo" href="https://www.avilist.org/" target="_blank" rel="noreferrer" aria-label="Visit AviList"><img src="assets/images/avilist-logo.png" alt="AviList"></a><small>current global taxonomy &amp; sequence</small></article>
-      <article class="summary-card source-card evidence-card"><a class="summary-logo" href="https://ebird.org/region/KE" target="_blank" rel="noreferrer" aria-label="Visit eBird Kenya"><img src="assets/images/ebird-kenya-logo.svg" alt="eBird Kenya"></a><small>observations supporting this edition</small></article>
+      <article class="summary-card source-card evidence-card"><a class="summary-logo" href="https://ebird.org/region/KE" target="_blank" rel="noreferrer" aria-label="Visit eBird Kenya"><img src="assets/images/ebird-kenya-logo.svg" alt="eBird Kenya"></a><small>observations supporting this checklist</small></article>
       <article class="summary-card source-card rarities-card"><a class="summary-logo" href="https://www.eararities.org/" target="_blank" rel="noreferrer" aria-label="Visit the East African Rarities Committee"><img src="assets/images/east-african-rarities-committee-logo.png" alt="East African Rarities Committee"></a><small>independent review of rare records</small></article>
     </section>
 
@@ -67,11 +67,11 @@
       <article class="feature-card">
         <p class="section-label">Taxonomy review</p>
         <h2>See what changed</h2>
-        <p>Compare the corrected 2019.1 checklist with the current AviList concepts, including replacements, splits, lumps, and additions.</p>
+        <p>Compare {{FROM_RELEASE}} with {{RELEASE_ID}} to inspect changes in taxonomy, checklist membership, categories, and evidence.</p>
         <a class="text-link" href="changes/">Open the comparison <span aria-hidden="true">→</span></a>
       </article>
       <article class="feature-card">
-        <p class="section-label">Print edition</p>
+        <p class="section-label">Printable checklist</p>
         <h2>Take the checklist into the field</h2>
         <p>Download the complete print-ready checklist, grouped by family and ordered by current AviList sequence.</p>
         <a class="text-link" data-download="checklist_pdf" href="#">Download the PDF <span aria-hidden="true">↓</span></a>
@@ -127,7 +127,7 @@
   </main>
 
   <footer class="site-footer">
-    <p class="footer-title">Birds of Kenya · <span data-site="release.id">2026-06.0</span></p>
+    <p class="footer-title">Birds of Kenya · <span data-site="release.id">{{RELEASE_ID}}</span></p>
     <nav aria-label="Footer navigation"><a href="checklist/">Checklist</a><a href="changes/">Changes</a><a href="policy/">Policy</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav>
   </footer>
   <script src="assets/site.js"></script>

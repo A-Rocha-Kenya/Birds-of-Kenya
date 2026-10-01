@@ -447,7 +447,7 @@ exportButton.addEventListener('click', () => {
     exportHiddenColumns: false,
     exportHiddenRows: false,
     fileExtension: 'csv',
-    filename: 'Birds_of_Kenya_2026-06.0',
+    filename: 'Birds_of_Kenya_v2026.0',
     mimeType: 'text/csv',
     rowDelimiter: '\r\n'
   });

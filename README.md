@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-The **sixth edition of the *Checklist of the Birds of Kenya*** continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019. It is a public, reproducible, and versioned account of the bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
+**Version v2026.0 of the *Checklist of the Birds of Kenya*** continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019. It is a public, reproducible, and versioned account of the bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -45,6 +45,8 @@ same generated checklist. Commit the changed `release-assets/<release-id>/` file
 changes. Push `main`; GitHub Actions deploys that exact bundle.
 
 The individual stages below remain available when publication products need separate editorial review.
+
+For subsequent versions (for example `v2027.01`), follow [the future-release guide](docs/future-releases.md).
 
 ### 1. Prepare the release
 
@@ -107,14 +109,16 @@ uv run python tests/validate_ipt_checklist.py "dist/$release_id/gbif"
 
 Upload `dist/$release_id/gbif/checklist.csv` to IPT and map it to the GBIF Taxon core definition
 recorded in `ipt-metadata.json`. It contains a normalized kingdom-to-species hierarchy linked by
-`parentNameUsageID`. `acceptedNameUsageID` is blank because this export contains accepted taxa only;
-use it only if synonym or misapplied-name records are added later. Taxon concepts cite the pinned
+`parentNameUsageID`. The export contains accepted taxa only, so it omits the unused
+`acceptedNameUsageID` column; add it only if synonym or misapplied-name records are introduced.
+Dataset identifiers and titles are entered in IPT metadata rather than repeated in each row. Taxon concepts cite the pinned
 AviList release through `nameAccordingTo` and `nameAccordingToID`. English names are mapped directly
 to the Taxon core's `vernacularName` field with the ISO 639-1 language code `en`. There are no IPT
 extension tables. Use `ipt-metadata.json` to complete the IPT metadata form. GBIF publication is an
 external manual step.
-After publication, record the GBIF dataset URL and DOI in `publication/publication.toml`, complete
-the publication and editorial dates, and change `status` from `draft` to the final status.
+Use the existing IPT resource. The local release is `v2026.0`, with status `released`; IPT publication/registration is a separate step. After GBIF registration, record the dataset URL and assigned DOI in `publication/publication.toml`, append the DOI to `ipt.recommended_citation`, and rebuild the publication products. See [the GBIF publishing guide](docs/gbif-publication.md) for mapping, metadata, record-review treatment, and DOI timing.
+
+The GBIF table contains taxonomy and English names only. Repository categories, observation summaries, EARC flags, and internal `membership_source` values are not exported as Taxon core annotations. National-record review is described in the dataset metadata and linked review material.
 
 ### 5. Render the final checklist PDF
 

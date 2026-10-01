@@ -15,11 +15,11 @@ from build_release import read_xlsx
 ROOT = Path(__file__).resolve().parents[1]
 TAXON_CORE = "https://rs.gbif.org/core/dwc_taxon_2025-07-10.xml"
 FIELDS = [
-    "taxonID", "taxonConceptID", "parentNameUsageID", "acceptedNameUsageID",
-    "nameAccordingToID", "nameAccordingTo", "datasetID", "datasetName", "scientificName",
+    "taxonID", "taxonConceptID", "parentNameUsageID",
+    "nameAccordingToID", "nameAccordingTo", "scientificName",
     "scientificNameAuthorship", "taxonRank", "taxonomicStatus", "nomenclaturalCode",
     "kingdom", "phylum", "class", "order", "family", "genus", "specificEpithet",
-    "vernacularName", "language", "taxonRemarks",
+    "vernacularName", "language",
 ]
 
 
@@ -32,12 +32,8 @@ def read_csv(path):
         return list(csv.DictReader(handle))
 
 
-def higher_taxon_id(dataset_id, rank, name):
-    return f"{dataset_id}#taxon-{rank}-{quote(name, safe='')}"
-
-
-def species_taxon_id(dataset_id, avibase_id):
-    return f"{dataset_id}#taxon-species-{avibase_id}"
+def higher_taxon_id(rank, name):
+    return f"{rank}-{quote(name, safe='')}"
 
 
 def species_concept_id(avibase_id):
@@ -51,18 +47,15 @@ def write_csv(path, fields, rows):
         writer.writerows(rows)
 
 
-def taxon_record(taxon_id, parent_id, name, rank, dataset_id, dataset_name, name_according_to_id,
+def taxon_record(taxon_id, parent_id, name, rank, name_according_to_id,
                  name_according_to, authority="", taxon_concept_id="", **classification):
     scientific_name = f"{name} {authority}" if authority else name
     return {
         "taxonID": taxon_id,
         "taxonConceptID": taxon_concept_id,
         "parentNameUsageID": parent_id,
-        "acceptedNameUsageID": "",
         "nameAccordingToID": name_according_to_id,
         "nameAccordingTo": name_according_to,
-        "datasetID": dataset_id,
-        "datasetName": dataset_name,
         "scientificName": scientific_name,
         "scientificNameAuthorship": authority,
         "taxonRank": rank,
@@ -77,7 +70,6 @@ def taxon_record(taxon_id, parent_id, name, rank, dataset_id, dataset_name, name
         "specificEpithet": classification.get("specific_epithet", ""),
         "vernacularName": classification.get("vernacular_name", ""),
         "language": classification.get("language", ""),
-        "taxonRemarks": classification.get("remarks", ""),
     }
 
 
@@ -106,14 +98,12 @@ def main():
     for obsolete_path in [output_dir / "vernacular_names.csv", output_dir / "distributions.csv"]:
         obsolete_path.unlink(missing_ok=True)
     ipt = metadata["ipt"]
-    dataset_id = ipt["dataset_id"]
-    dataset_name = metadata["document"]["title"]
     avilist_version = manifest["avilist_version"]
     name_according_to_id = ipt["taxonomic_reference_id"].strip()
     name_according_to = ipt["taxonomic_reference"].strip()
     if not name_according_to_id.endswith(f"avilist.{avilist_version}") or avilist_version not in name_according_to:
         raise ValueError("IPT taxonomic reference does not match the release AviList version")
-    citation = metadata["document"]["recommended_citation"].strip()
+    citation = ipt["recommended_citation"].strip()
     license_value = metadata["publisher"]["licence"].strip()
     rights_holder = metadata["publisher"]["copyright_holder"].strip()
 
@@ -137,51 +127,49 @@ def main():
             raise ValueError(f"genus {genus} occurs in more than one family")
 
     taxon_rows = [
-        taxon_record(higher_taxon_id(dataset_id, "kingdom", "Animalia"), "", "Animalia", "kingdom",
-                     dataset_id, dataset_name, name_according_to_id, name_according_to),
-        taxon_record(higher_taxon_id(dataset_id, "phylum", "Chordata"), higher_taxon_id(dataset_id, "kingdom", "Animalia"),
-                     "Chordata", "phylum", dataset_id, dataset_name, name_according_to_id, name_according_to,
+        taxon_record(higher_taxon_id("kingdom", "Animalia"), "", "Animalia", "kingdom",
+                     name_according_to_id, name_according_to),
+        taxon_record(higher_taxon_id("phylum", "Chordata"), higher_taxon_id("kingdom", "Animalia"),
+                     "Chordata", "phylum", name_according_to_id, name_according_to,
                      phylum="Chordata"),
-        taxon_record(higher_taxon_id(dataset_id, "class", "Aves"), higher_taxon_id(dataset_id, "phylum", "Chordata"),
-                     "Aves", "class", dataset_id, dataset_name, name_according_to_id, name_according_to,
+        taxon_record(higher_taxon_id("class", "Aves"), higher_taxon_id("phylum", "Chordata"),
+                     "Aves", "class", name_according_to_id, name_according_to,
                      phylum="Chordata", class_name="Aves"),
     ]
     for order in dict.fromkeys(row["order"] for row in ordered_rows):
         authority = avilist_by_rank_name[("order", order)]["Authority"]
         taxon_rows.append(taxon_record(
-            higher_taxon_id(dataset_id, "order", order), higher_taxon_id(dataset_id, "class", "Aves"), order, "order",
-            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            higher_taxon_id("order", order), higher_taxon_id("class", "Aves"), order, "order",
+            name_according_to_id, name_according_to, authority=authority,
             phylum="Chordata", class_name="Aves", order=order,
         ))
     for family, order in family_orders.items():
         authority = avilist_by_rank_name[("family", family)]["Authority"]
         taxon_rows.append(taxon_record(
-            higher_taxon_id(dataset_id, "family", family), higher_taxon_id(dataset_id, "order", order), family, "family",
-            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            higher_taxon_id("family", family), higher_taxon_id("order", order), family, "family",
+            name_according_to_id, name_according_to, authority=authority,
             phylum="Chordata", class_name="Aves", order=order, family=family,
         ))
     for genus, family in genus_families.items():
         order = family_orders[family]
         authority = avilist_by_rank_name[("genus", genus)]["Authority"]
         taxon_rows.append(taxon_record(
-            higher_taxon_id(dataset_id, "genus", genus), higher_taxon_id(dataset_id, "family", family), genus, "genus",
-            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            higher_taxon_id("genus", genus), higher_taxon_id("family", family), genus, "genus",
+            name_according_to_id, name_according_to, authority=authority,
             phylum="Chordata", class_name="Aves", order=order, family=family, genus=genus,
         ))
 
     for row in ordered_rows:
         genus = row["scientific_name"].split()[0]
         specific_epithet = row["scientific_name"].split()[1]
-        taxon_id = species_taxon_id(dataset_id, row["avibase_id"])
+        taxon_id = row["avibase_id"]
         authority = avilist_by_id[row["avibase_id"]]["Authority"]
         taxon_rows.append(taxon_record(
-            taxon_id, higher_taxon_id(dataset_id, "genus", genus), row["scientific_name"], "species",
-            dataset_id, dataset_name, name_according_to_id, name_according_to, authority=authority,
+            taxon_id, higher_taxon_id("genus", genus), row["scientific_name"], "species",
+            name_according_to_id, name_according_to, authority=authority,
             taxon_concept_id=species_concept_id(row["avibase_id"]), phylum="Chordata", class_name="Aves",
             order=row["order"], family=row["family"], genus=genus, specific_epithet=specific_epithet,
             vernacular_name=row["english_name"], language="en",
-            remarks=(f"Checklist membership source: {row['membership_source']}; "
-                     f"regional status: {row['exotic_status']}.")
         ))
 
     write_csv(checklist_path, FIELDS, taxon_rows)
@@ -198,7 +186,7 @@ def main():
     credits = metadata["editorial"]["credits"]
     contributors = []
     for credit in credits:
-        if "contributor" not in credit["roles"]:
+        if "contributor" not in credit["roles"] or credit["id"] in ipt["creator_ids"]:
             continue
         contributor = {
             "name": credit["name"].strip(),
@@ -214,15 +202,17 @@ def main():
             contributor["affiliations"] = [affiliation.strip() for affiliation in credit["affiliations"] if affiliation.strip()]
         contributors.append(contributor)
 
-    creator_credits = [credit for credit in credits if "corporate author" in credit["roles"] or "data curator" in credit["roles"]]
+    credits_by_id = {credit["id"]: credit for credit in credits}
+    creator_credits = [credits_by_id[identifier] for identifier in ipt["creator_ids"]]
     creators = []
     for credit in creator_credits:
-        role = "corporate author" if "corporate author" in credit["roles"] else "data curator"
-        creator = {"name": credit["name"].strip(), "role": role}
+        creator = {"name": credit["name"].strip(), "role": "originator"}
         if credit.get("orcid", "").strip():
             creator["orcid"] = credit["orcid"].strip()
         if credit.get("email", "").strip():
             creator["email"] = credit["email"].strip()
+        if credit.get("affiliations"):
+            creator["affiliations"] = credit["affiliations"]
         creators.append(creator)
 
     ipt_metadata = {
@@ -230,7 +220,7 @@ def main():
             "shortname": ipt["resource_shortname"],
             "title": metadata["document"]["title"],
             "description": ipt["description"],
-            "dataset_id": ipt["dataset_id"],
+            "acknowledgements": ipt["acknowledgements"],
             "language": metadata["language"],
             "citation": citation,
             "license": license_value,
@@ -246,7 +236,45 @@ def main():
         },
         "creators": creators,
         "contributors": contributors,
-        "coverage": {"country": ipt["country"], "country_code": ipt["country_code"]},
+        "coverage": {
+            "country": ipt["country"], "country_code": ipt["country_code"],
+            "geographic_description": metadata["scope"]["geographic_scope"],
+            "bounding_coordinates": {direction: metadata["scope"]["geographic_bounds"][direction]
+                                     for direction in ["west", "east", "north", "south"]},
+            "bounding_coordinates_description": metadata["scope"]["geographic_bounds"]["description"],
+            "temporal_start": min(row["first_observation_date"] for row in rows if row["first_observation_date"]),
+            "temporal_end": max(row["last_observation_date"] for row in rows if row["last_observation_date"]),
+            "temporal_description": (
+                "The date range represents the earliest and latest supporting EBD observation dates "
+                "among species in this release. It includes historical records and does not represent "
+                "continuous or standardized sampling. Species retained through historical checklist "
+                "membership, curated sensitive-species information, or EARC decisions may lack public "
+                "EBD dates and are not fully described by this range. This is evidence coverage, "
+                "not the publication date or a period during which every listed species was present."
+            ),
+        },
+        "methods": {
+            "study_extent": (
+                metadata["scope"]["geographic_scope"] + " Supporting EBD observations in this release span "
+                + min(row["first_observation_date"] for row in rows if row["first_observation_date"])
+                + " to " + max(row["last_observation_date"] for row in rows if row["last_observation_date"])
+                + ". This is evidence coverage, not continuous or standardized sampling; curated entries may lack public EBD dates."
+            ),
+            "sampling_description": ipt["sampling_methods"]["sampling_description"],
+            "quality_control": ipt["sampling_methods"]["quality_control"],
+            "method_steps": ipt["sampling_methods"]["method_steps"],
+        },
+        "additional_information": {
+            "record_review": ipt["record_review"],
+            "sensitive_record_limitation": metadata["scope"]["sensitive_record_limitation"],
+        },
+        "references": {
+            "taxonomy": name_according_to,
+            "taxonomy_url": name_according_to_id,
+            "ebird": metadata["source_credits"]["ebird"],
+            "policy": "https://a-rocha-kenya.github.io/Birds-of-Kenya/policy/",
+            "record_review": "https://a-rocha-kenya.github.io/Birds-of-Kenya/changes/",
+        },
         "release": {
             "id": manifest["release_id"],
             "ebd_version": manifest["ebd_version"],
