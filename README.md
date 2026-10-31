@@ -196,3 +196,9 @@ Publishing organizations, project partners, data sources, and contributors are d
 ## Data use and licensing
 
 The new checklist data and publication material are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), matching the GBIF checklist dataset. The repository code is licensed under MIT. The 2019 edition, raw eBird data, AviList source files, and other third-party material retain their own terms; see [`LICENSE`](LICENSE).
+
+## AviList and eBird 2026 development update
+
+The active release uses AviList v2026 and eBird 2026 species codes. The June 2026 EBD still uses its matching 2025 source taxonomy for compaction; concept-ID alignment is a separate step. Obtain the current workbook and prepare the slim taxonomy as described in [the pinned-source notes](data/ebird/README.md), then run the existing release workflow. Run `uv run python scripts/check_taxonomy_coherence.py` with the sibling Comparison and digitization repositories present to validate their current codes and historical IDs together.
+
+The maintained 2019 crosswalk now places Athi Lark with the historical Rufous-naped complex; the old Red-winged entry is not an ancestor of Athi Lark. Historical atlas groups and modern checklist species retain their different scopes. Broader pre-split Spotted/Mediterranean Flycatcher records are not assigned automatically to either new species. See [the migration audit](docs/taxonomy-2026-audit.md).

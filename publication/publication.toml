@@ -1,6 +1,6 @@
 schema_version = 1
 release_id = "v2026.0"
-status = "released"
+status = "draft"
 language = "en-KE"
 
 [document]
@@ -9,8 +9,8 @@ short_title = "Birds of Kenya"
 edition = ""
 corporate_author = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 version_label = "v2026.0"
-publication_date = "2026-10-01"
-editorial_cutoff_date = "2026-10-01"
+publication_date = "2026-10-31"
+editorial_cutoff_date = "2026-10-31"
 recommended_citation = "Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0). https://doi.org/10.15468/mehwcx"
 
 [gbif]
@@ -28,19 +28,19 @@ The checklist draws on eBird observations, earlier national checklists, curated 
 
 Checklist membership and the review of supporting national records are distinct. Some evidence may remain under review, and inclusion does not imply EARC acceptance of every supporting record. Historical inclusion does not establish current presence. National status categories, record-review annotations, and explanations of additions, removals, and taxonomic changes are maintained in the accompanying repository and website. The checklist is published as successive, citable versions so that users can identify the taxonomic framework, evidence base, and editorial decisions underlying the version they use.
 """
-methods = "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, rolled up to species where appropriate, and aligned to AviList v2025b through species codes and curated overrides. Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership. EARC rejections annotate record review and do not remove a species or its source evidence. Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created."
+methods = "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, interpreted through the eBird 2026 concept-ID crosswalk, rolled up to species where appropriate, and aligned to AviList v2026 through current species codes and curated overrides. Undifferentiated pre-split records remain outside species-level evidence; unchanged code strings do not establish concept equivalence. Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership. EARC rejections annotate record review and do not remove a species or its source evidence. Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created."
 record_review = "Pending EARC identifies additions or removals since 2019.1 for which this repository has no mapped EARC decision; it does not imply an active submission or determine taxonomic validity. These entries are retained in v2026.0 for review in a later version. Accepted and rejected decisions concern national occurrence evidence, not the validity of AviList taxa. A rejected decision may apply to an individual record and does not establish that all Kenyan evidence for that species is invalid. Review flags and supporting decisions remain available in the repository and website."
 country = "Kenya"
 country_code = "KE"
 acknowledgements = "We thank the bird observers, record submitters, and compilers of earlier national checklists whose work underpins this dataset. We acknowledge the Bird Committee of the East Africa Natural History Society (Nature Kenya), A Rocha Kenya, the National Museums of Kenya, Kenya Bird Map, eBird Kenya, and the East African Rarities Committee for their contributions to documenting and reviewing Kenya's avifauna. We also acknowledge the Cornell Lab of Ornithology and the eBird community for the observation data made available through the eBird Basic Dataset, and the AviList team for the taxonomic framework. Individual dataset creators are credited in the authorship and citation."
-taxonomic_reference = "AviList Core Team. 2026. AviList: The Global Avian Checklist, v2025b."
-taxonomic_reference_id = "https://doi.org/10.2173/avilist.v2025b"
+taxonomic_reference = "AviList Core Team. 2026. AviList: The Global Avian Checklist, v2026."
+taxonomic_reference_id = "https://doi.org/10.2173/avilist.v2026"
 
 [ipt.sampling_methods]
 sampling_description = "This checklist compiles existing evidence rather than reporting a dedicated field survey. The June 2026 eBird Basic Dataset is supplemented by historical checklist membership, curated historical and sensitive species, and accepted EARC records. The main checklist retains native and naturalized species at species rank; escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside its scope."
 quality_control = "Pinned source versions, curated taxonomic crosswalks, and deterministic repository validation checks are used to assess the compiled checklist. Checks cover taxon identifiers, taxonomic alignment, hierarchy, exported fields, and consistency with the release metadata. EARC decisions concern national occurrence evidence, not taxonomic validity; these checks do not independently verify every national record."
 method_steps = [
-    "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, rolled up to species where appropriate, and aligned to AviList v2025b through species codes and curated overrides.",
+    "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, interpreted through the eBird 2026 concept-ID crosswalk, rolled up to species where appropriate, and aligned to AviList v2026 through current species codes and curated overrides. Undifferentiated pre-split records remain outside species-level evidence; unchanged code strings do not establish concept equivalence.",
     "Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership.",
     "EARC rejections annotate record review and do not remove a species or its source evidence.",
     "Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created.",
@@ -221,7 +221,7 @@ email = "washingtonwachira@gmail.com"
 
 [source_credits]
 ebird = "eBird Basic Dataset for Kenya, release 2026-06"
-avilist = "AviList v2025b"
+avilist = "AviList v2026"
 
 [scope]
 geographic_scope = "Kenya, East Africa: terrestrial, inland freshwater, and coastal environments, together with offshore and marine records included in the Kenya coverage of the source eBird Basic Dataset. Checklist membership concerns birds recorded within this national scope, including residents, migrants, vagrants, naturalized species, and historical records. Inclusion does not imply occurrence throughout Kenya. The marine scope follows the source dataset's assignment of records to Kenya; an independently delineated Exclusive Economic Zone boundary is not supplied with this checklist."
