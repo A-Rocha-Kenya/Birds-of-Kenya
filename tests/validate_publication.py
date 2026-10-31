@@ -59,6 +59,8 @@ def main():
         raise ValueError("publication release_id does not match its release directory and manifest")
 
     linked_paths = [metadata["sources"]["policy"], metadata["sources"]["category_definitions"]]
+    if metadata["sources"].get("review_baseline_comparison"):
+        linked_paths.append(metadata["sources"]["review_baseline_comparison"])
     if metadata["sources"].get("introduction"):
         linked_paths.append(metadata["sources"]["introduction"])
     missing_paths = [value for value in linked_paths if not root_path(value).exists()]

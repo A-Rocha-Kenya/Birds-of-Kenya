@@ -12,6 +12,8 @@ import tomllib
 from collections import Counter
 from pathlib import Path
 
+from publication_metadata import pending_earc_ids
+
 
 ROOT = Path(__file__).resolve().parents[1]
 WEBSITE = ROOT / "website"
@@ -129,7 +131,7 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
         },
         "sources": {
             "avilist": f"AviList {manifest['avilist_version']}",
-            "ebird_taxonomy": f"eBird taxonomy {manifest['current_ebird_taxonomy_version']} (EBD source: {manifest['ebird_taxonomy_version']})",
+            "ebird_taxonomy": f"eBird taxonomy {manifest['ebird_taxonomy_version']}",
             "ebd": manifest["ebd_version"],
         },
         "publication": {
@@ -211,13 +213,11 @@ def main():
     if comparison["to_release"] != manifest["release_id"]:
         raise ValueError("comparison target does not match the website release")
     comparison = annotate_earc(comparison, read_csv(EARC_DECISIONS))
-    pending_earc_ids = {
-        row["id"]
-        for group in comparison["groups"] if group.get("pending_earc")
-        for row in group["new"]
-    }
+    pending_ids = pending_earc_ids(metadata, ROOT, release)
+    for group in comparison["groups"]:
+        group["pending_earc"] = any(row["id"] in pending_ids for row in group["new"]) or group["pending_earc"]
     for row in public_rows:
-        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
+        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_ids else ""
     public_fields.append("pending_earc")
 
     checklist_pdf = require(release / metadata["render"]["output_filename"])

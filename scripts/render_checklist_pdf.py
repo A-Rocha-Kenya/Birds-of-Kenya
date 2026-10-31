@@ -9,7 +9,7 @@ import tomllib
 from collections import OrderedDict
 from pathlib import Path
 
-from publication_metadata import load
+from publication_metadata import load, pending_earc_ids
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -247,14 +247,9 @@ def main():
         definition for definition in PDF_STATUS_DEFINITIONS
         if definition["code"] != "PE" or metadata["checklist"].get("show_pending_earc", True)
     ]
-    comparison = json.loads((release / "comparison" / "taxonomy-changes.json").read_text(encoding="utf-8"))
-    pending_earc_ids = {
-        row["id"]
-        for group in comparison["groups"] if group.get("pending_earc")
-        for row in group["new"]
-    }
+    pending_ids = pending_earc_ids(metadata, ROOT, release)
     for row in rows:
-        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
+        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_ids else ""
 
     introduction = metadata["sources"].get("introduction") or metadata["sources"]["policy"]
     policy = markdown_to_typst(root_path(introduction))

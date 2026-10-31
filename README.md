@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-**Version v2026.0 of the *Checklist of the Birds of Kenya*** continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019. It is a public, reproducible, and versioned account of the bird species represented in Kenya, following [AviList](https://www.avilist.org/) taxonomy and names and grounded in [Kenya eBird records](https://ebird.org/region/KE).
+**Version v2026.1 of the *Checklist of the Birds of Kenya* is in preparation**, using the September 2026 Kenya EBD and AviList v2026. The build awaits the official eBird 2026 taxonomy CSV. The released v2026.0 snapshot remains available unchanged. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -199,6 +199,6 @@ The new checklist data and publication material are licensed under [CC BY 4.0](h
 
 ## AviList and eBird 2026 development update
 
-The active release uses AviList v2026 and eBird 2026 species codes. The June 2026 EBD still uses its matching 2025 source taxonomy for compaction; concept-ID alignment is a separate step. Obtain the current workbook and prepare the slim taxonomy as described in [the pinned-source notes](data/ebird/README.md), then run the existing release workflow. Run `uv run python scripts/check_taxonomy_coherence.py` with the sibling Comparison and digitization repositories present to validate their current codes and historical IDs together.
+The v2026.1 draft pins AviList v2026, the September 2026 EBD, and one official eBird taxonomy CSV through `ebird_taxonomy_path`. The eBird 2026 taxonomy file is not yet available. The names workbook is not a replacement, and the build does not align observations through a second taxonomy layer. See [the pending-source notes](data/ebird/README.md) and [release preparation notes](docs/releases/v2026.1.md).
 
-The maintained 2019 crosswalk now places Athi Lark with the historical Rufous-naped complex; the old Red-winged entry is not an ancestor of Athi Lark. Historical atlas groups and modern checklist species retain their different scopes. Broader pre-split Spotted/Mediterranean Flycatcher records are not assigned automatically to either new species. See [the migration audit](docs/taxonomy-2026-audit.md).
+When the official CSV is available, verify its compatibility with the EBD, rebuild and review the checklist, then generate the comparison, PDF, GBIF package and staged website assets. No v2026.1 public assets are staged yet. The corrected historical lark crosswalk and AviList v2026 workbook reader are retained for review on the development branch.

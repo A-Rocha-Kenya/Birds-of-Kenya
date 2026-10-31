@@ -12,10 +12,10 @@
 
 **Copyright:** © 2026 Bird Committee of the East Africa Natural History Society (Nature Kenya). CC BY 4.0.
 
-**Recommended citation:** Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0).
+**Recommended citation:** Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.1).
 
 **Contact:** Nature Kenya, P. O. Box 44486, 00100 Nairobi, Kenya; office@naturekenya.org; https://naturekenya.org.
 
-**Publication history:** Version v2026.0, following historical checklists published in 1981, 1986, 1996, 2009, and 2019.
+**Publication history:** Version v2026.1, following historical checklists published in 1981, 1986, 1996, 2009, and 2019.
 
 <!-- EDITOR: Add printer information only if a physical edition is commissioned. -->

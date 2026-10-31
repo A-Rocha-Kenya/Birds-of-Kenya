@@ -62,11 +62,17 @@ def main():
         raise ValueError("website checklist exposes hidden status fields")
     if {"E", "ES"} & {category["code"] for category in categories}:
         raise ValueError("website category definitions expose discontinued endemic status")
+    review_comparisons = [comparison] + [
+        json.loads((site / entry["files"]["json"]).read_text(encoding="utf-8"))
+        for entry in comparison_catalog
+    ]
     pending_earc_ids = {
         row["id"]
-        for group in comparison["groups"] if group.get("pending_earc")
+        for review in review_comparisons
+        for group in review["groups"] if group.get("pending_earc", group["cardinality"] == "0:1")
         for row in group["new"]
     }
+    pending_earc_ids &= {row["avibase_id"] for row in rows if not row["earc_decision"]}
     if {row["avibase_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
         raise ValueError("website checklist has incorrect pending EARC coverage")
     if "pending_earc" not in rows[0]:

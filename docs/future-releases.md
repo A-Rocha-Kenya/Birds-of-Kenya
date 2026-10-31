@@ -10,12 +10,7 @@ publication metadata, asset directory, Git tag, and GitHub Release.
    versions and paths, update the historical reference date, and set `release_revision`
    to the revision intended for this release. The revision is provenance metadata;
    it does not generate the release ID.
-2. Update `publication/publication.toml`: set the same `release_id` and
-   `document.version_label`, set `sources.release_directory = "dist/v2027.01"`,
-   and set `render.output_filename = "Checklist-of-the-Birds-of-Kenya-v2027.01.pdf"`.
-   Update dates, citations, source descriptions, versioned repository links, and
-   editorial prose. Use `status = "draft"` during preparation and `"released"`
-   after review. Follow [the GBIF update steps](gbif-publication.md) for the existing dataset.
+2. Update `publication/publication.toml`: set the same `release_id` and `document.version_label`, set `sources.release_directory = "dist/v2027.01"`, and set `render.output_filename = "Checklist-of-the-Birds-of-Kenya-v2027.01.pdf"`. Update dates, citations, source descriptions, versioned repository links, and editorial prose. Retain `sources.review_baseline_comparison` so unresolved additions since 2019.1 remain visible across releases. Use `status = "draft"` during preparation and `"released"` after review. Follow [the GBIF update steps](gbif-publication.md) for the existing dataset.
 3. Edit the curated tables and publication prose as needed. Keep the previous
    `release-assets/v2026.0/` directory intact. Published versions are snapshots;
    corrections after publication should receive a new release ID and tag.

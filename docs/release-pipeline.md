@@ -7,8 +7,7 @@ This document defines how the pinned source data and curated decisions become th
 uv run python scripts/build_release.py config/release.toml
 ```
 
-The release ID is explicitly configured as `release_id`, for example `v2026.0`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF,
-website, and release steps are documented in the repository [README](../README.md).
+The release ID is explicitly configured as `release_id`, for example `v2026.1`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF, website, and release steps are documented in the repository [README](../README.md).
 
 ## Inputs
 
@@ -18,7 +17,6 @@ Defined in `config/release.toml`:
 | --- | --- | --- | --- |
 | eBird Basic Dataset for Kenya | `YYYY-MM` | `ebd_version`, `ebd_path` | Zipped tab-separated EBD under `data/ebird/` |
 | Clements/eBird taxonomy | Taxonomy year | `ebird_taxonomy_version`, `ebird_taxonomy_path` | CSV with `TAXON_CONCEPT_ID`, `SPECIES_CODE`, and `REPORT_AS` under `data/ebird/` |
-| Current eBird taxonomy | 2026, 27 October | `current_ebird_names_path`, `current_ebird_taxonomy_path` | Official names workbook and extracted concept/code CSV |
 | AviList | Pinned release | `avilist_version`, `avilist_path` | Extended AviList workbook under `data/avilist/` |
 | Project categories | Repository revision | `categories_path` | CSV keyed by `avibase_id` under `data/curation/` |
 | KBM species list | Repository revision | `kbm_species_list_path` | KBM CSV containing positive SAFRING numbers and Avibase IDs |
@@ -68,12 +66,11 @@ Derive the regional checklist status using eBird's precedence: Native, Naturaliz
 
 EARC decisions annotate record review in `earc_decision` without excluding species or their retained source records. Accepted EARC decisions may supply membership where EBD evidence is absent. Rejected decisions do not establish taxonomic invalidity or invalidate all evidence for a species. The comparison retains these taxa and their review annotations. The EARC input is included in the manifest source hashes.
 
-### 5. Align source concepts to current eBird and AviList
+### 5. Align eBird species to AviList
 
-For v2026.0 revision 1, keep the matching eBird 2025 taxonomy for source compaction, then align every compact source concept to the pinned eBird 2026 reference by Avibase ID. Recompute reportable-species and unidentified-taxon summaries from those aligned groups. A source ID absent from current eBird is resolved only through an explicit maintained override; code reuse alone is insufficient. The Little Swift lump and Kenyan Rufous-naped Lark assignment are documented in `ebird_avilist_overrides.csv`. Broad pre-split records that now resolve to a slash do not become evidence for either descendant species. The alignment and record counts are written to `audit/ebird_taxonomy_alignment.csv`; raw observations and the source cache remain unchanged.
+Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.1 configuration targets eBird 2026, whose official CSV is still pending. The names workbook is not a substitute, and there is no second current-taxonomy alignment step. The existing exact-ID and category checks must pass before a release can be generated.
 
-The AviList 2026 workbook has revised column names. `read_avilist` normalizes those names for the build and reads English family names from the explicit family rows. The current reference and the source reference are pinned separately in `config/release.toml` and the manifest. `ebird_species_code` in the public checklist contains current species-page codes, not retired source codes.
-
+The AviList v2026 workbook has revised column names. `read_avilist` normalizes them for the build and reads English family names from the explicit family rows.
 
 Apply `data/curation/ebird_avilist_overrides.csv` first, then match all remaining `REPORTED_SPECIES_CODE` values exactly to AviList `Species_code_Cornell_Lab`. Each override must point to an AviList species and records a documented, versioned taxonomy-alignment decision. The build never infers a species by promoting an AviList subspecies to its parent. Codes not resolved by either route go to `audit/ebd_taxa_not_in_avilist.csv`.
 
@@ -143,3 +140,7 @@ Checklist and species comments are retained only in the ignored local derived da
 | `OBSERVATION DATE` | Latest-record selection and first/last dates. |
 | `OBSERVATION COUNT` | Retained as supplied for the newest-record table; it is not the EBD row count. |
 | `CHECKLIST COMMENTS`, `SPECIES COMMENTS` | Retained locally only and not published. |
+
+## Review flags across releases
+
+The planned comparison describes v2026.0 to v2026.1. Publication metadata separately pins `sources.review_baseline_comparison` to the reviewed 2019.1-to-v2026.0 comparison so unresolved historical additions retain their Pending EARC display in the PDF and website. Intermediate comparisons are followed through the archived release chain. Current additions are included, removed taxa are dropped, and any species with a curated EARC decision is excluded from the pending set. Changing the comparison baseline does not resolve outstanding reviews.

@@ -1,36 +1,27 @@
 {
   "release_id": "v2026.0",
   "ebd_version": "2026-06",
-  "release_revision": 1,
+  "release_revision": 0,
   "historical_reference_date": "2026-06-30",
   "historical_years": 50,
   "ebird_taxonomy_version": "2025",
-  "current_ebird_taxonomy_version": "2026 (27 October)",
-  "avilist_version": "v2026",
+  "avilist_version": "v2025b",
   "sources": {
     "ebd_path": {
       "path": "data/ebird/ebd_KE_relJun-2026.zip",
       "sha256": "57ccfecad2d92b9afc3c5e496e32af01cd9e60d003a739e349a5c5bd68fa375c"
     },
     "avilist_path": {
-      "path": "data/avilist/AviList-v2026-20Oct2026-extended-version.xlsx",
-      "sha256": "df031d392b766673ce8a9eb37b8e57a91baabf9576b6b2bcfd6cf9aa4902797d"
+      "path": "data/avilist/AviList-v2025b-10Jun2026-extended.xlsx",
+      "sha256": "2e1fd3374e23af732b04115b033dd9d97fc53ba275c312d02ef5d12cfb85c988"
     },
     "ebird_taxonomy_path": {
       "path": "data/ebird/eBird_taxonomy_v2025-4.csv",
       "sha256": "38ae7e68a03b651e8056e2f4abfad898533a12dbd9343f0e01cb2723ec20aaeb"
     },
-    "current_ebird_taxonomy_path": {
-      "path": "data/ebird/eBird_taxonomy_v2026.csv",
-      "sha256": "7f76c87357b991eafba6f6042f4ebbd33b6f41bf83012513d034acdb7612fb97"
-    },
-    "current_ebird_names_path": {
-      "path": "data/ebird/eBird_Taxonomy_v2026_5-tab_27Oct2026.xlsx",
-      "sha256": "989a1c4e9524c6b0fb3b8a69f99bad98f80706cd183e934bc620c6dd24e70e62"
-    },
     "categories_path": {
       "path": "data/curation/categories.csv",
-      "sha256": "537797902348e024ac961670fb8a674e55cf67ba4c28caa1b0b4c9cf367e0d5a"
+      "sha256": "bbfd6ac6c5450f1dd72af8b38f6bb506c3e241f60af2332b53a36bd84c5585e3"
     },
     "kbm_species_list_path": {
       "path": "data/KBM/general_specielist_UO.csv",
@@ -38,7 +29,7 @@
     },
     "ebird_avilist_overrides_path": {
       "path": "data/curation/ebird_avilist_overrides.csv",
-      "sha256": "5441b173630c6c9639f5f1e8d992cab49fb935eb63e3f20d6ea7961dca842eda"
+      "sha256": "3cd859668479dd09d98cc5ca5503397961be3bb853c8f70a56b9cf81f44c401a"
     },
     "ebird_exotic_overrides_path": {
       "path": "data/curation/ebird_exotic_overrides.csv",
@@ -59,14 +50,14 @@
   },
   "counts": {
     "species": 1148,
-    "species_records": 4628510,
-    "species_observations": 873155,
+    "species_records": 4636644,
+    "species_observations": 875099,
     "latest_records": 5443,
     "taxonomic_entities": 13,
     "taxonomic_entity_records": 4562,
     "taxonomic_entity_observations": 828,
     "taxonomic_entity_latest_records": 44,
-    "curated_ebird_avilist_overrides_used": 4,
+    "curated_ebird_avilist_overrides_used": 2,
     "curated_exotic_code_overrides_used": 2,
     "curated_exotic_code_records": 27,
     "curated_sensitive_species": 2,
@@ -82,6 +73,6 @@
       "naturalized": 1
     },
     "unmapped_reported_species_codes": 0,
-    "excluded_other_taxa": 201
+    "excluded_other_taxa": 200
   }
 }

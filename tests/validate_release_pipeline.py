@@ -2,8 +2,10 @@
 """Validate the EBD/AviList release helpers with small deterministic fixtures."""
 
 import csv
+import json
 import importlib.util
 import tempfile
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,26 +39,6 @@ def main():
         raise ValueError("curated eBird code override failed")
     if build.resolve_ebird_code("missing", avilist_by_code, {})[0] is not None:
         raise ValueError("missing eBird code must not fall back to a name")
-
-    # A pre-split parent must stay broad; an identified subgroup can become a species.
-    source = [
-        {"source_taxon_concept_id": "broad", "ebd_scientific_name": "Alpha beta", "ebird_species_code": "old1", "ebd_category": "species", "REPORTED_SPECIES_CODE": "old1", "record_count": "10", "exotic_code": ""},
-        {"source_taxon_concept_id": "narrow", "ebd_scientific_name": "Alpha beta", "ebird_species_code": "group1", "ebd_category": "issf", "REPORTED_SPECIES_CODE": "old1", "record_count": "2", "exotic_code": ""},
-        {"source_taxon_concept_id": "retired", "ebd_scientific_name": "Gamma delta", "ebird_species_code": "reuse1", "ebd_category": "species", "REPORTED_SPECIES_CODE": "reuse1", "record_count": "3", "exotic_code": ""},
-    ]
-    current = {
-        "broad": {"TAXON_CONCEPT_ID": "broad", "SPECIES_CODE": "old1", "CATEGORY": "slash", "REPORT_AS": ""},
-        "narrow": {"TAXON_CONCEPT_ID": "narrow", "SPECIES_CODE": "new1", "CATEGORY": "species", "REPORT_AS": ""},
-        "newscope": {"TAXON_CONCEPT_ID": "newscope", "SPECIES_CODE": "reuse1", "CATEGORY": "species", "REPORT_AS": ""},
-    }
-    aligned, _, audit = build.align_ebird_taxonomy(source, source, current, {})
-    if build.is_species_evidence(aligned[0]) or aligned[1]["REPORTED_SPECIES_CODE"] != "new1":
-        raise ValueError("split parent and identified child must retain different evidence routes")
-    if aligned[2]["ebd_category"] != "unresolved":
-        raise ValueError("a reused code must not override a changed concept ID")
-    aligned, _, _ = build.align_ebird_taxonomy(source, source, current, {"reuse1": {"Species_code_Cornell_Lab": "reuse1"}})
-    if aligned[2]["REPORTED_SPECIES_CODE"] != "reuse1" or source[0]["ebd_category"] != "species":
-        raise ValueError("explicit retired-concept mapping must preserve the archived source rows")
 
     if build.release_id({"release_id": "v2026.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2026.0":
         raise ValueError("release identity must be independent of the source-data month")
@@ -132,8 +114,45 @@ def main():
     if build.is_species_evidence(naturalized_hybrid) or not build.is_taxonomic_entity(naturalized_hybrid):
         raise ValueError("naturalized hybrid incorrectly entered species evidence")
 
+    publication = load("publication_metadata", ROOT / "scripts/publication_metadata.py")
+
     with tempfile.TemporaryDirectory() as directory:
         directory = Path(directory)
+        (directory / "data/curation").mkdir(parents=True)
+        (directory / "data/curation/earc_decisions.csv").write_text("avibase_id\naccepted\n")
+        baseline = {"to_release": "baseline", "groups": [
+            {"cardinality": "0:1", "new": [{"id": identifier}], "old": [], "pending_earc": True}
+            for identifier in ["pending", "accepted", "removed"]
+        ]}
+        current = {"from_release": "intermediate", "groups": [
+            {"cardinality": "1:0", "old": [{"id": "removed"}], "new": []},
+            {"cardinality": "0:1", "old": [], "new": [{"id": "new"}]},
+        ]}
+        intermediate_path = directory / "release-assets/intermediate/comparison"
+        intermediate_path.mkdir(parents=True)
+        (intermediate_path / "taxonomy-changes.json").write_text(json.dumps({
+            "from_release": "baseline", "groups": [
+                {"cardinality": "0:1", "old": [], "new": [{"id": "intermediate"}]}
+            ]
+        }))
+        (directory / "baseline.json").write_text(json.dumps(baseline))
+        (directory / "comparison").mkdir()
+        (directory / "comparison/taxonomy-changes.json").write_text(json.dumps(current))
+        metadata = {"sources": {"release_directory": ".", "review_baseline_comparison": "baseline.json"}}
+        if publication.pending_earc_ids(metadata, directory, directory) != {"pending", "new", "intermediate"}:
+            raise ValueError("historical pending EARC additions were lost or resolved/removed taxa retained")
+
+        archive_path = directory / "ebd_KE_smp.zip"
+        with zipfile.ZipFile(archive_path, "w") as archive:
+            archive.writestr("ebd_KE_smp.txt", "TAXON CONCEPT ID\nsource-1\n")
+            archive.writestr("ebd_KE_smp_sampling.txt", "SAMPLING EVENT IDENTIFIER\nS1\n")
+        archive, binary, handle = build.open_ebd(archive_path)
+        if list(csv.DictReader(handle))[0]["TAXON CONCEPT ID"] != "source-1":
+            raise ValueError("sampling-event file was selected instead of observation data")
+        handle.close()
+        binary.close()
+        archive.close()
+
         categories_path = directory / "categories.csv"
         categories_path.write_text("avibase_id,AM\navibase-00000001,TRUE\n", encoding="utf-8")
         categories, fields = build.read_categories(categories_path)

@@ -8,6 +8,7 @@ on:
       - "release-assets/**"
       - "publication/**"
       - "scripts/build_site.py"
+      - "scripts/publication_metadata.py"
       - "scripts/stage_release_assets.py"
       - "tests/validate_site.py"
       - ".github/workflows/pages.yml"

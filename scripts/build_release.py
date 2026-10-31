@@ -147,45 +147,6 @@ def read_avilist(path):
     return rows
 
 
-def align_ebird_taxonomy(compact, latest, current, overrides):
-    """Reinterpret source concepts without assigning a split's broad records to a child."""
-    by_code = {r["SPECIES_CODE"]: r for r in current.values()}
-    assignments = {}
-    audit = []
-    for row in compact:
-        source_id = row["source_taxon_concept_id"]
-        taxon = current.get(source_id)
-        method = "exact_concept_id"
-        if not taxon:
-            override = overrides.get(row["REPORTED_SPECIES_CODE"])
-            taxon = by_code.get(override["Species_code_Cornell_Lab"]) if override else None
-            method = "curated_retired_concept" if taxon else "unresolved_retired_concept"
-        assignments[source_id] = taxon
-        audit.append({
-            "source_taxon_concept_id": source_id,
-            "source_scientific_name": row["ebd_scientific_name"],
-            "source_species_code": row["ebird_species_code"],
-            "source_category": row["ebd_category"],
-            "current_taxon_concept_id": taxon["TAXON_CONCEPT_ID"] if taxon else "",
-            "current_species_code": taxon["SPECIES_CODE"] if taxon else "",
-            "current_category": taxon["CATEGORY"] if taxon else "",
-            "method": method,
-            "record_count": row["record_count"],
-        })
-    aligned = []
-    for rows in [compact, latest]:
-        result = []
-        for row in rows:
-            taxon = assignments[row["source_taxon_concept_id"]]
-            result.append({**row,
-                "ebd_category": taxon["CATEGORY"] if taxon else "unresolved",
-                "ebird_report_as": taxon["REPORT_AS"] if taxon else "",
-                "REPORTED_SPECIES_CODE": (taxon["REPORT_AS"] or taxon["SPECIES_CODE"]) if taxon else "",
-            })
-        aligned.append(result)
-    return *aligned, audit
-
-
 def write_csv(path, fields, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -208,7 +169,7 @@ def release_id(config):
 
 def source_paths(config):
     return {key: ROOT / config[key] for key in [
-        "ebd_path", "avilist_path", "ebird_taxonomy_path", "current_ebird_taxonomy_path", "current_ebird_names_path", "categories_path",
+        "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "kbm_species_list_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
         "sensitive_species_path", "curated_species_path", "earc_decisions_path",
@@ -244,7 +205,7 @@ def taxonomy_index(path):
 
 def open_ebd(path):
     archive = zipfile.ZipFile(path)
-    members = [name for name in archive.namelist() if name.startswith("ebd_") and name.endswith(".txt")]
+    members = [name for name in archive.namelist() if name.startswith("ebd_") and name.endswith(".txt") and not name.endswith("_sampling.txt")]
     if len(members) != 1:
         archive.close()
         raise ValueError(f"expected one EBD text file in {path.name}, found {len(members)}")
@@ -755,17 +716,12 @@ def build(config_path, force_compaction=False):
     compact_latest = read_csv(derived["compact_latest"])
     avilist_by_code, avilist_by_id = avilist_indexes(read_avilist(paths["avilist_path"]))
     overrides = read_ebird_avilist_overrides(paths["ebird_avilist_overrides_path"], avilist_by_id)
-    current_taxonomy = taxonomy_index(paths["current_ebird_taxonomy_path"])
-    compact, compact_latest, alignment = align_ebird_taxonomy(compact, compact_latest, current_taxonomy, overrides)
-    reported, reported_latest = aggregate_reported(compact, compact_latest)
-    excluded_counts = Counter()
-    for row in compact:
-        if not is_species_evidence(row) and not is_taxonomic_entity(row):
-            excluded_counts[(row["ebd_category"], row["ebd_scientific_name"])] += int(row["record_count"])
-    excluded = [{"category": category, "scientific_name": name, "record_count": count}
-                for (category, name), count in sorted(excluded_counts.items())]
-    entity_taxonomy = {**taxonomy_index(paths["ebird_taxonomy_path"]), **current_taxonomy}
-    entity_rows, entity_latest = aggregate_taxonomic_entities(compact, compact_latest, entity_taxonomy)
+    reported = read_csv(derived["reported"])
+    reported_latest = read_csv(derived["reported_latest"])
+    excluded = read_csv(derived["excluded"])
+    entity_rows, entity_latest = aggregate_taxonomic_entities(
+        compact, compact_latest, taxonomy_index(paths["ebird_taxonomy_path"])
+    )
     earc_decisions = read_csv(paths["earc_decisions_path"])
     accepted_ids = accepted_earc_ids(paths["earc_decisions_path"])
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
@@ -776,7 +732,7 @@ def build(config_path, force_compaction=False):
 
     observations = {}
     code_to_avilist = {}
-    overrides_used = {r["source_species_code"] for r in alignment if r["method"] == "curated_retired_concept"}
+    overrides_used = set()
     unmapped = []
     for row in reported:
         code = row["REPORTED_SPECIES_CODE"]
@@ -918,7 +874,6 @@ def build(config_path, force_compaction=False):
         {"source_taxon_concept_id": row["source_taxon_concept_id"], "exotic_status": exotic_status(row["exotic_code"]), **row}
         for row in entity_latest
     ])
-    write_csv(output / "audit" / "ebird_taxonomy_alignment.csv", list(alignment[0]), alignment)
     write_csv(output / "audit" / "ebd_taxa_not_in_avilist.csv", REPORTED_FIELDS + ["mapping_result"], unmapped)
     write_csv(output / "audit" / "safring_numbers_missing.csv", SAFRING_MISSING_AUDIT_FIELDS, missing_safring_rows)
     write_csv(output / "audit" / "excluded_non_species_observations.csv", [
@@ -937,7 +892,6 @@ def build(config_path, force_compaction=False):
         "historical_reference_date": config["historical_reference_date"],
         "historical_years": int(config["historical_years"]),
         "ebird_taxonomy_version": config["ebird_taxonomy_version"],
-        "current_ebird_taxonomy_version": config["current_ebird_taxonomy_version"],
         "avilist_version": config["avilist_version"],
         "sources": {
             key: {"path": str(path.relative_to(ROOT)), "sha256": checksum(path)}
