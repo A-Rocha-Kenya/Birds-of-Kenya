@@ -129,7 +129,7 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
         },
         "sources": {
             "avilist": f"AviList {manifest['avilist_version']}",
-            "ebird_taxonomy": f"eBird taxonomy {manifest['current_ebird_taxonomy_version']} (EBD source: {manifest['ebird_taxonomy_version']})",
+            "ebird_taxonomy": f"eBird taxonomy {manifest['ebird_taxonomy_version']}",
             "ebd": manifest["ebd_version"],
         },
         "publication": {

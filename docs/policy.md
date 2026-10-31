@@ -4,9 +4,9 @@ The *Checklist of the Birds of Kenya* is a public, living account of birds repre
 
 ## Taxonomy and species names
 
-This checklist follows AviList v2026. It supplies the taxon identity, order, family, scientific name, and the English name displayed in this version. AviList v2025 adopted the IOC World Bird List v15.1 English names as its default where taxonomy aligned.
+This checklist follows AviList v2025b. It supplies the taxon identity, order, family, scientific name, and the English name displayed in this version. AviList v2025 adopted the IOC World Bird List v15.1 English names as its default where taxonomy aligned.
 
-AviList's English Names Committee recommends the global-standard English names. This release uses the AviList v2026 names, and future releases will follow subsequent AviList updates by default. See AviList's [English Names Committee terms of reference](https://www.avilist.org/tor/).
+From AviList v2026 onward, AviList's English Names Committee will recommend the global-standard English names. Future versions of this checklist will adopt those AviList names by default. See AviList's [English Names Committee terms of reference](https://www.avilist.org/tor/).
 
 ## Taxonomic resolution
 

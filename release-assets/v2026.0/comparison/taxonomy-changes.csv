@@ -67,9 +67,9 @@ legacy-map-044,replacement,curated_mapping,avibase-F46C1803,Forest (Northern) Hy
 legacy-map-045,lump,curated_mapping,avibase-EE4207D4,Grey Penduline Tit,Anthoscopus caroli,avibase-F44BD4BE,Grey Penduline Tit,Anthoscopus caroli
 legacy-map-045,lump,curated_mapping,avibase-6E9DA935,Buff-bellied Penduline Tit,Anthoscopus (caroli) sylviella,avibase-F44BD4BE,Grey Penduline Tit,Anthoscopus caroli
 legacy-map-046,replacement,curated_mapping,avibase-6B089785,Singing Bush Lark,Mirafra cantillans,avibase-5BFC242D,Singing Bush Lark,Mirafra javanica
-legacy-map-047,split,curated_mapping,avibase-6A0D6123,Rufous-naped Lark,Mirafra africana (race harterti),avibase-EB9CE6A2,Rufous-naped Lark,Corypha africana
-legacy-map-047,split,curated_mapping,avibase-6A0D6123,Rufous-naped Lark,Mirafra africana (race harterti),avibase-D167A312,Sentinel Lark,Corypha athi
-legacy-map-048,replacement,curated_mapping,avibase-BAA83B0C,Red-winged Lark,Mirafra hypermetra,avibase-5F213A7D,Red-winged Lark,Corypha hypermetra
+legacy-map-047,replacement,curated_mapping,avibase-6A0D6123,Rufous-naped Lark,Mirafra africana (race harterti),avibase-EB9CE6A2,Rufous-naped Lark,Corypha africana
+legacy-map-048,split,curated_mapping,avibase-BAA83B0C,Red-winged Lark,Mirafra hypermetra,avibase-5F213A7D,Red-winged Lark,Corypha hypermetra
+legacy-map-048,split,curated_mapping,avibase-BAA83B0C,Red-winged Lark,Mirafra hypermetra,avibase-D167A312,Sentinel Lark,Corypha athi
 legacy-map-049,lump,curated_mapping,avibase-0C8B9FA4,Northern Crombec,Sylvietta brachyura,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura
 legacy-map-049,lump,curated_mapping,avibase-406E1A4D,White-bellied (Eastern) Crombec,Sylvietta (brachyura) leucopsis,avibase-7542C6F1,Northern Crombec,Sylvietta brachyura
 legacy-map-050,lump,curated_mapping,avibase-CA02C9A1,Yellow-breasted Apalis,Apalis flavida (race pugnax),avibase-E70F9747,Yellow-breasted Apalis,Apalis flavida
@@ -101,8 +101,6 @@ legacy-map-066,replacement,curated_mapping,avibase-D029B521,Karamoja Apalis,Apal
 legacy-map-067,replacement,curated_mapping,avibase-6DA05B66,Tropical Shearwater,Puffinus bailloni,avibase-198120BB,Persian Shearwater,Puffinus persicus
 legacy-map-068,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-ECE36984,Red Weaver,Anaplectes jubaensis
 legacy-map-068,split,curated_mapping,avibase-BE3C45B5,Red-headed Weaver,Anaplectes rubriceps,avibase-4D19099B,Red-headed Weaver,Anaplectes rubriceps
-legacy-map-069,replacement,curated_mapping,avibase-D209A90C,Little Swift,Apus affinis,avibase-4D28A0CD,Little Swift,Apus affinis
-legacy-map-070,replacement,curated_mapping,avibase-EE8206E7,Spotted Flycatcher,Muscicapa striata,avibase-B142856F,Spotted Flycatcher,Muscicapa striata
 stable-avibase-0018A99B,name_change,stable_avibase_id,avibase-0018A99B,Greyish Eagle Owl,Bubo (africanus) cinerascens,avibase-0018A99B,Greyish Eagle-Owl,Bubo cinerascens
 stable-avibase-023D6E38,name_change,stable_avibase_id,avibase-023D6E38,Southern White-faced (Scops) Owl,Ptilopsis granti,avibase-023D6E38,Southern White-faced Owl,Ptilopsis granti
 stable-avibase-02428AC1,name_change,stable_avibase_id,avibase-02428AC1,Black-and-white Casqued Hornbill,Bycanistes subcylindricus,avibase-02428AC1,Black-and-white-casqued Hornbill,Bycanistes subcylindricus
@@ -114,6 +112,7 @@ stable-avibase-0874B4D5,name_change,stable_avibase_id,avibase-0874B4D5,Black-rum
 stable-avibase-09A0F2EB,name_change,stable_avibase_id,avibase-09A0F2EB,African Crake,Crex egregia,avibase-09A0F2EB,African Crake,Crecopsis egregia
 stable-avibase-0B4F3AA2,name_change,stable_avibase_id,avibase-0B4F3AA2,Amani Sunbird,Anthodiaeta pallidigaster ,avibase-0B4F3AA2,Amani Sunbird,Hedydipna pallidigaster
 stable-avibase-0BC36521,name_change,stable_avibase_id,avibase-0BC36521,Doherty's Bushshrike,Telephorus dohertyi,avibase-0BC36521,Doherty's Bushshrike,Telophorus dohertyi
+stable-avibase-0C571D99,name_change,stable_avibase_id,avibase-0C571D99,Cinnamon-breasted Bunting,Fringillaria tahapisi,avibase-0C571D99,Cinnamon-breasted Bunting,Emberiza tahapisi
 stable-avibase-0CEB2DA6,name_change,stable_avibase_id,avibase-0CEB2DA6,Northern Grosbeak Canary,Crithagra donaldsoni,avibase-0CEB2DA6,Northern Grosbeak-Canary,Crithagra donaldsoni
 stable-avibase-0D7CC717,name_change,stable_avibase_id,avibase-0D7CC717,Grassland Pipit,Anthus cinnamomeus,avibase-0D7CC717,African Pipit,Anthus cinnamomeus
 stable-avibase-0DCD05BE,name_change,stable_avibase_id,avibase-0DCD05BE,Lesser Whitethroat,Sylvia curruca,avibase-0DCD05BE,Lesser Whitethroat,Curruca curruca
@@ -238,6 +237,7 @@ stable-avibase-6E95C4A9,name_change,stable_avibase_id,avibase-6E95C4A9,African D
 stable-avibase-6F967270,name_change,stable_avibase_id,avibase-6F967270,Mouse-coloured Penduline-Tit,Anthoscopus musculus,avibase-6F967270,Mouse-colored Penduline Tit,Anthoscopus musculus
 stable-avibase-70129CB1,name_change,stable_avibase_id,avibase-70129CB1,Rosy-breasted Longclaw,Macronyx ameliae,avibase-70129CB1,Rosy-throated Longclaw,Macronyx ameliae
 stable-avibase-70BD722B,name_change,stable_avibase_id,avibase-70BD722B,African Mourning Dove,Streptopelia decipiens,avibase-70BD722B,Mourning Collared Dove,Streptopelia decipiens
+stable-avibase-72386016,name_change,stable_avibase_id,avibase-72386016,Somali Bunting,Fringillaria poliopleura,avibase-72386016,Somali Bunting,Emberiza poliopleura
 stable-avibase-724266B4,name_change,stable_avibase_id,avibase-724266B4,Brown-breasted Barbet,Pogornornis melanopterus,avibase-724266B4,Brown-breasted Barbet,Pogonornis melanopterus
 stable-avibase-73BD4B29,name_change,stable_avibase_id,avibase-73BD4B29,Irania,Irania gutturalis,avibase-73BD4B29,White-throated Robin,Irania gutturalis
 stable-avibase-7451A628,name_change,stable_avibase_id,avibase-7451A628,Eurasian Roller,Coracias garrulus,avibase-7451A628,European Roller,Coracias garrulus
@@ -319,6 +319,7 @@ stable-avibase-B68BD0D2,name_change,stable_avibase_id,avibase-B68BD0D2,Rufous Bu
 stable-avibase-B85B93BB,name_change,stable_avibase_id,avibase-B85B93BB,Cinnamon-chested Bee-eater,Merops lafresnayii,avibase-B85B93BB,Cinnamon-chested Bee-eater,Merops oreobates
 stable-avibase-BAE527A2,name_change,stable_avibase_id,avibase-BAE527A2,Eastern Olivaceous Warbler,Hippolais pallida,avibase-BAE527A2,Eastern Olivaceous Warbler,Iduna pallida
 stable-avibase-BB05D1FC,name_change,stable_avibase_id,avibase-BB05D1FC,Snowy-headed Robin Chat,Cossypha niveicapilla,avibase-BB05D1FC,Snowy-crowned Robin-Chat,Cossypha niveicapilla
+stable-avibase-BB11EE7F,name_change,stable_avibase_id,avibase-BB11EE7F,Brown-rumped Bunting,Fringillaria affinis,avibase-BB11EE7F,Brown-rumped Bunting,Emberiza affinis
 stable-avibase-BB456342,name_change,stable_avibase_id,avibase-BB456342,Racquet-tailed Roller,Coracias spatulatus,avibase-BB456342,Racket-tailed Roller,Coracias spatulatus
 stable-avibase-BBA263C2,name_change,stable_avibase_id,avibase-BBA263C2,Feral Pigeon,Columba livia,avibase-BBA263C2,Rock Dove,Columba livia
 stable-avibase-BC6C3CCE,name_change,stable_avibase_id,avibase-BC6C3CCE,Eurasian Teal,Anas crecca,avibase-BC6C3CCE,Green-winged Teal,Anas crecca
@@ -344,12 +345,14 @@ stable-avibase-C97A5C39,name_change,stable_avibase_id,avibase-C97A5C39,Parasitic
 stable-avibase-CAA45AC6,name_change,stable_avibase_id,avibase-CAA45AC6,African Blue Quail,Synoicus adansoniee,avibase-CAA45AC6,Blue Quail,Synoicus adansonii
 stable-avibase-CAFE345D,name_change,stable_avibase_id,avibase-CAFE345D,Common Quail,Coturnix coturnix (race coturnix),avibase-CAFE345D,Common Quail,Coturnix coturnix
 stable-avibase-CD8DEBE3,name_change,stable_avibase_id,avibase-CD8DEBE3,Familiar (Red-tailed) Chat,Oenanthe familiaris,avibase-CD8DEBE3,Familiar Chat,Oenanthe familiaris
+stable-avibase-CDF4A106,name_change,stable_avibase_id,avibase-CDF4A106,Striolated Bunting,Fringillaria striolata,avibase-CDF4A106,Striolated Bunting,Emberiza striolata
 stable-avibase-CE1CF6FD,name_change,stable_avibase_id,avibase-CE1CF6FD,Little Sparrowhawk,Accipiter minullus,avibase-CE1CF6FD,Little Sparrowhawk,Tachyspiza minulla
 stable-avibase-CF2E9674,name_change,stable_avibase_id,avibase-CF2E9674,Common Stonechat,Saxicola torquatus,avibase-CF2E9674,African Stonechat,Saxicola torquatus
 stable-avibase-D0A5FADB,name_change,stable_avibase_id,avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema (race hausbergi),avibase-D0A5FADB,Fine-banded Woodpecker,Campethera taeniolaema
 stable-avibase-D0EAD8A3,name_change,stable_avibase_id,avibase-D0EAD8A3,Collared Lark,Mirafra collaris,avibase-D0EAD8A3,Collared Lark,Amirafra collaris
 stable-avibase-D0FA8EBE,name_change,stable_avibase_id,avibase-D0FA8EBE,Crowned Plover,Vanellus coronatus,avibase-D0FA8EBE,Crowned Lapwing,Vanellus coronatus
 stable-avibase-D12CDD0F,name_change,stable_avibase_id,avibase-D12CDD0F,Black-throated Seedeater,Crithagra atrogularis,avibase-D12CDD0F,Black-throated Canary,Crithagra atrogularis
+stable-avibase-D1C1A026,name_change,stable_avibase_id,avibase-D1C1A026,Golden-breasted Bunting,Fringillaria flaviventris,avibase-D1C1A026,Golden-breasted Bunting,Emberiza flaviventris
 stable-avibase-D1FFB474,name_change,stable_avibase_id,avibase-D1FFB474,White-headed Wood-hoopoe,Phoeniculus bollei,avibase-D1FFB474,White-headed Wood Hoopoe,Phoeniculus bollei
 stable-avibase-D2854489,name_change,stable_avibase_id,avibase-D2854489,Plain Martin,Riparia paludicola,avibase-D2854489,Brown-throated Martin,Riparia paludicola
 stable-avibase-D295D249,name_change,stable_avibase_id,avibase-D295D249,Wilson’s Storm-petrel ,Oceanites oceanicus,avibase-D295D249,Wilson's Storm Petrel,Oceanites oceanicus

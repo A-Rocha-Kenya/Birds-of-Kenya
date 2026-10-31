@@ -38,26 +38,6 @@ def main():
     if build.resolve_ebird_code("missing", avilist_by_code, {})[0] is not None:
         raise ValueError("missing eBird code must not fall back to a name")
 
-    # A pre-split parent must stay broad; an identified subgroup can become a species.
-    source = [
-        {"source_taxon_concept_id": "broad", "ebd_scientific_name": "Alpha beta", "ebird_species_code": "old1", "ebd_category": "species", "REPORTED_SPECIES_CODE": "old1", "record_count": "10", "exotic_code": ""},
-        {"source_taxon_concept_id": "narrow", "ebd_scientific_name": "Alpha beta", "ebird_species_code": "group1", "ebd_category": "issf", "REPORTED_SPECIES_CODE": "old1", "record_count": "2", "exotic_code": ""},
-        {"source_taxon_concept_id": "retired", "ebd_scientific_name": "Gamma delta", "ebird_species_code": "reuse1", "ebd_category": "species", "REPORTED_SPECIES_CODE": "reuse1", "record_count": "3", "exotic_code": ""},
-    ]
-    current = {
-        "broad": {"TAXON_CONCEPT_ID": "broad", "SPECIES_CODE": "old1", "CATEGORY": "slash", "REPORT_AS": ""},
-        "narrow": {"TAXON_CONCEPT_ID": "narrow", "SPECIES_CODE": "new1", "CATEGORY": "species", "REPORT_AS": ""},
-        "newscope": {"TAXON_CONCEPT_ID": "newscope", "SPECIES_CODE": "reuse1", "CATEGORY": "species", "REPORT_AS": ""},
-    }
-    aligned, _, audit = build.align_ebird_taxonomy(source, source, current, {})
-    if build.is_species_evidence(aligned[0]) or aligned[1]["REPORTED_SPECIES_CODE"] != "new1":
-        raise ValueError("split parent and identified child must retain different evidence routes")
-    if aligned[2]["ebd_category"] != "unresolved":
-        raise ValueError("a reused code must not override a changed concept ID")
-    aligned, _, _ = build.align_ebird_taxonomy(source, source, current, {"reuse1": {"Species_code_Cornell_Lab": "reuse1"}})
-    if aligned[2]["REPORTED_SPECIES_CODE"] != "reuse1" or source[0]["ebd_category"] != "species":
-        raise ValueError("explicit retired-concept mapping must preserve the archived source rows")
-
     if build.release_id({"release_id": "v2026.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2026.0":
         raise ValueError("release identity must be independent of the source-data month")
     if not build.is_historical("1976-06-29", build.datetime.date(2026, 6, 30), 50):

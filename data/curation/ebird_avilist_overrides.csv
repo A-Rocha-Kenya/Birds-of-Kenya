@@ -1,5 +1,3 @@
 reported_species_code,avibase_id,note
-purswa2,avibase-AC1E791E,eBird treats African Swamphen (Porphyrio madagascariensis) as a species; AviList v2026 retains madagascariensis within Purple Swamphen (Porphyrio porphyrio).
-sibsto1,avibase-3380CFC5,eBird's Siberian Stonechat code has no direct AviList Cornell-code match in AviList v2026; both sources identify Saxicola maurus.
-litswi1,avibase-4D28A0CD,Retired 2025 Little Swift concept is contained in the 2026 Little/House Swift lump (AviList proposal 2026-051); map its archived records to the broader current species y00960.
-runlar1,avibase-EB9CE6A2,"Explicit Kenyan assignment of retired eBird 2025 avibase-4E923B31 to current Rufous-naped Lark. Athi Lark was already separate as senlar1 in the source taxonomy; the newly separated Plateau, Highland and Plain larks have AviList ranges outside Kenya. This is a regional assignment, not global concept equivalence."
+purswa2,avibase-AC1E791E,eBird treats African Swamphen (Porphyrio madagascariensis) as a species; AviList v2025b retains madagascariensis within Purple Swamphen (Porphyrio porphyrio).
+sibsto1,avibase-3380CFC5,eBird's Siberian Stonechat code has no direct AviList Cornell-code match in AviList v2025b; both sources identify Saxicola maurus.
