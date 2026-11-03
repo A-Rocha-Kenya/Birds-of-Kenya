@@ -29,7 +29,7 @@ const avibaseLink = id => {
 };
 
 const taxon = row => `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span><small>${escapeHtml([row.order, `${row.family_english} (${row.family})`.trim()].filter(Boolean).join(" · "))}</small></div><div class="source-links">${avibaseLink(row.id)}</div></div></div>`;
-const side = (rows, kind) => `<div class="side ${kind}"><strong>${escapeHtml(kind === 'old' ? fromVersion.value : toVersion.value)}</strong>${rows.length ? rows.map(taxon).join('') : '<p class="empty">Not listed in this version</p>'}</div>`;
+const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map(taxon).join('') : '<p class="empty">Not listed in this version</p>'}</div>`;
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
