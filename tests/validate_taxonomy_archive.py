@@ -31,6 +31,12 @@ def main():
     for field in ("english", "scientific", "order", "family", "family_english"):
         result = compare_versions({"a": [row("same")], "b": [row("same", **{field: "Changed"})]}, [], "a", "b")
         assert result["groups"][0]["tags"] == [field]
+        original = row("same")
+        cosmetic = row("same", **{field: "  " + original[field].swapcase().replace(" ", "   ") + "  "})
+        assert compare_versions({"a": [original], "b": [cosmetic]}, [], "a", "b")["groups"] == []
+        changed = row("same", **{field: "Changed"})
+        group = compare_versions({"a": [original], "b": [changed]}, [], "a", "b")["groups"][0]
+        assert group["old"][0][field] == original[field] and group["new"][0][field] == "Changed"
     assert compare_versions({"a": [row("old")], "b": [row("new")]}, [], "a", "b")["groups"] == []
     versions = {"a": [row("parent")], "b": [row("child1"), row("child2")], "c": [row("later"), row("child2")]}
     links = [{"from_release": "a", "to_release": "b", "links": [{"old_id": "parent", "new_id": x} for x in ("child1", "child2")]},
