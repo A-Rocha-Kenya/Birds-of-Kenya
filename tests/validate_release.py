@@ -9,6 +9,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from build_release import taxonomy_index
+
 
 def read_csv(path):
     with path.open(encoding="utf-8-sig", newline="") as handle:
@@ -87,6 +90,17 @@ def main():
         raise ValueError("checklist historical status does not match the last observation date")
     if any((row["RAR"] == "TRUE") != (row["observations"] != "" and int(row["observations"]) < 5) for row in checklist):
         raise ValueError("checklist rarity status is inconsistent")
+    root = Path(__file__).resolve().parents[1]
+    current = {row["SPECIES_CODE"]: row for row in taxonomy_index(root / manifest["sources"]["ebird_taxonomy_path"]["path"]).values()}
+    overrides = {row["reported_species_code"]: row["avibase_id"] for row in read_csv(root / manifest["sources"]["ebird_avilist_overrides_path"]["path"])}
+    for row in checklist:
+        for code in row["ebird_species_code"].split(";"):
+            taxon = current[code]
+            if taxon["CATEGORY"] != "species":
+                raise ValueError(f"public eBird link {code} is not a current species")
+            if taxon["TAXON_CONCEPT_ID"] != row["avibase_id"] and overrides.get(code) != row["avibase_id"]:
+                raise ValueError(f"eBird code {code} disagrees with its AviList concept without a curated override")
+
     latest_counts = Counter(row["avibase_id"] for row in latest)
     if any(identifier not in set(identifiers) for identifier in latest_counts):
         raise ValueError("latest_records contains an avibase_id absent from checklist")

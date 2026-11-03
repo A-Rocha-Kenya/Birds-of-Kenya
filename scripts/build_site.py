@@ -4,13 +4,15 @@
 import argparse
 import csv
 import html
+import hashlib
 import json
 import re
 import shutil
 import tempfile
 import tomllib
-from collections import Counter
 from pathlib import Path
+
+from site_archive import load_archive, export_archive
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -177,23 +179,17 @@ def validate_publication(metadata, allow_draft):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--publication", type=Path, default=PUBLICATION)
-    parser.add_argument("--release-dir", type=Path)
     parser.add_argument("--output", type=Path, default=ROOT / "_site")
-    parser.add_argument("--allow-draft", action="store_true")
+    parser.add_argument("--preview-release", help="explicitly include and activate this draft locally")
     args = parser.parse_args()
-
-    metadata = tomllib.loads(args.publication.resolve().read_text(encoding="utf-8"))
-    validate_publication(metadata, args.allow_draft)
-    release = (args.release_dir or ROOT / metadata["sources"]["release_directory"]).resolve()
-    manifest = json.loads(require(release / "manifest.json").read_text(encoding="utf-8"))
-    if manifest["release_id"] != metadata["release_id"] or release.name != metadata["release_id"]:
-        raise ValueError("website, publication, and release identifiers do not match")
-
+    identifier, bundles = load_archive(ROOT, args.preview_release)
+    release, descriptor = bundles[identifier]
+    metadata = descriptor["publication"]
+    manifest = json.loads((release / "manifest.json").read_text())
     checklist = require(release / "checklist.csv")
-    policy = require(ROOT / metadata["sources"]["policy"])
+    policy = require(release / "policy.md")
     rows = read_csv(checklist)
-    all_category_definitions = read_csv(require(ROOT / metadata["sources"]["category_definitions"]))
+    all_category_definitions = read_csv(require(release / "category_definitions.csv"))
     category_definitions = [
         definition for definition in all_category_definitions
         if definition["display_group"] not in HIDDEN_CATEGORY_GROUPS
@@ -206,33 +202,13 @@ def main():
     }
     public_rows = [{field: value for field, value in row.items() if field not in hidden_category_codes} for row in rows]
     public_fields = [field for field in rows[0] if field not in hidden_category_codes]
-    comparison_path = require(release / "comparison" / "taxonomy-changes.json")
-    comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
-    if comparison["to_release"] != manifest["release_id"]:
-        raise ValueError("comparison target does not match the website release")
-    comparison = annotate_earc(comparison, read_csv(EARC_DECISIONS))
-    pending_earc_ids = {
-        row["id"]
-        for group in comparison["groups"] if group.get("pending_earc")
-        for row in group["new"]
-    }
     for row in public_rows:
-        row["pending_earc"] = "TRUE" if row["avibase_id"] in pending_earc_ids else ""
+        row["pending_earc"] = "TRUE" if row["avibase_id"] in descriptor["pending_earc"] else ""
     public_fields.append("pending_earc")
-
-    checklist_pdf = require(release / metadata["render"]["output_filename"])
-    comparison_csv = require(release / "comparison" / "taxonomy-changes.csv")
-    comparison_pdfs = list((release / "comparison").glob("Taxonomy-changes-*.pdf"))
-    if len(comparison_pdfs) > 1:
-        raise ValueError("release has more than one taxonomy comparison PDF")
-    comparison_pdf = comparison_pdfs[0] if comparison_pdfs else None
-    downloads = {
-        "checklist_pdf": f"downloads/{checklist_pdf.name}",
-        "checklist_csv": f"downloads/Birds-of-Kenya-{manifest['release_id']}.csv",
-        "comparison_csv": f"downloads/Taxonomy-changes-{comparison['from_release']}-to-{comparison['to_release']}.csv",
-        "comparison_pdf": f"downloads/{comparison_pdf.name}" if comparison_pdf else "",
-    }
-
+    downloads = {"checklist_pdf": f"downloads/{identifier}/{descriptor['pdf']}",
+                 "checklist_csv": f"downloads/{identifier}/checklist.csv"}
+    prior = list(bundles)[max(0, list(bundles).index(identifier) - 1)]
+    comparison = {"from_release": prior, "to_release": identifier, "relationship_counts": {}}
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="birds-of-kenya-site-", dir=output.parent) as temporary:
@@ -261,46 +237,26 @@ def main():
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         copy(release / "manifest.json", staging / "data" / "manifest.json")
-        (staging / "data" / "taxonomy-changes.json").write_text(
-            json.dumps(comparison, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
-        # Preserve reviewed comparison pairs for a future version selector.
-        comparison_catalog = []
-        comparison_releases = {path.name: path for path in (ROOT / "release-assets").iterdir() if path.is_dir()}
-        comparison_releases[release.name] = release
-        for identifier, bundle in sorted(comparison_releases.items()):
-            pair = json.loads((bundle / "comparison" / "taxonomy-changes.json").read_text(encoding="utf-8"))
-            comparison_downloads = {}
-            for asset in sorted((bundle / "comparison").iterdir()):
-                if asset.name in {"taxonomy-changes.json", "taxonomy-changes.csv"} or asset.suffix == ".pdf":
-                    destination = f"data/comparisons/{identifier}/{asset.name}"
-                    copy(asset, staging / destination)
-                    comparison_downloads[asset.suffix.removeprefix(".")] = destination
-            comparison_catalog.append({
-                "from_release": pair["from_release"],
-                "to_release": pair["to_release"],
-                "group_count": pair["group_count"],
-                "files": comparison_downloads,
-            })
-        (staging / "data" / "comparisons.json").write_text(
-            json.dumps(comparison_catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
-        copy(checklist_pdf, staging / downloads["checklist_pdf"])
-        write_csv(staging / downloads["checklist_csv"], public_fields, public_rows)
-        copy(comparison_csv, staging / downloads["comparison_csv"])
-        if comparison_pdf:
-            copy(comparison_pdf, staging / downloads["comparison_pdf"])
+        catalog = export_archive(staging, identifier, bundles)
         site_metadata = public_metadata(metadata, manifest, rows, comparison, downloads)
         (staging / "data" / "site.json").write_text(
             json.dumps(site_metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+        for page in staging.rglob("*.html"):
+            def fingerprint(match):
+                attribute, url = match.groups()
+                asset = page.parent / url
+                if url.startswith(("https://", "http://")) or not asset.is_file():
+                    return match.group(0)
+                digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:16]
+                return f'{attribute}="{url}?v={digest}"'
+            page.write_text(re.sub(r'(src|href)="([^"?]+\.(?:js|css))(?:\?[^\"]*)?"', fingerprint, page.read_text()), encoding="utf-8")
         (staging / ".nojekyll").touch()
         if output.exists():
             shutil.rmtree(output)
         shutil.copytree(staging, output)
 
-    relationships = Counter(group["relationship"] for group in comparison["groups"])
-    print(f"Built {output} for {manifest['release_id']}: {len(rows):,} species and {sum(relationships.values()):,} change groups")
+    print(f"Built {output} for {identifier}: {len(rows):,} species, {len(bundles)} archived versions")
 
 
 if __name__ == "__main__":

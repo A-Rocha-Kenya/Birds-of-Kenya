@@ -2,7 +2,7 @@ const siteRoot = document.body.dataset.siteRoot || '';
 
 const resolveSitePath = path => path ? `${siteRoot}${path}` : '';
 
-fetch(resolveSitePath('data/site.json'))
+fetch(resolveSitePath('data/site.json'), {cache: 'no-cache'})
   .then(response => {
     if (!response.ok) throw new Error('Site metadata unavailable');
     return response.json();
@@ -76,3 +76,34 @@ fetch(resolveSitePath('data/site.json'))
       element.textContent = 'Release metadata could not be loaded.';
     });
   });
+
+fetch(resolveSitePath('data/releases.json'), {cache: 'no-cache'}).then(r => {
+  if (!r.ok) throw new Error('Archive unavailable');
+  return r.json();
+}).then(archive => {
+  document.querySelectorAll('[data-release-downloads]').forEach(list => {
+    archive.releases.forEach(release => {
+      const item = document.createElement('li');
+      const label = document.createElement('span');
+      label.textContent = `${release.id}${release.status === 'draft' ? ' (preview)' : ''} — `;
+      item.append(label);
+      if (release.pdf) {
+        const link = document.createElement('a');
+        link.href = resolveSitePath(release.pdf);
+        link.textContent = release.pdf_label;
+        item.append(link);
+      } else {
+        item.append(document.createTextNode('No exact matching checklist PDF available'));
+      }
+      const csv = document.createElement('a');
+      csv.href = resolveSitePath(release.csv);
+      csv.textContent = ' · Checklist CSV';
+      item.append(csv);
+      list.append(item);
+    });
+  });
+}).catch(() => {
+  document.querySelectorAll('[data-release-downloads]').forEach(list => {
+    list.textContent = 'Checklist archive could not be loaded. Please reload the page.';
+  });
+});

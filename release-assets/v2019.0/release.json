@@ -1,0 +1,20 @@
+{
+  "id": "v2019.0",
+  "status": "released",
+  "publication": {
+    "release_id": "v2019.0",
+    "render": {
+      "output_filename": "Birds-of-Kenya-2019-original-printed-edition.pdf"
+    }
+  },
+  "pdf": "Birds-of-Kenya-2019-original-printed-edition.pdf",
+  "pending_earc": [],
+  "checksums": {
+    "Birds-of-Kenya-2019-original-printed-edition.pdf": "41afdd06b550c983f50ccfea03892e8048bdebf7da7fa1eb88a6b5a25e056816",
+    "checklist.csv": "810a146d018aa4ed6352d980cdd6b022e3b7d3831cfdd5d165b9452becc10f7c",
+    "taxonomy-exclusions.json": "0cfe9c353e4ec2be15384065470f5b9df1786f76f25c6be4af1d755ceff63c2d",
+    "taxonomy.json": "2c0531b9236fcf6bb3317a99ac3718ba1176213d2d80fbfc5b57a3a63258835b"
+  },
+  "pdf_label": "Original printed 2019 edition",
+  "taxonomy_excluded_rows": 26
+}

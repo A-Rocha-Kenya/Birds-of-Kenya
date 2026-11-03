@@ -1,14 +1,10 @@
-# Publication profiles
+# Checklist PDF publication
 
-`publication.toml` holds the canonical publication metadata for a release. It continues to point to the full release evidence, category definitions, and EARC review material.
-
-Public-facing variants belong in `profiles/`. A profile overlays only the editorial fields that differ from the canonical metadata, such as the title-page wording, introduction, PDF filename, and visible status definitions.
-
-For the 2026 draft:
+`publication.toml` defines the canonical checklist PDF for the editable candidate. Each archived release has exactly one PDF and its own frozen metadata. The renderer records its checklist, metadata, pending-review table, policy, category definitions and renderer hashes; staging rejects a stale PDF.
 
 ```sh
-python3 tests/validate_publication.py publication/publication.toml --profile publication/profiles/2026-draft.toml
-python3 scripts/render_checklist_pdf.py publication/publication.toml --profile publication/profiles/2026-draft.toml
+uv run python scripts/render_checklist_pdf.py publication/publication.toml --keep-typ
+uv run python scripts/stage_release_assets.py
 ```
 
-The profile does not change checklist data or EARC provenance. It replaces the policy pages with the reader introduction and hides the `PE` (Pending EARC) badge from the PDF.
+Editorial profiles are local review tools, not separate downloadable PDFs for the same archived version. Only the canonical `render.output_filename` is staged. Comparison PDF generation is retired. See [release architecture](../docs/release-architecture.md) for historical PDF labels, immutability, version-specific curation and website activation.

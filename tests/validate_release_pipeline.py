@@ -2,8 +2,10 @@
 """Validate the EBD/AviList release helpers with small deterministic fixtures."""
 
 import csv
+import json
 import importlib.util
 import tempfile
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,7 +20,6 @@ def load(name, path):
 
 def main():
     build = load("build_release", ROOT / "scripts" / "build_release.py")
-    compare = load("compare_releases", ROOT / "scripts" / "compare_releases.py")
 
     avilist_by_code, avilist_by_id = build.avilist_indexes([
         {"AvibaseID": "avibase-00000001", "Taxon_rank": "species", "Scientific_name": "Alpha beta", "Species_code_Cornell_Lab": "alpha1"},
@@ -38,7 +39,7 @@ def main():
     if build.resolve_ebird_code("missing", avilist_by_code, {})[0] is not None:
         raise ValueError("missing eBird code must not fall back to a name")
 
-    if build.release_id({"release_id": "v2026.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2026.0":
+    if build.release_id({"release_id": "v2025.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2025.0":
         raise ValueError("release identity must be independent of the source-data month")
     if not build.is_historical("1976-06-29", build.datetime.date(2026, 6, 30), 50):
         raise ValueError("historical status should apply after 50 years")
@@ -112,8 +113,45 @@ def main():
     if build.is_species_evidence(naturalized_hybrid) or not build.is_taxonomic_entity(naturalized_hybrid):
         raise ValueError("naturalized hybrid incorrectly entered species evidence")
 
+    publication = load("publication_metadata", ROOT / "scripts/publication_metadata.py")
+
     with tempfile.TemporaryDirectory() as directory:
         directory = Path(directory)
+        (directory / "data/curation").mkdir(parents=True)
+        (directory / "data/curation/earc_decisions.csv").write_text("avibase_id\naccepted\n")
+        baseline = {"to_release": "baseline", "groups": [
+            {"cardinality": "0:1", "new": [{"id": identifier}], "old": [], "pending_earc": True}
+            for identifier in ["pending", "accepted", "removed"]
+        ]}
+        current = {"from_release": "intermediate", "groups": [
+            {"cardinality": "1:0", "old": [{"id": "removed"}], "new": []},
+            {"cardinality": "0:1", "old": [], "new": [{"id": "new"}]},
+        ]}
+        intermediate_path = directory / "release-assets/intermediate/comparison"
+        intermediate_path.mkdir(parents=True)
+        (intermediate_path / "taxonomy-changes.json").write_text(json.dumps({
+            "from_release": "baseline", "groups": [
+                {"cardinality": "0:1", "old": [], "new": [{"id": "intermediate"}]}
+            ]
+        }))
+        (directory / "baseline.json").write_text(json.dumps(baseline))
+        (directory / "comparison").mkdir()
+        (directory / "comparison/taxonomy-changes.json").write_text(json.dumps(current))
+        metadata = {"sources": {"release_directory": ".", "review_baseline_comparison": "baseline.json"}}
+        if publication.pending_earc_ids(metadata, directory, directory) != {"pending", "new", "intermediate"}:
+            raise ValueError("historical pending EARC additions were lost or resolved/removed taxa retained")
+
+        archive_path = directory / "ebd_KE_smp.zip"
+        with zipfile.ZipFile(archive_path, "w") as archive:
+            archive.writestr("ebd_KE_smp.txt", "TAXON CONCEPT ID\nsource-1\n")
+            archive.writestr("ebd_KE_smp_sampling.txt", "SAMPLING EVENT IDENTIFIER\nS1\n")
+        archive, binary, handle = build.open_ebd(archive_path)
+        if list(csv.DictReader(handle))[0]["TAXON CONCEPT ID"] != "source-1":
+            raise ValueError("sampling-event file was selected instead of observation data")
+        handle.close()
+        binary.close()
+        archive.close()
+
         categories_path = directory / "categories.csv"
         categories_path.write_text("avibase_id,AM\navibase-00000001,TRUE\n", encoding="utf-8")
         categories, fields = build.read_categories(categories_path)
@@ -177,27 +215,6 @@ def main():
     if "Anatidae" not in build.WATERBIRD_FAMILIES or "Accipitridae" in build.WATERBIRD_FAMILIES:
         raise ValueError("Ramsar waterbird family definition is incorrect")
 
-    changes = compare.compare(
-        [{"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "AM": ""}],
-        [
-            {"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Alpha", "AM": ""},
-            {"avibase_id": "avibase-00000002", "scientific_name": "Gamma delta", "english_name": "Gamma", "AM": "TRUE"},
-        ],
-    )
-    if [row["change"] for row in changes] != ["taxonomy_changed", "added"]:
-        raise ValueError("release comparison classification failed")
-    comparison = compare.website_comparison(
-        [{"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"}],
-        [
-            {"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"},
-            {"avibase_id": "avibase-00000002", "sequence": "2", "scientific_name": "Gamma delta", "english_name": "Gamma", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "gamma1"},
-        ],
-        changes, "old-release", "new-release",
-    )
-    if comparison["to_release"] != "new-release" or comparison["group_count"] != 2:
-        raise ValueError("website release comparison metadata failed")
-    if [group["cardinality"] for group in comparison["groups"]] != ["1:1", "0:1"]:
-        raise ValueError("website release comparison grouping failed")
     print("Validated release naming, evidence aggregation, eBird code mapping, categories, and comparison")
 
 

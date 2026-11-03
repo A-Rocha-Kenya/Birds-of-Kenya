@@ -1,0 +1,30 @@
+name: Validate release archive
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test taxonomy, snapshots and publication boundaries
+        run: |
+          python tests/validate_release_pipeline.py
+          python tests/validate_ebird_taxonomy.py
+          python tests/validate_stage_release_assets.py
+          python tests/validate_taxonomy_archive.py
+      - name: Build and validate the published site
+        run: |
+          python scripts/build_site.py --output _site
+          python tests/validate_site.py _site
+      - name: Build and validate the candidate preview
+        run: |
+          candidate_release=$(python -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["release_id"])')
+          python scripts/build_site.py --preview-release "$candidate_release" --output tmp/site-preview
+          python tests/validate_site.py tmp/site-preview

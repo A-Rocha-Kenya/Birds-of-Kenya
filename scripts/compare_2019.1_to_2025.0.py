@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare v2019.1 with 2026.0 and migrate unambiguous historical categories."""
+"""Compare v2019.1 with 2025.0 and migrate unambiguous historical categories."""
 
 import argparse
 import csv
@@ -11,10 +11,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
-CURRENT = ROOT / "dist" / "v2026.0" / "checklist.csv"
-MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2026.0.csv"
+CURRENT = ROOT / "release-assets" / "v2025.0" / "checklist.csv"
+MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2025.0.csv"
 CATEGORIES = ROOT / "data" / "curation" / "categories.csv"
-OUTPUT = ROOT / "dist" / "v2026.0" / "comparison"
+OUTPUT = ROOT / "dist" / "v2025.0" / "comparison"
 
 CHANGE_FIELDS = [
     "group_id", "relationship", "mapping_basis",
@@ -236,7 +236,7 @@ def write_summary(path, changes, unresolved, current_only, category_audit, conve
     pending_categories = sum(row["resolution"] != "stable_avibase_id" and bool(row["categories"]) for row in category_audit)
     relationship_table = "".join(f"| {name} | {count:,} |\n" for name, count in sorted(relationships.items()))
     path.write_text(
-        "# v2019.1 to 2026.0 taxonomy and category migration\n\n"
+        "# v2019.1 to 2025.0 taxonomy and category migration\n\n"
         "The maintained crosswalk has only `old_avibase_id` and `new_avibase_ids`. Relationship groups "
         "are derived automatically. Categories cross stable IDs automatically; changed concepts remain "
         "in the category audit for a separate decision.\n\n"
@@ -281,12 +281,6 @@ def main():
     write_summary(args.output / "legacy-summary.md", changes, unresolved, current_only, audit, converted)
     if args.write_categories:
         write_csv(args.categories, ["avibase_id", *fields], converted)
-
-    subprocess.run([
-        sys.executable, str(ROOT / "scripts" / "render_2019.1_taxonomy_report.py"),
-        "--legacy", str(args.legacy), "--current", str(args.current),
-        "--mapping", str(args.mapping), "--output", str(args.output), "--no-pdf",
-    ], check=True)
 
     print(f"Wrote {args.output}")
     print(f"Taxonomic change edges: {len(changes):,}")

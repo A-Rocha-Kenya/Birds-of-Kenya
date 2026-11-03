@@ -537,3 +537,17 @@ footer a:hover { color: var(--green); text-decoration: underline; text-underline
   .toolbar, .export-button, #table, #loader { display: none !important; }
   .summary { padding-bottom: 2rem; }
 }
+
+.comparison-selectors {display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin:1rem 0}
+.comparison-selectors #comparisonCsv {margin-left:auto}
+.comparison-selectors label {display:flex;gap:.5rem;align-items:center}
+.comparison-selectors select {font:inherit;padding:.5rem;border-radius:6px}
+.taxon-names small {display:block;font-size:.8rem;opacity:.8}
+[data-release-downloads] li {margin:.6rem 0}
+
+.home-section {max-width:1240px;margin:2rem auto;padding:1.25rem}
+
+.change-filter-strip {display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;flex:1 1 100%;min-width:0}
+.change-filter-strip .filter-row {flex:0 1 auto;flex-wrap:wrap;gap:.3rem}
+.change-filter-strip .filter {white-space:nowrap}
+#comparisonSummary {flex-basis:100%;margin:0;font-size:.8rem}

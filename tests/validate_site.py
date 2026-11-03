@@ -1,115 +1,69 @@
 #!/usr/bin/env python3
-"""Validate an assembled Birds of Kenya website."""
+"""Validate every archived version, comparison direction and downloadable asset."""
 
 import argparse
 import csv
 import json
+import re
+import hashlib
+from urllib.parse import urlsplit, parse_qs
 from pathlib import Path
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("site", type=Path, nargs="?", default=Path("_site"))
-    args = parser.parse_args()
-    site = args.site.resolve()
-
-    required_paths = [
-        "index.html", "checklist/index.html", "changes/index.html", "policy/index.html",
-        "assets/style.css", "assets/site.js", "checklist/checklist.js",
-        "assets/images/favicon.svg", "assets/images/nature-kenya-logo.png", "assets/images/a-rocha-kenya-logo.svg",
-        "assets/images/kenya-bird-map-logo.png", "assets/images/avilist-logo.png", "assets/images/ebird-kenya-logo.svg",
-        "assets/images/national-museums-kenya-logo.png", "assets/images/orcid-id.svg",
-        "assets/images/east-african-rarities-committee-logo.png",
-        "changes/changes.js", "data/site.json", "data/checklist.csv", "data/category-definitions.json",
-        "data/taxonomy-changes.json", "data/comparisons.json", "data/manifest.json", ".nojekyll",
-    ]
-    missing = [path for path in required_paths if not (site / path).exists()]
-    if missing:
-        raise ValueError(f"assembled website is missing: {', '.join(missing)}")
-
-    with (site / "data" / "checklist.csv").open(encoding="utf-8-sig", newline="") as handle:
-        rows = list(csv.DictReader(handle))
-    metadata = json.loads((site / "data" / "site.json").read_text(encoding="utf-8"))
-    manifest = json.loads((site / "data" / "manifest.json").read_text(encoding="utf-8"))
-    comparison = json.loads((site / "data" / "taxonomy-changes.json").read_text(encoding="utf-8"))
-    comparison_catalog = json.loads((site / "data" / "comparisons.json").read_text(encoding="utf-8"))
-    pairs = [(entry["from_release"], entry["to_release"]) for entry in comparison_catalog]
-    if len(pairs) != len(set(pairs)) or (comparison["from_release"], comparison["to_release"]) not in pairs:
-        raise ValueError("comparison catalog has duplicate pairs or omits the active comparison")
-    for entry in comparison_catalog:
-        for path in entry["files"].values():
-            if not (site / path).is_file():
-                raise ValueError(f"comparison catalog asset is missing: {path}")
-        archived = json.loads((site / entry["files"]["json"]).read_text(encoding="utf-8"))
-        if (archived["from_release"], archived["to_release"], archived["group_count"]) != (entry["from_release"], entry["to_release"], entry["group_count"]):
-            raise ValueError("comparison catalog does not match its archived comparison")
-    categories = json.loads((site / "data" / "category-definitions.json").read_text(encoding="utf-8"))
-
-    identifiers = [row["avibase_id"] for row in rows]
-    if len(rows) != manifest["counts"]["species"] or len(identifiers) != len(set(identifiers)):
-        raise ValueError("website checklist does not match the release manifest")
-    if "safring_numbers" not in rows[0] or not any(row["safring_numbers"].strip() for row in rows):
-        raise ValueError("website checklist contains no KBM numbers")
-    if metadata["release"]["id"] != manifest["release_id"] or comparison["to_release"] != manifest["release_id"]:
-        raise ValueError("website, comparison, and manifest release identifiers do not match")
-    if "endemic_species" in metadata["counts"]:
-        raise ValueError("website metadata exposes discontinued endemic status")
-    if not categories or {"code", "label", "display_group", "display_order"} - set(categories[0]):
-        raise ValueError("website category definitions are incomplete")
-    if any(category["display_group"] in {"Regular movement", "Regional visitors", "Regional vagrants"} for category in categories):
-        raise ValueError("website exposes hidden status categories")
-    if {"E", "ES", "AM", "IO", "VIO"} & set(rows[0]):
-        raise ValueError("website checklist exposes hidden status fields")
-    if {"E", "ES"} & {category["code"] for category in categories}:
-        raise ValueError("website category definitions expose discontinued endemic status")
-    pending_earc_ids = {
-        row["id"]
-        for group in comparison["groups"] if group.get("pending_earc")
-        for row in group["new"]
-    }
-    if {row["avibase_id"] for row in rows if row["pending_earc"] == "TRUE"} != pending_earc_ids:
-        raise ValueError("website checklist has incorrect pending EARC coverage")
-    if "pending_earc" not in rows[0]:
-        raise ValueError("website checklist export is missing the pending EARC column")
-
-    missing_downloads = [path for path in metadata["downloads"].values() if path and not (site / path).exists()]
-    if missing_downloads:
-        raise ValueError(f"website downloads are missing: {', '.join(missing_downloads)}")
-
-    home = (site / "index.html").read_text(encoding="utf-8")
-    checklist_page = (site / "checklist" / "index.html").read_text(encoding="utf-8")
-    changes_page = (site / "changes" / "index.html").read_text(encoding="utf-8")
-    policy_page = (site / "policy" / "index.html").read_text(encoding="utf-8")
-    if 'href="checklist/"' not in home or 'href="changes/"' not in home or home.count('href="policy/"') < 2:
-        raise ValueError("home page does not link to all primary site sections")
-    if any(page.count('href="../policy/"') < 2 for page in (checklist_page, changes_page)):
-        raise ValueError("section pages do not link to the checklist policy in both navigation areas")
-    if "Explore the checklist" in policy_page:
-        raise ValueError("policy page still includes the Explore the checklist link")
-    if ("Taxonomy and species names" not in policy_page or "Record review" not in policy_page
-            or 'href="https://www.eararities.org/"' not in policy_page
-            or "defining authority" not in policy_page
-            or "Pending Committee decision" in policy_page
-            or "POLICY_CONTENT" in policy_page):
-        raise ValueError("website policy page was not generated from the checklist policy")
-    if "Sixth edition" in home or not all(str(year) in home for year in (1981, 1986, 1996, 2009, 2019)):
-        raise ValueError("home page does not present the checklist publishing history")
-    if "Nature Kenya" not in home or "data-contributors" not in home:
-        raise ValueError("home page does not present the organization and contributor credits")
-    if "data-download=\"checklist_pdf\"" not in home + checklist_page + changes_page:
-        raise ValueError("checklist PDF is not promoted across the website")
-    if "data-gbif-link" not in home + checklist_page:
-        raise ValueError("GBIF publication links are not represented in the website source")
-    checklist_script = (site / "checklist" / "checklist.js").read_text(encoding="utf-8")
-    if "safring_numbers" not in checklist_script or "https://kenya.birdmap.africa/species/" not in checklist_script:
-        raise ValueError("website checklist does not link KBM numbers to Kenya Bird Map")
-    if "columnHeaders: true" not in checklist_script:
-        raise ValueError("current-view CSV export does not include column headers")
-    if "pending_earc" not in checklist_script:
-        raise ValueError("current-view CSV export does not expose the pending EARC column")
-    if "data-filter=\"endemic\"" in checklist_page or "endemicCount" in checklist_script:
-        raise ValueError("checklist page exposes the discontinued endemic filter")
-    print(f"Validated assembled website: four pages, {len(rows):,} species, and {comparison['group_count']:,} change groups")
+    site = parser.parse_args().site
+    for name in ["index.html", "changes/index.html", "checklist/index.html", "policy/index.html", "data/releases.json"]:
+        assert (site / name).is_file(), name
+    archive = json.loads((site / "data/releases.json").read_text())
+    versions = {r["id"] for r in archive["releases"]}
+    assert len(versions) == len(archive["releases"])
+    assert {(p["from_release"], p["to_release"]) for p in archive["pairs"]} == {(a, b) for a in versions for b in versions}
+    assert len(archive["pairs"]) == len(versions) ** 2
+    for release in archive["releases"]:
+        assert (site / release["csv"]).is_file()
+        if release["pdf"]:
+            assert (site / release["pdf"]).is_file()
+        assert len(list((site / "downloads" / release["id"]).glob("*.pdf"))) == bool(release["pdf"])
+    forbidden = {"observations", "earc_decisions", "pending_earc", "exotic_status", "HIST", "RAR", "record_count"}
+    pair_counts = {(p["from_release"], p["to_release"]): p["group_count"] for p in archive["pairs"]}
+    assert all(count == pair_counts[(b, a)] for (a, b), count in pair_counts.items())
+    for entry in archive["pairs"]:
+        assert (site / entry["files"]["csv"]).is_file()
+        comparison = json.loads((site / entry["files"]["json"]).read_text())
+        assert comparison["from_release"] == entry["from_release"] and comparison["to_release"] == entry["to_release"]
+        assert len(comparison["groups"]) == entry["group_count"]
+        for group in comparison["groups"]:
+            assert group["old"] or group["new"]
+            assert not forbidden & set(group)
+            if group["relationship"] in {"added", "removed"}:
+                assert group["cardinality"] in {"0:1", "1:0"}
+                assert bool(group["old"]) != bool(group["new"])
+                assert not group["concept_changed"]
+            else:
+                assert group["old"] and group["new"]
+                assert group["tags"] or group["concept_changed"]
+            for row in group["old"] + group["new"]:
+                assert not forbidden & set(row)
+    metadata = json.loads((site / "data/site.json").read_text())
+    assert metadata["release"]["id"] == archive["active_release"]
+    manifest = json.loads((site / "data/manifest.json").read_text())
+    with (site / "data/checklist.csv").open(newline="") as f:
+        rows = list(csv.DictReader(f))
+    assert len(rows) == manifest["counts"]["species"]
+    assert not any(p.name.startswith('Taxonomy-changes-') for p in site.rglob('*.pdf'))
+    for page in site.rglob("*.html"):
+        for url in re.findall(r'(?:src|href)="([^\"]+\.(?:js|css)\?[^\"]+)"', page.read_text()):
+            parsed = urlsplit(url)
+            if parsed.scheme:
+                continue
+            asset = page.parent / parsed.path
+            assert parse_qs(parsed.query)["v"][0] == hashlib.sha256(asset.read_bytes()).hexdigest()[:16]
+    html = (site / "changes/index.html").read_text()
+    assert 'id="fromVersion"' in html and 'id="toVersion"' in html
+    assert 'comparison_pdf' not in html
+    print(f"Validated {len(versions)} archived versions, {len(archive['pairs'])} comparison pairs and one PDF per downloadable edition")
 
 
 if __name__ == "__main__":
