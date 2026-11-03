@@ -9,7 +9,7 @@ import tomllib
 from collections import OrderedDict
 from pathlib import Path
 
-from publication_metadata import load, pending_earc_ids
+from publication_metadata import load, pending_earc_ids, render_provenance
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -262,6 +262,8 @@ def main():
     typst_path.write_text(build_typst(metadata, rows, definitions, policy), encoding="utf-8")
 
     subprocess.run(["quarto", "typst", "compile", "--root", str(ROOT), str(typst_path), str(pdf_path)], check=True)
+    provenance = render_provenance(metadata, ROOT, release, pdf_path)
+    pdf_path.with_suffix(".inputs.json").write_text(json.dumps(provenance, indent=2))
     print(f"Rendered {len(rows):,} species to {pdf_path.relative_to(ROOT)}")
     if not args.keep_typ:
         typst_path.unlink()

@@ -14,6 +14,7 @@ from build_release import prepare_ebd, read_csv, taxonomy_index, write_csv
 
 
 def main():
+    (ROOT / "tmp").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=ROOT / "tmp") as directory:
         directory = Path(directory)
         taxonomy = directory / "taxonomy.csv"

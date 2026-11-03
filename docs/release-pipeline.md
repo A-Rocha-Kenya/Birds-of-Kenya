@@ -142,10 +142,8 @@ Checklist and species comments are retained only in the ignored local derived da
 | `OBSERVATION COUNT` | Retained as supplied for the newest-record table; it is not the EBD row count. |
 | `CHECKLIST COMMENTS`, `SPECIES COMMENTS` | Retained locally only and not published. |
 
-## Review flags across releases
+## Version-scoped curation and publication
 
-The active comparison describes v2026.0 to v2026.1. Publication metadata separately pins `sources.review_baseline_comparison` to the reviewed 2019.1-to-v2026.0 comparison so unresolved historical additions retain their Pending EARC display in the PDF and website. Intermediate comparisons are followed through the archived release chain. Current additions are included, removed taxa are dropped, and any species with a curated EARC decision is excluded from the pending set. Changing the comparison baseline does not resolve outstanding reviews.
+The candidate pins its curated inputs under `data/curation/releases/<id>/`. Its explicit `pending_earc.csv` is an occurrence-review decision for that version; it is not derived from a reader-selected taxonomy comparison. Staging freezes these inputs, policy, definitions and publication metadata alongside the checklist and one canonical PDF. Published snapshots are not reannotated using current curation.
 
-## Concept changes between releases
-
-For v2026.0 to v2026.1, pass `--concept-successors data/curation/taxonomy_2026.0_to_2026.1.csv` to `scripts/compare_releases.py`. The two explicit links describe the Little Swift lump and Spotted Flycatcher narrowing as taxonomy changes while retaining both old and new IDs. They do not declare global equivalence or reassign source evidence. Without a supplied table, the comparison continues to match exact Avibase IDs.
+Taxonomy comparisons are derived separately from frozen taxonomic snapshots and version-specific transition links. They exclude observation evidence, status categories and manual occurrence decisions. See [release architecture](release-architecture.md) and [the future-release workflow](future-releases.md). No comparison PDF is supported.

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Taxonomy changes · Birds of Kenya</title>
+  <title>Taxonomic changes · Birds of Kenya</title>
   <meta name="description" content="Compare the Birds of Kenya checklist {{FROM_RELEASE}} with {{RELEASE_ID}}.">
   <meta name="theme-color" content="#173e2e">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
@@ -21,11 +21,12 @@
   <header class="page-hero changes-hero">
     <div>
       <p class="eyebrow">Birds of Kenya · Taxonomy review</p>
-      <h1>Taxonomy changes</h1>
-      <p class="lede">From {{FROM_RELEASE}} to {{RELEASE_ID}}</p>
+      <h1>Taxonomic changes</h1>
+      <p class="lede" id="comparisonHeading">Choose two checklist versions</p>
+      <p>Names, classification and linked taxon concepts only. Observation counts, occurrence status and review decisions are excluded.</p>
+      <div class="comparison-selectors"><label>From <select id="fromVersion"></select></label><label>To <select id="toVersion"></select></label></div>
       <div class="hero-links">
-        <a class="hero-link primary" data-download="comparison_csv" href="#">Download changes CSV <span aria-hidden="true">↓</span></a>
-        <a class="hero-link" data-download="comparison_pdf" href="#">Download comparison PDF <span aria-hidden="true">↓</span></a>
+        <a class="hero-link primary" id="comparisonCsv" href="#">Download changes CSV <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </header>
@@ -33,6 +34,7 @@
   <div class="changes-toolbar-wrap">
     <div class="changes-toolbar">
       <div class="top-controls"><label class="sr-only" for="changeSearch">Search taxonomy changes</label><input id="changeSearch" type="search" placeholder="Search names, families, or Avibase IDs"><button class="clear-filters" id="clearChangeFilters" type="button">Clear filters</button></div>
+      <p id="comparisonSummary" role="status"></p>
       <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div>
       <div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div>
     </div>

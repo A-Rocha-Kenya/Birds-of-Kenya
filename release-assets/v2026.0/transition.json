@@ -1,0 +1,406 @@
+{
+  "from_release": "v2019.1",
+  "to_release": "v2026.0",
+  "links": [
+    {
+      "old_id": "avibase-D5813CA4",
+      "new_id": "avibase-35D60F12"
+    },
+    {
+      "old_id": "avibase-D5813CA4",
+      "new_id": "avibase-9D29C252"
+    },
+    {
+      "old_id": "avibase-BD2BC35C",
+      "new_id": "avibase-4B2A7A35"
+    },
+    {
+      "old_id": "avibase-71A552DA",
+      "new_id": "avibase-215428B0"
+    },
+    {
+      "old_id": "avibase-BEDA5DA6",
+      "new_id": "avibase-215428B0"
+    },
+    {
+      "old_id": "avibase-62ED1974",
+      "new_id": "avibase-7E3578A2"
+    },
+    {
+      "old_id": "avibase-AB8E1D95",
+      "new_id": "avibase-7E3578A2"
+    },
+    {
+      "old_id": "avibase-865C039E",
+      "new_id": "avibase-AC1E791E"
+    },
+    {
+      "old_id": "avibase-66DA1FB3",
+      "new_id": "avibase-828D3D5A"
+    },
+    {
+      "old_id": "avibase-F9305BAA",
+      "new_id": "avibase-082F3A63"
+    },
+    {
+      "old_id": "avibase-00DA9D91",
+      "new_id": "avibase-00DA9D91"
+    },
+    {
+      "old_id": "avibase-42720061",
+      "new_id": "avibase-2D52E3A5"
+    },
+    {
+      "old_id": "avibase-4592C07E",
+      "new_id": "avibase-2D52E3A5"
+    },
+    {
+      "old_id": "avibase-943CDEAC",
+      "new_id": "avibase-17310BF0"
+    },
+    {
+      "old_id": "avibase-F76E7B80",
+      "new_id": "avibase-5157C558"
+    },
+    {
+      "old_id": "avibase-36DF115B",
+      "new_id": "avibase-7085B8A0"
+    },
+    {
+      "old_id": "avibase-7C15B36B",
+      "new_id": "avibase-F2858F9F"
+    },
+    {
+      "old_id": "avibase-67200E8E",
+      "new_id": "avibase-67200E8E"
+    },
+    {
+      "old_id": "avibase-5EC21767",
+      "new_id": "avibase-05520B42"
+    },
+    {
+      "old_id": "avibase-C1C255AA",
+      "new_id": "avibase-06D9A2C8"
+    },
+    {
+      "old_id": "avibase-EE9C6A5E",
+      "new_id": "avibase-06D9A2C8"
+    },
+    {
+      "old_id": "avibase-A691B378",
+      "new_id": "avibase-06D9A2C8"
+    },
+    {
+      "old_id": "avibase-02AD152F",
+      "new_id": "avibase-3C0C325D"
+    },
+    {
+      "old_id": "avibase-FEE35F4C",
+      "new_id": "avibase-CFD6F275"
+    },
+    {
+      "old_id": "avibase-38E24616",
+      "new_id": "avibase-0018A99B"
+    },
+    {
+      "old_id": "avibase-38E24616",
+      "new_id": "avibase-DC8CC91D"
+    },
+    {
+      "old_id": "avibase-F4D0DB8E",
+      "new_id": "avibase-FA2F9125"
+    },
+    {
+      "old_id": "avibase-66F40AD0",
+      "new_id": "avibase-FA2F9125"
+    },
+    {
+      "old_id": "avibase-E4573453",
+      "new_id": "avibase-FA2F9125"
+    },
+    {
+      "old_id": "avibase-8CC7216A",
+      "new_id": "avibase-8CC7216A"
+    },
+    {
+      "old_id": "avibase-E9ED7248",
+      "new_id": "avibase-50F3668C"
+    },
+    {
+      "old_id": "avibase-0AC6CF82",
+      "new_id": "avibase-50F3668C"
+    },
+    {
+      "old_id": "avibase-E6D52EF7",
+      "new_id": "avibase-1953C1D6"
+    },
+    {
+      "old_id": "avibase-55E9B668",
+      "new_id": "avibase-1953C1D6"
+    },
+    {
+      "old_id": "avibase-6B28B3A1",
+      "new_id": "avibase-7749C92B"
+    },
+    {
+      "old_id": "avibase-35C11126",
+      "new_id": "avibase-7749C92B"
+    },
+    {
+      "old_id": "avibase-A4CF3B9E",
+      "new_id": "avibase-E01F4BD7"
+    },
+    {
+      "old_id": "avibase-408639E6",
+      "new_id": "avibase-BCA0F974"
+    },
+    {
+      "old_id": "avibase-B91DD3C8",
+      "new_id": "avibase-BCA0F974"
+    },
+    {
+      "old_id": "avibase-75DF194C",
+      "new_id": "avibase-80BC978E"
+    },
+    {
+      "old_id": "avibase-A76838A0",
+      "new_id": "avibase-2DAB45B8"
+    },
+    {
+      "old_id": "avibase-2BD7F8B5",
+      "new_id": "avibase-2DAB45B8"
+    },
+    {
+      "old_id": "avibase-B46C6125",
+      "new_id": "avibase-47E58408"
+    },
+    {
+      "old_id": "avibase-A113792C",
+      "new_id": "avibase-47E58408"
+    },
+    {
+      "old_id": "avibase-4396F4F1",
+      "new_id": "avibase-4396F4F1"
+    },
+    {
+      "old_id": "avibase-E1EE00F7",
+      "new_id": "avibase-E1EE00F7"
+    },
+    {
+      "old_id": "avibase-FBB58997",
+      "new_id": "avibase-EBC3B53B"
+    },
+    {
+      "old_id": "avibase-FBB58997",
+      "new_id": "avibase-07F940AA"
+    },
+    {
+      "old_id": "avibase-7763FEC8",
+      "new_id": "avibase-11FE7313"
+    },
+    {
+      "old_id": "avibase-71EF2ACB",
+      "new_id": "avibase-35A2CCDF"
+    },
+    {
+      "old_id": "avibase-00D5E1C6",
+      "new_id": "avibase-718A3B70"
+    },
+    {
+      "old_id": "avibase-00D5E1C6",
+      "new_id": "avibase-375BAF53"
+    },
+    {
+      "old_id": "avibase-C6D0CB7E",
+      "new_id": "avibase-688582BF"
+    },
+    {
+      "old_id": "avibase-8C0F6D53",
+      "new_id": "avibase-CC7862AF"
+    },
+    {
+      "old_id": "avibase-83340007",
+      "new_id": "avibase-CC7862AF"
+    },
+    {
+      "old_id": "avibase-4167B45D",
+      "new_id": "avibase-F5E0EA0D"
+    },
+    {
+      "old_id": "avibase-4ED105CA",
+      "new_id": "avibase-F5E0EA0D"
+    },
+    {
+      "old_id": "avibase-21C4CE6A",
+      "new_id": "avibase-E358EC8A"
+    },
+    {
+      "old_id": "avibase-A02BCF5E",
+      "new_id": "avibase-E358EC8A"
+    },
+    {
+      "old_id": "avibase-A61F55E3",
+      "new_id": "avibase-126E0CFA"
+    },
+    {
+      "old_id": "avibase-A61F55E3",
+      "new_id": "avibase-DBAB527C"
+    },
+    {
+      "old_id": "avibase-2F9F81C9",
+      "new_id": "avibase-E10D0809"
+    },
+    {
+      "old_id": "avibase-F46C1803",
+      "new_id": "avibase-F840409E"
+    },
+    {
+      "old_id": "avibase-EE4207D4",
+      "new_id": "avibase-F44BD4BE"
+    },
+    {
+      "old_id": "avibase-6E9DA935",
+      "new_id": "avibase-F44BD4BE"
+    },
+    {
+      "old_id": "avibase-6B089785",
+      "new_id": "avibase-5BFC242D"
+    },
+    {
+      "old_id": "avibase-6A0D6123",
+      "new_id": "avibase-EB9CE6A2"
+    },
+    {
+      "old_id": "avibase-BAA83B0C",
+      "new_id": "avibase-5F213A7D"
+    },
+    {
+      "old_id": "avibase-BAA83B0C",
+      "new_id": "avibase-D167A312"
+    },
+    {
+      "old_id": "avibase-0C8B9FA4",
+      "new_id": "avibase-7542C6F1"
+    },
+    {
+      "old_id": "avibase-406E1A4D",
+      "new_id": "avibase-7542C6F1"
+    },
+    {
+      "old_id": "avibase-CA02C9A1",
+      "new_id": "avibase-E70F9747"
+    },
+    {
+      "old_id": "avibase-8C13DA6F",
+      "new_id": "avibase-E70F9747"
+    },
+    {
+      "old_id": "avibase-2C8B24B6",
+      "new_id": "avibase-AB6AE581"
+    },
+    {
+      "old_id": "avibase-9AEEFA09",
+      "new_id": "avibase-52B4F230"
+    },
+    {
+      "old_id": "avibase-34E27C2A",
+      "new_id": "avibase-3F0EE474"
+    },
+    {
+      "old_id": "avibase-F72A871F",
+      "new_id": "avibase-91315CD4"
+    },
+    {
+      "old_id": "avibase-F72A871F",
+      "new_id": "avibase-B4967714"
+    },
+    {
+      "old_id": "avibase-94F9F616",
+      "new_id": "avibase-91315CD4"
+    },
+    {
+      "old_id": "avibase-47DA0258",
+      "new_id": "avibase-A85102D3"
+    },
+    {
+      "old_id": "avibase-C73137EA",
+      "new_id": "avibase-04E77EEF"
+    },
+    {
+      "old_id": "avibase-54A902B5",
+      "new_id": "avibase-1EEE86B8"
+    },
+    {
+      "old_id": "avibase-54A902B5",
+      "new_id": "avibase-FC523946"
+    },
+    {
+      "old_id": "avibase-4996833A",
+      "new_id": "avibase-9A80B57C"
+    },
+    {
+      "old_id": "avibase-3029C547",
+      "new_id": "avibase-24F71192"
+    },
+    {
+      "old_id": "avibase-CF1DDF4E",
+      "new_id": "avibase-24F71192"
+    },
+    {
+      "old_id": "avibase-ADC1F0C9",
+      "new_id": "avibase-6ABDB635"
+    },
+    {
+      "old_id": "avibase-B2F86107",
+      "new_id": "avibase-6ABDB635"
+    },
+    {
+      "old_id": "avibase-EAC8528E",
+      "new_id": "avibase-86F34425"
+    },
+    {
+      "old_id": "avibase-BF3D3E26",
+      "new_id": "avibase-52C60399"
+    },
+    {
+      "old_id": "avibase-42C9B9B1",
+      "new_id": "avibase-7350FE4C"
+    },
+    {
+      "old_id": "avibase-BE76A224",
+      "new_id": "avibase-7350FE4C"
+    },
+    {
+      "old_id": "avibase-060AF4FA",
+      "new_id": "avibase-FA03A965"
+    },
+    {
+      "old_id": "avibase-CAC5AD6C",
+      "new_id": "avibase-FA03A965"
+    },
+    {
+      "old_id": "avibase-26618AA1",
+      "new_id": "avibase-6A1F6033"
+    },
+    {
+      "old_id": "avibase-26618AA1",
+      "new_id": "avibase-26618AA1"
+    },
+    {
+      "old_id": "avibase-D029B521",
+      "new_id": "avibase-DCA0028B"
+    },
+    {
+      "old_id": "avibase-6DA05B66",
+      "new_id": "avibase-198120BB"
+    },
+    {
+      "old_id": "avibase-BE3C45B5",
+      "new_id": "avibase-ECE36984"
+    },
+    {
+      "old_id": "avibase-BE3C45B5",
+      "new_id": "avibase-4D19099B"
+    }
+  ]
+}

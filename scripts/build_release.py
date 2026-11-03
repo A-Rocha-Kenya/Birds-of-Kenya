@@ -176,7 +176,7 @@ def source_paths(config):
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "kbm_species_list_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path", "ebird_taxon_corrections_path",
-        "sensitive_species_path", "curated_species_path", "earc_decisions_path",
+        "sensitive_species_path", "curated_species_path", "earc_decisions_path", "pending_earc_path",
     ]}
 
 

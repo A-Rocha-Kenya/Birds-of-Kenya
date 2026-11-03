@@ -237,11 +237,12 @@ supporting_records = 4919970
 description = "Bounding box of all supporting EBD records matched through the release checklist's source_avibase_ids, excluding escapees after applying release exotic-code overrides. This is the observed evidence extent, including marine records, not Kenya's political boundary or a delineation of its EEZ. Recalculate when the source evidence changes."
 
 [sources]
-review_baseline_comparison = "release-assets/v2026.0/comparison/taxonomy-changes.json"
+pending_earc = "data/curation/releases/v2026.1/pending_earc.csv"
+taxonomy_transition = "data/curation/releases/v2026.1/transition.json"
 release_directory = "dist/v2026.1"
 policy = "docs/policy.md"
 introduction = ""
-category_definitions = "data/curation/category_definitions.csv"
+category_definitions = "data/curation/releases/v2026.1/category_definitions.csv"
 historical_edition = "data/legacy/2019.1/2019 Checklist of the Birds of Kenya 5th Edition (2019).pdf"
 
 [checklist]

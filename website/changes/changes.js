@@ -5,11 +5,11 @@ const selected = { names: new Set(), concepts: new Set() };
 let groups = [];
 
 const filterConfig = {
-  names: [['english_name', 'English name'], ['scientific_name', 'Scientific name']],
-  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n'], ['0:1', 'New'], ['1:0', 'Discontinued']]
+  names: [['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family'], ['family_english', 'Family name']],
+  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n']]
 };
 
-const dictionary = { english_name: 'English name', scientific_name: 'Scientific name' };
+const dictionary = {english: 'English name', scientific: 'Scientific name', order: 'Order', family: 'Family', family_english: 'Family name'};
 const escapeHtml = value => {
   const element = document.createElement('span');
   element.textContent = value ?? '';
@@ -26,20 +26,12 @@ const avibaseLink = id => {
   return `<a class="source-link" href="https://avibase.bsc-eoc.org/species.jsp?avibaseid=${encodeURIComponent(shortId)}" target="_blank" rel="noopener">Avibase · ${escapeHtml(shortId)}</a>`;
 };
 
-const ebirdLinks = row => (row.ebird_codes || []).map(code => `<a class="source-link" href="https://ebird.org/species/${encodeURIComponent(code)}/KE" target="_blank" rel="noopener">eBird · ${escapeHtml(code)}</a>`).join('');
-const taxon = row => {
-  return `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span></div><div class="source-links">${avibaseLink(row.id)}${ebirdLinks(row)}</div></div></div>`;
-};
-const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map(taxon).join('') : '<div class="empty">None listed</div>'}</div>`;
-
+const taxon = row => `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span><small>${escapeHtml([row.order, `${row.family_english} (${row.family})`.trim()].filter(Boolean).join(" · "))}</small></div><div class="source-links">${avibaseLink(row.id)}</div></div></div>`;
+const side = (rows, kind) => `<div class="side ${kind}"><strong>${escapeHtml(kind === 'old' ? fromVersion.value : toVersion.value)}</strong>${rows.map(taxon).join('')}</div>`;
 const card = group => {
-  const tags = group.tags.filter(tag => tag !== 'concept').map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
-  const unresolved = group.relationship === 'unresolved' ? ' unresolved' : '';
-  const pendingEarc = group.pending_earc ? '<span class="badge pending-earc">Pending EARC</span>' : '';
-  const earcDecisions = (group.earc_decisions || []).map(row => `<a class="badge earc-decision" href="${escapeHtml(row.source_url)}" target="_blank" rel="noopener" title="${escapeHtml([row.decision_id, row.reference].filter(Boolean).join(' — '))}">EARC ${escapeHtml(row.decision.replaceAll('_', ' '))} · ${escapeHtml(row.report_year)}</a>`).join('');
-  const comments = [...new Set(group.new.map(row => row.taxonomy_comment).filter(Boolean))];
-  const note = comments.length ? `<div class="taxonomy-note"><strong>AviList taxonomy decision</strong>${comments.map(escapeHtml).join('<br>')}</div>` : '';
-  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="card-title">${escapeHtml(group.title)}</div><div class="badges"><span class="badge relationship${unresolved}">${escapeHtml(group.relationship_label)}</span>${pendingEarc}${earcDecisions}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true"><span>→</span></div>${side(group.new, 'new')}</div>${note}</article>`;
+  const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
+  const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
+  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="card-title">${escapeHtml(group.title)}</div><div class="badges"><span class="badge relationship">${escapeHtml(group.relationship_label)}</span>${concept}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true">→</div>${side(group.new, 'new')}</div></article>`;
 };
 
 const renderChanges = () => {
@@ -77,22 +69,64 @@ const bindFilters = () => {
   }));
 };
 
-fetch('../data/taxonomy-changes.json?v=20260814-2')
-  .then(response => {
-    if (!response.ok) throw new Error('Comparison data unavailable');
-    return response.json();
-  })
-  .then(data => {
+const fromVersion = document.getElementById('fromVersion');
+const toVersion = document.getElementById('toVersion');
+let catalog;
+let requestNumber = 0;
+
+const loadComparison = async () => {
+  const request = ++requestNumber;
+  changeError.hidden = true;
+  groups = [];
+  changeReport.replaceChildren();
+  selected.names.clear();
+  selected.concepts.clear();
+  changeSearch.value = '';
+  const pair = catalog.pairs.find(p => p.from_release === fromVersion.value && p.to_release === toVersion.value);
+  document.getElementById('comparisonHeading').textContent = `From ${fromVersion.value} to ${toVersion.value}`;
+  document.getElementById('comparisonCsv').href = `../${pair.files.csv}?v=${pair.revision}`;
+  document.getElementById('comparisonSummary').textContent = 'Loading comparison…';
+  const params = new URLSearchParams({from: fromVersion.value, to: toVersion.value});
+  history.replaceState(null, '', `?${params}`);
+  try {
+    const response = await fetch(`../${pair.files.json}?v=${pair.revision}`);
+    if (!response.ok) throw new Error('Comparison unavailable');
+    const data = await response.json();
+    if (request !== requestNumber) return;
     groups = data.groups;
-    document.getElementById('nameFilters').insertAdjacentHTML('beforeend', filterConfig.names.map(item => filterButton(item, 'names')).join(''));
-    document.getElementById('conceptFilters').insertAdjacentHTML('beforeend', filterConfig.concepts.map(item => filterButton(item, 'concepts')).join(''));
+    const excluded = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id)).reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
+    document.getElementById('comparisonSummary').textContent = `${groups.length} taxonomic changes. List additions/removals without reviewed taxonomic links are excluded.${excluded ? ` ${excluded} historical rows lack unique concept IDs and cannot be compared.` : ''}`;
+    document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');
+    document.getElementById('conceptFilters').innerHTML = '<span class="filter-label">Concept relationship</span>' + filterConfig.concepts.map(item => filterButton(item, 'concepts')).join('');
     bindFilters();
     renderChanges();
-  })
-  .catch(() => {
+  } catch (error) {
+    if (request !== requestNumber) return;
     changeError.hidden = false;
-    changeError.textContent = 'The taxonomy comparison could not be loaded.';
-  });
+    changeError.textContent = 'The selected taxonomy comparison could not be loaded.';
+    document.getElementById('comparisonSummary').textContent = '';
+  }
+};
+
+fetch('../data/releases.json', {cache: 'no-cache'}).then(response => {
+  if (!response.ok) throw new Error('Archive unavailable');
+  return response.json();
+}).then(data => {
+  catalog = data;
+  for (const select of [fromVersion, toVersion]) {
+    data.releases.forEach(release => select.add(new Option(`${release.id}${release.status === 'draft' ? ' (preview)' : ''}`, release.id)));
+  }
+  const params = new URLSearchParams(location.search);
+  const ids = data.releases.map(r => r.id);
+  toVersion.value = ids.includes(params.get('to')) ? params.get('to') : data.active_release;
+  fromVersion.value = ids.includes(params.get('from')) ? params.get('from') : ids[Math.max(0, ids.indexOf(toVersion.value) - 1)];
+  fromVersion.addEventListener('change', loadComparison);
+  toVersion.addEventListener('change', loadComparison);
+  return loadComparison();
+}).catch(() => {
+  changeError.hidden = false;
+  changeError.textContent = 'The checklist version archive could not be loaded.';
+});
 
 changeSearch.addEventListener('input', renderChanges);
 document.getElementById('clearChangeFilters').addEventListener('click', () => {

@@ -25,6 +25,9 @@ def load(metadata_path, profile_path=None):
 
 def pending_earc_ids(metadata, root, release):
     """Keep unresolved historical additions visible across successive releases."""
+    if metadata["sources"].get("pending_earc"):
+        with (root / metadata["sources"]["pending_earc"]).open(newline="") as handle:
+            return {r["avibase_id"] for r in csv.DictReader(handle)}
     comparisons = [json.loads((release / "comparison/taxonomy-changes.json").read_text(encoding="utf-8"))]
     if metadata["sources"].get("review_baseline_comparison"):
         baseline = json.loads((root / metadata["sources"]["review_baseline_comparison"]).read_text(encoding="utf-8"))
@@ -45,3 +48,18 @@ def pending_earc_ids(metadata, root, release):
     with (root / "data/curation/earc_decisions.csv").open(encoding="utf-8", newline="") as handle:
         pending.difference_update(row["avibase_id"] for row in csv.DictReader(handle))
     return pending
+
+
+def render_provenance(metadata, root, release, pdf):
+    import hashlib
+    digest = lambda data: hashlib.sha256(data).hexdigest()
+    editorial = [metadata["sources"]["policy"], metadata["sources"]["category_definitions"]]
+    if metadata["sources"].get("pending_earc"):
+        editorial.append(metadata["sources"]["pending_earc"])
+    if metadata["sources"].get("introduction"):
+        editorial.append(metadata["sources"]["introduction"])
+    return {"renderer_sha256": digest((root / "scripts/render_checklist_pdf.py").read_bytes()),
+            "checklist_sha256": digest((release / "checklist.csv").read_bytes()),
+            "publication_sha256": digest(json.dumps(metadata, sort_keys=True).encode()),
+            "editorial_sha256": digest(b"".join((root / name).read_bytes() for name in editorial)),
+            "pdf_sha256": digest(pdf.read_bytes())}

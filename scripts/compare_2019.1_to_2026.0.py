@@ -282,12 +282,6 @@ def main():
     if args.write_categories:
         write_csv(args.categories, ["avibase_id", *fields], converted)
 
-    subprocess.run([
-        sys.executable, str(ROOT / "scripts" / "render_2019.1_taxonomy_report.py"),
-        "--legacy", str(args.legacy), "--current", str(args.current),
-        "--mapping", str(args.mapping), "--output", str(args.output), "--no-pdf",
-    ], check=True)
-
     print(f"Wrote {args.output}")
     print(f"Taxonomic change edges: {len(changes):,}")
     print(f"Old taxa without an equivalent: {len(unresolved):,}")

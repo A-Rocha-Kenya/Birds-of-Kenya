@@ -20,7 +20,6 @@ def load(name, path):
 
 def main():
     build = load("build_release", ROOT / "scripts" / "build_release.py")
-    compare = load("compare_releases", ROOT / "scripts" / "compare_releases.py")
 
     avilist_by_code, avilist_by_id = build.avilist_indexes([
         {"AvibaseID": "avibase-00000001", "Taxon_rank": "species", "Scientific_name": "Alpha beta", "Species_code_Cornell_Lab": "alpha1"},
@@ -216,36 +215,6 @@ def main():
     if "Anatidae" not in build.WATERBIRD_FAMILIES or "Accipitridae" in build.WATERBIRD_FAMILIES:
         raise ValueError("Ramsar waterbird family definition is incorrect")
 
-    changes = compare.compare(
-        [{"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "AM": ""}],
-        [
-            {"avibase_id": "avibase-00000001", "scientific_name": "Alpha beta", "english_name": "Alpha", "AM": ""},
-            {"avibase_id": "avibase-00000002", "scientific_name": "Gamma delta", "english_name": "Gamma", "AM": "TRUE"},
-        ],
-    )
-    if [row["change"] for row in changes] != ["taxonomy_changed", "added"]:
-        raise ValueError("release comparison classification failed")
-    comparison = compare.website_comparison(
-        [{"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Old Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"}],
-        [
-            {"avibase_id": "avibase-00000001", "sequence": "1", "scientific_name": "Alpha beta", "english_name": "Alpha", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "alpha1"},
-            {"avibase_id": "avibase-00000002", "sequence": "2", "scientific_name": "Gamma delta", "english_name": "Gamma", "order": "Examples", "family": "Exampleidae", "family_english_name": "Examples", "ebird_species_code": "gamma1"},
-        ],
-        changes, "old-release", "new-release",
-    )
-    if comparison["to_release"] != "new-release" or comparison["group_count"] != 2:
-        raise ValueError("website release comparison metadata failed")
-    if [group["cardinality"] for group in comparison["groups"]] != ["1:1", "0:1"]:
-        raise ValueError("website release comparison grouping failed")
-    old_concept = [{"avibase_id": "old", "english_name": "Example", "scientific_name": "Alpha beta"}]
-    new_concept = [{"avibase_id": "new", "english_name": "Example", "scientific_name": "Alpha beta"}]
-    successors = {"old": "new"}
-    changes = compare.compare(old_concept, new_concept, successors)
-    if len(changes) != 1 or changes[0]["change"] != "taxonomy_changed" or changes[0]["old_avibase_id"] != "old":
-        raise ValueError("concept successor must be a taxonomy change, not addition and removal")
-    groups = compare.website_comparison(old_concept, new_concept, changes, "before", "after", successors)["groups"]
-    if groups[0]["cardinality"] != "1:1" or groups[0]["old"][0]["id"] != "old" or groups[0]["new"][0]["id"] != "new":
-        raise ValueError("comparison must retain distinct old and successor concept IDs")
     print("Validated release naming, evidence aggregation, eBird code mapping, categories, and comparison")
 
 

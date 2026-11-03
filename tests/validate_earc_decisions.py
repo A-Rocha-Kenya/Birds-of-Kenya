@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-SCRIPT = ROOT / "scripts" / "render_2019.1_taxonomy_report.py"
+SCRIPT = ROOT / "scripts" / "legacy_review.py"
 SITE_SCRIPT = ROOT / "scripts" / "build_site.py"
 
 
