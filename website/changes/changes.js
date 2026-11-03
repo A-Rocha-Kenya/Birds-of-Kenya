@@ -5,11 +5,11 @@ const selected = { names: new Set(), concepts: new Set() };
 let groups = [];
 
 const filterConfig = {
-  names: [['concept', 'Taxon concept'], ['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
-  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n'], ['0:1', 'Added species'], ['1:0', 'Removed species']]
+  names: [['concept', 'Taxon concept'], ['english', 'Common name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
+  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n'], ['0:1', '0:1'], ['1:0', '1:0']]
 };
 
-const dictionary = {english: 'English name', scientific: 'Scientific name', order: 'Order', family: 'Family', family_english: 'Family name'};
+const dictionary = {english: 'Common name', scientific: 'Scientific name', order: 'Order', family: 'Family', family_english: 'Family name'};
 const escapeHtml = value => {
   const element = document.createElement('span');
   element.textContent = value ?? '';
@@ -87,6 +87,7 @@ const loadComparison = async () => {
   const pair = catalog.pairs.find(p => p.from_release === fromVersion.value && p.to_release === toVersion.value);
   document.getElementById('comparisonHeading').textContent = `From ${fromVersion.value} to ${toVersion.value}`;
   document.getElementById('comparisonCsv').href = `../${pair.files.csv}?v=${pair.revision}`;
+  document.getElementById('comparisonSummary').hidden = false;
   document.getElementById('comparisonSummary').textContent = 'Loading comparison…';
   const params = new URLSearchParams({from: fromVersion.value, to: toVersion.value});
   history.replaceState(null, '', `?${params}`);
@@ -97,7 +98,8 @@ const loadComparison = async () => {
     if (request !== requestNumber) return;
     groups = data.groups;
     const excluded = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id)).reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
-    document.getElementById('comparisonSummary').textContent = `${groups.length} checklist changes, including species added or removed. Observation counts and status changes are excluded.${excluded ? ` ${excluded} historical rows lack unique concept IDs and cannot be compared.` : ''}`;
+    document.getElementById('comparisonSummary').textContent = excluded ? `${excluded} historical rows lack unique concept IDs and cannot be compared.` : '';
+    document.getElementById('comparisonSummary').hidden = !excluded;
     document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');
     document.getElementById('conceptFilters').innerHTML = '<span class="filter-label">Concept relationship</span>' + filterConfig.concepts.map(item => filterButton(item, 'concepts')).join('');
     bindFilters();

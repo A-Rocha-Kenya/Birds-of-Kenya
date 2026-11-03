@@ -545,3 +545,8 @@ footer a:hover { color: var(--green); text-decoration: underline; text-underline
 [data-release-downloads] li {margin:.6rem 0}
 
 .home-section {max-width:1240px;margin:2rem auto;padding:1.25rem}
+
+.change-filter-strip {display:flex;align-items:center;gap:1rem;flex:1 1 100%;min-width:0;overflow-x:auto;padding-bottom:.2rem}
+.change-filter-strip .filter-row {flex:0 0 auto;flex-wrap:nowrap;white-space:nowrap;gap:.3rem}
+.change-filter-strip .filter {white-space:nowrap}
+#comparisonSummary {flex-basis:100%;margin:0;font-size:.8rem}
