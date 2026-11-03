@@ -5,7 +5,7 @@ const selected = { names: new Set(), concepts: new Set() };
 let groups = [];
 
 const filterConfig = {
-  names: [['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family'], ['family_english', 'Family name']],
+  names: [['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
   concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n']]
 };
 

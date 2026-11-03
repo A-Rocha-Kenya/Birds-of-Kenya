@@ -64,7 +64,7 @@ def compare_versions(versions, transitions, source, target):
         after.sort(key=lambda r: (r["sequence"], r["id"]))
         linked_old.update(r["id"] for r in before)
         linked_new.update(r["id"] for r in after)
-        changed = [f for f in FIELDS if all(r[f] for r in before + after) and {" ".join(r[f].split()).casefold() for r in before} != {" ".join(r[f].split()).casefold() for r in after}]
+        changed = [f for f in FIELDS if f != "family_english" and all(r[f] for r in before + after) and {" ".join(r[f].split()).casefold() for r in before} != {" ".join(r[f].split()).casefold() for r in after}]
         concept = {r["id"] for r in before} != {r["id"] for r in after}
         if not changed and not concept:
             continue

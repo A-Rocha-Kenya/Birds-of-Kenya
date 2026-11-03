@@ -28,7 +28,7 @@ def main():
     target = [{**source[0], "sequence": "999", "observations": "900", "RAR": "FALSE", "earc_decision": "accepted"}]
     assert snapshot(source) != snapshot(target)  # Sequence is retained for display only.
     assert compare_versions({"a": snapshot(source), "b": snapshot(target)}, [], "a", "b")["groups"] == []
-    for field in ("english", "scientific", "order", "family", "family_english"):
+    for field in ("english", "scientific", "order", "family"):
         result = compare_versions({"a": [row("same")], "b": [row("same", **{field: "Changed"})]}, [], "a", "b")
         assert result["groups"][0]["tags"] == [field]
         original = row("same")
@@ -37,6 +37,10 @@ def main():
         changed = row("same", **{field: "Changed"})
         group = compare_versions({"a": [original], "b": [changed]}, [], "a", "b")["groups"][0]
         assert group["old"][0][field] == original[field] and group["new"][0][field] == "Changed"
+    assert compare_versions({"a": [row("same")], "b": [row("same", family_english="Different English family name")]}, [], "a", "b")["groups"] == []
+    family_change = compare_versions({"a": [row("same")], "b": [row("same", family="Otheridae", family_english="Other family")]}, [], "a", "b")["groups"][0]
+    assert family_change["tags"] == ["family"]
+    assert family_change["new"][0]["family_english"] == "Other family"
     assert compare_versions({"a": [row("old")], "b": [row("new")]}, [], "a", "b")["groups"] == []
     versions = {"a": [row("parent")], "b": [row("child1"), row("child2")], "c": [row("later"), row("child2")]}
     links = [{"from_release": "a", "to_release": "b", "links": [{"old_id": "parent", "new_id": x} for x in ("child1", "child2")]},
