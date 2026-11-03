@@ -237,6 +237,15 @@ def main():
         raise ValueError("website release comparison metadata failed")
     if [group["cardinality"] for group in comparison["groups"]] != ["1:1", "0:1"]:
         raise ValueError("website release comparison grouping failed")
+    old_concept = [{"avibase_id": "old", "english_name": "Example", "scientific_name": "Alpha beta"}]
+    new_concept = [{"avibase_id": "new", "english_name": "Example", "scientific_name": "Alpha beta"}]
+    successors = {"old": "new"}
+    changes = compare.compare(old_concept, new_concept, successors)
+    if len(changes) != 1 or changes[0]["change"] != "taxonomy_changed" or changes[0]["old_avibase_id"] != "old":
+        raise ValueError("concept successor must be a taxonomy change, not addition and removal")
+    groups = compare.website_comparison(old_concept, new_concept, changes, "before", "after", successors)["groups"]
+    if groups[0]["cardinality"] != "1:1" or groups[0]["old"][0]["id"] != "old" or groups[0]["new"][0]["id"] != "new":
+        raise ValueError("comparison must retain distinct old and successor concept IDs")
     print("Validated release naming, evidence aggregation, eBird code mapping, categories, and comparison")
 
 

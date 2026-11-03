@@ -39,9 +39,7 @@ uv run python tests/validate_site.py _site
 uv run python scripts/serve_site.py
 ```
 
-Review the checklist, audits, comparison, PDF, GBIF package, and website before
-publishing. The generic comparison matches Avibase IDs: new taxonomy splits,
-lumps, or identifier replacements need editorial interpretation. It produces CSV,
+Review the checklist, audits, comparison, PDF, GBIF package, and website before publishing. The generic comparison matches Avibase IDs. For reviewed one-to-one concept transitions, supply `--concept-successors <mapping.csv>` with `old_avibase_id`, `new_avibase_id`, and `reason` columns; this preserves both IDs and describes a taxonomy change without reassigning observation evidence. Splits, lumps and more complex transitions still need editorial interpretation. It produces CSV,
 JSON, Markdown, and HTML; it does not render a comparison PDF. The existing
 `compare_2019.1_to_2026.0.py` and comparison PDF renderer are specific to the
 historical comparison and are not steps for subsequent releases.

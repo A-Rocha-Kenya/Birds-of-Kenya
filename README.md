@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-**Version v2026.1 of the *Checklist of the Birds of Kenya* is in preparation**, using the September 2026 Kenya EBD and AviList v2026. The build awaits the official eBird 2026 taxonomy CSV. The released v2026.0 snapshot remains available unchanged. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
+**Version v2026.1 of the *Checklist of the Birds of Kenya* is in preparation**, using the September 2026 Kenya EBD and AviList v2026. The build uses the official October 2026 eBird taxonomy CSV. The released v2026.0 snapshot remains available unchanged. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -18,7 +18,7 @@ The publication, interactive website, downloadable data, and taxonomy comparison
 
 ## Data source
 
-Each release pins one [eBird Basic Dataset](https://ebird.org/about/download-ebird-data-products) month, its matching [eBird taxonomy](https://www.birds.cornell.edu/clementschecklist/download/), and one compatible [AviList](https://www.avilist.org/) version. In addition, four curated tables are used for (1) sensitive species, (2) exceptional eBird-to-AviList alignments, (3) version-scoped exotic-code corrections, and (4) Kenya checklist categories.
+Each release pins one [eBird Basic Dataset](https://ebird.org/about/download-ebird-data-products) month, its matching [eBird taxonomy](https://www.birds.cornell.edu/clementschecklist/download/), and one compatible [AviList](https://www.avilist.org/) version. Curated tables supply species membership, source-taxonomy corrections and eBird-to-AviList exceptions, exotic-code corrections, occurrence-review decisions, and Kenya checklist categories.
 
 ## Checklist policy
 
@@ -197,8 +197,8 @@ Publishing organizations, project partners, data sources, and contributors are d
 
 The new checklist data and publication material are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), matching the GBIF checklist dataset. The repository code is licensed under MIT. The 2019 edition, raw eBird data, AviList source files, and other third-party material retain their own terms; see [`LICENSE`](LICENSE).
 
-## AviList and eBird 2026 development update
+## AviList and eBird 2026 update
 
-The v2026.1 draft pins AviList v2026, the September 2026 EBD, and one official eBird taxonomy CSV through `ebird_taxonomy_path`. The eBird 2026 taxonomy file is not yet available. The names workbook is not a replacement, and the build does not align observations through a second taxonomy layer. See [the pending-source notes](data/ebird/README.md) and [release preparation notes](docs/releases/v2026.1.md).
+The v2026.1 draft uses AviList v2026, the September 2026 EBD, and the official `eBird_Taxonomy_v2026-october-2026.csv` as its single eBird taxonomy input. Four explicit, September-scoped corrections reconcile retired concept IDs and category changes in the EBD. Broad Spotted/Mediterranean Flycatcher records remain unidentified. Source IDs, correction counts and rationales remain inspectable in the release audits. See [the source notes](data/ebird/README.md), [taxonomy audit](docs/taxonomy-2026-audit.md), and [release notes](docs/releases/v2026.1.md).
 
-When the official CSV is available, verify its compatibility with the EBD, rebuild and review the checklist, then generate the comparison, PDF, GBIF package and staged website assets. No v2026.1 public assets are staged yet. The corrected historical lark crosswalk and AviList v2026 workbook reader are retained for review on the development branch.
+The comparison with v2026.0 uses the curated successor links in `data/curation/taxonomy_2026.0_to_2026.1.csv` to distinguish Little Swift and Spotted Flycatcher concept changes from national-list additions and removals. These comparison links do not reassign observation evidence. The published v2026.0 assets remain unchanged.

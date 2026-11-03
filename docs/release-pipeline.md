@@ -21,6 +21,7 @@ Defined in `config/release.toml`:
 | Project categories | Repository revision | `categories_path` | CSV keyed by `avibase_id` under `data/curation/` |
 | KBM species list | Repository revision | `kbm_species_list_path` | KBM CSV containing positive SAFRING numbers and Avibase IDs |
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
+| Source taxon corrections | EBD release | `ebird_taxon_corrections_path` | Explicit source concept/category to official concept mappings with reasons and record-count audits |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avibase_id`, with rationale and reference under `data/curation/` |
 | EARC decisions | Repository revision | `earc_decisions_path` | Accepted and rejected national-record review decisions keyed by `avibase_id` |
@@ -36,7 +37,7 @@ place them at the configured paths.
 
 Match each EBD `TAXON CONCEPT ID` exactly to eBird taxonomy `TAXON_CONCEPT_ID`. Assign the matched taxonomy `SPECIES_CODE`, then set `REPORTED_SPECIES_CODE` to `REPORT_AS` when present or otherwise to `SPECIES_CODE`. Scientific names are retained for traceability and are not mapping keys.
 
-Every EBD taxon-concept ID must occur exactly once in the matching taxonomy and its category must agree. A missing ID, category mismatch, or missing reportable code indicates incompatible source versions. The build writes a local diagnostic under `data/ebird/derived/` and stops without producing a release.
+After applying the explicitly version-scoped source corrections, every EBD taxon-concept ID must resolve to exactly one official taxonomy entry and its interpreted category must agree. An unlisted missing ID or category mismatch, or a missing reportable code, indicates incompatible source versions. The build writes a local diagnostic under `data/ebird/derived/` and stops without producing a release.
 
 ### 2. Compact the EBD
 
@@ -68,7 +69,7 @@ EARC decisions annotate record review in `earc_decision` without excluding speci
 
 ### 5. Align eBird species to AviList
 
-Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.1 configuration targets eBird 2026, whose official CSV is still pending. The names workbook is not a substitute, and there is no second current-taxonomy alignment step. The existing exact-ID and category checks must pass before a release can be generated.
+Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.1 configuration pins `eBird_Taxonomy_v2026-october-2026.csv`. Its lowercase columns are normalized on read, and `sparse_report_as` supplies species-parent pointers. There is no second taxonomy input. Version-scoped entries in `ebird_taxon_corrections.csv` explicitly reconcile four known source ID/category combinations with this taxonomy; all other discrepancies stop the build. The correction table is included in the manifest hashes and cache metadata. `audit/ebird_taxon_corrections.csv` retains source categories, target IDs/categories, counts and reasons. See the [taxonomy audit](taxonomy-2026-audit.md).
 
 The AviList v2026 workbook has revised column names. `read_avilist` normalizes them for the build and reads English family names from the explicit family rows.
 
@@ -143,4 +144,8 @@ Checklist and species comments are retained only in the ignored local derived da
 
 ## Review flags across releases
 
-The planned comparison describes v2026.0 to v2026.1. Publication metadata separately pins `sources.review_baseline_comparison` to the reviewed 2019.1-to-v2026.0 comparison so unresolved historical additions retain their Pending EARC display in the PDF and website. Intermediate comparisons are followed through the archived release chain. Current additions are included, removed taxa are dropped, and any species with a curated EARC decision is excluded from the pending set. Changing the comparison baseline does not resolve outstanding reviews.
+The active comparison describes v2026.0 to v2026.1. Publication metadata separately pins `sources.review_baseline_comparison` to the reviewed 2019.1-to-v2026.0 comparison so unresolved historical additions retain their Pending EARC display in the PDF and website. Intermediate comparisons are followed through the archived release chain. Current additions are included, removed taxa are dropped, and any species with a curated EARC decision is excluded from the pending set. Changing the comparison baseline does not resolve outstanding reviews.
+
+## Concept changes between releases
+
+For v2026.0 to v2026.1, pass `--concept-successors data/curation/taxonomy_2026.0_to_2026.1.csv` to `scripts/compare_releases.py`. The two explicit links describe the Little Swift lump and Spotted Flycatcher narrowing as taxonomy changes while retaining both old and new IDs. They do not declare global equivalence or reassign source evidence. Without a supplied table, the comparison continues to match exact Avibase IDs.

@@ -18,7 +18,7 @@ CORE_FIELDS = {
     "iucn_red_list_category", "birdlife_datazone_url", "birds_of_the_world_url",
 }
 FIELDS = [
-    "change", "avibase_id", "old_scientific_name", "new_scientific_name",
+    "change", "avibase_id", "old_avibase_id", "new_avibase_id", "old_scientific_name", "new_scientific_name",
     "old_english_name", "new_english_name", "old_observations",
     "new_observations", "changed_fields",
 ]
@@ -29,8 +29,9 @@ def read_csv(path):
         return list(csv.DictReader(handle))
 
 
-def compare(old_rows, new_rows):
-    old = {row["avibase_id"]: row for row in old_rows}
+def compare(old_rows, new_rows, successors=None):
+    successors = successors or {}
+    old = {successors.get(row["avibase_id"], row["avibase_id"]): row for row in old_rows}
     new = {row["avibase_id"]: row for row in new_rows}
     category_fields = (set(old_rows[0]) | set(new_rows[0])) - CORE_FIELDS if old_rows and new_rows else set()
     changes = []
@@ -42,6 +43,8 @@ def compare(old_rows, new_rows):
             change = "added"
         elif not after:
             change = "removed"
+        elif "avibase_id" in changed_fields:
+            change = "taxonomy_changed"
         elif set(changed_fields) & category_fields:
             change = "categories_changed"
         elif set(changed_fields) & {"scientific_name", "english_name", "taxonomy_comment", "order", "family", "family_english_name"}:
@@ -53,6 +56,8 @@ def compare(old_rows, new_rows):
         changes.append({
             "change": change,
             "avibase_id": identifier,
+            "old_avibase_id": before.get("avibase_id", ""),
+            "new_avibase_id": after.get("avibase_id", ""),
             "old_scientific_name": before.get("scientific_name", ""),
             "new_scientific_name": after.get("scientific_name", ""),
             "old_english_name": before.get("english_name", ""),
@@ -85,8 +90,9 @@ def public_taxon(row):
     }
 
 
-def website_comparison(old_rows, new_rows, changes, old_name, new_name):
-    old = {row["avibase_id"]: row for row in old_rows}
+def website_comparison(old_rows, new_rows, changes, old_name, new_name, successors=None):
+    successors = successors or {}
+    old = {successors.get(row["avibase_id"], row["avibase_id"]): row for row in old_rows}
     new = {row["avibase_id"]: row for row in new_rows}
     labels = {
         "added": "New",
@@ -109,6 +115,7 @@ def website_comparison(old_rows, new_rows, changes, old_name, new_name):
             "cardinality": cardinality,
             "relationship_label": labels[change["change"]],
             "tags": [field for field in ["english_name", "scientific_name"] if field in changed_fields],
+            "concept_changed": "avibase_id" in changed_fields,
             "title": reference.get("english_name") or reference.get("scientific_name") or identifier,
             "sort_order": float(reference["sequence"]) if reference.get("sequence") else 1e12,
             "order": reference.get("order", ""),
@@ -138,14 +145,14 @@ def write_markdown(path, old_name, new_name, rows):
     counts = Counter(row["change"] for row in rows)
     path.write_text(
         f"# {old_name} to {new_name}\n\n"
-        "Differences are computed by `avibase_id`. Added and removed identifiers are review prompts: "
+        "Differences are computed by `avibase_id`, using explicit concept successors when supplied. Successor links describe checklist transitions, not concept equivalence or evidence reassignment. Added and removed identifiers are review prompts: "
         "a taxonomic split, lump, or identifier replacement may require an explicit migration mapping.\n\n"
         "| Change | Taxa |\n| --- | ---: |\n"
         f"| Added | {counts['added']:,} |\n"
         f"| Removed | {counts['removed']:,} |\n"
         f"| Taxonomy or name changed | {counts['taxonomy_changed']:,} |\n"
         f"| Observation evidence or exotic status changed | {counts['evidence_changed']:,} |\n"
-        f"| Curated categories changed | {counts['categories_changed']:,} |\n\n"
+        f"| Categories changed | {counts['categories_changed']:,} |\n\n"
         "See `changes.csv` for the row-level report and `migration-report.html` for the interactive view.\n",
         encoding="utf-8",
     )
@@ -179,18 +186,22 @@ def main():
     parser.add_argument("old", type=Path, help="previous checklist.csv")
     parser.add_argument("new", type=Path, help="new checklist.csv")
     parser.add_argument("output", type=Path, help="comparison output directory")
+    parser.add_argument("--concept-successors", type=Path, help="curated old_avibase_id/new_avibase_id CSV")
     args = parser.parse_args()
+    successor_rows = read_csv(args.concept_successors) if args.concept_successors else []
+    successors = {row["old_avibase_id"]: row["new_avibase_id"] for row in successor_rows}
     old_rows = read_csv(args.old)
     new_rows = read_csv(args.new)
     old_name = release_label(args.old)
     new_name = release_label(args.new)
-    rows = compare(old_rows, new_rows)
+    rows = compare(old_rows, new_rows, successors)
     args.output.mkdir(parents=True, exist_ok=True)
     write_csv(args.output / "changes.csv", rows)
     write_csv(args.output / "taxonomy-changes.csv", rows)
     write_markdown(args.output / "changelog.md", old_name, new_name, rows)
     write_html(args.output / "migration-report.html", old_name, new_name, rows)
-    payload = website_comparison(old_rows, new_rows, rows, old_name, new_name)
+    payload = website_comparison(old_rows, new_rows, rows, old_name, new_name, successors)
+    payload["concept_successors"] = successor_rows
     (args.output / "taxonomy-changes.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
         encoding="utf-8",

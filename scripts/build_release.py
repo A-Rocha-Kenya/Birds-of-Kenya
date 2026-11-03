@@ -20,7 +20,7 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parents[1]
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 NS = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-COMPACTION_SCHEMA_VERSION = 6
+COMPACTION_SCHEMA_VERSION = 7
 OBSERVATION_RADIUS_KM = 3.0
 OBSERVATION_WINDOW_MONTHS = 3
 TRAVEL_DISTANCE_CAP_KM = 10.0
@@ -79,6 +79,10 @@ ENTITY_PUBLIC_RECORD_FIELDS = [
 EXOTIC_OVERRIDE_FIELDS = [
     "ebd_version", "source_taxon_concept_id", "source_exotic_code",
     "corrected_exotic_code", "record_count", "reason",
+]
+TAXON_CORRECTION_FIELDS = [
+    "ebd_version", "source_taxon_concept_id", "source_category", "taxon_concept_id",
+    "target_category", "record_count", "reason",
 ]
 SENSITIVE_AUDIT_FIELDS = [
     "avibase_id", "scientific_name", "english_name", "ebird_species_code",
@@ -171,7 +175,7 @@ def source_paths(config):
     return {key: ROOT / config[key] for key in [
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "kbm_species_list_path",
-        "ebird_avilist_overrides_path", "ebird_exotic_overrides_path",
+        "ebird_avilist_overrides_path", "ebird_exotic_overrides_path", "ebird_taxon_corrections_path",
         "sensitive_species_path", "curated_species_path", "earc_decisions_path",
     ]}
 
@@ -186,6 +190,7 @@ def derived_paths(ebd_path):
         "reported_latest": directory / f"{stem}_reported_species_latest_records.csv",
         "excluded": directory / f"{stem}_excluded_non_species_observations.csv",
         "exotic_overrides": directory / f"{stem}_exotic_code_overrides.csv",
+        "taxon_corrections": directory / f"{stem}_taxon_corrections.csv",
         "mismatch": directory / f"{stem}_taxonomy_mismatch.csv",
         "metadata": directory / f"{stem}_compaction.json",
     }
@@ -193,6 +198,13 @@ def derived_paths(ebd_path):
 
 def taxonomy_index(path):
     rows = read_csv(path)
+    if "bio_concept_code" in rows[0]:
+        columns = {
+            "taxon_order": "TAXON_ORDER", "category": "CATEGORY", "species_code": "SPECIES_CODE",
+            "bio_concept_code": "TAXON_CONCEPT_ID", "primary_com_name": "PRIMARY_COM_NAME",
+            "sci_name": "SCI_NAME", "order1": "ORDER", "family": "FAMILY", "sparse_report_as": "REPORT_AS",
+        }
+        rows = [{target: row[source] for source, target in columns.items()} for row in rows]
     duplicates = sorted(identifier for identifier, count in Counter(
         row["TAXON_CONCEPT_ID"].strip() for row in rows
     ).items() if identifier and count > 1)
@@ -437,6 +449,11 @@ def warn_exotic_overrides(path):
         print(f"WARNING: Applied {applied:,} curated EBD EXOTIC CODE corrections; inspect {path.relative_to(ROOT)}")
 
 
+def read_taxon_corrections(path, ebd_version):
+    return {(row["source_taxon_concept_id"], row["source_category"]): row
+            for row in read_csv(path) if row["ebd_version"] == ebd_version}
+
+
 def prepare_ebd(paths, ebd_version, force=False):
     derived = derived_paths(paths["ebd_path"])
     metadata = {
@@ -446,9 +463,10 @@ def prepare_ebd(paths, ebd_version, force=False):
         "travel_distance_cap_km": TRAVEL_DISTANCE_CAP_KM,
         "ebd_sha256": checksum(paths["ebd_path"]),
         "ebird_taxonomy_sha256": checksum(paths["ebird_taxonomy_path"]),
+        "ebird_taxon_corrections_sha256": checksum(paths["ebird_taxon_corrections_path"]),
         "ebird_exotic_overrides_sha256": checksum(paths["ebird_exotic_overrides_path"]),
     }
-    required = [derived[key] for key in ["compact", "compact_latest", "reported", "reported_latest", "excluded", "exotic_overrides"]]
+    required = [derived[key] for key in ["compact", "compact_latest", "reported", "reported_latest", "excluded", "exotic_overrides", "taxon_corrections"]]
     if not force and derived["metadata"].exists() and all(path.exists() for path in required):
         cached = json.loads(derived["metadata"].read_text(encoding="utf-8"))
         if cached == metadata:
@@ -459,6 +477,8 @@ def prepare_ebd(paths, ebd_version, force=False):
 
     taxonomy = taxonomy_index(paths["ebird_taxonomy_path"])
     exotic_overrides = read_exotic_overrides(paths["ebird_exotic_overrides_path"], ebd_version)
+    corrections = read_taxon_corrections(paths["ebird_taxon_corrections_path"], ebd_version)
+    applied_corrections = Counter()
     applied_exotic_overrides = Counter()
     compact = {}
     observation_points = defaultdict(list)
@@ -469,13 +489,17 @@ def prepare_ebd(paths, ebd_version, force=False):
         for row in csv.DictReader(handle, delimiter="\t"):
             source_id = row["TAXON CONCEPT ID"].strip()
             category = row["CATEGORY"].strip().lower()
-            taxon = taxonomy.get(source_id)
+            correction = corrections.get((source_id, category))
+            taxon = taxonomy.get(correction["taxon_concept_id"] if correction else source_id)
             if not taxon:
                 mismatches[(source_id, category, row["SCIENTIFIC NAME"].strip(), "taxon_concept_id_not_found")] += 1
                 continue
-            if taxon["CATEGORY"].strip().lower() != category:
+            if not correction and taxon["CATEGORY"].strip().lower() != category:
                 mismatches[(source_id, category, row["SCIENTIFIC NAME"].strip(), "category_mismatch")] += 1
                 continue
+            if correction:
+                applied_corrections[(source_id, category)] += 1
+                category = taxon["CATEGORY"].strip().lower()
             species_code = taxon["SPECIES_CODE"].strip()
             report_as = taxon["REPORT_AS"].strip()
             reported_code = report_as or species_code
@@ -556,6 +580,9 @@ def prepare_ebd(paths, ebd_version, force=False):
         )
     derived["mismatch"].unlink(missing_ok=True)
 
+    correction_rows = [{**row, "target_category": taxonomy[row["taxon_concept_id"]]["CATEGORY"],
+                        "record_count": applied_corrections[key]} for key, row in corrections.items()]
+    write_csv(derived["taxon_corrections"], TAXON_CORRECTION_FIELDS, correction_rows)
     override_rows = [{
         "ebd_version": ebd_version,
         "source_taxon_concept_id": key[0],
@@ -719,9 +746,10 @@ def build(config_path, force_compaction=False):
     reported = read_csv(derived["reported"])
     reported_latest = read_csv(derived["reported_latest"])
     excluded = read_csv(derived["excluded"])
-    entity_rows, entity_latest = aggregate_taxonomic_entities(
-        compact, compact_latest, taxonomy_index(paths["ebird_taxonomy_path"])
-    )
+    taxonomy = taxonomy_index(paths["ebird_taxonomy_path"])
+    for correction in read_taxon_corrections(paths["ebird_taxon_corrections_path"], config["ebd_version"]).values():
+        taxonomy[correction["source_taxon_concept_id"]] = taxonomy[correction["taxon_concept_id"]]
+    entity_rows, entity_latest = aggregate_taxonomic_entities(compact, compact_latest, taxonomy)
     earc_decisions = read_csv(paths["earc_decisions_path"])
     accepted_ids = accepted_earc_ids(paths["earc_decisions_path"])
     sensitive_species = read_sensitive_species(paths["sensitive_species_path"], avilist_by_id)
@@ -884,6 +912,8 @@ def build(config_path, force_compaction=False):
     ])
     write_csv(output / "audit" / "exotic_code_overrides.csv", EXOTIC_OVERRIDE_FIELDS, exotic_override_audit)
     write_csv(output / "audit" / "sensitive_species.csv", SENSITIVE_AUDIT_FIELDS, sensitive_audit)
+    corrections_audit = read_csv(derived["taxon_corrections"])
+    write_csv(output / "audit" / "ebird_taxon_corrections.csv", TAXON_CORRECTION_FIELDS, corrections_audit)
 
     manifest = {
         "release_id": identifier,
@@ -907,6 +937,8 @@ def build(config_path, force_compaction=False):
             "taxonomic_entity_observations": sum(int(row["observations"]) for row in entity_rows),
             "taxonomic_entity_latest_records": len(entity_latest),
             "curated_ebird_avilist_overrides_used": len(overrides_used),
+            "curated_taxon_corrections_used": sum(int(row["record_count"]) > 0 for row in corrections_audit),
+            "curated_taxon_corrected_records": sum(int(row["record_count"]) for row in corrections_audit),
             "curated_exotic_code_overrides_used": sum(
                 int(row["record_count"]) > 0 for row in exotic_override_audit
             ),

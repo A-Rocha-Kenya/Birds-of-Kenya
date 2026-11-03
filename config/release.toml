@@ -4,16 +4,16 @@ release_revision = 1
 historical_reference_date = "2026-09-30"
 historical_years = 50
 avilist_version = "v2026"
-# Pending the official eBird 2026 taxonomy CSV; do not substitute the names workbook.
 ebird_taxonomy_version = "2026"
 
 # Pinned source inputs for the release being prepared.
 ebd_path = "data/ebird/ebd_KE_smp_relSep-2026.zip"
 avilist_path = "data/avilist/AviList-v2026-20Oct2026-extended-version.xlsx"
-ebird_taxonomy_path = "data/ebird/eBird_taxonomy_v2026.csv"
+ebird_taxonomy_path = "data/ebird/eBird_Taxonomy_v2026-october-2026.csv"
 categories_path = "data/curation/categories.csv"
 kbm_species_list_path = "data/KBM/general_specielist_UO.csv"
 ebird_avilist_overrides_path = "data/curation/ebird_avilist_overrides.csv"
+ebird_taxon_corrections_path = "data/curation/ebird_taxon_corrections.csv"
 ebird_exotic_overrides_path = "data/curation/ebird_exotic_overrides.csv"
 sensitive_species_path = "data/curation/sensitive_species.csv"
 curated_species_path = "data/curation/curated_species.csv"
