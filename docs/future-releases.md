@@ -1,6 +1,6 @@
 # Preparing a future release
 
-See [the release architecture](release-architecture.md) for archive schemas, taxonomy-only comparisons, version-scoped curation and activation rules. Release IDs are explicit; the EBD source month does not determine them.
+See [the release architecture](release-architecture.md) for archive schemas, taxonomy and species-membership comparisons, version-scoped curation and activation rules. Release IDs are explicit; the EBD source month does not determine them.
 
 Create `data/curation/releases/<new-id>/`, pin those curated files in `config/release.toml`, and update `publication/publication.toml` to the same candidate ID, dates and output filename. Keep its status `draft`. Add it to the ordered `publication/releases.toml` registry with `status = "draft"`; leave the live `active_release` unchanged. Supply reviewed concept links in the candidate's `transition.json` when needed. Copying earlier decisions is a starting point for review, not automatic inheritance across changed concepts.
 
@@ -24,6 +24,6 @@ The website builds all taxonomy comparison pairs from sealed snapshots. Export a
 uv run python scripts/compare_releases.py v2019.1 v2026.0 --output tmp/comparison
 ```
 
-Add `--preview-release <new-id>` to compare a draft. Comparisons exclude observation evidence, national-list membership changes and manual status decisions. No comparison PDF is supported. Historical versions and their canonical PDFs remain available through the website's version archive.
+Add `--preview-release <new-id>` to compare a draft. Comparisons include species additions/removals and exclude observation evidence and manual status decisions. No comparison PDF is supported. Historical versions and their canonical PDFs remain available through the website's version archive.
 
 After review, set publication status to `released`, rerender and stage, then mark its registry entry `released` and explicitly update `active_release`. Commit and publish the bundle, metadata and registry together. Staging cannot overwrite a released bundle. Tag the publication commit using exactly the release ID and attach its one canonical PDF, checklist CSV and manifest to the matching GitHub Release. Update the existing GBIF/IPT resource separately using [the GBIF guide](gbif-publication.md).

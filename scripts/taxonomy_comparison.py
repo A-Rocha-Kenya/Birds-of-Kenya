@@ -72,9 +72,22 @@ def compare_versions(versions, transitions, source, target):
         groups.append({"id": f'change-{identifier}', "title": " / ".join(r["english"] for r in after),
                        "old": before, "new": after, "tags": changed,
                        "cardinality": cardinality, "concept_changed": concept,
+                       "relationship": "taxonomy_changed",
                        "relationship_label": "Linked concepts" if concept else "Taxonomy/name changed",
                        "sort_order": after[0]["sequence"], "order": after[0]["order"],
                        "family": after[0]["family"], "family_english": after[0]["family_english"]})
+    for relationship, rows, matched in [("added", new, linked_new), ("removed", old, linked_old)]:
+        for identifier in rows.keys() - matched:
+            row = rows[identifier]
+            groups.append({"id": f"{relationship}-{identifier}", "title": row["english"],
+                           "old": [row] if relationship == "removed" else [],
+                           "new": [row] if relationship == "added" else [],
+                           "tags": [], "concept_changed": False,
+                           "cardinality": "0:1" if relationship == "added" else "1:0",
+                           "relationship": relationship,
+                           "relationship_label": "Added species" if relationship == "added" else "Removed species",
+                           "sort_order": row["sequence"], "order": row["order"],
+                           "family": row["family"], "family_english": row["family_english"]})
     groups.sort(key=lambda g: (g["sort_order"], g["id"]))
     return {"from_release": source, "to_release": target, "group_count": len(groups), "groups": groups,
             "unlinked_old": len(old.keys() - linked_old), "unlinked_new": len(new.keys() - linked_new)}

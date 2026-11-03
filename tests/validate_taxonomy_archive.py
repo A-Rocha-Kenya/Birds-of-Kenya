@@ -41,10 +41,20 @@ def main():
     family_change = compare_versions({"a": [row("same")], "b": [row("same", family="Otheridae", family_english="Other family")]}, [], "a", "b")["groups"][0]
     assert family_change["tags"] == ["family"]
     assert family_change["new"][0]["family_english"] == "Other family"
-    assert compare_versions({"a": [row("old")], "b": [row("new")]}, [], "a", "b")["groups"] == []
+    unlinked = compare_versions({"a": [row("old")], "b": [row("new")]}, [], "a", "b")["groups"]
+    assert {g["relationship"] for g in unlinked} == {"added", "removed"}
+    assert all(not g["concept_changed"] for g in unlinked)
+    versions = {"a": [row("same")], "b": [row("same"), row("buffy", english="Buffy Pipit")]}
+    addition = compare_versions(versions, [], "a", "b")["groups"]
+    assert len(addition) == 1 and addition[0]["relationship"] == "added" and not addition[0]["old"]
+    removal = compare_versions(versions, [], "b", "a")["groups"]
+    assert len(removal) == 1 and removal[0]["relationship"] == "removed" and not removal[0]["new"]
+    replacement = compare_versions(versions, [], "a", "a")["groups"]
+    assert replacement == []
     versions = {"a": [row("parent")], "b": [row("child1"), row("child2")], "c": [row("later"), row("child2")]}
     links = [{"from_release": "a", "to_release": "b", "links": [{"old_id": "parent", "new_id": x} for x in ("child1", "child2")]},
              {"from_release": "b", "to_release": "c", "links": [{"old_id": "child1", "new_id": "later"}]}]
+    assert len(compare_versions(versions, links, "a", "c")["groups"]) == 1
     assert compare_versions(versions, links, "a", "c")["groups"][0]["cardinality"] == "1:n"
     assert compare_versions(versions, links, "c", "a")["groups"][0]["cardinality"] == "n:1"
     assert compare_versions(versions, links, "a", "a")["groups"] == []
@@ -79,7 +89,7 @@ def main():
                 pass
             else:
                 raise AssertionError("preview accepted a corrupt candidate")
-    print("Validated taxonomy-only comparison, every field, excluded membership, forward/reverse/transitive splits and lumps, same-version comparison, sealed archives and draft isolation")
+    print("Validated taxonomy-only comparison, every field, species additions/removals, forward/reverse/transitive splits and lumps, same-version comparison, sealed archives and draft isolation")
 
 
 if __name__ == "__main__":

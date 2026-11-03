@@ -6,7 +6,7 @@ let groups = [];
 
 const filterConfig = {
   names: [['concept', 'Taxon concept'], ['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
-  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n']]
+  concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n'], ['0:1', 'Added species'], ['1:0', 'Removed species']]
 };
 
 const dictionary = {english: 'English name', scientific: 'Scientific name', order: 'Order', family: 'Family', family_english: 'Family name'};
@@ -29,7 +29,7 @@ const avibaseLink = id => {
 };
 
 const taxon = row => `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span><small>${escapeHtml([row.order, `${row.family_english} (${row.family})`.trim()].filter(Boolean).join(" · "))}</small></div><div class="source-links">${avibaseLink(row.id)}</div></div></div>`;
-const side = (rows, kind) => `<div class="side ${kind}"><strong>${escapeHtml(kind === 'old' ? fromVersion.value : toVersion.value)}</strong>${rows.map(taxon).join('')}</div>`;
+const side = (rows, kind) => `<div class="side ${kind}"><strong>${escapeHtml(kind === 'old' ? fromVersion.value : toVersion.value)}</strong>${rows.length ? rows.map(taxon).join('') : '<p class="empty">Not listed in this version</p>'}</div>`;
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
@@ -97,7 +97,7 @@ const loadComparison = async () => {
     if (request !== requestNumber) return;
     groups = data.groups;
     const excluded = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id)).reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
-    document.getElementById('comparisonSummary').textContent = `${groups.length} taxonomic changes. List additions/removals without reviewed taxonomic links are excluded.${excluded ? ` ${excluded} historical rows lack unique concept IDs and cannot be compared.` : ''}`;
+    document.getElementById('comparisonSummary').textContent = `${groups.length} checklist changes, including species added or removed. Observation counts and status changes are excluded.${excluded ? ` ${excluded} historical rows lack unique concept IDs and cannot be compared.` : ''}`;
     document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');
     document.getElementById('conceptFilters').innerHTML = '<span class="filter-label">Concept relationship</span>' + filterConfig.concepts.map(item => filterButton(item, 'concepts')).join('');
     bindFilters();

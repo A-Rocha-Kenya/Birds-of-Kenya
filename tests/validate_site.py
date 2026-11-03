@@ -35,9 +35,15 @@ def main():
         assert comparison["from_release"] == entry["from_release"] and comparison["to_release"] == entry["to_release"]
         assert len(comparison["groups"]) == entry["group_count"]
         for group in comparison["groups"]:
-            assert group["old"] and group["new"]
+            assert group["old"] or group["new"]
             assert not forbidden & set(group)
-            assert group["tags"] or group["concept_changed"]
+            if group["relationship"] in {"added", "removed"}:
+                assert group["cardinality"] in {"0:1", "1:0"}
+                assert bool(group["old"]) != bool(group["new"])
+                assert not group["concept_changed"]
+            else:
+                assert group["old"] and group["new"]
+                assert group["tags"] or group["concept_changed"]
             for row in group["old"] + group["new"]:
                 assert not forbidden & set(row)
     metadata = json.loads((site / "data/site.json").read_text())

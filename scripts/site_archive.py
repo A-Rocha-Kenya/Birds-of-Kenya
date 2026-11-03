@@ -67,8 +67,8 @@ def write_comparison(destination, pair):
     (destination / "taxonomy-changes.json").write_text(json.dumps(pair, ensure_ascii=False, indent=2) + "\n")
     with (destination / "taxonomy-changes.csv").open("w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["group", "side", "avibase_id", "english_name", "scientific_name", "order", "family", "family_english_name"])
+        writer.writerow(["group", "change", "side", "avibase_id", "english_name", "scientific_name", "order", "family", "family_english_name"])
         for group in pair["groups"]:
             for side in ["old", "new"]:
                 for row in group[side]:
-                    writer.writerow([group["id"], side, row["id"], row["english"], row["scientific"], row["order"], row["family"], row["family_english"]])
+                    writer.writerow([group["id"], group["relationship"], side, row["id"], row["english"], row["scientific"], row["order"], row["family"], row["family_english"]])

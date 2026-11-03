@@ -37,7 +37,7 @@ The editable candidate is separate from the public website version. `config/rele
 
 Each archived release has its own checklist CSV, taxonomic snapshot, curated decisions, publication metadata and one canonical checklist PDF. Older checklists remain downloadable on the website. The original printed 2019 PDF is labeled separately from its corrected 2019.1 CSV transcription. Comparison PDFs are retired.
 
-The Changes page compares any two available versions, in either direction, using names, classification and reviewed Avibase concept relationships. Observation counts, occurrence status, national-list membership changes and review decisions are excluded. Comparisons are generated from frozen snapshots without rerunning historical EBD analyses.
+The Changes page compares any two available versions, in either direction, using species additions/removals, names, classification and reviewed Avibase concept relationships. Species additions and removals are included. Observation counts, occurrence status and review decisions are excluded. Comparisons are generated from frozen snapshots without rerunning historical EBD analyses.
 
 For a routine candidate refresh:
 
