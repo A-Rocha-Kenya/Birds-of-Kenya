@@ -28,3 +28,8 @@ path = "release-assets/v2019.3"
 [[releases]]
 id = "v2025.0"
 path = "release-assets/v2025.0"
+
+[[releases]]
+id = "v2026.0"
+status = "draft"
+path = "release-assets/v2026.0"
