@@ -1,0 +1,3 @@
+ebd_version,source_taxon_concept_id,source_exotic_code,corrected_exotic_code,reason
+2026-06,avibase-BBA263C2,,N,"Temporary correction: Kenya Rock Dove observations were left uncoded in the EBD; treat them as part of the naturalized Rock Pigeon population pending the upstream eBird correction."
+2026-06,avibase-6B1CFC3C,N,X,"Rose-ringed Parakeet observations are treated as escapees in Kenya; override the EBD naturalized code for this release."

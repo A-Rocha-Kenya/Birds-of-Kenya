@@ -7,8 +7,7 @@ This document defines how the pinned source data and curated decisions become th
 uv run python scripts/build_release.py config/release.toml
 ```
 
-The release ID is explicitly configured as `release_id`, for example `v2026.0`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF,
-website, and release steps are documented in the repository [README](../README.md).
+The release ID is explicitly configured as `release_id`, for example `v2026.0`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF, website, and release steps are documented in the repository [README](../README.md).
 
 ## Inputs
 
@@ -22,6 +21,7 @@ Defined in `config/release.toml`:
 | Project categories | Repository revision | `categories_path` | CSV keyed by `avibase_id` under `data/curation/` |
 | KBM species list | Repository revision | `kbm_species_list_path` | KBM CSV containing positive SAFRING numbers and Avibase IDs |
 | Crosswalk overrides | Repository revision | `ebird_avilist_overrides_path` | Explicit eBird-code to AviList-species mappings under `data/curation/` |
+| Source taxon corrections | EBD release | `ebird_taxon_corrections_path` | Explicit source concept/category to official concept mappings with reasons and record-count audits |
 | Exotic-code corrections | EBD release | `ebird_exotic_overrides_path` | Version-scoped corrections keyed by EBD version, source taxon-concept ID, and original exotic code |
 | Sensitive species | Repository revision | `sensitive_species_path` | CSV keyed by `avibase_id`, with rationale and reference under `data/curation/` |
 | EARC decisions | Repository revision | `earc_decisions_path` | Accepted and rejected national-record review decisions keyed by `avibase_id` |
@@ -37,7 +37,7 @@ place them at the configured paths.
 
 Match each EBD `TAXON CONCEPT ID` exactly to eBird taxonomy `TAXON_CONCEPT_ID`. Assign the matched taxonomy `SPECIES_CODE`, then set `REPORTED_SPECIES_CODE` to `REPORT_AS` when present or otherwise to `SPECIES_CODE`. Scientific names are retained for traceability and are not mapping keys.
 
-Every EBD taxon-concept ID must occur exactly once in the matching taxonomy and its category must agree. A missing ID, category mismatch, or missing reportable code indicates incompatible source versions. The build writes a local diagnostic under `data/ebird/derived/` and stops without producing a release.
+After applying the explicitly version-scoped source corrections, every EBD taxon-concept ID must resolve to exactly one official taxonomy entry and its interpreted category must agree. An unlisted missing ID or category mismatch, or a missing reportable code, indicates incompatible source versions. The build writes a local diagnostic under `data/ebird/derived/` and stops without producing a release.
 
 ### 2. Compact the EBD
 
@@ -67,7 +67,11 @@ Derive the regional checklist status using eBird's precedence: Native, Naturaliz
 
 EARC decisions annotate record review in `earc_decision` without excluding species or their retained source records. Accepted EARC decisions may supply membership where EBD evidence is absent. Rejected decisions do not establish taxonomic invalidity or invalidate all evidence for a species. The comparison retains these taxa and their review annotations. The EARC input is included in the manifest source hashes.
 
-### 5. Join reportable species to AviList
+### 5. Align eBird species to AviList
+
+Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.0 configuration pins `eBird_Taxonomy_v2026-october-2026.csv`. Its lowercase columns are normalized on read, and `sparse_report_as` supplies species-parent pointers. There is no second taxonomy input. Version-scoped entries in `ebird_taxon_corrections.csv` explicitly reconcile four known source ID/category combinations with this taxonomy; all other discrepancies stop the build. The correction table is included in the manifest hashes and cache metadata. `audit/ebird_taxon_corrections.csv` retains source categories, target IDs/categories, counts and reasons. See the [taxonomy audit](taxonomy-2026-audit.md).
+
+The AviList v2026 workbook has revised column names. `read_avilist` normalizes them for the build and reads English family names from the explicit family rows.
 
 Apply `data/curation/ebird_avilist_overrides.csv` first, then match all remaining `REPORTED_SPECIES_CODE` values exactly to AviList `Species_code_Cornell_Lab`. Each override must point to an AviList species and records a documented, versioned taxonomy-alignment decision. The build never infers a species by promoting an AviList subspecies to its parent. Codes not resolved by either route go to `audit/ebd_taxa_not_in_avilist.csv`.
 
@@ -137,3 +141,9 @@ Checklist and species comments are retained only in the ignored local derived da
 | `OBSERVATION DATE` | Latest-record selection and first/last dates. |
 | `OBSERVATION COUNT` | Retained as supplied for the newest-record table; it is not the EBD row count. |
 | `CHECKLIST COMMENTS`, `SPECIES COMMENTS` | Retained locally only and not published. |
+
+## Version-scoped curation and publication
+
+The candidate pins its curated inputs under `data/curation/releases/<id>/`. Its explicit `pending_earc.csv` is an occurrence-review decision for that version; it is not derived from a reader-selected taxonomy comparison. Staging freezes these inputs, policy, definitions and publication metadata alongside the checklist and one canonical PDF. Published snapshots are not reannotated using current curation.
+
+Taxonomy comparisons are derived separately from frozen taxonomic snapshots and version-specific transition links. They exclude observation evidence, status categories and manual occurrence decisions. See [release architecture](release-architecture.md) and [the future-release workflow](future-releases.md). No comparison PDF is supported.

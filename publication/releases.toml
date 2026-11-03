@@ -1,0 +1,14 @@
+# Ordered archive. Changing this setting is the explicit website activation step.
+active_release = "v2025.0"
+
+[[releases]]
+id = "v2019.0"
+path = "release-assets/v2019.0"
+
+[[releases]]
+id = "v2019.1"
+path = "release-assets/v2019.1"
+
+[[releases]]
+id = "v2025.0"
+path = "release-assets/v2025.0"

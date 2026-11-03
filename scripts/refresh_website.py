@@ -17,14 +17,17 @@ def run(*arguments):
 
 def main():
     metadata = tomllib.loads(PUBLICATION.read_text(encoding="utf-8"))
+    if metadata["status"] == "released":
+        raise ValueError("The selected edition is already published. Use build_site.py to preview it, or prepare a new draft ID before refreshing.")
     release_id = metadata["release_id"]
     dist = ROOT / "dist" / release_id
     public_release = ROOT / "release-assets" / release_id
 
     run(ROOT / "scripts" / "build_release.py", ROOT / "config" / "release.toml")
     run(ROOT / "tests" / "validate_release.py", dist)
+    run(ROOT / "scripts" / "render_checklist_pdf.py", PUBLICATION)
     run(ROOT / "scripts" / "stage_release_assets.py", "--source", dist)
-    run(ROOT / "scripts" / "build_site.py", "--release-dir", public_release, "--output", ROOT / "_site", "--allow-draft")
+    run(ROOT / "scripts" / "build_site.py", "--output", ROOT / "_site", "--preview-release", release_id)
     run(ROOT / "tests" / "validate_site.py", ROOT / "_site")
     print(f"Website refreshed from one release output: {public_release.relative_to(ROOT)} -> _site")
 

@@ -1,5 +1,5 @@
-# eBird source inputs
+# Pinned eBird sources
 
-`ebd_KE_relJun-2026.zip` is the local Kenya eBird Basic Dataset used for the first EBD-based build. `eBird_taxonomy_v2025-4.csv` is the matching Clements/eBird taxonomy snapshot used to join `TAXON_CONCEPT_ID` and resolve `REPORT_AS` species codes. Both are ignored by Git and must not be redistributed from this repository.
+The active v2025.0 baseline uses `ebd_KE_relJun-2026.zip` and `eBird_taxonomy_v2025-4.csv`. Release IDs identify the taxonomic baseline; EBD months remain independent provenance. Licensed raw inputs and local compaction caches stay outside Git.
 
-`derived/` holds the checksum-controlled compact summaries, exotic-code correction audit, and five-newest-record extracts used as a local development cache. The release configuration and manifest record the source versions, filenames, and SHA-256 checksums. See [`docs/release-pipeline.md`](../../docs/release-pipeline.md) for the source fields, exotic-status routing, ISSF treatment, and taxonomy mapping used by the build.
+Future releases can read the official lowercase taxonomy CSV format directly (`bio_concept_code` and `sparse_report_as`) or the historical uppercase format. The source file is never modified. Explicit version-specific source corrections, if needed, are stored under that release's curation directory and audited. The v2025.0 correction table is empty; no 2026 taxonomic decisions are applied to this release.

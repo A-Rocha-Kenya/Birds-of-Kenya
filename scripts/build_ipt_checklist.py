@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 from urllib.parse import quote
 
-from build_release import read_xlsx
+from build_release import read_avilist
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,7 +109,7 @@ def main():
 
     ordered_rows = sorted(rows, key=lambda item: float(item["sequence"]))
     avilist_path = root_path(manifest["sources"]["avilist_path"]["path"])
-    avilist_rows = read_xlsx(avilist_path)
+    avilist_rows = read_avilist(avilist_path)
     avilist_by_rank_name = {
         (row["Taxon_rank"], row["Scientific_name"]): row for row in avilist_rows
         if row.get("Taxon_rank") in {"order", "family", "genus", "species"}

@@ -59,6 +59,8 @@ def main():
         raise ValueError("publication release_id does not match its release directory and manifest")
 
     linked_paths = [metadata["sources"]["policy"], metadata["sources"]["category_definitions"]]
+    if metadata["sources"].get("review_baseline_comparison"):
+        linked_paths.append(metadata["sources"]["review_baseline_comparison"])
     if metadata["sources"].get("introduction"):
         linked_paths.append(metadata["sources"]["introduction"])
     missing_paths = [value for value in linked_paths if not root_path(value).exists()]
@@ -80,7 +82,7 @@ def main():
     if len(codes) != len(set(codes)):
         raise ValueError("category definition codes must be unique")
 
-    category_columns = read_header(ROOT / "data" / "curation" / "categories.csv")[1:] + ["HIST", "RAR", "water_bird"]
+    category_columns = read_header(ROOT / manifest["sources"]["categories_path"]["path"])[1:] + ["HIST", "RAR", "water_bird"]
     if set(codes) != set(category_columns):
         raise ValueError("category definitions and categories.csv columns do not agree")
     if metadata["checklist"]["group_by"] != "family":

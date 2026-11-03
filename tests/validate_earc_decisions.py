@@ -2,10 +2,12 @@
 """Validate the curated EARC decisions and pending-review derivation."""
 
 import importlib.util
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "render_2019.1_taxonomy_report.py"
+sys.path.insert(0, str(ROOT / "scripts"))
+SCRIPT = ROOT / "scripts" / "legacy_review.py"
 SITE_SCRIPT = ROOT / "scripts" / "build_site.py"
 
 

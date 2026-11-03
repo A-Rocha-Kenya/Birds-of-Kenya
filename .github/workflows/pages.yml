@@ -8,6 +8,10 @@ on:
       - "release-assets/**"
       - "publication/**"
       - "scripts/build_site.py"
+      - "scripts/site_archive.py"
+      - "scripts/release_archive.py"
+      - "scripts/taxonomy_comparison.py"
+      - "scripts/publication_metadata.py"
       - "scripts/stage_release_assets.py"
       - "tests/validate_site.py"
       - ".github/workflows/pages.yml"
@@ -29,17 +33,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Read active release
-        id: release
-        run: |
-          release_id=$(python3 -c 'import tomllib; print(tomllib.load(open("publication/publication.toml", "rb"))["release_id"])')
-          echo "id=$release_id" >> "$GITHUB_OUTPUT"
-
-      - name: Build website
-        env:
-          RELEASE_ID: ${{ steps.release.outputs.id }}
-        run: |
-          python3 scripts/build_site.py --release-dir "release-assets/$RELEASE_ID" --output _site --allow-draft
+      - name: Build published archive website
+        run: python3 scripts/build_site.py --output _site
 
       - name: Validate website
         run: |
