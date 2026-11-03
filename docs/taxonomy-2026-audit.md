@@ -1,6 +1,6 @@
 # 2026 taxonomy audit
 
-The v2026.1 draft uses AviList v2026 and the official `eBird_Taxonomy_v2026-october-2026.csv`, supplied on 3 November 2026. There is one eBird taxonomy input. The names workbook, API and integrated checklist are not used to construct or supplement it.
+The v2026.0 draft uses AviList v2026 and the official `eBird_Taxonomy_v2026-october-2026.csv`, supplied on 3 November 2026. There is one eBird taxonomy input. The names workbook, API and integrated checklist are not used to construct or supplement it.
 
 The official file has 18,631 unique, nonblank Avibase concept IDs. Its lowercase column names are normalized on read; the original file and hash remain pinned in the manifest. `sparse_report_as` supplies parent pointers. The self-codes in `report_as` do not establish a species identification.
 
@@ -15,6 +15,6 @@ The September 2026 Kenya EBD contains 4,948,157 observation rows and four source
 
 The Rufous-naped treatment is a regional assignment, not global synonymy. Original source IDs are retained in the evidence, including retired IDs. Current eBird species links are checked against the official taxonomy and AviList IDs, allowing only the maintained eBird-to-AviList exceptions. Unlisted ID/category discrepancies remain build failures. No records are assigned to descendants by scientific-name matching, guessed identification or proportions.
 
-The historical lark crosswalk associates Athi Lark with the Rufous-naped complex; the old Red-winged entry is not an ancestor of Athi Lark. The release comparison separately documents the changed Little Swift and Spotted Flycatcher concepts. Those display links do not control evidence routing. Published v2026.0 assets remain unchanged.
+The historical lark crosswalk associates Athi Lark with the Rufous-naped complex; the old Red-winged entry is not an ancestor of Athi Lark. The release comparison separately documents the changed Little Swift and Spotted Flycatcher concepts. Those display links do not control evidence routing. Published v2025.0 assets remain unchanged.
 
-Reproduce the source and correction checks with `uv run python tests/validate_ebird_taxonomy.py`; run `tests/validate_release_pipeline.py` and `tests/validate_release.py dist/v2026.1` for the complete release checks. The optional cross-project audit additionally requires the sibling atlas-comparison and digitization repositories, which are absent from this workspace.
+Reproduce the source and correction checks with `uv run python tests/validate_ebird_taxonomy.py`; run `tests/validate_release_pipeline.py` and `tests/validate_release.py dist/v2026.0` for the complete release checks. The optional cross-project audit additionally requires the sibling atlas-comparison and digitization repositories, which are absent from this workspace.

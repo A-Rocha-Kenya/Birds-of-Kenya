@@ -39,7 +39,7 @@ def main():
     if build.resolve_ebird_code("missing", avilist_by_code, {})[0] is not None:
         raise ValueError("missing eBird code must not fall back to a name")
 
-    if build.release_id({"release_id": "v2026.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2026.0":
+    if build.release_id({"release_id": "v2025.0", "ebd_version": "2026-06", "release_revision": 0}) != "v2025.0":
         raise ValueError("release identity must be independent of the source-data month")
     if not build.is_historical("1976-06-29", build.datetime.date(2026, 6, 30), 50):
         raise ValueError("historical status should apply after 50 years")

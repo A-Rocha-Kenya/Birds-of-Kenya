@@ -10,10 +10,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
-CURRENT = ROOT / "dist" / "v2026.0" / "checklist.csv"
-MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2026.0.csv"
+CURRENT = ROOT / "release-assets" / "v2025.0" / "checklist.csv"
+MAPPING = ROOT / "release-assets" / "v2025.0" / "curation" / "taxonomy_2019.1_to_2025.0.csv"
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
-COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
+COMPARE_SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2025.0.py"
 
 RELATIONSHIP_LABELS = {
     "1:1": "1:1", "n:1": "n:1", "1:n": "1:n", "n:n": "n:n",

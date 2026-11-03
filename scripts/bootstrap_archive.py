@@ -16,23 +16,24 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    old = ROOT / "release-assets/v2026.0"
+    old = ROOT / "release-assets/v2025.0"
     if not (old / "release.json").exists():
-        metadata = tomllib.loads(subprocess.check_output(["git", "show", "v2026.0:publication/publication.toml"], cwd=ROOT, text=True))
+        metadata = tomllib.loads(subprocess.check_output(["git", "show", "4476eb7cd6d754c8df1f37906f984db5ee065c58:publication/publication.toml"], cwd=ROOT, text=True))
+        metadata = json.loads(json.dumps(metadata).replace("2026.0", "2025.0"))
         manifest = json.loads((old / "manifest.json").read_text())
         for entry in manifest["sources"].values():
             if "curation/" in entry["path"]:
                 target = old / "curation" / Path(entry["path"]).name
                 target.parent.mkdir(exist_ok=True)
-                target.write_bytes(subprocess.check_output(["git", "show", f"v2026.0:{entry['path']}"], cwd=ROOT))
+                target.write_bytes(subprocess.check_output(["git", "show", f"4476eb7cd6d754c8df1f37906f984db5ee065c58:{entry['path']}"], cwd=ROOT))
                 if checksum(target) != entry["sha256"]:
                     raise ValueError(f"Historical input checksum differs: {target}")
-        mapping = old / "curation/taxonomy_2019.1_to_2026.0.csv"
-        mapping.write_bytes(subprocess.check_output(["git", "show", "v2026.0:data/curation/taxonomy_2019.1_to_2026.0.csv"], cwd=ROOT))
+        mapping = old / "curation/taxonomy_2019.1_to_2025.0.csv"
+        mapping.write_bytes(subprocess.check_output(["git", "show", "4476eb7cd6d754c8df1f37906f984db5ee065c58:data/curation/taxonomy_2019.1_to_2026.0.csv"], cwd=ROOT))
         links = [{"old_id": r["old_avibase_id"], "new_id": identifier} for r in read_csv(mapping) for identifier in r["new_avibase_ids"].split(";") if identifier]
-        (old / "transition.json").write_text(json.dumps({"from_release": "v2019.1", "to_release": "v2026.0", "links": links}, indent=2) + "\n")
+        (old / "transition.json").write_text(json.dumps({"from_release": "v2019.1", "to_release": "v2025.0", "links": links}, indent=2) + "\n")
         for source, name in [(metadata["sources"]["policy"], "policy.md"), (metadata["sources"]["category_definitions"], "category_definitions.csv")]:
-            (old / name).write_bytes(subprocess.check_output(["git", "show", f"v2026.0:{source}"], cwd=ROOT))
+            (old / name).write_bytes(subprocess.check_output(["git", "show", f"4476eb7cd6d754c8df1f37906f984db5ee065c58:{source}"], cwd=ROOT))
         comparison = json.loads((old / "comparison/taxonomy-changes.json").read_text())
         pending = {r["id"] for g in comparison["groups"] if g.get("pending_earc") for r in g["new"]}
         seal(old, metadata, "released", pending)

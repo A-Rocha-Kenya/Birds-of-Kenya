@@ -21,7 +21,7 @@ uv run python scripts/serve_site.py --directory tmp/site-preview
 The website builds all taxonomy comparison pairs from sealed snapshots. Export a selected pair separately with:
 
 ```sh
-uv run python scripts/compare_releases.py v2019.1 v2026.0 --output tmp/comparison
+uv run python scripts/compare_releases.py v2019.1 v2025.0 --output tmp/comparison
 ```
 
 Add `--preview-release <new-id>` to compare a draft. Comparisons include species additions/removals and exclude observation evidence and manual status decisions. No comparison PDF is supported. Historical versions and their canonical PDFs remain available through the website's version archive.

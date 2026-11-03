@@ -1,6 +1,6 @@
 # Pinned eBird sources
 
-The v2026.1 draft uses the licensed `ebd_KE_smp_relSep-2026.zip` and the official `eBird_Taxonomy_v2026-october-2026.csv`, supplied on 3 November 2026. Configuration has one taxonomy input, `ebird_taxonomy_path`. The original CSV is copied byte-for-byte into `data/ebird/`; its path and SHA-256 are recorded in the release manifest. The integrated eBird–Clements checklist, names workbook, API and older taxonomy files are not release inputs.
+The v2026.0 draft uses the licensed `ebd_KE_smp_relSep-2026.zip` and the official `eBird_Taxonomy_v2026-october-2026.csv`, supplied on 3 November 2026. Configuration has one taxonomy input, `ebird_taxonomy_path`. The original CSV is copied byte-for-byte into `data/ebird/`; its path and SHA-256 are recorded in the release manifest. The integrated eBird–Clements checklist, names workbook, API and older taxonomy files are not release inputs.
 
 The official CSV contains 18,631 taxon concepts. The reader normalizes `bio_concept_code` to the internal `TAXON_CONCEPT_ID` field and uses `sparse_report_as` for parent pointers. The filled `report_as` field includes self-codes and must not be used to infer species parentage for unidentified taxa. Historical uppercase-column CSVs remain readable for earlier releases.
 

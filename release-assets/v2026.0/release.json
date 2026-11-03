@@ -1,10 +1,10 @@
 {
   "id": "v2026.0",
-  "status": "released",
+  "status": "draft",
   "publication": {
     "schema_version": 1,
     "release_id": "v2026.0",
-    "status": "released",
+    "status": "draft",
     "language": "en-KE",
     "document": {
       "title": "Checklist of the Birds of Kenya",
@@ -12,8 +12,8 @@
       "edition": "",
       "corporate_author": "Bird Committee of the East Africa Natural History Society (Nature Kenya)",
       "version_label": "v2026.0",
-      "publication_date": "2026-10-01",
-      "editorial_cutoff_date": "2026-10-01",
+      "publication_date": "2026-11-03",
+      "editorial_cutoff_date": "2026-11-03",
       "recommended_citation": "Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0). https://doi.org/10.15468/mehwcx"
     },
     "gbif": {
@@ -38,18 +38,18 @@
       "recommended_citation": "Nussbaumer R, Jackson C, Bradley J, Fanshawe J, Finch B, Hunter N, Ikawa V, Okech, Turner D, Wachira W, Ng'weno F, Hatfield RS (2026). Checklist of the Birds of Kenya. Version v2026.0. Nature Kenya—the East Africa Natural History Society. Checklist dataset. https://doi.org/10.15468/mehwcx",
       "resource_shortname": "birds-of-kenya-checklist",
       "description": "The Checklist of the Birds of Kenya provides a curated, species-level account of the country's avifauna, published by Nature Kenya—the East Africa Natural History Society. It brings together historical checklist knowledge and contemporary evidence to support biodiversity research, conservation planning, bird recording, and the interpretation of changes in Kenya's bird list. Its scope includes native and naturalized species, including resident, migratory, vagrant, and historically recorded birds, across Kenya's terrestrial, freshwater, coastal, and marine environments.\n\nThe checklist draws on eBird observations, earlier national checklists, curated information for species whose records are not publicly available, and decisions of the East African Rarities Committee (EARC). Scientific names, English names, and classification follow AviList, with the taxonomic reference and source versions documented for each release. The GBIF dataset contains species and the higher taxa needed to represent their classification. It is a national checklist rather than a collection of individual occurrence records, and it does not describe species distributions, population sizes, or abundance within Kenya.\n\nChecklist membership and the review of supporting national records are distinct. Some evidence may remain under review, and inclusion does not imply EARC acceptance of every supporting record. Historical inclusion does not establish current presence. National status categories, record-review annotations, and explanations of additions, removals, and taxonomic changes are maintained in the accompanying repository and website. The checklist is published as successive, citable versions so that users can identify the taxonomic framework, evidence base, and editorial decisions underlying the version they use.\n",
-      "methods": "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, rolled up to species where appropriate, and aligned to AviList v2025b through species codes and curated overrides. Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership. EARC rejections annotate record review and do not remove a species or its source evidence. Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created.",
+      "methods": "EBD taxon-concept identifiers are matched to the single pinned official eBird 2026 taxonomy, rolled up to species where appropriate, and aligned to AviList v2026 through species codes and curated overrides. Version-scoped corrections explicitly reconcile two retired source concepts and two changed flycatcher categories with the official 2026 taxonomy; original source concept IDs and correction record counts remain in the audits. Undifferentiated pre-split records remain outside species-level evidence; unchanged code strings do not establish concept equivalence. Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership. EARC rejections annotate record review and do not remove a species or its source evidence. Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created.",
       "record_review": "Pending EARC identifies additions or removals since 2019.1 for which this repository has no mapped EARC decision; it does not imply an active submission or determine taxonomic validity. These entries are retained in v2026.0 for review in a later version. Accepted and rejected decisions concern national occurrence evidence, not the validity of AviList taxa. A rejected decision may apply to an individual record and does not establish that all Kenyan evidence for that species is invalid. Review flags and supporting decisions remain available in the repository and website.",
       "country": "Kenya",
       "country_code": "KE",
       "acknowledgements": "We thank the bird observers, record submitters, and compilers of earlier national checklists whose work underpins this dataset. We acknowledge the Bird Committee of the East Africa Natural History Society (Nature Kenya), A Rocha Kenya, the National Museums of Kenya, Kenya Bird Map, eBird Kenya, and the East African Rarities Committee for their contributions to documenting and reviewing Kenya's avifauna. We also acknowledge the Cornell Lab of Ornithology and the eBird community for the observation data made available through the eBird Basic Dataset, and the AviList team for the taxonomic framework. Individual dataset creators are credited in the authorship and citation.",
-      "taxonomic_reference": "AviList Core Team. 2026. AviList: The Global Avian Checklist, v2025b.",
-      "taxonomic_reference_id": "https://doi.org/10.2173/avilist.v2025b",
+      "taxonomic_reference": "AviList Core Team. 2026. AviList: The Global Avian Checklist, v2026.",
+      "taxonomic_reference_id": "https://doi.org/10.2173/avilist.v2026",
       "sampling_methods": {
-        "sampling_description": "This checklist compiles existing evidence rather than reporting a dedicated field survey. The June 2026 eBird Basic Dataset is supplemented by historical checklist membership, curated historical and sensitive species, and accepted EARC records. The main checklist retains native and naturalized species at species rank; escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside its scope.",
+        "sampling_description": "This checklist compiles existing evidence rather than reporting a dedicated field survey. The September 2026 eBird Basic Dataset is supplemented by historical checklist membership, curated historical and sensitive species, and accepted EARC records. The main checklist retains native and naturalized species at species rank; escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside its scope.",
         "quality_control": "Pinned source versions, curated taxonomic crosswalks, and deterministic repository validation checks are used to assess the compiled checklist. Checks cover taxon identifiers, taxonomic alignment, hierarchy, exported fields, and consistency with the release metadata. EARC decisions concern national occurrence evidence, not taxonomic validity; these checks do not independently verify every national record.",
         "method_steps": [
-          "EBD taxon-concept identifiers are matched to the pinned eBird 2025 taxonomy, rolled up to species where appropriate, and aligned to AviList v2025b through species codes and curated overrides.",
+          "EBD taxon-concept identifiers are matched to the single pinned official eBird 2026 taxonomy, rolled up to species where appropriate, and aligned to AviList v2026 through species codes and curated overrides. Version-scoped corrections explicitly reconcile two retired source concepts and two changed flycatcher categories with the official 2026 taxonomy; original source concept IDs and correction record counts remain in the audits. Undifferentiated pre-split records remain outside species-level evidence; unchanged code strings do not establish concept equivalence.",
           "Escapee-only observations, hybrids, domestic forms, and unidentified taxa are outside the main checklist. Curated historical and sensitive species and accepted EARC records supplement EBD membership.",
           "EARC rejections annotate record review and do not remove a species or its source evidence.",
           "Taxon core rows include a normalized kingdom-to-species hierarchy, AviList authorship, Avibase concept identifiers, and English names. See https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2026.0/docs/release-pipeline.md for the versioned workflow after the release tag is created."
@@ -75,7 +75,7 @@
         2009,
         2019
       ],
-      "supersedes_release": "v2019.1",
+      "supersedes_release": "v2025.0",
       "edition_statement": ""
     },
     "editorial": {
@@ -290,8 +290,8 @@
       ]
     },
     "source_credits": {
-      "ebird": "eBird Basic Dataset for Kenya, release 2026-06",
-      "avilist": "AviList v2025b"
+      "ebird": "eBird Basic Dataset for Kenya, release 2026-09",
+      "avilist": "AviList v2026"
     },
     "scope": {
       "geographic_scope": "Kenya, East Africa: terrestrial, inland freshwater, and coastal environments, together with offshore and marine records included in the Kenya coverage of the source eBird Basic Dataset. Checklist membership concerns birds recorded within this national scope, including residents, migrants, vagrants, naturalized species, and historical records. Inclusion does not imply occurrence throughout Kenya. The marine scope follows the source dataset's assignment of records to Kenya; an independently delineated Exclusive Economic Zone boundary is not supplied with this checklist.",
@@ -301,16 +301,18 @@
         "east": 42.4992619,
         "north": 4.6900784,
         "south": -4.789943,
-        "source_ebd_version": "2026-06",
-        "supporting_records": 4636644,
+        "source_ebd_version": "2026-09",
+        "supporting_records": 4919970,
         "description": "Bounding box of all supporting EBD records matched through the release checklist's source_avibase_ids, excluding escapees after applying release exotic-code overrides. This is the observed evidence extent, including marine records, not Kenya's political boundary or a delineation of its EEZ. Recalculate when the source evidence changes."
       }
     },
     "sources": {
+      "pending_earc": "data/curation/releases/v2026.0/pending_earc.csv",
+      "taxonomy_transition": "data/curation/releases/v2026.0/transition.json",
       "release_directory": "dist/v2026.0",
       "policy": "docs/policy.md",
       "introduction": "",
-      "category_definitions": "data/curation/category_definitions.csv",
+      "category_definitions": "data/curation/releases/v2026.0/category_definitions.csv",
       "historical_edition": "data/legacy/2019.1/2019 Checklist of the Birds of Kenya 5th Edition (2019).pdf"
     },
     "checklist": {
@@ -343,6 +345,7 @@
     "avibase-30238523",
     "avibase-3380CFC5",
     "avibase-33C35018",
+    "avibase-3BC778CE",
     "avibase-3DF3F9B9",
     "avibase-90AAE188",
     "avibase-93CA037F",
@@ -353,19 +356,20 @@
     "avibase-F89FD6E3"
   ],
   "checksums": {
-    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "7db70c4f1e335a065b658948157dd5b08fb9ef60b79cb059070a9225d26b08a3",
+    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "1413cac1adedd6cd67d30b653c3af58f3d634c4c00089ee74a4fcf6c59e8bb68",
     "category_definitions.csv": "e579ef3a8408db446599e3fa771012f539032dd3a5661ccf0a81c26a369d09b7",
-    "checklist.csv": "e85895cbb627c97cb03b8d6dc51e268c2dd7e79a4cb9e4c63e7f1ad2ac19bba4",
-    "curation/categories.csv": "bbfd6ac6c5450f1dd72af8b38f6bb506c3e241f60af2332b53a36bd84c5585e3",
+    "checklist.csv": "571194dbae9c5f03c4af5d12f997d2aa8123c60160d44bbd1681bbc7119688fe",
+    "curation/categories.csv": "537797902348e024ac961670fb8a674e55cf67ba4c28caa1b0b4c9cf367e0d5a",
     "curation/curated_species.csv": "ff7c84271470d2d13ec87914655482b98350f0926ca8eb2eb4ca63189c3d16c5",
     "curation/earc_decisions.csv": "d89a7824cb0b299f37440e3679cd9e881e2501d2cadb0acd7a594f05f5c0848d",
-    "curation/ebird_avilist_overrides.csv": "3cd859668479dd09d98cc5ca5503397961be3bb853c8f70a56b9cf81f44c401a",
-    "curation/ebird_exotic_overrides.csv": "e12928c690fa31b162f9a4f613d252506338f0ec569b858f1c14cd5830d0f706",
+    "curation/ebird_avilist_overrides.csv": "7b23198bef516991e59597830aedc751055632cceda351e96db27ca69c4abdb2",
+    "curation/ebird_exotic_overrides.csv": "01747fb9d44801f362ca3b5009a37f39f84235250d3728baf52c1849558aee1c",
+    "curation/ebird_taxon_corrections.csv": "c87427a4c5c4753d411e72d4f546262f8590d8da4251773e2bf958cb651df0e1",
+    "curation/pending_earc.csv": "8572dafe64803b0c3d36489c3557534220d7e0d4e5be55fd2f7798d62dc16a3d",
     "curation/sensitive_species.csv": "b453e8d441a155d856393be827ff8e7442b3bc7c19be72877601e8de88f41728",
-    "curation/taxonomy_2019.1_to_2026.0.csv": "cd23979f3b260586c85d501a6452140b987e663946e95b1568659b02c977b0db",
-    "manifest.json": "12d2536b70f489a00ccce1375f46cc508760f4d16c9accbb12a85a8c1021689a",
-    "policy.md": "50f6b32978907776bb9e64635623369962d08481b4d4c89c23646b48742845f0",
-    "taxonomy.json": "54fd526a05cba3864d6ee2263115a9d6fe77737cd6acb497f6509f3adac441fc",
-    "transition.json": "a1938dfd97d19f920ff98f44e48ad3dd559255f2c627385da9bc6b93d4ef7e11"
+    "manifest.json": "5da8ec192c154f00b390033d900c421b80efc2ba1ee7eb65df3057ec982be5ef",
+    "policy.md": "e697be809d121ef038a32c87952c12a5824aa3edb1f8a1ec5bbaaeb929dcd289",
+    "taxonomy.json": "c0cef73555e8bfc24be47de245a58be6aaea529b1efba9f3ae3f3742c37463ad",
+    "transition.json": "fe002d9c13c2fb62ecbd573298de5b48dc5302399be968565ff8b5d70e27695e"
   }
 }

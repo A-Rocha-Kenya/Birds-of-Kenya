@@ -1,6 +1,6 @@
 {
-  "from_release": "v2026.0",
-  "to_release": "v2026.1",
+  "from_release": "v2025.0",
+  "to_release": "v2026.0",
   "links": [
     {
       "old_id": "avibase-D209A90C",

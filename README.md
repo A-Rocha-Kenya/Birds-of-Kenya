@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-**Version v2026.1 of the *Checklist of the Birds of Kenya* is in preparation**, using the September 2026 Kenya EBD and AviList v2026. The build uses the official October 2026 eBird taxonomy CSV. The released v2026.0 snapshot remains available unchanged. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
+**Version v2026.0 of the *Checklist of the Birds of Kenya* is in preparation**, using the September 2026 Kenya EBD and AviList v2026. The build uses the official October 2026 eBird taxonomy CSV. The released v2025.0 snapshot preserves the previous checklist, renamed to reflect its 2025 taxonomic baseline. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -33,7 +33,7 @@ does not describe publication or website deployment.
 
 ## Release and publication workflow
 
-The editable candidate is separate from the public website version. `config/release.toml` and `publication/publication.toml` prepare a release; `publication/releases.toml` explicitly selects the active published version. The website currently remains on v2026.0 while v2026.1 is provisional.
+The editable candidate is separate from the public website version. `config/release.toml` and `publication/publication.toml` prepare a release; `publication/releases.toml` explicitly selects the active published version. The website currently remains on v2025.0 while v2026.0 is provisional.
 
 Each archived release has its own checklist CSV, taxonomic snapshot, curated decisions, publication metadata and one canonical checklist PDF. Older checklists remain downloadable on the website. The original printed 2019 PDF is labeled separately from its corrected 2019.1 CSV transcription. Comparison PDFs are retired.
 
@@ -70,6 +70,6 @@ The new checklist data and publication material are licensed under [CC BY 4.0](h
 
 ## AviList and eBird 2026 update
 
-The v2026.1 draft uses AviList v2026, the September 2026 EBD, and the official `eBird_Taxonomy_v2026-october-2026.csv` as its single eBird taxonomy input. Four explicit, September-scoped corrections reconcile retired concept IDs and category changes in the EBD. Broad Spotted/Mediterranean Flycatcher records remain unidentified. Source IDs, correction counts and rationales remain inspectable in the release audits. See [the source notes](data/ebird/README.md), [taxonomy audit](docs/taxonomy-2026-audit.md), and [release notes](docs/releases/v2026.1.md).
+The v2026.0 draft uses AviList v2026, the September 2026 EBD, and the official `eBird_Taxonomy_v2026-october-2026.csv` as its single eBird taxonomy input. Four explicit, September-scoped corrections reconcile retired concept IDs and category changes in the EBD. Broad Spotted/Mediterranean Flycatcher records remain unidentified. Source IDs, correction counts and rationales remain inspectable in the release audits. See [the source notes](data/ebird/README.md), [taxonomy audit](docs/taxonomy-2026-audit.md), and [release notes](docs/releases/v2026.0.md).
 
-The comparison with v2026.0 uses the curated successor links in `data/curation/releases/v2026.1/transition.json` to distinguish Little Swift and Spotted Flycatcher concept changes from national-list additions and removals. These comparison links do not reassign observation evidence. The published v2026.0 assets remain unchanged.
+The comparison with v2025.0 uses the curated successor links in `data/curation/releases/v2026.0/transition.json` to distinguish Little Swift and Spotted Flycatcher concept changes from national-list additions and removals. These comparison links do not reassign observation evidence. The published v2025.0 assets remain unchanged.

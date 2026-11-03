@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2026.0.py"
+SCRIPT = ROOT / "scripts" / "compare_2019.1_to_2025.0.py"
 
 
 def load_comparison():

@@ -7,7 +7,7 @@ This document defines how the pinned source data and curated decisions become th
 uv run python scripts/build_release.py config/release.toml
 ```
 
-The release ID is explicitly configured as `release_id`, for example `v2026.1`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF, website, and release steps are documented in the repository [README](../README.md).
+The release ID is explicitly configured as `release_id`, for example `v2026.0`, and equals the directory name. It is independent of the EBD source month. Publication comparison, PDF, GBIF, website, and release steps are documented in the repository [README](../README.md).
 
 ## Inputs
 
@@ -69,7 +69,7 @@ EARC decisions annotate record review in `earc_decision` without excluding speci
 
 ### 5. Align eBird species to AviList
 
-Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.1 configuration pins `eBird_Taxonomy_v2026-october-2026.csv`. Its lowercase columns are normalized on read, and `sparse_report_as` supplies species-parent pointers. There is no second taxonomy input. Version-scoped entries in `ebird_taxon_corrections.csv` explicitly reconcile four known source ID/category combinations with this taxonomy; all other discrepancies stop the build. The correction table is included in the manifest hashes and cache metadata. `audit/ebird_taxon_corrections.csv` retains source categories, target IDs/categories, counts and reasons. See the [taxonomy audit](taxonomy-2026-audit.md).
+Use the single pinned official eBird taxonomy CSV for source compaction and reportable-species evidence. The v2026.0 configuration pins `eBird_Taxonomy_v2026-october-2026.csv`. Its lowercase columns are normalized on read, and `sparse_report_as` supplies species-parent pointers. There is no second taxonomy input. Version-scoped entries in `ebird_taxon_corrections.csv` explicitly reconcile four known source ID/category combinations with this taxonomy; all other discrepancies stop the build. The correction table is included in the manifest hashes and cache metadata. `audit/ebird_taxon_corrections.csv` retains source categories, target IDs/categories, counts and reasons. See the [taxonomy audit](taxonomy-2026-audit.md).
 
 The AviList v2026 workbook has revised column names. `read_avilist` normalizes them for the build and reads English family names from the explicit family rows.
 
