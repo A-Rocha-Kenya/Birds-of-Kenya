@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-**Version v2025.0 of the *Checklist of the Birds of Kenya*** uses AviList v2025b, eBird taxonomy 2025 and the June 2026 EBD. The release year identifies its taxonomic baseline, independently of the observation dataset month and publication date. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
+**Version v2026.0 of the *Checklist of the Birds of Kenya* is a provisional candidate**, using AviList/eBird taxonomy 2026 and the September 2026 EBD. The public archive remains on v2025.0 while we wait for a compatible EBD. The release year identifies its taxonomic baseline, independently of the observation dataset month and publication date. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -70,4 +70,4 @@ The new checklist data and publication material are licensed under [CC BY 4.0](h
 
 ## Current source versions
 
-The published v2025.0 archive retains the accepted 2025 taxonomy and June 2026 EBD evidence. The 2026 taxonomy/data upgrade is separate work and is not registered or shipped in this branch.
+The published v2025.0 archive retains the accepted 2025 taxonomy and June 2026 EBD evidence. This local-only branch adds the provisional v2026.0 candidate. Its September source corrections are for review; wait for the new EBD before publication.
