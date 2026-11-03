@@ -5,7 +5,7 @@ const selected = { names: new Set(), concepts: new Set() };
 let groups = [];
 
 const filterConfig = {
-  names: [['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
+  names: [['concept', 'Taxon concept'], ['english', 'English name'], ['scientific', 'Scientific name'], ['order', 'Order'], ['family', 'Family']],
   concepts: [['1:1', '1:1'], ['n:1', 'n:1'], ['1:n', '1:n'], ['n:n', 'n:n']]
 };
 
@@ -16,8 +16,10 @@ const escapeHtml = value => {
   return element.innerHTML;
 };
 
+const matchesField = (group, key) => key === 'concept' ? group.concept_changed : group.tags.includes(key);
+
 const filterButton = ([key, label], kind) => {
-  const count = groups.filter(group => kind === 'names' ? group.tags.includes(key) : group.cardinality === key).length;
+  const count = groups.filter(group => kind === 'names' ? matchesField(group, key) : group.cardinality === key).length;
   return `<button class="filter" type="button" data-kind="${kind}" data-key="${key}" aria-pressed="false">${label} <span class="count">${count}</span></button>`;
 };
 
@@ -37,7 +39,7 @@ const card = group => {
 const renderChanges = () => {
   const query = changeSearch.value.trim().toLowerCase();
   const visible = groups.filter(group => {
-    const namesMatch = !selected.names.size || [...selected.names].every(key => group.tags.includes(key));
+    const namesMatch = !selected.names.size || [...selected.names].every(key => matchesField(group, key));
     const conceptMatch = !selected.concepts.size || selected.concepts.has(group.cardinality);
     return namesMatch && conceptMatch && (!query || JSON.stringify(group).toLowerCase().includes(query));
   });
