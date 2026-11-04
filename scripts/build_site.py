@@ -180,7 +180,7 @@ def validate_publication(metadata, allow_draft):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "_site")
-    parser.add_argument("--preview-release", help="explicitly include and activate this draft locally")
+    parser.add_argument("--preview-release", help="explicitly include and activate this draft in the generated site")
     args = parser.parse_args()
     identifier, bundles = load_archive(ROOT, args.preview_release)
     release, descriptor = bundles[identifier]

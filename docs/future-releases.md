@@ -27,3 +27,13 @@ uv run python scripts/compare_releases.py v2019.1 v2025.0 --output tmp/compariso
 Add `--preview-release <new-id>` to compare a draft. Comparisons include species additions/removals and exclude observation evidence and manual status decisions. No comparison PDF is supported. Historical versions and their canonical PDFs remain available through the website's version archive.
 
 After review, set publication status to `released`, rerender and stage, then mark its registry entry `released` and explicitly update `active_release`. Commit and publish the bundle, metadata and registry together. Staging cannot overwrite a released bundle. Tag the publication commit using exactly the release ID and attach its one canonical PDF, checklist CSV and manifest to the matching GitHub Release. Update the existing GBIF/IPT resource separately using [the GBIF guide](gbif-publication.md).
+
+## Public preview without a release
+
+The Pages workflow can deploy a draft at `/preview/` while leaving the root website on the registry's released `active_release`. Push the candidate branch, then dispatch the workflow using that branch and the draft ID:
+
+```sh
+gh workflow run pages.yml --ref codex/upgrade-v2026.0 -f preview_release=v2026.0
+```
+
+This creates no tag or GitHub Release and does not merge the candidate into main. The preview carries a provisional evidence notice and hides the formal citation panel. Update the draft bundle and redeploy to replace it when a compatible EBD arrives. A subsequent Pages deployment without `preview_release` removes `/preview/`, including an automatic main-branch deployment; dispatch the candidate again if the preview is still needed.

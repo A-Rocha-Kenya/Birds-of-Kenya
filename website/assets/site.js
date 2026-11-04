@@ -12,8 +12,9 @@ fetch(resolveSitePath('data/site.json'), {cache: 'no-cache'})
       const notice = document.createElement('aside');
       notice.className = 'draft-notice';
       notice.setAttribute('role', 'status');
-      notice.textContent = 'Draft preview — this checklist is under review and is not yet a final publication.';
+      notice.textContent = `Draft preview — ${site.sources.avilist} and ${site.sources.ebird_taxonomy}, using EBD ${site.sources.ebd} with documented taxonomic reconciliation. Evidence counts and dates are provisional pending an updated EBD. This preview may change before release.`;
       document.body.prepend(notice);
+      document.querySelector('.citation-panel')?.setAttribute('hidden', '');
     }
 
     document.querySelectorAll('[data-site]').forEach(element => {
