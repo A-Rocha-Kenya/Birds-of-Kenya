@@ -22,6 +22,11 @@ def main():
     decisions = read_csv(ROOT / "data/legacy/2019.2/corrections.csv")
     assert differences == [(r["sort"], r["field"], r["before"], r["after"]) for r in decisions]
     assert len(corrected) == len({r["avibaseid"] for r in corrected}) == 1181
+    revised = read_csv(ROOT / "data/legacy/2019.3/checklist.csv")
+    assert len(revised) == len({r["avibaseid"] for r in revised}) == len(corrected)
+    differences = [(a["sort"], key, a[key], b[key]) for a, b in zip(corrected, revised) for key in a if a[key] != b[key]]
+    decisions = read_csv(ROOT / "data/legacy/2019.3/corrections.csv")
+    assert differences == [(r["sort"], r["field"], r["before"], r["after"]) for r in decisions]
     historical = read_csv(ROOT / "data/legacy/2009.0/checklist.csv")
     assert len(historical) == 1100 and len(historical[0]) == 33
     assert list(historical[0]) == list(corrected[0])
@@ -34,18 +39,28 @@ def main():
     assert active == "v2025.0"
     versions = {identifier: json.loads((path / "taxonomy.json").read_text()) for identifier, (path, _) in bundles.items()}
     assert len(versions["v2009.0"]) == 1051
-    for identifier, rows in [("v2009.0", historical), ("v2019.2", corrected)]:
+    for identifier, rows in [("v2009.0", historical), ("v2019.2", corrected), ("v2019.3", revised)]:
         path, descriptor = bundles[identifier]
         verify(path)
         assert read_csv(path / "checklist.csv") == rows
         assert descriptor["taxonomy_excluded_rows"] == (49 if identifier == "v2009.0" else 0)
+    updated_path, updated_descriptor = bundles["v2009.1"]
+    updated = read_csv(updated_path / "checklist.csv")
+    assignments = read_csv(updated_path / "avibase_assignments.csv")
+    assert updated_descriptor["taxonomy_excluded_rows"] == 0
+    assert updated == read_csv(ROOT / "data/legacy/2009.1/checklist.csv")
+    assert len(updated) == len({r["avibaseid"] for r in updated}) == 1100
+    assert all(r["avibaseid"].startswith("avibase-") for r in updated)
+    updates = {a["sort"]: a["avibase_id"] for a in assignments}
+    assert updates.keys() == {row["sort"] for row in historical if not row["avibaseid"]}
+    assert updated == [{**row, "avibaseid": updates.get(row["sort"], row["avibaseid"])} for row in historical]
     transitions = load_transitions(bundles)
     relationships = load_concept_relationships(ROOT)
     broad, common, somali = ("avibase-" + key for key in ("5D14080C", "2247CB05", "40329BB6"))
     matches = concept_matches(relationships)
     assert {common, somali} <= matches[broad]
     assert somali not in matches[common]
-    for edition in ("v2019.0", "v2019.1", "v2019.2", "v2025.0"):
+    for edition in ("v2019.0", "v2019.1", "v2019.2", "v2019.3", "v2025.0"):
         for source, target, cardinality in [("v2009.0", edition, "1:n"), (edition, "v2009.0", "n:1")]:
             result = compare_versions(versions, transitions, source, target, relationships)
             ostrich = [group for group in result["groups"]
@@ -56,11 +71,16 @@ def main():
     assert {r["id"] for r in reed["new"]} == {"avibase-3F0EE474"}
     sparrows = next(g for g in pair["groups"] if any(r["id"] == "avibase-2F9F81C9" for r in g["old"]))
     assert {r["id"] for r in sparrows["new"]} == {"avibase-" + i for i in ["E10D0809", "DB4998D1", "2B55E679", "F375B25B"]}
+    pair = compare_versions(versions, [], "v2019.3", "v2025.0", relationships)
+    for identifier in ("avibase-828D3D5A", "avibase-5157C558"):
+        group = next(g for g in pair["groups"] if any(r["id"] == identifier for r in g["new"]))
+        assert group["cardinality"] == "1:1"
+        assert [r["id"] for r in group["old"]] == [identifier]
     forward = compare_versions(versions, transitions, "v2019.1", "v2019.2", relationships)
     assert not any(g["relationship"] in {"added", "removed"} for g in forward["groups"])
     assert len(forward["groups"]) == 3
     assert all(group["cardinality"] == "1:1" and group["concept_changed"] and not group["tags"] for group in forward["groups"])
-    print("Validated 1,100 historical entries, 49 exclusions, exactly three 2019 identifier corrections, immutable archives and corrected forward relationships")
+    print("Validated 1,100 historical entries, 49 exclusions, both 2019 identifier correction sets, immutable archives and corrected forward relationships")
 
 
 if __name__ == "__main__":

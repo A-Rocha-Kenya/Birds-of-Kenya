@@ -2,7 +2,7 @@
 
 See [the release architecture](release-architecture.md) for archive schemas, taxonomy and species-membership comparisons, version-scoped curation and activation rules. Release IDs are explicit; the EBD source month does not determine them.
 
-Create `data/curation/releases/<new-id>/`, pin those curated files in `config/release.toml`, and update `publication/publication.toml` to the same candidate ID, dates and output filename. Keep its status `draft`. Add it to the ordered `publication/releases.toml` registry with `status = "draft"`; leave the live `active_release` unchanged. Supply reviewed concept links in the candidate's `transition.json` when needed. Copying earlier decisions is a starting point for review, not automatic inheritance across changed concepts.
+Create `data/curation/releases/<new-id>/`, pin those curated files in `config/release.toml`, and update `publication/publication.toml` to the same candidate ID, dates and output filename. Keep its status `draft`. Add it to the ordered `publication/releases.toml` registry with `status = "draft"`; leave the live `active_release` unchanged. Add reviewed concept relationships to `data/curation/taxon_concept_relationships.csv` when needed. Each relationship is reusable across checklist editions.
 
 ```sh
 uv run python scripts/build_release.py config/release.toml

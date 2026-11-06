@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "data" / "legacy" / "2019.1" / "checklist.csv"
 CURRENT = ROOT / "release-assets" / "v2025.0" / "checklist.csv"
-MAPPING = ROOT / "data" / "curation" / "taxonomy_2019.1_to_2025.0.csv"
+MAPPING = ROOT / "release-assets" / "v2025.0" / "curation" / "taxonomy_2019.1_to_2025.0.csv"
 CATEGORIES = ROOT / "data" / "curation" / "categories.csv"
 OUTPUT = ROOT / "dist" / "v2025.0" / "comparison"
 

@@ -8,6 +8,7 @@ on:
       - "release-assets/**"
       - "publication/**"
       - "data/curation/taxon_concept_relationships.csv"
+      - "data/curation/checklist_membership_reviews.csv"
       - "scripts/build_site.py"
       - "scripts/site_archive.py"
       - "scripts/release_archive.py"

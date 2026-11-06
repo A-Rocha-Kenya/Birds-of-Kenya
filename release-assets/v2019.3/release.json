@@ -1,0 +1,23 @@
+{
+  "id": "v2019.3",
+  "status": "released",
+  "publication": {
+    "release_id": "v2019.3",
+    "archive_date": "2026-11-06",
+    "render": {
+      "output_filename": "Checklist-of-the-Birds-of-Kenya-v2019.3.pdf"
+    }
+  },
+  "pdf": "Checklist-of-the-Birds-of-Kenya-v2019.3.pdf",
+  "pending_earc": [],
+  "checksums": {
+    "Checklist-of-the-Birds-of-Kenya-v2019.3.pdf": "41afdd06b550c983f50ccfea03892e8048bdebf7da7fa1eb88a6b5a25e056816",
+    "README.md": "5f6abd0d862cb62ca41f5962a59a99be1d46a54dd1bd5ee180bdde037a853ba8",
+    "checklist.csv": "c2ee2d3774c4c9e0a503b3f55469afb883bc5a33c942e3cccf85f1630bee168b",
+    "corrections.csv": "4d05bee400c6dd82c6210b8c02af6f90ae27138bc7ba6b98265ac0c9ba384b41",
+    "taxonomy.json": "a29710ec9073ca753cdc3d458a6e8b124f47d9338e7cfc70c1672facb120ce27"
+  },
+  "pdf_label": "Original printed 2019 edition",
+  "taxonomy_excluded_rows": 0,
+  "comparison_note": "Corrects the Avibase IDs of Lesser Sand Plover and Woolly-necked Stork for the Kenyan checklist."
+}

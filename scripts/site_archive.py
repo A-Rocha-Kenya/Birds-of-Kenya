@@ -68,10 +68,25 @@ def load_concept_relationships(root):
     return rows
 
 
+def format_family_label(label):
+    """Use one capitalization style for English family labels on the website."""
+    connectors = {"and", "or", "of", "the", "in", "with"}
+    words = list(re.finditer(r"[^\W\d_]+(?:['’][^\W\d_]+)*", label, flags=re.UNICODE))
+    first = words[0].start() if words else 0
+
+    def capitalize(match):
+        word = match.group().lower()
+        return word if match.start() != first and word in connectors else word.capitalize()
+
+    return re.sub(r"[^\W\d_]+(?:['’][^\W\d_]+)*", capitalize, label)
+
+
 def export_archive(staging, active, bundles, relationships=()):
     versions, releases = {}, []
     for identifier, (path, descriptor) in bundles.items():
         versions[identifier] = json.loads((path / "taxonomy.json").read_text())
+        for row in versions[identifier]:
+            row["family_english"] = format_family_label(row["family_english"])
         destination = staging / "downloads" / identifier
         destination.mkdir(parents=True)
         basename = f"Checklist-of-the-Birds-of-Kenya-{identifier}"
@@ -85,7 +100,6 @@ def export_archive(staging, active, bundles, relationships=()):
                          "pdf": f'downloads/{identifier}/{basename}.pdf' if descriptor["pdf"] else "",
                          "csv": f"downloads/{identifier}/{basename}.csv",
                          "taxonomy_excluded_rows": descriptor.get("taxonomy_excluded_rows", 0),
-                         "comparison_note": descriptor.get("comparison_note", ""),
                          "pdf_label": descriptor.get("pdf_label", "Checklist PDF")})
     # Every concept has an edition membership, including those with no curated edges.
     concepts = {}
@@ -116,7 +130,31 @@ def export_archive(staging, active, bundles, relationships=()):
             prefix = f"data/comparisons/{source}/{target}"
             pairs.append({"revision": hashlib.sha256((destination / "taxonomy-changes.json").read_bytes() + (destination / "taxonomy-changes.csv").read_bytes()).hexdigest()[:16], "from_release": source, "to_release": target, "group_count": pair["group_count"],
                           "files": {"json": prefix + "/taxonomy-changes.json", "csv": prefix + "/taxonomy-changes.csv"}})
-    catalog = {"active_release": active, "releases": releases, "pairs": pairs}
+    latest_by_year = {}
+    for release in sorted(releases, key=lambda item: tuple(map(int, item["id"][1:].split(".")))):
+        latest_by_year[release["id"][1:5]] = release["id"]
+    review_path = Path(__file__).resolve().parents[1] / "data/curation/checklist_membership_reviews.csv"
+    earc_decisions = {}
+    for identifier, (path, _) in bundles.items():
+        decisions = path / "curation/earc_decisions.csv"
+        if decisions.exists():
+            earc_decisions[identifier] = {row["avibase_id"]: row for row in read_csv(decisions)}
+    membership_reviews = {}
+    for row in read_csv(review_path):
+        source, target, identifier = (row[key] for key in ("from_release", "to_release", "avibase_id"))
+        if source in versions and target in versions:
+            review = {field: row[field] for field in ("status", "entry_previous", "reason")}
+            review["sighting_urls"] = row["sighting_urls"].split()
+            if source.startswith("v2019.") and target.startswith("v2025.") and row["status"] != "removal":
+                decision = earc_decisions.get(target, {}).get(identifier, {})
+                if decision.get("decision") == "accepted":
+                    review["earc_status"] = "accepted"
+                    review["earc_url"] = decision["source_url"]
+                elif decision or identifier in bundles[target][1].get("pending_earc", []):
+                    review["earc_status"] = "review"
+            membership_reviews.setdefault(f"{source}/{target}", {})[identifier] = review
+    catalog = {"active_release": active, "releases": releases, "pairs": pairs,
+               "latest_by_year": latest_by_year, "membership_reviews": membership_reviews}
     (staging / "data/releases.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
     return catalog
 

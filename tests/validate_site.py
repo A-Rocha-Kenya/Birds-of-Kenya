@@ -62,6 +62,17 @@ def main():
         assert len(comparison["groups"]) == entry["group_count"]
         expected = compare_versions(snapshots, (), entry["from_release"], entry["to_release"], graph["relationships"])
         assert comparison == expected, "Website comparison differs from the shared concept graph"
+        latest = list(archive["latest_by_year"].values())
+        key = (entry["from_release"], entry["to_release"])
+        if key in zip(latest, latest[1:]):
+            review = archive["membership_reviews"].get("/".join(key), {})
+            for relationship, side, statuses in [
+                ("added", "new", {"listed", "possible", "addition"}),
+                ("removed", "old", {"removal"}),
+            ]:
+                assert {g[side][0]["id"] for g in comparison["groups"] if g["relationship"] == relationship} == {
+                    identifier for identifier, row in review.items() if row["status"] in statuses and row["reason"]
+                }
         for group in comparison["groups"]:
             assert group["old"] or group["new"]
             assert not forbidden & set(group)

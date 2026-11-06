@@ -1,0 +1,23 @@
+{
+  "id": "v2009.1",
+  "status": "released",
+  "publication": {
+    "release_id": "v2009.1",
+    "archive_date": "2026-11-06",
+    "render": {
+      "output_filename": "Checklist-of-the-Birds-of-Kenya-v2009.1.pdf"
+    }
+  },
+  "pdf": "Checklist-of-the-Birds-of-Kenya-v2009.1.pdf",
+  "pending_earc": [],
+  "checksums": {
+    "Checklist-of-the-Birds-of-Kenya-v2009.1.pdf": "2e86e574fc69e2953aa06b48d453e1dfdf88766eb790a09ce94671635aa12129",
+    "README.md": "89314cf69f4d65c2fd00fdb5b94b95cd5de573a7c8cd869cdd160899626830be",
+    "avibase_assignments.csv": "0609d6c5936cd8795d310729e6218b8215612e42f27b730eecaea19dbaf54f7e",
+    "checklist.csv": "f1acadf2d073d41ed580e46da267f898e41adad16b7d0f9655fdffa3226d1d8d",
+    "taxonomy.json": "f28d2cb104cf4d41df7b8581c887f27208848fc405aa0767b6fb442860da6915"
+  },
+  "pdf_label": "Fourth edition, 2009 with 2017 corrections and revised digital IDs",
+  "taxonomy_excluded_rows": 0,
+  "comparison_note": "v2009.1 assigns the 49 previously blank Avibase IDs, including interpretations based on the 2019 Kenyan accounts."
+}
