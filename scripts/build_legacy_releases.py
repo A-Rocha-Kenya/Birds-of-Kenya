@@ -4,6 +4,7 @@
 import csv
 import json
 import shutil
+import subprocess
 from pathlib import Path
 
 from release_archive import checksum, read_csv, seal, verify
@@ -56,7 +57,7 @@ for version, pdf, label in [
         shutil.copy2(source / "corrections.csv", destination / "corrections.csv")
         (destination / "transitions.json").write_text(json.dumps(transitions, indent=2) + "\n")
     else:
-        shutil.copy2(source / "avibase/unresolved.csv", destination / "taxonomy-unresolved.csv")
+        (destination / "taxonomy-unresolved.csv").write_bytes(subprocess.check_output(["git", "show", "v2009.0:release-assets/v2009.0/taxonomy-unresolved.csv"], cwd=ROOT))
         excluded = [row for row in read_csv(source / "checklist.csv") if not row["avibaseid"]]
         (destination / "taxonomy-exclusions.json").write_text(json.dumps(excluded, ensure_ascii=False, indent=2) + "\n")
     shutil.copy2(source / "README.md", destination / "README.md")
