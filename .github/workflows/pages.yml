@@ -7,6 +7,7 @@ on:
       - "website/**"
       - "release-assets/**"
       - "publication/**"
+      - "data/curation/taxon_concept_relationships.csv"
       - "scripts/build_site.py"
       - "scripts/site_archive.py"
       - "scripts/release_archive.py"

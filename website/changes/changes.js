@@ -33,7 +33,7 @@ const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
-  const label = {added: 'Added / unlinked entry', removed: 'Removed / unlinked entry'}[group.relationship] || group.relationship_label;
+  const label = {added: 'Unlinked in source edition', removed: 'Unlinked in target edition'}[group.relationship] || group.relationship_label;
   return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="badges"><span class="badge relationship">${escapeHtml(label)}</span>${concept}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true">→</div>${side(group.new, 'new')}</div></article>`;
 };
 
@@ -101,7 +101,8 @@ const loadComparison = async () => {
     const editions = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id));
     const excluded = editions.reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
     const notes = editions.map(r => r.comparison_note).filter(Boolean);
-    if (excluded) notes.push(`${excluded} historical rows lack unique concept IDs and cannot be compared. Unmatched entries may reflect unresolved taxonomy rather than additions or removals.`);
+    if (excluded) notes.push(`${excluded} historical rows lack unique concept IDs and cannot be compared.`);
+    if (data.unlinked_old || data.unlinked_new) notes.push('Unlinked entries can reflect a missing concept relationship or a checklist membership change.');
     document.getElementById('comparisonSummary').textContent = notes.join(' ');
     document.getElementById('comparisonSummary').hidden = !notes.length;
     document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');

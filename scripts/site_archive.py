@@ -3,11 +3,12 @@
 import csv
 import hashlib
 import json
+import re
 import shutil
 import tomllib
 from pathlib import Path
 
-from release_archive import verify
+from release_archive import read_csv, verify
 from taxonomy_comparison import compare_versions
 
 
@@ -37,13 +38,38 @@ def load_transitions(bundles):
         if (path / "transition.json").exists():
             transitions.append(json.loads((path / "transition.json").read_text()))
         if (path / "transitions.json").exists():
-            transitions.extend(json.loads((path / "transitions.json").read_text()))
+            for transition in json.loads((path / "transitions.json").read_text()):
+                corrections = path / "corrections.csv"
+                if corrections.exists() and transition["to_release"] == path.name:
+                    transition["assignment_corrections"] = [
+                        {"old_id": row["before"], "new_id": row["after"]}
+                        for row in read_csv(corrections) if row["field"] == "avibaseid"
+                    ]
+                transitions.append(transition)
     return transitions
 
 
-def export_archive(staging, active, bundles):
+def load_concept_relationships(root):
+    path = root / "data/curation/taxon_concept_relationships.csv"
+    relations = {"includes", "isCongruentWith", "partiallyOverlaps", "intersects", "isDisjointFrom"}
+    with path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    pairs = set()
+    for row in rows:
+        subject, relation, object_id = (row[key] for key in ("subject_id", "relationship", "object_id"))
+        if (relation not in relations or subject == object_id
+                or not all(re.fullmatch(r"avibase-[0-9A-F]{8}", value) for value in (subject, object_id))
+                or not row["source_url"].startswith("https://")):
+            raise ValueError(f"Invalid concept relationship in {path}: {row}")
+        pair = frozenset((subject, object_id))
+        if pair in pairs:
+            raise ValueError(f"Multiple relationships for one concept pair in {path}: {row}")
+        pairs.add(pair)
+    return rows
+
+
+def export_archive(staging, active, bundles, relationships=()):
     versions, releases = {}, []
-    transitions = load_transitions(bundles)
     for identifier, (path, descriptor) in bundles.items():
         versions[identifier] = json.loads((path / "taxonomy.json").read_text())
         destination = staging / "downloads" / identifier
@@ -61,10 +87,29 @@ def export_archive(staging, active, bundles):
                          "taxonomy_excluded_rows": descriptor.get("taxonomy_excluded_rows", 0),
                          "comparison_note": descriptor.get("comparison_note", ""),
                          "pdf_label": descriptor.get("pdf_label", "Checklist PDF")})
+    # Every concept has an edition membership, including those with no curated edges.
+    concepts = {}
+    excluded_entries = {}
+    for identifier, rows in versions.items():
+        for row in rows:
+            concepts.setdefault(row["id"], {})[identifier] = {key: value for key, value in row.items() if key != "id"}
+        path, _ = bundles[identifier]
+        exclusions = path / "taxonomy-exclusions.json"
+        if exclusions.exists():
+            excluded_entries[identifier] = [
+                {key: row[key] for key in ("sort", "common_name", "scientific_name", "avibaseid")}
+                for row in json.loads(exclusions.read_text())
+            ]
+    for edge in relationships:
+        for endpoint in ("subject_id", "object_id"):
+            concepts.setdefault(edge[endpoint], {})
+    concept_graph = {"concepts": concepts, "relationships": relationships,
+                     "excluded_entries": excluded_entries}
+    (staging / "data/taxon-concept-graph.json").write_text(json.dumps(concept_graph, ensure_ascii=False, sort_keys=True) + "\n")
     pairs = []
     for source in versions:
         for target in versions:
-            pair = compare_versions(versions, transitions, source, target)
+            pair = compare_versions(versions, (), source, target, relationships)
             destination = staging / "data/comparisons" / source / target
             destination.mkdir(parents=True)
             write_comparison(destination, pair)

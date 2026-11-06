@@ -12,7 +12,7 @@ import tempfile
 import tomllib
 from pathlib import Path
 
-from site_archive import load_archive, export_archive
+from site_archive import load_archive, export_archive, load_concept_relationships
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -237,7 +237,7 @@ def main():
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         copy(release / "manifest.json", staging / "data" / "manifest.json")
-        catalog = export_archive(staging, identifier, bundles)
+        catalog = export_archive(staging, identifier, bundles, load_concept_relationships(ROOT))
         site_metadata = public_metadata(metadata, manifest, rows, comparison, downloads)
         (staging / "data" / "site.json").write_text(
             json.dumps(site_metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
