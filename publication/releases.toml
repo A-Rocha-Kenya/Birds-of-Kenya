@@ -2,12 +2,20 @@
 active_release = "v2025.0"
 
 [[releases]]
+id = "v2009.0"
+path = "release-assets/v2009.0"
+
+[[releases]]
 id = "v2019.0"
 path = "release-assets/v2019.0"
 
 [[releases]]
 id = "v2019.1"
 path = "release-assets/v2019.1"
+
+[[releases]]
+id = "v2019.2"
+path = "release-assets/v2019.2"
 
 [[releases]]
 id = "v2025.0"

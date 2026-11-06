@@ -1,0 +1,2410 @@
+CChecklist of the Birds of Kenya
+
+
+
+
+                                   >
+
+
+
+
+         Bird Committee, Nature Kenya
+         East Africa Natural History Society
+
+         Nairobi, September 2009 + corrections   The East Africa Natural History Society
+Checklist of the Birds of Kenya
+Fourth Edition
+                                  Key to the abbreviations used
+AM Afrotropical migrant       1
+                                                         SO  visitor from the southern oceans or the
+E  endemic species or race                                   Antarctic
+Ex species which are thought to have                     VIO vagrant from the northwest Indian
+   become extinct in Kenya                                   Ocean
+IO visitor from Indian Ocean islands                     VN vagrant from the Nearctic region
+MM migrant1 from the Malagasy region                     VP vagrant from the Palaearctic region
+OM migrant1 from the Oriental region                     VS vagrant from the southern oceans or
+PM migrant1 from the Palaearctic region                      the Antarctic
+RS visitor from the Red Sea                              VSA vagrant from southern Africa
+
+When these letters are in lower case, migrants of that category may occur alongside resident,
+non-migratory individuals or individuals of one of the other migrant categories. When they are
+in round brackets, some birds in Kenya might be migrants or wanderers from that particular
+region or area.
+   If possible, where there are fewer than four records, these are listed under the species name.
+Where no reference is given, the record is usually listed in Zimmerman et al. (1996) or has been
+accepted by the East Africa Rarities Committee (EARC).
+   The BirdLife/IUCN criteria for assigning threat status and category (Critically Endangered,
+Endangered, Vulnerable, Near Threatened, and Data Deficient) are included where appropriate.
+1
+ ‘Migrant’, in the accepted ornithological sense, means a bird that moves on a regular, seasonal basis from
+one, to one or more defined areas; thus, the majority of wader species that breed in the High Arctic leave
+their breeding areas to spend most of the year on coasts and wetlands throughout the temperate and tropical
+areas of the world; they are therefore true migrants. On the other hand, Little Grebes that travel, often at
+night, in search of newly formed ponds, are wanderers, not migrants.
+                                       ISBN: 616-6-00-002576-5
+     © Bird Committee, Nature Kenya—the East Africa Natural History Society, September 2009
+        The Nature Kenya office is at the National Museums of Kenya, Museum Hill, Nairobi
+                       Postal address: P. O. Box 44486, 00100 Nairobi, Kenya
+               tel: (+254) (0) 20 374 6090 or 374 9957; fax: (+254) (0) 20 374 1049
+                    e-mail: office@naturekenya.org; website: www.naturekenya.org
+                                                    Publishing history:
+           Check-list of the Birds of Kenya, Ornithological Sub-Committee [OS-C], EANHS, March 1981
+                     Check-list of the Birds of Kenya, Second Edition, OS-C, EANHS, May 1986
+                       Check-list of the Birds of Kenya, Third Edition, OS-c, EANHS, June 1996
+
+                                  Printed in Kenya by Colourprint Limited
+           Industrial Area, Road-C, off Enterprise Road (third right turn), behind Sameer Africa
+                          Postal address: P. O. Box 44466, 00100 Nairobi, Kenya
+       tel: (+254) (0) 20 556 278/556 611/533 895/531 310; fax: (+254) (0) 20 552 992/554 156
+                          cell: (+254) (0) 722 203 645 or (+254) (0) 733 203 645
+                                        e-mail: info@colourprint.co.ke
+                  Cover photograph: Sharpe’s Longclaw Macronynx sharpei by Peter Usher
+                            taken on 30 August 2009 on the North Kinangop
+                  using a Canon 450D camera with a Canon EF100 – 400 mm IS lens;
+                       exposure details: 1/1600 s at f 5.6, 400 mm, ISO setting 400
+SUDAN
+
+
+
+                                                   Lake
+                                                         na
+                                                                         Sibiloi NP
+                                                                                                                                ETHIOPIA                                                    Malka Mari
+                                                        Turk                                                                                                                                   NP
+                                                            a
+
+                            Central Island NP
+
+
+                                                                                                                  Dida Galgalu Desert
+
+
+                                                                                 South Island NP
+
+
+
+
+  UGANDA
+                                                                                                               Marsabit NP
+
+
+
+
+                                                                                                                             KENYA
+                                 South Turkana NR          R iver
+                                                        Ker
+                                                            io
+
+
+
+
+                                                                                                                                                                                                                   SOMALIA
+                           Riv
+                              er                                                                     Losai NR
+                        kwell
+                   Tu r
+
+                                         Cherengani Hills
+                                                                                                                                         er
+            Mt Elgon                                                                                                                  Riv
+                                                                                                                               yiro
+             Forest                                                        Ol Donyo Sabache                             so N
+                                                                                                                      Ua
+                                                 Lake Baringo
+                                                                          Laikipia NR                         Shaba NR
+     Busia Grasslands                                                                              Samburu/Buffalo Springs
+                  North Nandi Forest                                                               Reserves
+Sio Port Swamp                               Lake Bogoria
+                Kakamega Forest                   NR
+                   South Nandi Forest                                               Bisanadi NR        Rahole NR
+ Yala Swamp
+             Dunga Swamp            Mau Narok/Molo
+                                     Grasslands          Aberdare       Mt Kenya
+                                                         Mountains
+                                                                                                 Meru NP
+Koguta Swamp   Kusa Swamp Lake Nakuru           Lake Elementaita
+                                                                                                         Kora NP
+                                  NP                                     Kianyaga Valleys
+                                            Kinangop
+                                            Grasslands
+                                                                   Mukurweini Valleys     North Kitui NR
+                     Mau Forest                                                                                                                                             a
+   Ruma NP           complex      Lake Naivasha                                Mwea NR                                                                                  Tan
+
+                                                Hell’s Gate NP      Kikuyu Escarpment                                                                                     Rive
+                                          r                                               Masinga Reservoir
+                                       ive
+                                                                                                                                                                            r
+                                  aR           Longonot NP          Forest
+                                                                              Ol Doinyo Sabuk and 14 Falls NPs
+                                ar                          NAIROBI
+                            M                                              Dandora Ponds                                                                                            Arawale NR
+                            Masai Mara                              Nairobi NP
+                                                                                                                                                                                                      Boni NR
+                                             South
+                                                                                          Machakos
+                                             Nguruman
+                                                                                           Valleys                                      South Kitui NR                                       Dodori NR
+                                                                                                               iver
+                                                                    Lake Magadi                                                                               Tana River Forests
+                                                                                                        Athi R                                                                                               Kiunga Marine
+                                                                                                                                                                                                             National Reserve
+
+                                                                             Amboseli NP      Chyulu Hills NP                                 Tsavo East NP
+                                                                                                                                                                                                Tana River Delta
+             TANZANIA                                                                                                                                             Dakatcha
+                                                                                                   Tsavo West NP                                                  Woodland
+Key                                                                                                                                                       Sabaki River
+                                                                                                                                                                                      Sabaki River Mouth
+                                                                                                                                                    Arabuko-Sokoke                 Gede Ruins National Monument
+      Lakes, rivers and sea                                                                                                                            Forest NP                    Mida Creek, Whale Island and the
+      National Parks (NPs) and National Reserves (NRs);                                                                                                                             Malindi–Watamu NPs
+                                                                                                                           Taita Hills
+      some of the smaller ones cannot be shown because                                                                      Forests
+      of the lack of space
+      Important Bird Area with official protection; some are also
+                                                                                                                                                                    Kaya Gandini               Indian
+                                                                                                                                                                      Kaya Waa
+                                                                                                                                                                                               Ocean
+                                                                                                                                               Shimba Hills
+      National Parks                                                                                                                                                Diani Forest
+                                                                                                                             Dzombo Hill Forest
+      Important Bird Areas without official protection                                                                                                        Mrima Hill Forest
+                                                                                                                                       Marenji Forest
+                                                                                                                                                                 Kisite Island
+
+
+Map of Kenya showing Important Bird Areas (IBAs), National Parks and National Reserves
+                                                                               Checklist
+                                                                      With minor corrections, 13 December 2017
+
+
+Struthionidae: Ostrich
+c Ostrich Struthio camelus
+   In the 1996 list, Struthio (camelus) molybdophanes, English name the Somali Ostrich, was treated as a separate
+   species (Freitag & Robinson 1993), necessitating the qualifier ‘Common’ for the species containing the other
+   two races (nominate camelus and massaicus); with the lumping in the present list no qualifier is required
+
+
+Numididae: guineafowl
+c Helmeted Guineafowl Numida meleagris
+c Crested Guineafowl Guttera pucherani
+   The nominate, mainly coastal and lowland race is sometimes regarded as being a species, the Kenya Crested
+   Guineafowl; mainly western and highland forest birds of the race verreauxi are then split off as a species, the
+   Crested Guineafowl
+c Vulturine Guineafowl Acryllium vulturinum
+
+Phasianidae: quails, francolins, spurfowl and allies
+c Stone Partridge Ptilopachus petrosus
+c Coqui Francolin Francolinus coqui
+c Ring-necked Francolin Francolinus streptophorus Near Threatened
+c Red-winged Francolin Francolinus levaillantii
+c Shelley’s Francolin Francolinus shelleyi
+   Francolinus shelleyi macarthuri E
+c Moorland Francolin Francolinus psilolaemus
+c Orange River Francolin Francolinus levaillantoides
+   One collected, October 1973, Mt Kulal and others seen and tape-recorded, November 1989, Huri Hills
+c Crested Francolin Francolinus sephaena
+c Scaly Francolin Francolinus squamatus
+c Hildebrandt’s Francolin Francolinus hildebrandti
+   Francolinus hildebrandti altumi E
+c Jackson’s Francolin Francolinus jacksoni E
+c Chestnut-naped Francolin Francolinus castaneicollis
+   Sight record, 21 June 1975, south of Moyale (Britton 1980)
+c Red-necked Spurfowl Francolinus afer
+c Yellow-necked Spurfowl Francolinus leucoscepus
+c Common Quail Coturnix coturnix pm
+c Harlequin Quail Coturnix delegorguei am
+c Blue Quail Coturnix adansonii AM
+
+Anatidae: ducks and geese
+c White-faced Whistling Duck Dendrocygna viduata
+c Fulvous Whistling Duck Dendrocygna bicolor AM
+
+                                                          Checklist of the birds of Kenya, >4th edition — 1
+Ducks and geese; albatrosses; petrels and shearwaters
+
+c White-backed Duck Thalassornis leuconotus
+c Spur-winged Goose Plectropterus gambensis
+c Knob-billed Duck Sarkidiornis melanotos am
+c Egyptian Goose Alopochen aegyptiaca
+    It was Alopochen aegyptiacus in the 1996 list; gender change follows David & Gosselin (2002b)
+c African Pygmy Goose Nettapus auritus
+c Cape Teal Anas capensis
+c Gadwall Anas strepera PM
+c Eurasian Wigeon Anas penelope PM
+c African Black Duck Anas sparsa
+c Mallard Anas platyrhynchos VP
+    The second record since 1929 was of nine, 30 November – 3 December 2002, Marsabit (Borghesio et al.
+    2004)
+c Yellow-billed Duck Anas undulata am
+c Northern Shoveler Anas clypeata PM
+c Red-billed Teal Anas erythrorhyncha
+c Northern Pintail Anas acuta PM
+c Garganey Anas querquedula PM
+c Eurasian Teal Anas crecca PM
+    It was called the Common Teal in the 1996 list
+c Hottentot Teal Anas hottentota
+c Southern Pochard Netta erythrophthalma am
+c Common Pochard Aythya ferina PM
+c Ferruginous Duck Aythya nyroca PM
+c Tufted Duck Aythya fuligula PM
+c Maccoa Duck Oxyura maccoa Near Threatened
+
+Diomedeidae: albatrosses
+Both these species were included in Diomedea in the 1996 list
+c Black-browed Albatross Thalassarche melanophrys SO
+    The specific epithet was spelled melanophris in the 1996 list, following several earlier authors, e.g., White
+    (1965), Britton (1980) and Harrison (1983)
+c Shy Albatross Thalassarche cauta SO
+
+Procellariidae: petrels and shearwaters
+c Cape Petrel Daption capense VS
+    The sole record, 26 September 1974, off Mombasa. It was called the Pintado Petrel in the 1996 list
+c Antarctic Prion Pachyptila desolata SO
+    Three records, September 1983, north of Malindi; August 1988, Watamu; and September 1990, Shimoni
+c Slender-billed Prion Pachyptila belcheri VS
+    The sole record, one found dead, 16 August 1984, Watamu
+c White-chinned Petrel Procellaria aequinoctialis VS
+    The sole records are of individuals photographed, 9 August and 15 September 1990, off Shimoni
+c Wedge-tailed Shearwater Puffinus pacificus IO
+
+2 — Checklist of the birds of Kenya, 4th edition
+             Petrels and shearwaters; storm-petrels; grebes; flamingos; storks; ibises and spoonbills
+
+c Audubon’s Shearwater Puffinus lherminieri IO
+c Sooty Shearwater Puffinus griseus VS
+   First Kenya record, one found dead, 30 May 2004, Watamu (Jackson & Valle 2007)
+c Jouanin’s Petrel Bulweria fallax VIO; Near Threatened
+   All specimens: 13 December 1953 and 9 December 1985, off Malindi; 3 December 1991, off Mtwapa
+
+
+Hydrobatidae: storm-petrels
+c Wilson’s Storm-petrel Oceanites oceanicus SO
+c Black-bellied Storm-petrel Fregetta tropica VS
+   The only records are of two beached specimens, June 1988, Watamu and June 1994, near Malindi
+c Leach’s Storm-petrel Oceanodroma leucorhoa VP
+   A specimen washed up, 8 February 1969 (not 1967 as stated in Zimmerman et al.), Tiwi River mouth, south
+   of Mombasa (Parsons 1969), and three further sight records (see Zimmerman et al.)
+c Matsudaira’s Storm-petrel Oceanodroma matsudairae VP; Data Deficient
+   The only records are of two sightings, July and August 1981, off Mombasa
+
+
+Podicipedidae: grebes
+c Little Grebe Tachybaptus ruficollis
+c Great Crested Grebe Podiceps cristatus
+c Black-necked Grebe Podiceps nigricollis
+
+Phoenicopteridae: flamingos
+c Greater Flamingo Phoenicopterus roseus am, pm
+c Lesser Flamingo Phoeniconaias minor am; Near Threatened
+
+Ciconiidae: storks
+c Yellow-billed Stork Mycteria ibis (am)
+c African Open-billed Stork Anastomus lamelligerus am
+c Black Stork Ciconia nigra PM
+c Abdim’s Stork Ciconia abdimii AM
+c Woolly-necked Stork Ciconia episcopus
+c White Stork Ciconia ciconia PM
+c Saddle-billed Stork Ephippiorhynchus senegalensis
+c Marabou Stork Leptoptilos crumeniferus
+
+Threskiornithidae: ibises and spoonbills
+c Sacred Ibis Threskiornis aethiopicus
+c Olive Ibis Bostrychia olivacea
+   It was called the African Green Ibis in the 1996 list
+c Hadada Ibis Bostrychia hagedash
+c Glossy Ibis Plegadis falcinellus am, pm
+c Eurasian Spoonbill Platalea leucorodia PM
+c African Spoonbill Platalea alba
+
+
+                                                           Checklist of the birds of Kenya, 4th edition — 3
+Herons, egrets and bitterns; tropicbirds; frigatebirds; Hamerkop; Shoebill
+
+Ardeidae: herons, egrets and bitterns
+c Little Bittern Ixobrychus minutus am, pm
+c Dwarf Bittern Ixobrychus sturmii am
+c White-backed Night Heron Gorsachius leuconotus
+c Black-crowned Night Heron Nycticorax nycticorax am, pm
+c Striated Heron Butorides striata
+    It was called the Green-backed Heron B. striatus in the 1996 list; gender change follows David & Gosselin
+    (2002b)
+c Squacco Heron Ardeola ralloides am, pm
+    It was called the Common Squacco Heron in the 1996 list
+c Madagascar Pond Heron Ardeola idae MM; Endangered
+    It was called the Madagascar Squacco Heron in the 1996 list
+c Rufous-bellied Heron Ardeola rufiventris
+c Cattle Egret Bubulcus ibis am
+c Grey Heron Ardea cinerea am, pm
+c Black-headed Heron Ardea melanocephala
+c Goliath Heron Ardea goliath
+c Purple Heron Ardea purpurea (pm)
+c Great White Egret Ardea alba
+    It was called Casmerodius albus and Great Egret in the 1996 list
+c Yellow-billed Egret Egretta intermedia
+    It was called Mesophoyx intermedia in the 1996 list
+c Black Heron Egretta ardesiaca
+c Little Egret Egretta garzetta
+c Western Reef Heron Egretta gularis AM
+c Dimorphic Egret Egretta dimorpha
+    It was called Egretta (garzetta) dimorpha in the 1996 list
+
+
+Phaethontidae: tropicbirds
+c White-tailed Tropicbird Phaethon lepturus IO
+
+Fregatidae: frigatebirds
+c Greater Frigatebird Fregata minor IO
+c Lesser Frigatebird Fregata ariel IO
+    Three confirmed records only: January 1980, December 1994 and March 2003, all Malindi–Watamu area
+
+Scopidae: Hamerkop
+c Hamerkop Scopus umbretta
+
+Balaenicipitidae: Shoebill
+c Shoebill Balaeniceps rex Vulnerable
+    Two modern records: September–November 1994, Masai Mara, and December 1994–mid 1995, Amboseli
+
+
+
+
+4 — Checklist of the birds of Kenya, 4th edition
+             Pelicans; boobies; cormorants; darters; falcons; diurnal birds of prey other than falcons
+
+Pelecanidae: pelicans
+c Great White Pelican Pelecanus onocrotalus
+c Pink-backed Pelican Pelecanus rufescens
+
+Sulidae: boobies
+c Masked Booby Sula dactylatra IO
+c Red-footed Booby Sula sula IO
+c Brown Booby Sula leucogaster IO
+
+Phalacrocoracidae: cormorants
+c Reed Cormorant Phalacrocorax africanus
+   It was called the Long-tailed Cormorant in the 1996 list
+c Great Cormorant Phalacrocorax carbo
+
+Anhingidae: darters
+c African Darter Anhinga rufa
+
+Falconidae: falcons
+c Pygmy Falcon Polihierax semitorquatus
+c Lesser Kestrel Falco naumanni PM; Vulnerable
+c Common Kestrel Falco tinnunculus pm
+   The resident race rufescens is often called the Rock Kestrel
+c Greater Kestrel Falco rupicoloides
+c Fox Kestrel Falco alopex
+c Grey Kestrel Falco ardosiaceus
+   Specific epithet spelled ardosiacus in the 1996 list
+c Dickinson’s Kestrel Falco dickinsoni
+c Red-necked Falcon Falco chiquera
+c Red-footed Falcon Falco vespertinus PM; Near Threatened
+c Amur Falcon Falco amurensis PM
+c Eleonora’s Falcon Falco eleonorae PM
+c Sooty Falcon Falco concolor PM; Near Threatened
+c Eurasian Hobby Falco subbuteo PM
+c African Hobby Falco cuvieri
+c Lanner Falcon Falco biarmicus
+c Saker Falcon Falco cherrug PM; Endangered
+c Peregrine Falcon Falco peregrinus pm
+c Barbary Falcon Falco pelegrinoides PM
+c Taita Falcon Falco fasciinucha Near Threatened
+
+Accipitridae: diurnal birds of prey other than falcons
+c Secretarybird Sagittarius serpentarius
+   It was included in its own family, Sagittariidae, in the 1996 list and called the Secretary Bird
+
+
+                                                             Checklist of the birds of Kenya, 4th edition — 5
+Diurnal birds of prey other than falcons
+
+c Osprey Pandion haliaetus PM
+c African Cuckoo Hawk Aviceda cuculoides am
+c European Honey Buzzard Pernis apivorus PM
+    It was called the Eurasian Honey Buzzard in the 1996 list
+c Bat Hawk Macheiramphus alcinus
+c African Black-shouldered Kite Elanus caeruleus [am]
+    It was called simply Black-shouldered Kite in the 1996 list. There is a ringing recovery, from near Pretoria to
+    eastern Uganda, of this sometimes dispersive species (Oatley et al. 1998)
+c African Swallow-tailed Kite Chelictinia riocourii
+c Black Kite Milvus migrans am, pm
+    The Afrotropical race parasitus is often called the Yellow-billed Kite
+c African Fish Eagle Haliaeetus vocifer
+c Palm-nut Vulture Gypohierax angolensis
+c Lammergeier Gypaetus barbatus
+    Specific epithet was incorrectly spelled barbarus in the 1996 list
+c Egyptian Vulture Neophron percnopterus Endangered
+c Hooded Vulture Necrosyrtes monachus
+c White-backed Vulture Gyps africanus Near Threatened
+    It was called the African White-backed Vulture in the 1996 list
+c Rüppell’s Vulture Gyps rueppellii Near Threatened
+    It was called Rüppell’s Griffon Vulture in the 1996 list
+c White-headed Vulture Trigonoceps occipitalis Vulnerable
+c Lappet-faced Vulture Torgos tracheliotus Vulnerable
+    It was called Torgos tracheliotos in the 1996 list
+c Short-toed Snake Eagle Circaetus gallicus PM
+    The only confirmed record is of one seen on 2 February 2001 in Tsavo East National Park (EARC 2005), all
+    previous claimed records having been rejected
+c Beaudouin’s Snake Eagle Circaetus beaudouini Vulnerable
+    Recently raised to species level; the only confirmed record is of one seen on 21 January 2001 at Mungatsi,
+    western Kenya (EARC 2005)
+c Black-chested Snake Eagle Circaetus pectoralis
+c Brown Snake Eagle Circaetus cinereus
+c Southern Banded Snake Eagle Circaetus fasciolatus Near Threatened
+c Western Banded Snake Eagle Circaetus cinerascens
+    It was called simply the Banded Snake Eagle in the 1996 list
+c Bateleur Terathopius ecaudatus Near Threatened
+c Western Marsh Harrier Circus aeruginosus PM
+    It was called the Eurasian Marsh Harrier in the 1996 list
+c African Marsh Harrier Circus ranivorus
+c Pallid Harrier Circus macrourus PM; Near Threatened
+c Montagu’s Harrier Circus pygargus PM
+c African Harrier Hawk Polyboroides typus
+    Often called by the Afrikaans name Gymnogene
+c Dark Chanting Goshawk Melierax metabates
+
+6 — Checklist of the birds of Kenya, 4th edition
+                                                         Diurnal birds of prey other than falcons; bustards
+
+c Eastern Chanting Goshawk Melierax poliopterus
+   It was called the Eastern Pale Chanting Goshawk in the 1996 list
+c Gabar Goshawk Micronisus gabar
+c African Goshawk Accipiter tachiro
+c Shikra Accipiter badius
+c Levant Sparrowhawk Accipiter brevipes PM
+c Little Sparrowhawk Accipiter minullus
+c Ovambo Sparrowhawk Accipiter ovampensis
+c Eurasian Sparrowhawk Accipiter nisus PM
+c Rufous-breasted Sparrowhawk Accipiter rufiventris
+c Great Sparrowhawk Accipiter melanoleucus
+   Sometimes called the Black Sparrowhawk (as it is in southern Africa)
+c Lizard Buzzard Kaupifalco monogrammicus
+c Grasshopper Buzzard Butastur rufipennis AM
+c Common Buzzard Buteo buteo PM
+   The race that occurs here, vulpinus, is known as the Steppe Buzzard
+c Mountain Buzzard Buteo oreophilus
+c Long-legged Buzzard Buteo rufinus PM
+c Augur Buzzard Buteo augur
+c Lesser Spotted Eagle Aquila pomarina PM
+c Greater Spotted Eagle Aquila clanga PM; Vulnerable
+c Tawny Eagle Aquila rapax
+c Steppe Eagle Aquila nipalensis PM
+c Eastern Imperial Eagle Aquila heliaca PM; Vulnerable
+   In the 1996 list it was called simply the Imperial Eagle; the qualifier is now required as the Spanish form has
+   been given specific rank (Aquila adalberti)
+c Verreaux’s Eagle Aquila verreauxii
+c Wahlberg’s Eagle Aquila wahlbergi am
+c African Hawk Eagle Aquila spilogaster
+   This and the next two species were included in Hieraaetus in the 1996 list
+c Booted Eagle Aquila pennata PM
+c Ayres’s Hawk Eagle Aquila ayresii
+c Martial Eagle Polemaetus bellicosus Near Threatened
+c Long-crested Eagle Lophaetus occipitalis
+c Cassin’s Hawk Eagle Spizaetus africanus
+   One juvenile collected, 17 April 1926 on Mt Elgon (see Clark & Edelstam 2001) and an adult
+   photographed, 16 May 2006 in the Imenti Forest, Meru District. It was called Cassin’s Hawk-Eagle by Gill
+   & Wright (2006)
+c Crowned Eagle Stephanoaetus coronatus
+   It was called the African Crowned Eagle in the 1996 list
+
+
+Otididae: bustards
+c Arabian Bustard Ardeotis arabs
+   A pair collected, January 1932, northern Turkana, and one photographed, January 1989 near Ileret
+
+
+                                                            Checklist of the birds of Kenya, 4th edition — 7
+Bustards; rails and relatives; finfoots; cranes
+
+c Kori Bustard Ardeotis kori
+c Denham’s Bustard Neotis denhami Near Threatened
+c Heuglin’s Bustard Neotis heuglinii
+c White-bellied Bustard Eupodotis senegalensis
+c Buff-crested Bustard Lophotis gindiana
+    It was included in Eupodotis ruficrista in the 1996 list
+c Black-bellied Bustard Lissotis melanogaster
+    This and the next species were in Eupodotis in the 1996 list
+c Hartlaub’s Bustard Lissotis hartlaubii
+
+Rallidae: rails and relatives
+c White-spotted Flufftail Sarothrura pulchra
+c Buff-spotted Flufftail Sarothrura elegans
+c Red-chested Flufftail Sarothrura rufa
+c Streaky-breasted Flufftail Sarothrura boehmi AM
+c Striped Flufftail Sarothrura affinis
+    One caught and ringed on 19 June 1977 in the Ngurumans (Zimmerman et al. 1996) may be the sole
+    confirmed record as those from the 1920s and 1930s are disputed
+c African Water Rail Rallus caerulescens
+c African Crake Crex egregia am
+c Corncrake Crex crex PM; Near Threatened
+c Black Crake Amaurornis flavirostra
+    Specific epithet was flavirostris in the 1996 list; the change follows David & Gosselin (2002a)
+c Baillon’s Crake Porzana pusilla am, (pm)
+c Spotted Crake Porzana porzana PM
+c Striped Crake Aenigmatolimnas marginalis AM
+c Purple Swamphen Porphyrio porphyrio
+c Allen’s Gallinule Porphyrio alleni
+c Common Moorhen Gallinula chloropus
+c Lesser Moorhen Gallinula angulata AM
+c Red-knobbed Coot Fulica cristata am
+
+Heliornithidae: finfoots
+c African Finfoot Podica senegalensis
+
+Gruidae: cranes
+c Grey Crowned Crane Balearica regulorum Vulnerable
+c Black Crowned Crane Balearica pavonina Near Threatened
+c Demoiselle Crane Anthropoides virgo PM
+    The sole record is of nine photographed on 15 January 1986, north of Malindi
+c Common Crane Grus grus PM
+    The first Kenya record was of one northeast of Eldoret on 2 October 1999 (EARC 2004); two seen and
+    photographed by many people, January–February 2008, Lake Naivasha, has not yet been published
+
+
+
+8 — Checklist of the birds of Kenya, 4th edition
+ Buttonquails and Quail-plover; thick-knees; oystercatchers; Crab-plover; stilts and avocets; plovers
+
+Turnicidae: buttonquails and Quailplover
+c Common Buttonquail Turnix sylvaticus
+    It was called the Common Button-quail in the 1996 list
+c Black-rumped Buttonquail Turnix hottentottus
+    Only three confirmed records since 1955: February 1958, August–November 1988 and October 1993, all in
+    the Kitale area. In the 1996 list it was called Turnix hottentotta; the gender is changed now following David
+    & Gosselin (2002b); also, the English name was Black-rumped Button-quail
+c Quailplover Ortyxelos meiffrenii
+    It was called Quail-plover in the 1996 list; Gill & Wright (2006) also use Quail-plover
+
+Burhinidae: thick-knees
+c Stone-curlew Burhinus oedicnemus PM
+    It was called the Eurasian Thick-knee in the 1996 list
+c Senegal Thick-knee Burhinus senegalensis
+c Water Thick-knee Burhinus vermiculatus
+c Spotted Thick-knee Burhinus capensis
+
+Haematopodidae: oystercatchers
+c Eurasian Oystercatcher Haematopus ostralegus PM
+
+Dromadidae: Crab-plover
+c Crab-plover Dromas ardeola AM
+
+Recurvirostridae: stilts and avocets
+c Black-winged Stilt Himantopus himantopus am, (pm)
+c Pied Avocet Recurvirostra avosetta am
+
+Charadriidae: plovers
+c Northern Lapwing Vanellus vanellus PM
+     The only record is of one, February 1995–August 1996, Sabaki estuary, north of Malindi (Jackson 1997)
+In the following nine Vanellus species, the word ‘Lapwing’ is sometimes used instead of ‘Plover’
+c Long-toed Plover Vanellus crassirostris
+c Blacksmith Plover Vanellus armatus
+c Spur-winged Plover Vanellus spinosus
+c Black-headed Plover Vanellus tectus
+c Senegal Plover Vanellus lugubris
+c Black-winged Plover Vanellus melanopterus
+c Crowned Plover Vanellus coronatus
+c African Wattled Plover Vanellus senegallus
+c Brown-chested Plover Vanellus superciliosus
+c Pacific Golden Plover Pluvialis fulva PM, (NM)
+c Grey Plover Pluvialis squatarola PM
+c Common Ringed Plover Charadrius hiaticula PM
+    It was called simply the Ringed Plover in the 1996 list
+c Little Ringed Plover Charadrius dubius PM
+                                                              Checklist of the birds of Kenya, 4th edition — 9
+Plovers; painted-snipes; jacanas; sandpipers and relatives
+
+c Kittlitz’s Plover Charadrius pecuarius am
+c Three-banded Plover Charadrius tricollaris
+c White-fronted Plover Charadrius marginatus
+c Kentish Plover Charadrius alexandrinus PM
+c Chestnut-banded Plover Charadrius pallidus Near Threatened
+c Lesser Sand Plover Charadrius mongolus PM
+    It was called the Lesser Sandplover in the 1996 list
+c Greater Sand Plover Charadrius leschenaultii PM
+    It was called the Greater Sandplover in the 1996 list
+c Caspian Plover Charadrius asiaticus PM
+
+Rostratulidae: painted-snipes
+c Greater Painted-snipe Rostratula benghalensis
+
+Jacanidae: jacanas
+c Lesser Jacana Microparra capensis
+c African Jacana Actophilornis africanus
+
+Scolopacidae: sandpipers and relatives
+c Jack Snipe Lymnocryptes minimus PM
+c Pintail Snipe Gallinago stenura PM
+    Three records, January 1969 Lake Naivasha, October–December 1981 near Mombasa and January 1982
+    Lake Naivasha
+c African Snipe Gallinago nigripennis am
+c Great Snipe Gallinago media PM; Near Threatened
+c Common Snipe Gallinago gallinago PM
+c Black-tailed Godwit Limosa limosa PM; Near Threatened
+c Bar-tailed Godwit Limosa lapponica PM
+c Whimbrel Numenius phaeopus PM
+c Eurasian Curlew Numenius arquata PM; Near Threatened
+c Spotted Redshank Tringa erythropus PM
+c Common Redshank Tringa totanus PM
+c Marsh Sandpiper Tringa stagnatilis PM
+c Common Greenshank Tringa nebularia PM
+c Green Sandpiper Tringa ochropus PM
+c Wood Sandpiper Tringa glareola PM
+c Terek Sandpiper Xenus cinereus PM
+c Common Sandpiper Actitis hypoleucos PM
+c Spotted Sandpiper Actitis macularius VN
+    The only record is of one, 5 September 1999, Mountain Lodge, Mt Kenya (Bishop & Bishop 2001)
+c Ruddy Turnstone Arenaria interpres PM
+c Red Knot Calidris canutus PM
+c Sanderling Calidris alba PM
+
+10 — Checklist of the birds of Kenya, 4th edition
+      Sandpipers and relatives; Egyptian Plover, coursers and pratincoles; gulls, terns and skimmers
+
+c Red-necked Stint Calidris ruficollis PM
+    Three records: May 1981, north of Malindi; July 1987, Lake Magadi; and August 1989, Mida Creek
+c Little Stint Calidris minuta PM
+c Temminck’s Stint Calidris temminckii PM
+c Long-toed Stint Calidris subminuta PM
+c Pectoral Sandpiper Calidris melanotos VP, VN
+    One collected May 1952, Lake Naivasha and one seen, September 1981, Mombasa
+c Curlew Sandpiper Calidris ferruginea PM
+c Dunlin Calidris alpina PM
+c Broad-billed Sandpiper Limicola falcinellus PM
+c Buff-breasted Sandpiper Tryngites subruficollis VN; Near Threatened
+    One seen at Kerio Bay, Lake Turkana on 8 December 1973. The genus name was incorrectly spelled in the
+    1996 list
+c Ruff Philomachus pugnax PM
+c Red-necked Phalarope Phalaropus lobatus PM
+c Grey Phalarope Phalaropus fulicarius PM
+    The sole confirmed record is of one on 1 September 1979, Nairobi National Park (OS-c 1981)
+
+Glareolidae: Egyptian Plover, coursers and pratincoles
+c Egyptian Plover Pluvianus aegyptius
+    Two records, August 1971 and August 2003, near Todenyang, Lake Turkana. It was called the Egyptian-
+    plover in the 1996 list
+c Cream-coloured Courser Cursorius cursor VP
+    The sole record is of several birds seen, January–February 1987, on the east side of Lake Turkana
+c Somali Courser Cursorius somalensis
+c Temminck’s Courser Cursorius temminckii
+c Double-banded Courser Rhinoptilus africanus
+    It was called the Two-banded Courser in the 1996 list
+c Heuglin’s Courser Rhinoptilus cinctus
+c Bronze-winged Courser Rhinoptilus chalcopterus AM
+    It was called the Violet-tipped Courser in the 1996 list
+c Collared Pratincole Glareola pratincola am
+    The Palaearctic nominate race winters in Africa but there is no suggestion that any reach Kenya
+c Black-winged Pratincole Glareola nordmanni PM; Near Threatened
+c Madagascar Pratincole Glareola ocularis MM; Vulnerable
+c Rock Pratincole Glareola nuchalis
+
+Laridae: gulls, terns and skimmers
+The genera and nomenclature used follow Sangster et al. (2007)
+c Sooty Gull Larus hemprichii am
+c Common Gull Larus canus VP
+    The sole record is of an adult, probably of the race heinei, seen and photographed, 1 December 2005, Sabaki
+    River Mouth. It was called the Mew Gull by Gill & Wright (2006) and Sangster et al. (2007)
+c Kelp Gull Larus dominicanus VS
+    The sole record is of an adult photographed, 2 January 1984, Malindi
+
+                                                            Checklist of the birds of Kenya, 4th edition — 11
+Gulls, terns and skimmers; skuas
+
+c Lesser Black-backed Gull Larus fuscus PM
+    Following Sangster et al. (2007), includes the taxa heuglini, taimyrensis and barabensis which were included
+    under Heuglin’s Gull in the 1996 list; Sangster et al. no longer recognize Heuglin’s Gull as a species
+c Pallas’s Gull Larus ichthyaetus PM
+    It was called the Great Black-headed Gull in the 1996 list and by Gill & Wright (2006)
+c Grey-headed Gull Chroicocephalus cirrocephalus
+    This and the next two species were included in Larus in the 1996 list
+c Black-headed Gull Chroicocephalus ridibundus PM
+c Slender-billed Gull Chroicocephalus genei PM
+c Gull-billed Tern Gelochelidon nilotica PM
+    It was included in Sterna in the 1996 list
+c Caspian Tern Hydroprogne caspia PM
+    It was included in Sterna in the 1996 list
+c Lesser Crested Tern Sterna bengalensis am
+c Sandwich Tern Sterna sandvicensis PM
+c Swift Tern Sterna bergii am, io
+    It was called the Greater Crested Tern in the 1996 list
+c Roseate Tern Sterna dougallii
+c Common Tern Sterna hirundo PM
+c White-cheeked Tern Sterna repressa
+c Little Tern Sternula albifrons PM
+    This and the next species were included in Sterna in the 1996 list
+c Saunders’s Tern Sternula saundersi RS
+c Bridled Tern Onychoprion anaethetus
+    It was included in Sterna in the 1996 list
+c Sooty Tern Onychoprion fuscata
+    It was included in Sterna in the 1996 list
+c Whiskered Tern Chlidonias hybrida (pm)
+    It was hybridus in the 1996 list; hybrida is correct (David & Gosselin 2002a). Palaearctic birds might occur
+c White-winged Black Tern Chlidonias leucopterus PM
+    It was called by the unhelpful name White-winged Tern in the 1996 list and by Gill & Wright (2006)
+c Black Tern Chlidonias niger VP
+    Only three confirmed records: October 1980, Dandora; February 1983, Thika; and February 1985,
+    Ferguson’s Gulf, Lake Turkana
+c Brown Noddy Anous stolidus
+c Lesser Noddy Anous tenuirostris IO
+c African Skimmer Rynchops flavirostris Near Threatened
+    It was included in a family of its own (Rynchopidae) in the 1996 list
+
+
+Stercorariidae: skuas
+c Pomarine Skua Stercorarius pomarinus PM
+c Arctic Skua Stercorarius parasiticus VP
+c Long-tailed Skua Stercorarius longicaudus VP
+    The only record is of an adult photographed on 26 August 1961, at Ferguson’s Gulf, Lake Turkana
+
+
+12 — Checklist of the birds of Kenya, 4th edition
+                                                     Sandgrouse; pigeons and doves; lovebirds and parrots
+
+Pteroclidae: sandgrouse
+c Chestnut-bellied Sandgrouse Pterocles exustus
+c Yellow-throated Sandgrouse Pterocles gutturalis
+c Black-faced Sandgrouse Pterocles decoratus
+c Lichtenstein’s Sandgrouse Pterocles lichtensteinii
+c Four-banded Sandgrouse Pterocles quadricinctus
+
+Columbidae: pigeons and doves
+c Feral Pigeon Columba livia
+c Speckled Pigeon Columba guinea
+c African Olive Pigeon Columba arquatrix
+   It was called the Olive Pigeon in the 1996 list
+c Eastern Bronze-naped Pigeon Columba delegorguei
+c Lemon Dove Aplopelia larvata
+c European Turtle Dove Streptopelia turtur VP
+c Dusky Turtle Dove Streptopelia lugens
+c African White-winged Dove Streptopelia reichenowi Near Threatened
+c African Mourning Dove Streptopelia decipiens
+c Red-eyed Dove Streptopelia semitorquata
+c Ring-necked Dove Streptopelia capicola
+c Laughing Dove Streptopelia senegalensis
+c Emerald-spotted Wood Dove Turtur chalcospilos
+c Blue-spotted Wood Dove Turtur afer
+c Tambourine Dove Turtur tympanistria
+c Namaqua Dove Oena capensis
+c Bruce’s Green Pigeon Treron waalia
+c African Green Pigeon Treron calvus
+   Following David & Gosselin (2002b), calvus is correct (it was calva in the 1996 list)
+
+
+Psittacidae: lovebirds and parrots
+c Red-headed Lovebird Agapornis pullarius
+c Yellow-collared Lovebird Agapornis personatus
+   Feral birds continue to breed around Mombasa
+c Fischer’s Lovebird Agapornis fischeri Near Threatened
+   Not included in the 1996 list; feral birds have recently been reported in Nairobi National Park
+c Hybrid Lovebird Agapornis fischeri x personatus
+   It was called Yellow-collared x Fischer’s Lovebird hybrid in the 1996 list
+c Grey Parrot Psittacus erithacus Near Threatened
+c Red-fronted Parrot Poicephalus gulielmi
+c Meyer’s Parrot Poicephalus meyeri
+   It was called the Brown Parrot in the 1996 list
+c Brown-headed Parrot Poicephalus cryptoxanthus
+c African Orange-bellied Parrot Poicephalus rufiventris
+
+                                                           Checklist of the birds of Kenya, 4th edition — 13
+Turacos; cuckoos and coucals
+
+Musophagidae: turacos
+c Great Blue Turaco Corythaeola cristata
+c Schalow’s Turaco Tauraco schalowi
+c Black-billed Turaco Tauraco schuetti
+c Fischer’s Turaco Tauraco fischeri Near Threatened
+c White-crested Turaco Tauraco leucolophus
+c Hartlaub’s Turaco Tauraco hartlaubi
+c Purple-crested Turaco Tauraco porphyreolophus
+c Ross’s Turaco Musophaga rossae
+c Bare-faced Go-away-bird Corythaixoides personatus
+c White-bellied Go-away-bird Corythaixoides leucogaster
+c Eastern Grey Plantain-eater Crinifer zonurus
+
+Cuculidae: cuckoos and coucals
+c Jacobin Cuckoo Clamator jacobinus am, pm, om
+    It was called the Black-and-white Cuckoo Oxylophus jacobinus in the 1996 list
+c Levaillant’s Cuckoo Clamator levaillantii am
+    It was included in the genus Oxylophus in the 1996 list
+c Great Spotted Cuckoo Clamator glandarius am, (pm)
+    Palaearctic migrants may occur
+c Thick-billed Cuckoo Pachycoccyx audeberti
+c Red-chested Cuckoo Cuculus solitarius am
+c Black Cuckoo Cuculus clamosus am
+c Common Cuckoo Cuculus canorus PM
+    It was called the Eurasian Cuckoo in the 1996 list
+c African Cuckoo Cuculus gularis AM
+c Lesser Cuckoo Cuculus poliocephalus PM, OM
+    It was called the Asian Lesser Cuckoo in the 1996 list; the present name follows Gill & Wright (2006)
+c Madagascar Cuckoo Cuculus rochii MM
+    It was called the Madagascar Lesser Cuckoo in the 1996 list; the present name follows Gill & Wright (2006)
+c Barred Long-tailed Cuckoo Cercococcyx montanus
+c Klaas’s Cuckoo Chrysococcyx klaas
+c African Emerald Cuckoo Chrysococcyx cupreus
+c Diederik Cuckoo Chrysococcyx caprius am
+c Yellowbill Ceuthmochares aereus am
+c Black Coucal Centropus grillii
+c Blue-headed Coucal Centropus monachus
+c Senegal Coucal Centropus senegalensis
+c White-browed Coucal Centropus superciliosus
+
+
+
+
+14 — Checklist of the birds of Kenya, 4th edition
+                                                                            Barn owls; typical owls; nightjars
+
+Tytonidae: barn owls
+c Grass Owl Tyto capensis
+   It was called the African Grass Owl in the 1996 list
+c Barn Owl Tyto alba
+
+Strigidae: typical owls
+c Sokoke Scops Owl Otus ireneae Endangered
+c African Scops Owl Otus senegalensis
+c Eurasian Scops Owl Otus scops PM
+c Northern White-faced Scops Owl Ptilopsis leucotis
+   The 1996 list included this and the next species in Otus leucotis
+c Southern White-faced Scops Owl Ptilopsis granti
+   See note above
+c Cape Eagle Owl Bubo capensis
+c Spotted Eagle Owl Bubo africanus
+c Greyish Eagle Owl Bubo cinerascens
+   It was included as a race of Bubo africanus in the 1996 list
+c Verreaux’s Eagle Owl Bubo lacteus
+c Pel’s Fishing Owl Scotopelia peli
+c African Wood Owl Strix woodfordii
+c Pearl-spotted Owlet Glaucidium perlatum
+c Red-chested Owlet Glaucidium tephronotum
+c African Barred Owlet Glaucidium capense
+c Abyssinian Owl Asio abyssinicus
+   The sole confirmed record is of one collected on 10 September 1961 at 3350 m, on Mt Kenya. It was called
+   the African Long-eared Owl in the 1996 list
+c Short-eared Owl Asio flammeus VP
+c Marsh Owl Asio capensis
+
+Caprimulgidae: nightjars
+c Eurasian Nightjar Caprimulgus europaeus PM
+c Dusky Nightjar Caprimulgus fraenatus
+c Nubian Nightjar Caprimulgus nubicus AM
+c Donaldson Smith’s Nightjar Caprimulgus donaldsoni
+   The American zoologist and collector Dr Arthur Donaldson Smith (1864–1939) had no hyphen in his name
+c Fiery-necked Nightjar Caprimulgus pectoralis
+   The taxonomy of this and the next species is complex and controversial. The race C. p. nigriscapularis is called
+   the Black-shouldered Nightjar and is considered a separate species by some
+c Montane Nightjar Caprimulgus poliocephalus
+c Swamp Nightjar Caprimulgus natalensis
+   It was called the African White-tailed Nightjar in the 1996 list
+c Plain Nightjar Caprimulgus inornatus AM, (pm)
+c Star-spotted Nightjar Caprimulgus stellatus
+c Freckled Nightjar Caprimulgus tristigma
+
+                                                           Checklist of the birds of Kenya, 4th edition — 15
+Nightjars; swifts; mousebirds; trogons; rollers
+
+c Long-tailed Nightjar Caprimulgus climacurus am
+c Slender-tailed Nightjar Caprimulgus clarus
+c Gabon Nightjar Caprimulgus fossii am
+    It was called the Square-tailed Nightjar or Mozambique Nightjar by some authors
+c Standard-winged Nightjar Macrodipteryx longipennis AM
+c Pennant-winged Nightjar Macrodipteryx vexillarius AM
+
+Apodidae: swifts
+c Scarce Swift Schoutedenapus myoptilus
+c Böhm’s Spinetail Neafrapus boehmi
+c Mottled Spinetail Telacanthura ussheri — was Telecanthura in the original edition
+c Sabine’s Spinetail Rhaphidura sabini Ex
+c African Palm Swift Cypsiurus parvus
+c Alpine Swift Tachymarptis melba
+    This and the next species were included in Apus in the 1996 list. There is no evidence that Palaearctic birds
+    reach Kenya
+c Mottled Swift Tachymarptis aequatorialis
+c Common Swift Apus apus PM
+    It was called the Eurasian Swift in the 1996 list
+c Nyanza Swift Apus niansae
+c African Black Swift Apus barbatus
+c Forbes-Watson’s Swift Apus berliozi AM
+c Little Swift Apus affinis
+c Horus Swift Apus horus am
+c White-rumped Swift Apus caffer
+
+Coliidae: mousebirds
+c Speckled Mousebird Colius striatus
+    Colius striatus kikuyuensis E
+c White-headed Mousebird Colius leucocephalus
+    Colius leucocephalus turneri E
+c Blue-naped Mousebird Urocolius macrourus
+
+Trogonidae: trogons
+c Narina Trogon Apaloderma narina
+c Bar-tailed Trogon Apaloderma vittatum
+
+Coraciidae: rollers
+c Rufous-crowned Roller Coracias naevius am
+    The specific epithets changed to -us (from -a) endings following David & Gosselin (2002b) for this and the
+    next two species
+c Lilac-breasted Roller Coracias caudatus am
+c Abyssinian Roller Coracias abyssinicus
+
+
+16 — Checklist of the birds of Kenya, 4th edition
+                                                   Rollers; kingfishers; bee-eaters; Hoopoe; wood-hoopoes
+
+c Eurasian Roller Coracias garrulus PM; Near Threatened
+c Broad-billed Roller Eurystomus glaucurus am, mm
+
+Alcedinidae: kingfishers
+c Grey-headed Kingfisher Halcyon leucocephala am
+c Brown-hooded Kingfisher Halcyon albiventris
+c Striped Kingfisher Halcyon chelicuti
+c Blue-breasted Kingfisher Halcyon malimbica
+   The only records are of 2–3 birds, 29 November 1993 – mid July 1996, Busia District, western Kenya
+c Woodland Kingfisher Halcyon senegalensis am
+c Mangrove Kingfisher Halcyon senegaloides
+c African Pygmy Kingfisher Ceyx pictus am
+   It was called Ispidina picta in the 1996 list
+c Malachite Kingfisher Alcedo cristata
+c Shining-blue Kingfisher Alcedo quadribrachys
+c Semi-collared Kingfisher Alcedo semitorquata
+   It was called the Half-collared Kingfisher in the 1996 list
+c Giant Kingfisher Megaceryle maxima
+c Pied Kingfisher Ceryle rudis
+
+Meropidae: bee-eaters
+c Blue-headed Bee-eater Merops muelleri
+c Swallow-tailed Bee-eater Merops hirundineus
+   The sole record is of one seen, 21 May 2000, Arabuko-Sokoke Forest
+c Little Bee-eater Merops pusillus
+c Blue-breasted Bee-eater Merops variegatus
+c Cinnamon-chested Bee-eater Merops oreobates
+c White-fronted Bee-eater Merops bullockoides
+c Somali Bee-eater Merops revoilii
+c White-throated Bee-eater Merops albicollis AM
+c Blue-cheeked Bee-eater Merops persicus PM
+c Madagascar Bee-eater Merops superciliosus am, mm
+c Eurasian Bee-eater Merops apiaster PM
+c Northern Carmine Bee-eater Merops nubicus AM
+c Southern Carmine Bee-eater Merops nubicoides AM
+   Included in Merops nubicus in the 1996 list and by Dickinson (2003); Gill & Wright (2006) adopt the split
+
+Upupidae: Hoopoe
+c Hoopoe Upupa epops am, pm
+   Includes the African Hoopoe, comprising the races africana, waibeli and senegalensis; the nominate race is a
+   Palaearctic migrant
+
+Phoeniculidae: wood-hoopoes
+c Forest Wood-hoopoe Phoeniculus castaneiceps Ex
+   Last recorded pre-1915; see Zimmerman et al. (1996) for an explanation
+
+                                                           Checklist of the birds of Kenya, 4th edition — 17
+Wood-hoopoes; hornbills; ground hornbills; barbets and tinkerbirds
+
+c White-headed Wood-hoopoe Phoeniculus bollei
+c Green Wood-hoopoe Phoeniculus purpureus
+c Black-billed Wood-hoopoe Phoeniculus somaliensis
+c Violet Wood-hoopoe Phoeniculus damarensis
+c Common Scimitarbill Rhinopomastus cyanomelas
+c Abyssinian Scimitarbill Rhinopomastus minor
+
+Bucerotidae: hornbills
+c Crowned Hornbill Tockus alboterminatus
+c Hemprich’s Hornbill Tockus hemprichii
+c African Grey Hornbill Tockus nasutus
+c Red-billed Hornbill Tockus erythrorhynchus
+c Eastern Yellow-billed Hornbill Tockus flavirostris
+c Von der Decken’s Hornbill Tockus deckeni
+c Jackson’s Hornbill Tockus jacksoni
+    Considered a race (jacksoni) of Von der Decken’s Hornbill by several authors
+c Trumpeter Hornbill Bycanistes bucinator
+c Black-and-white Casqued Hornbill Bycanistes subcylindricus
+    It was called the Black-and-white-casqued Hornbill in the 1996 list
+c Silvery-cheeked Hornbill Bycanistes brevis am
+
+Bucorvidae: ground hornbills
+This family was included in the Bucerotidae in the 1996 list
+c Abyssinian Ground Hornbill Bucorvus abyssinicus
+c Southern Ground Hornbill Bucorvus leadbeateri
+
+Capitonidae: barbets and tinkerbirds
+c Grey-throated Barbet Gymnobucco bonapartei
+c White-eared Barbet Stactolaema leucotis
+c Green Barbet Stactolaema olivacea
+c Speckled Tinkerbird Pogoniulus scolopaceus Ex
+    Last recorded pre- 1939; see Zimmerman et al. (1996) for an explanation
+c Green Tinkerbird Pogoniulus simplex
+    It was called the Eastern Green Tinkerbird in the 1996 list
+c Moustached Tinkerbird Pogoniulus leucomystax
+    It was called the Moustached Green Tinkerbird in the 1996 list
+c Yellow-rumped Tinkerbird Pogoniulus bilineatus
+c Red-fronted Tinkerbird Pogoniulus pusillus
+c Yellow-fronted Tinkerbird Pogoniulus chrysoconus
+c Yellow-spotted Barbet Buccanodon duchaillui
+c Hairy-breasted Barbet Tricholaema hirsuta
+c Red-fronted Barbet Tricholaema diademata
+c Spot-flanked Barbet Tricholaema lacrymosa
+
+18 — Checklist of the birds of Kenya, 4th edition
+                                      Barbets and tinkerbirds; honeyguides; wrynecks and woodpeckers
+
+c Black-throated Barbet Tricholaema melanocephala
+c White-headed Barbet Lybius leucocephalus
+   Lybius leucocephalus senex E
+c Black-billed Barbet Lybius guifsobalito
+c Black-collared Barbet Lybius torquatus
+c Brown-breasted Barbet Lybius melanopterus
+c Double-toothed Barbet Lybius bidentatus
+c Yellow-billed Barbet Trachylaemus purpuratus
+c Red-and-yellow Barbet Trachyphonus erythrocephalus
+c D’Arnaud’s Barbet Trachyphonus darnaudii
+   Formerly, some authors considered the race usambiro to be a separate species, the Usambiro Barbet
+
+Indicatoridae: honeyguides
+c Cassin’s Honeybird Prodotiscus insignis
+c Green-backed Honeybird Prodotiscus zambesiae
+   It was called the Eastern Honeybird in the 1996 list
+c Wahlberg’s Honeybird Prodotiscus regulus
+c Pallid Honeyguide Indicator meliphilus
+c Least Honeyguide Indicator exilis
+c Lesser Honeyguide Indicator minor
+   Includes the Thick-billed Honeyguide Indicator minor conirostris which was treated as a separate species in the
+   1996 list
+c Scaly-throated Honeyguide Indicator variegatus
+c Greater Honeyguide Indicator indicator
+
+Picidae: wrynecks and woodpeckers
+c Eurasian Wryneck Jynx torquilla PM
+c Red-throated Wryneck Jynx ruficollis
+c Nubian Woodpecker Campethera nubica
+c Golden-tailed Woodpecker Campethera abingoni
+c Mombasa Woodpecker Campethera mombassica
+c Green-backed Woodpecker Campethera cailliautii
+c Bennett’s Woodpecker Campethera bennettii Ex
+   The sole record is of an adult male (specimen), 20 July 1918, from near Mombasa
+c Fine-banded Woodpecker Campethera tullbergi
+   Campethera tullbergi hausburgi E
+c Buff-spotted Woodpecker Campethera nivosa
+c Brown-eared Woodpecker Campethera caroli
+c Speckle-breasted Woodpecker Dendropicos poecilolaemus
+c Cardinal Woodpecker Dendropicos fuscescens
+c Bearded Woodpecker Dendropicos namaquus
+c Yellow-crested Woodpecker Dendropicos xantholophus
+c African Grey Woodpecker Dendropicos goertae
+   Called the Grey Woodpecker in the 1996 list. The race rhodeogaster is considered a separate species by some
+c Brown-backed Woodpecker Picoides obsoletus
+                                                          Checklist of the birds of Kenya, 4th edition — 19
+Broadbills; pittas; batises and relatives; helmetshrikes, bushshrikes, tchagras and puffbacks
+
+Eurylaimidae: broadbills
+c African Broadbill Smithornis capensis
+
+Pittidae: pittas
+c African Pitta Pitta angolensis AM
+
+Platysteiridae: batises, wattle-eyes and relatives
+c Shrike Flycatcher Megabyas flammulatus
+    It was included in Bias and called the African Shrike-Flycatcher in the 1996 list
+c Black-and-white Flycatcher Bias musicus
+c Chestnut Wattle-eye Dyaphorophyia castanea
+c Jameson’s Wattle-eye Dyaphorophyia jamesoni
+c Yellow-bellied Wattle-eye Dyaphorophyia concreta
+c Forest Batis Batis mixta
+    Batis mixta ultima E
+c Chin-spot Batis Batis molitor
+c Grey-headed Batis Batis orientalis
+    The sole record is of two specimens taken on 24 October 1910, at Moyale
+c Pale Batis Batis soror
+c Black-headed Batis Batis minor
+c Pygmy Batis Batis perkeo
+c Brown-throated Wattle-eye Platysteira cyanea
+    It was called the Common Wattle-eye in the 1996 list
+c Black-throated Wattle-eye Platysteira peltata
+
+Malaconotidae: helmetshrikes, bushshrikes, tchagras and puffbacks
+The first four species were included in the family Prionopidae (and called helmet-shrikes) in the 1996 list
+c White-crested Helmetshrike Prionops plumatus am
+c Grey-crested Helmetshrike Prionops poliolophus Near Threatened
+c Retz’s Helmetshrike Prionops retzii
+c Chestnut-fronted Helmetshrike Prionops scopifrons
+    Prionops scopifrons keniensis E
+The following seven species had Bush-Shrike in their English names in the 1996 list
+c Grey-headed Bushshrike Malaconotus blanchoti
+c Black-fronted Bushshrike Chlorophoneus nigrifrons
+    This and the next four species were included in Malaconotus in the 1996 list
+c Bocage’s Bushshrike Chlorophoneus bocagei
+c Sulphur-breasted Bushshrike Chlorophoneus sulfureopectus
+c Gorgeous Bushshrike Chlorophoneus viridis
+    This was called the Four-coloured Bush-Shrike Malaconotus quadricolor in the 1996 list but with the shift to
+    Chlorophoneus, the specific epithet viridis has precedence
+c Doherty’s Bushshrike Chlorophoneus dohertyi
+c Rosy-patched Bushshrike Rhodophoneus cruentus
+
+
+20 — Checklist of the birds of Kenya, 4th edition
+                           Helmetshrikes, bushshrikes, tchagras and puffbacks; cuckooshrikes; shrikes
+
+c Marsh Tchagra Tchagra minutus
+     It was called Bocagia minuta by some authors
+c Brown-crowned Tchagra Tchagra australis
+c Three-streaked Tchagra Tchagra jamesi
+    Tchagra jamesi mandanus E
+c Black-crowned Tchagra Tchagra senegalus
+    The specific epithet’s gender change (from -a) follows David & Gosselin (2002b)
+c Pink-footed Puffback Dryoscopus angolensis
+c Black-backed Puffback Dryoscopus cubla
+c Pringle’s Puffback Dryoscopus pringlii
+c Northern Puffback Dryoscopus gambensis
+c Sooty Boubou Laniarius leucorhynchus Ex
+    The sole record is of one collected in April 1931, in the Kaimosi Forest, western Kenya
+c Slate-coloured Boubou Laniarius funebris
+c Lühder’s Bushshrike Laniarius luehderi
+    This and the next species had Bush-Shrike in their English names in the 1996 list
+c Red-naped Bushshrike Laniarius ruficeps
+c Tropical Boubou Laniarius aethiopicus
+c Papyrus Gonolek Laniarius mufumbiri Near Threatened
+c Black-headed Gonolek Laniarius erythrogaster
+c Brubru Nilaus afer
+
+Campephagidae: cuckooshrikes
+These were called cuckoo-shrikes in the 1996 list
+c Grey Cuckooshrike Coracina caesia
+c White-breasted Cuckooshrike Coracina pectoralis
+    The only records in the last fifty years are of two pairs, September–October 1993, at 1800 m, northeast Mt
+    Elgon, alongside the Uganda border
+c Black Cuckooshrike Campephaga flava am
+c Red-shouldered Cuckooshrike Campephaga phoenicea
+c Petit’s Cuckooshrike Campephaga petiti
+c Purple-throated Cuckooshrike Campephaga quiscalina
+
+Laniidae: shrikes
+c Yellow-billed Shrike Corvinella corvina
+c Magpie Shrike Urolestes melanoleucus
+c Northern White-crowned Shrike Eurocephalus rueppelli
+    It was included in the helmetshrikes (Prionopidae) in the 1996 list
+c Red-backed Shrike Lanius collurio PM
+c Isabelline Shrike Lanius isabellinus PM
+    It was called the Red-tailed Shrike in the 1996 list
+c Mackinnon’s Shrike Lanius mackinnoni
+    It was called Mackinnon’s Fiscal in the 1996 list
+c Lesser Grey Shrike Lanius minor PM
+
+                                                           Checklist of the birds of Kenya, 4th edition — 21
+Shrikes; orioles; drongos; monarch flycatchers; crows and allies
+
+c Southern Grey Shrike Lanius meridionalis PM
+    The only record is of one seen on 17 February 1988, from near Kibish in the Ilemi Triangle (Pearson et al.
+    1989). It was called the Great Grey Shrike Lanius excubitor in the 1996 list
+c Grey-backed Fiscal Lanius excubitoroides
+c Long-tailed Fiscal Lanius cabanisi
+c Taita Fiscal Lanius dorsalis
+c Somali Fiscal Lanius somalicus
+c Common Fiscal Lanius collaris
+c Woodchat Shrike Lanius senator PM
+c Masked Shrike Lanius nubicus PM
+
+Oriolidae: orioles
+c Eurasian Golden Oriole Oriolus oriolus PM
+c African Golden Oriole Oriolus auratus AM
+c Green-headed Oriole Oriolus chlorocephalus
+c Western Oriole Oriolus brachyrhynchus
+    It was called the Western Black-headed Oriole in the 1996 list
+c Montane Oriole Oriolus percivali
+c Black-headed Oriole Oriolus larvatus
+
+Dicruridae: drongos
+c Square-tailed Drongo Dicrurus ludwigii
+c Common Drongo Dicrurus adsimilis
+c Velvet-mantled Drongo Dicrurus modestus
+
+Monarchidae: monarch flycatchers
+c Blue-mantled Crested Flycatcher Trochocercus cyanomelas
+c Little Yellow Flycatcher Erythrocercus holochlorus
+c Red-bellied Paradise Flycatcher Terpsiphone rufiventer Ex
+    Now only hybrid rufiventer x viridis occur
+c African Paradise Flycatcher Terpsiphone viridis am
+c African Blue Flycatcher Elminia longicauda
+c Dusky Crested Flycatcher Elminia nigromitrata
+    It was called Trochocercus nigromitratus in the 1996 list
+c White-tailed Crested Flycatcher Elminia albonotata
+    It was called Trochocercus albonotatus in the 1996 list
+
+
+Corvidae: crows and allies
+c Piapiac Ptilostomus afer
+c House Crow Corvus splendens
+c Cape Rook Corvus capensis
+    Some favour the name Cape Crow
+c Pied Crow Corvus albus
+
+
+22 — Checklist of the birds of Kenya, 4th edition
+                                Crows and allies; tits; penduline tits; saw-wings, swallows and martins
+
+c Dwarf Raven Corvus edithae
+   It was called the Brown-necked Raven Corvus (ruficollis) edithae in the 1996 list; called the Somali Crow by
+   some
+c Fan-tailed Raven Corvus rhipidurus
+c White-necked Raven Corvus albicollis
+   It was called the White-naped Raven in the 1996 list
+
+
+Paridae: tits
+c Dusky Tit Parus funereus
+c Northern Black Tit Parus leucomelas
+c White-bellied Tit Parus albiventris
+c Red-throated Tit Parus fringillinus
+c Northern Grey Tit Parus thruppi
+
+Remizidae: penduline tits
+c Mouse-coloured Penduline Tit Anthoscopus musculus
+c Grey Penduline Tit Anthoscopus caroli
+   It was called the African Penduline Tit in the 1996 list
+
+
+Hirundinidae: saw-wings, swallows and martins
+c White-headed Saw-wing Psalidoprocne albiceps
+c Black Saw-wing Psalidoprocne pristoptera
+   It was called Psalidoprocne holomelas in the 1996 list; pristoptera has priority (Sheldon & Winkler (1993)
+c Grey-rumped Swallow Pseudhirundo griseopyga am
+c Mascarene Martin Phedina borbonica MM
+   Four records only: June 1978 and June 1993, Lake Jipe; and June 1980 and August 1989 from near Malindi
+c Plain Martin Riparia paludicola am
+c Sand Martin Riparia riparia PM
+c Banded Martin Riparia cincta am
+c Barn Swallow Hirundo rustica PM
+c Angola Swallow Hirundo angolensis
+c Ethiopian Swallow Hirundo aethiopica
+c Wire-tailed Swallow Hirundo smithii
+c Blue Swallow Hirundo atrocaerulea AM; Vulnerable
+c Rock Martin Ptyonoprogne fuligula
+   It was included in Hirundo in the 1996 list
+c Common House Martin Delichon urbicum PM
+   The species epithet was urbica in the 1996 list but was changed to the neuter form following David &
+   Gosselin (2002b)
+c Lesser Striped Swallow Cecropis abyssinica
+   This and the next three species were included in Hirundo in the 1996 list
+c Rufous-chested Swallow Cecropis semirufa
+c Mosque Swallow Cecropis senegalensis
+c Red-rumped Swallow Cecropis daurica
+
+                                                              Checklist of the birds of Kenya, 4th edition — 23
+Saw-wings, swallows and martins; larks; cisticolas and allies
+
+c South African Cliff Swallow Petrochelidon spilodera VSA
+    An adult seen and photographed on 22 July 2000 at Aruba Dam, Tsavo East National Park is the sole record
+
+
+Alaudidae: larks
+c Singing Bush Lark Mirafra cantillans
+c White-tailed Lark Mirafra albicauda
+c Williams’s Lark Mirafra williamsi E; Data Deficient
+c Friedmann’s Lark Mirafra pulpa AM; Data Deficient
+c Rufous-naped Lark Mirafra africana
+    Mirafra africana harterti E
+c Red-winged Lark Mirafra hypermetra
+c Flappet Lark Mirafra rufocinnamomea
+c Fawn-coloured Lark Mirafra africanoides
+c Collared Lark Mirafra collaris
+    The only records in the last fifty years are of two specimens, 14 August 1962, near Habaswein; a few seen
+    in August 1970, near the Bura Irrigation Scheme, Tana River; and one seen on 2 November 1974, c. 50 km
+    south of Mado Gashe
+c Gillett’s Lark Mirafra gilletti
+    Several specimens, May 1901 from near Mandera and El Wak; and two seen on 6 September 2000 between
+    Mandera and Ramu have been accepted by the East African Rarities Committee (EARC)
+c Pink-breasted Lark Mirafra poecilosterna
+c Greater Short-toed Lark Calandrella brachydactyla PM
+    The sole record is of a specimen, 19 December 1964, from Diani. An earlier specimen (18 November 1899,
+    Athi River) has been re-identified as Calandrella cinerea saturatior
+c Red-capped Lark Calandrella cinerea
+    Calandrella cinerea williamsi E
+c Somali Short-toed Lark Calandrella somalica
+c Masked Lark Spizocorys personata
+    Spizocorys personata intensa E, Spizocorys personata mcchesneyi E
+c Short-tailed Lark Pseudalaemon fremantlii
+c Crested Lark Galerida cristata
+c Thekla Lark Galerida theklae
+c Chestnut-backed Sparrow Lark Eremopterix leucotis
+    This and the next two species had Sparrow-Lark in their English names in the 1996 list
+c Chestnut-headed Sparrow Lark Eremopterix signatus
+    The genus is masculine (David & Gosselin 2002b), hence the -us ending for the adjective signatus
+c Fischer’s Sparrow Lark Eremopterix leucopareia
+    Although the genus is masculine (David & Gosselin 2002b), the species epithet leucopareia, not being an
+    adjective, must retain the feminine -a ending
+
+
+Cisticolidae: cisticolas and allies
+The following 53 species were included in the Sylviidae in the 1996 list
+c Red-faced Cisticola Cisticola erythrops
+c Singing Cisticola Cisticola cantans
+c Whistling Cisticola Cisticola lateralis
+
+24 — Checklist of the birds of Kenya, 4th edition
+                                                                                             Cisticolas and allies
+
+c Trilling Cisticola Cisticola woosnami
+c Chubb’s Cisticola Cisticola chubbi
+c Hunter’s Cisticola Cisticola hunteri
+c Rock-loving Cisticola Cisticola aberrans
+   It was called the Rock Cisticola in the 1996 list
+c Rattling Cisticola Cisticola chiniana
+c Boran Cisticola Cisticola bodessa
+c Ashy Cisticola Cisticola cinereolus
+   Within the genus Cisticola, many specific epithets have been changed from the feminine -a ending to the
+   masculine -us, following David & Gosselin (2002b) who show that Cisticola is masculine; however, those still
+   retaining the -a ending in the present list are indeed correct
+c Tana River Cisticola Cisticola restrictus E; Ex; Data Deficient
+   Known only from seven variable specimens, the last one collected on 4 September 1972, from the Lower
+   Tana River. There is currently considerable doubt concerning the validity of this taxon
+c Wailing Cisticola Cisticola lais
+   It was called Lynes’s Cisticola Cisticola (lais) distinctus in the 1996 list
+c Winding Cisticola Cisticola galactotes
+c Coastal Cisticola Cisticola haematocephalus
+   This distinctive bird, originally described as a species by Cabanis (1868), was considered a race of Cisticola
+   galactotes in the 1996 list, but here, in line with Gill & Wright (2006), we give it specific status
+c Carruthers’s Cisticola Cisticola carruthersi
+c Levaillant’s Cisticola Cisticola tinniens
+   Cisticola tinniens oreophilus E
+c Stout Cisticola Cisticola robustus
+c Aberdare Cisticola Cisticola aberdare E; Endangered
+c Croaking Cisticola Cisticola natalensis
+c Red-pate Cisticola Cisticola ruficeps
+   The sole record is of two seen on 13 August 1990, near Lokichokio, northwestern Kenya
+c Tiny Cisticola Cisticola nanus
+c Siffling Cisticola Cisticola brachypterus
+   Cisticola brachypterus kericho E
+c Foxy Cisticola Cisticola troglodytes
+c Long-tailed Cisticola Cisticola angusticauda
+c Zitting Cisticola Cisticola juncidis
+c Desert Cisticola Cisticola aridulus
+c Black-backed Cisticola Cisticola eximius
+c Pectoral-patch Cisticola Cisticola brunnescens
+c Wing-snapping Cisticola Cisticola ayresii
+   Cisticola ayresii mauensis E
+c Tawny-flanked Prinia Prinia subflava
+c Pale Prinia Prinia somalica
+c River Prinia Prinia fluviatilis
+   Not in the 1996 list. The first and only record was of several birds, 8 August 2001, near Lokichokio,
+   northwestern Kenya (Finch 2005)
+
+
+
+                                                              Checklist of the birds of Kenya, 4th edition — 25
+Cisticolas and allies; bulbuls
+
+c Banded Prinia Prinia bairdii
+    Prinia bairdii melanops E
+c White-chinned Prinia Schistolais leucopogon
+    It was included in Prinia in the 1996 list; ‘Prinia’ is kept in its English name following Gill & Wright (2006)
+c Red-winged Warbler Heliolais erythropterus
+    It was Heliolais erythroptera in the 1996 list, gender change follows David & Gosselin (2002b)
+c Buff-bellied Warbler Phyllolais pulchella
+c Bar-throated Apalis Apalis thoracica
+    Apalis thoracica fuscigularis E; Critically Endangered; the Taita Apalis is regarded as a separate species by some
+c Black-collared Apalis Apalis pulchra
+c Yellow-breasted Apalis Apalis flavida
+    Apalis flavida pugnax E
+    Apalis flavida flavocincta (the Brown-tailed Apalis) is considered a separate species by some
+c Black-throated Apalis Apalis jacksoni
+c White-winged Apalis Apalis chariessa Vulnerable
+    Apalis chariessa chariessa E; Ex. Known only from the type, 13 September 1878, and another specimen,
+    August 1961, both from the lower Tana River
+c Black-headed Apalis Apalis melanocephala
+    Apalis melanocephala nigrodorsalis E
+c Chestnut-throated Apalis Apalis porphyrolaema
+c Buff-throated Apalis Apalis rufogularis
+c Karamoja Apalis Apalis karamojae Vulnerable
+    Added to the Kenya list since the 3rd edition. From 2004, a small population has been resident in the eastern
+    Masai Mara (EARC 2007)
+c Grey Apalis Apalis cinerea
+c Brown-headed Apalis Apalis alticola
+c Red-fronted Warbler Urorhipis rufifrons
+    It was called Spiloptila rufifrons in the 1996 list; Urorhipis rufifrons rufidorsalis E
+c Grey-capped Warbler Eminia lepida
+c Grey-backed Camaroptera Camaroptera brachyura
+    The grey-backed subspecies are sometimes regarded as the species C. brevicaudata, while those races with
+    green backs are restricted to C. brachyura (the Green-backed Camaroptera)
+c Olive-green Camaroptera Camaroptera chloronota
+c Grey Wren Warbler Calamonastes simplex
+c Pale Wren Warbler Calamonastes undosus
+
+Pycnonotidae: bulbuls
+c Common Bulbul Pycnonotus barbatus
+    The small race dodsoni is sometimes considered as a separate species, the White-eared Bulbul
+c Shelley’s Greenbul Andropadus masukuensis
+c Mountain Greenbul Andropadus nigriceps
+c Stripe-cheeked Greenbul Andropadus milanjensis
+c Little Greenbul Andropadus virens
+c Little Grey Greenbul Andropadus gracilis
+    No documented records since 1967
+
+26 — Checklist of the birds of Kenya, 4th edition
+                                                                                 Bulbuls; Old World warblers
+
+c Ansorge’s Greenbul Andropadus ansorgei
+   Andropadus ansorgei kavirondensis E
+c Plain Greenbul Andropadus curvirostris
+   It was called the Cameroon Sombre Greenbul in the 1996 list
+c Yellow-whiskered Greenbul Andropadus latirostris
+c Slender-billed Greenbul Andropadus gracilirostris
+   Andropadus gracilirostris percivali E
+c Zanzibar Greenbul Andropadus importunus
+   It was called the Zanzibar Sombre Greenbul in the 1996 list
+c Honeyguide Greenbul Baeopogon indicator
+c Joyful Greenbul Chlorocichla laetissima
+c Yellow-bellied Greenbul Chlorocichla flaviventris
+c Yellow-throated Leaflove Chlorocichla flavicollis
+c Terrestrial Brownbul Phyllastrephus terrestris
+c Northern Brownbul Phyllastrephus strepitans
+c Grey-olive Greenbul Phyllastrephus cerviniventris
+c Toro Olive Greenbul Phyllastrephus hypochloris
+c Fischer’s Greenbul Phyllastrephus fischeri
+c Cabanis’s Greenbul Phyllastrephus cabanisi
+c Yellow-streaked Greenbul Phyllastrephus flavostriatus Ex
+   The only records are of two specimens, 18 November 1917 from near Murang’a, and November 1938 from
+   Mt Kasigau, south of Voi
+c Tiny Greenbul Phyllastrephus debilis
+c Red-tailed Bristlebill Bleda syndactyla
+c Eastern Nicator Nicator gularis
+
+Sylviidae: Old World warblers
+c Fan-tailed Grassbird Schoenicola brevirostris
+   It was called the Broad-tailed Warbler in the 1996 list
+c Little Rush Warbler Bradypterus baboecala
+c White-winged Swamp Warbler Bradypterus carpalis
+   It was called the White-winged Warbler in the 1996 list
+c Evergreen Forest Warbler Bradypterus lopezi
+c Cinnamon Bracken Warbler Bradypterus cinnamomeus
+c Black-faced Rufous Warbler Bathmocercus rufus
+c Moustached Grass Warbler Melocichla mentalis
+   It was called the African Moustached Warbler in the 1996 list
+c Common Grasshopper Warbler Locustella naevia VP
+   It was called simply Grasshopper Warbler in the 1996 list. Two records, one ringed on 19 June [sic] 1977,
+   Nguruman (Fayad & Fayad 1977) and another ringed on 8 March 2000, Marsabit (Borghesio et al. 2004)
+c River Warbler Locustella fluviatilis PM
+c Savi’s Warbler Locustella luscinioides VP
+   Two records, of single birds caught, photographed and ringed at Ngulia, 6 December 1975 and 20
+   December 1987 (Backhurst & Pearson 1976, Pearson et al. 1988)
+
+
+                                                             Checklist of the birds of Kenya, 4th edition — 27
+Old World warblers
+
+c Basra Reed Warbler Acrocephalus griseldis PM; Endangered
+c Greater Swamp Warbler Acrocephalus rufescens
+c Lesser Swamp Warbler Acrocephalus gracilirostris
+c Great Reed Warbler Acrocephalus arundinaceus PM
+c Sedge Warbler Acrocephalus schoenobaenus PM
+c African Reed Warbler Acrocephalus baeticatus am
+c Eurasian Reed Warbler Acrocephalus scirpaceus PM
+c Marsh Warbler Acrocephalus palustris PM
+c Eastern Olivaceous Warbler Hippolais pallida PM
+    The qualifier ‘Eastern’ is needed now that the hitherto included race opaca has been split off as a species, the
+    Western Olivaceous Warbler Hippolais opaca
+c Upcher’s Warbler Hippolais languida PM
+c Olive-tree Warbler Hippolais olivetorum PM
+c Icterine Warbler Hippolais icterina PM
+c Dark-capped Yellow Warbler Chloropeta natalensis
+c Mountain Yellow Warbler Chloropeta similis
+c Papyrus Yellow Warbler Chloropeta gracilirostris Vulnerable
+c Kretschmer’s Longbill Macrosphenus kretschmeri Ex
+    Last recorded on 17 September 1920 in Kitovu Forest, Taveta District
+c Yellow-bellied Hyliota Hyliota flavigaster
+c Southern Hyliota Hyliota australis
+c Green Hylia Hylia prasina
+c Yellow-throated Woodland Warbler Phylloscopus ruficapilla
+    It was Phylloscopus ruficapillus in the 1996 list; gender change follows David & Gosselin (2002a)
+c Uganda Woodland Warbler Phylloscopus budongoensis
+c Brown Woodland Warbler Phylloscopus umbrovirens
+c Willow Warbler Phylloscopus trochilus PM
+c Common Chiffchaff Phylloscopus collybita PM
+    It was called simply the Chiffchaff in the 1996 list
+c Wood Warbler Phylloscopus sibilatrix PM
+c Yellow-bellied Eremomela Eremomela icteropygialis
+c Yellow-vented Eremomela Eremomela flavicrissalis
+c Green-backed Eremomela Eremomela canescens
+    This was included within Eremomela pusilla in the 1996 list
+c Green-capped Eremomela Eremomela scotops
+c Turner’s Eremomela Eremomela turneri Endangered
+    Eremomela turneri turneri E. Considered conspecific with the Brown-capped Eremomela E. badiceps by some
+c Northern Crombec Sylvietta brachyura
+c Red-faced Crombec Sylvietta whytii
+c Somali Crombec Sylvietta isabellina
+    It was called the Somali Long-billed Crombec in the 1996 list
+c Green Crombec Sylvietta virens
+c White-browed Crombec Sylvietta leucophrys
+
+28 — Checklist of the birds of Kenya, 4th edition
+                           Old World warblers; babblers; white-eyes; creepers; starlings and oxpeckers
+
+c Blackcap Sylvia atricapilla PM
+c Garden Warbler Sylvia borin PM
+c Barred Warbler Sylvia nisoria PM
+c Common Whitethroat Sylvia communis PM
+c Brown Parisoma Parisoma lugens
+c Banded Parisoma Parisoma boehmi
+   Parisoma boehmi marsabit E
+
+Timaliidae: illadopses, babblers and chatterers
+c Scaly-breasted Illadopsis Illadopsis albipectus
+c Pale-breasted Illadopsis Illadopsis rufipennis
+c Brown Illadopsis Illadopsis fulvescens
+c Mountain Illadopsis Illadopsis pyrrhoptera
+c Grey-chested Babbler Kakamega poliothorax
+   It was called the Grey-chested Illadopsis in the 1996 list; no documented records since 1979
+c African Hill Babbler Pseudoalcippe abyssinica
+c Scaly Chatterer Turdoides aylmeri
+c Rufous Chatterer Turdoides rubiginosa
+   Species epithet was rubiginosus in the 1996 list, changed following David & Gosselin (2002b)
+c Black-lored Babbler Turdoides sharpei
+   Turdoides sharpei vepres E
+c Brown Babbler Turdoides plebejus
+c Arrow-marked Babbler Turdoides jardineii
+c Scaly Babbler Turdoides squamulata
+   Species epithet was squamulatus in the 1996 list, changed following David & Gosselin (2002b)
+c Hinde’s Babbler Turdoides hindei E; Vulnerable
+c Northern Pied Babbler Turdoides hypoleuca
+   Species epithet was hypoleucus in the 1996 list, changed following David & Gosselin (2002b)
+
+
+Zosteropidae: white-eyes
+c Abyssinian White-eye Zosterops abyssinicus
+c African Yellow White-eye Zosterops senegalensis
+   It was called the Yellow White-eye in the 1996 list
+c Montane White-eye Zosterops poliogastrus
+   It was called Z. poliogaster in the 1996 list, but Z. poliogastrus is spelling and gender correct (David &
+   Gosselin 2002a). Includes the Kulal White-eye Z. p. kulalensis E, the Kikuyu White-eye Z. p. kikuyuensis E,
+   and the Taita White-eye Z. p. silvanus E; these three taxa are sometimes regarded as separate species
+
+
+Certhiidae: creepers
+c Spotted Creeper Salpornis spilonotus
+   Now very rare in the Kapenguria area of western Kenya
+
+Sturnidae: starlings and oxpeckers
+c Rose-coloured Starling Pastor roseus VP
+   An adult seen and photographed on 17 July 2003 in the Masai Mara is the sole record
+
+                                                         Checklist of the birds of Kenya, 4th edition — 29
+Starlings and oxpeckers; thrushes;
+
+c Wattled Starling Creatophora cinerea am
+c Greater Blue-eared Starling Lamprotornis chalybaeus
+c Lesser Blue-eared Starling Lamprotornis chloropterus
+c Bronze-tailed Starling Lamprotornis chalcurus
+c Splendid Starling Lamprotornis splendidus am
+c Purple Starling Lamprotornis purpureus
+c Rüppell’s Starling Lamprotornis purpuroptera
+    It was called Rüppell’s Long-tailed Starling L. purpuropterus in the 1996 list
+c Golden-breasted Starling Lamprotornis regius
+    It was Cosmopsarus regius in the 1996 list. Lamprotornis regius magnificus E
+c Black-bellied Starling Lamprotornis corruscus
+c Superb Starling Lamprotornis superbus
+c Hildebrandt’s Starling Lamprotornis hildebrandti
+c Shelley’s Starling Lamprotornis shelleyi am
+c Fischer’s Starling Lamprotornis fischeri
+    It was Spreo fischeri in the 1996 list
+c Abbott’s Starling Cinnyricinclus femoralis Vulnerable
+c Violet-backed Starling Cinnyricinclus leucogaster AM
+c White-crowned Starling Spreo albicapillus
+    Spreo albicapillus horrensis E
+c Magpie Starling Speculipastor bicolor
+c Red-winged Starling Onychognathus morio
+c Slender-billed Starling Onychognathus tenuirostris
+c Waller’s Starling Onychognathus walleri
+c Bristle-crowned Starling Onychognathus salvadorii
+c Stuhlmann’s Starling Poeoptera stuhlmanni
+c Kenrick’s Starling Poeoptera kenricki
+    Poeoptera kenricki bensoni E
+c Sharpe’s Starling Pholia sharpii
+    It was called Cinnyricinclus sharpii in the 1996 list
+c Red-billed Oxpecker Buphagus erythrorhynchus
+c Yellow-billed Oxpecker Buphagus africanus
+
+Turdidae: thrushes
+c Red-tailed Ant Thrush Neocossyphus rufus
+c White-tailed Ant Thrush Neocossyphus poensis
+c Abyssinian Ground Thrush Zoothera piaggiae
+c Orange Ground Thrush Zoothera gurneyi
+    Zoothera gurneyi chuka E, Zoothera gurneyi raineyi E
+c Spotted Ground Thrush Zoothera guttata AM; Endangered
+c African Thrush Turdus pelios
+c African Bare-eyed Thrush Turdus tephronotus
+    It was just the Bare-eyed Thrush in the 1996 list
+
+
+30 — Checklist of the birds of Kenya, 4th edition
+                                                      Thrushes; chats, wheatears and Old World flycatchers
+
+c Olive Thrush Turdus olivaceus
+c Taita Thrush Turdus helleri E; Critically Endangered
+    It was listed as the species aggregate Turdus (olivaceus) helleri in the 1996 list. However, Bowie et al. 2005 and
+    Gill & Wright (2006) accord it full specific status
+c Brown-chested Alethe Alethe poliocephala
+    Alethe poliocephala akelyae E
+
+
+Muscicapidae: chats, wheatears and Old World flycatchers
+The following 38 species were included in the Turdidae, ‘thrushes, chats and relatives’, in the 1996 list
+c White-starred Robin Pogonocichla stellata
+    Pogonocichla stellata macarthuri E
+c Equatorial Akalat Sheppardia aequatorialis
+c East Coast Akalat Sheppardia gunningi Near Threatened
+c Grey-winged Robin Sheppardia polioptera
+c Thrush Nightingale Luscinia luscinia PM
+    It was called by the German name Sprosser in the 1996 list
+c Common Nightingale Luscinia megarhynchos PM
+    It was called simply Nightingale in the 1996 list
+c Irania Irania gutturalis PM
+    Often called the White-throated Robin in Europe but in South Africa this is the English name always used
+    for Cossypha humeralis; C. humeralis is called the White-throated Robin-Chat by Gill & Wright (2006)
+c Cape Robin Chat Cossypha caffra
+c Blue-shouldered Robin Chat Cossypha cyanocampter
+c Rüppell’s Robin Chat Cossypha semirufa
+c White-browed Robin Chat Cossypha heuglini
+c Red-capped Robin Chat Cossypha natalensis am
+c Snowy-headed Robin Chat Cossypha niveicapilla
+c Collared Palm Thrush Cichladusa arquata
+c Spotted Palm Thrush Cichladusa guttata
+    It was called the Spotted Morning Thrush in the 1996 list
+c Bearded Scrub Robin Cercotrichas quadrivirgata
+    It was called the Eastern Bearded Scrub Robin in the 1996 list
+c Brown-backed Scrub Robin Cercotrichas hartlaubi
+c White-browed Scrub Robin Cercotrichas leucophrys
+    The races vulpina, leucoptera and eluta are sometimes called the White-winged Scrub Robin
+c Rufous Bush Chat Cercotrichas galactotes PM
+c Common Redstart Phoenicurus phoenicurus PM
+c Whinchat Saxicola rubetra PM
+c Common Stonechat Saxicola torquatus
+    It was called Saxicola torquata in the 1996 list; the -us ending was changed to -a following David & Gosselin
+    (2002b); but rubetra is correct for the Whinchat
+c Capped Wheatear Oenanthe pileata
+c Heuglin’s Wheatear Oenanthe heuglini
+    It was Oenanthe (bottae) heuglini in the 1996 list
+
+
+                                                            Checklist of the birds of Kenya, 4th edition — 31
+Chats, wheatears and Old World flycatchers
+
+c Isabelline Wheatear Oenanthe isabellina PM
+c Northern Wheatear Oenanthe oenanthe PM
+c Pied Wheatear Oenanthe pleschanka PM
+c Black-eared Wheatear Oenanthe hispanica PM
+    Two records: one caught, ringed and photographed, 23 March–5 April 1984, Athi River, near Nairobi; and
+    one seen, 2 December 1994, Lake Baringo
+c Desert Wheatear Oenanthe deserti PM
+    Two seen, 17 February 1984, Kiunga (Backhurst 1985); one, 18 October 1996, Kerio Valley (EARC 1998)
+c Abyssinian Wheatear Oenanthe lugubris
+    It was called the Abyssinian Black Wheatear in the 1996 list; Schalow’s Wheatear is an alternative name for
+    Kenyan birds of the race schalowi
+c Familiar Chat Cercomela familiaris
+    It was called the Red-tailed Chat in the 1996 list
+c Brown-tailed Rock Chat Cercomela scotocerca
+c Moorland Chat Cercomela sordida
+    It was called the Alpine Chat in the 1996 list
+c Northern Anteater Chat Myrmecocichla aethiops
+c Sooty Chat Myrmecocichla nigra
+c Mocking Cliff Chat Thamnolaea cinnamomeiventris
+    It was called the White-shouldered Cliff Chat in the 1996 list
+c Common Rock Thrush Monticola saxatilis PM
+c Little Rock Thrush Monticola rufocinereus
+The following six genera were included in the (restricted) Muscicapidae, Old World flycatchers, in the 1996 list
+c White-eyed Slaty Flycatcher Melaenornis fischeri
+c Northern Black Flycatcher Melaenornis edolioides
+c Southern Black Flycatcher Melaenornis pammelaina
+c Pale Flycatcher Bradornis pallidus
+c African Grey Flycatcher Bradornis microrhynchus
+    Bradornis microrhynchus taruensis E
+c Silverbird Empidornis semipartitus
+c Spotted Flycatcher Muscicapa striata PM
+c Gambaga Flycatcher Muscicapa gambagae am
+c Ashy Flycatcher Muscicapa caerulescens
+c Swamp Flycatcher Muscicapa aquatica
+c Chapin’s Flycatcher Muscicapa lendu Vulnerable
+c African Dusky Flycatcher Muscicapa adusta
+    Muscicapa adusta marsabit E
+c Lead-coloured Flycatcher Myioparus plumbeus
+c Pied Flycatcher Ficedula hypoleuca VP
+    Not included in the 1996 list; the sole record is of a first-winter male (collected), 8 December 1965, at
+    Kakamega Forest (Pearson 1998)
+c Collared Flycatcher Ficedula albicollis VP
+    One collected on 2 October 1972 at Ng’iya, western Kenya (Britton 1980)
+c Semi-collared Flycatcher Ficedula semitorquata PM; Near Threatened
+
+32 — Checklist of the birds of Kenya, 4th edition
+                                                                                                          Sunbirds
+
+Nectariniidae: sunbirds
+We follow Irwin (1999) in recognizing seven genera of sunbirds, whereas the 1996 list used only two; the first
+eight species below were included in Anthreptes in 1996
+c Plain-backed Sunbird Anthreptes reichenowi Near Threatened
+c Western Violet-backed Sunbird Anthreptes longuemarei
+c Eastern Violet-backed Sunbird Anthreptes orientalis
+c Uluguru Violet-backed Sunbird Anthreptes neglectus
+c Grey-chinned Sunbird Anthreptes rectirostris
+    It was called the Green Sunbird in the 1996 list
+c Collared Sunbird Hedydipna collaris — Anthodiaeta (Mann & Cheke 2006)
+c Pygmy Sunbird Hedydipna platyura am
+    Only three documented records in the last fifty years: November 1976, Baringo; November 1979, Kapedo;
+    October 1990, Kerio Valley
+c Amani Sunbird Hedydipna pallidigaster Endangered
+The following 27 species were included in Nectarinia in the 1996 list; some species epithet changes from feminine
+to masculine result from this
+c Green-headed Sunbird Cyanomitra verticalis
+c Olive Sunbird Cyanomitra olivacea
+c Mouse-coloured Sunbird Cyanomitra veroxii
+c Green-throated Sunbird Chalcomitra rubescens
+c Amethyst Sunbird Chalcomitra amethystina
+c Scarlet-chested Sunbird Chalcomitra senegalensis
+c Hunter’s Sunbird Chalcomitra hunteri
+c Tacazze Sunbird Nectarinia tacazze
+c Bronze Sunbird Nectarinia kilimensis
+c Malachite Sunbird Nectarinia famosa
+c Scarlet-tufted Sunbird Nectarinia johnstoni
+    It was called the Scarlet-tufted Malachite Sunbird in the 1996 list
+c Golden-winged Sunbird Drepanorhynchus reichenowi
+    Drepanorhynchus reichenowi lathburyi E
+c Olive-bellied Sunbird Cinnyris chloropygius
+c Northern Double-collared Sunbird Cinnyris reichenowi
+    It was called Nectarinia preussi in the 1996 list, but with its inclusion in Cinnyris here, the ICZN (1999)
+    requires the species epithet reichenowi to be used
+c Eastern Double-collared Sunbird Cinnyris mediocris
+c Usambara Double-collared Sunbird Cinnyris usambaricus
+    This species is added to the Kenya list following Bowie et al. (2004)
+c Beautiful Sunbird Cinnyris pulchellus
+c Marico Sunbird Cinnyris mariquensis
+c Red-chested Sunbird Cinnyris erythrocercus
+c Black-bellied Sunbird Cinnyris nectarinioides
+c Purple-banded Sunbird Cinnyris bifasciatus
+c Tsavo Sunbird Cinnyris tsavoensis
+    It was included (as the race tsavoensis) with the Purple-banded Sunbird in the 1996 list
+
+
+                                                           Checklist of the birds of Kenya, 4th edition — 33
+Sunbirds; sparrow weavers, Old World sparrows and petronias; weavers, bishops and widowbirds
+
+c Violet-breasted Sunbird Cinnyris chalcomelas
+c Orange-tufted Sunbird Cinnyris bouvieri
+c Shining Sunbird Cinnyris habessinicus
+c Variable Sunbird Cinnyris venustus
+c Superb Sunbird Cinnyris superbus
+c Copper Sunbird Cinnyris cupreus
+
+Passeridae: sparrow weavers, Old World sparrows and petronias
+The first four species below were included in the Ploceidae in the 1996 list
+c White-browed Sparrow Weaver Plocepasser mahali
+    The name Sparrow-Weaver was used in the 1996 list for this and the next two species
+c Chestnut-crowned Sparrow Weaver Plocepasser superciliosus
+c Donaldson Smith’s Sparrow Weaver Plocepasser donaldsoni
+    The American zoologist and collector Dr Arthur Donaldson Smith (1864–1939) had no hyphen in his name
+c Rufous-tailed Weaver Histurgops ruficauda
+    While not included in the 1996 list, this hitherto Tanzanian endemic has bred in small numbers since July
+    2000 in the Masai Mara
+The next two species were included in the Ploceidae in the 1996 list
+c Grey-capped Social Weaver Pseudonigrita arnaudi
+c Black-capped Social Weaver Pseudonigrita cabanisi
+c House Sparrow Passer domesticus
+c Somali Sparrow Passer castanopterus
+c Kenya Rufous Sparrow Passer rufocinctus
+    It was called simply the Rufous Sparrow in the 1996 list and the Kenya Sparrow by Gill & Wright (2006).
+    The race shelleyi (Shelley’s Rufous Sparrow) is sometimes regarded as a separate species
+c Grey-headed Sparrow Passer griseus
+    The races gongonensis, suahelicus and swainsonii are frequently regarded as separate species with the English
+    names Parrot-billed Sparrow, Swahili Sparrow and Swainson’s Sparrow, respectively (see, for instance Fry &
+    Keith (Eds) 2004, Gill & Wright 2006)
+c Chestnut Sparrow Passer eminibey
+c Yellow-spotted Petronia Petronia pyrgita
+
+Ploceidae: weavers, bishops and widowbirds
+The first three species were called Buffalo-Weavers in the 1996 list
+c White-billed Buffalo Weaver Bubalornis albirostris
+c Red-billed Buffalo Weaver Bubalornis niger
+c White-headed Buffalo Weaver Dinemellia dinemelli
+c Speckle-fronted Weaver Sporopipes frontalis
+c Grosbeak Weaver Amblyospiza albifrons
+c Baglafecht Weaver Ploceus baglafecht
+    The races emini, reichenowi and stuhlmanni have often borne the English names Emin’s Weaver, Reichenow’s
+    Weaver and Stuhlmann’s Weaver, respectively
+c Slender-billed Weaver Ploceus pelzelni
+
+
+
+34 — Checklist of the birds of Kenya, 4th edition
+                                                                          Weavers, bishops and widowbirds
+
+c Little Weaver Ploceus luteolus
+c Spectacled Weaver Ploceus ocularis
+c Black-necked Weaver Ploceus nigricollis
+c Black-billed Weaver Ploceus melanogaster
+c Eastern Golden Weaver Ploceus subaureus
+   It was called the African Golden Weaver in the 1996 list
+c Holub’s Golden Weaver Ploceus xanthops
+c Orange Weaver Ploceus aurantius
+   No documented records since December 1984
+c Heuglin’s Masked Weaver Ploceus heuglini
+c Golden Palm Weaver Ploceus bojeri
+c Taveta Golden Weaver Ploceus castaneiceps
+c Northern Brown-throated Weaver Ploceus castanops
+c Northern Masked Weaver Ploceus taeniopterus
+   The first record was of one collected in January 1959 at Ileret, near the northeastern shore of Lake Turkana
+   but since the 1970s it has become well established at Lake Baringo (Zimmerman et al. 1996)
+c Lesser Masked Weaver Ploceus intermedius
+c Vitelline Masked Weaver Ploceus vitellinus
+   It was included in Ploceus velatus in the 1996 list
+c Speke’s Weaver Ploceus spekei
+c Village Weaver Ploceus cucullatus
+   It was called the Black-headed Weaver in the 1996 list
+c Vieillot’s Black Weaver Ploceus nigerrimus
+c Clarke’s Weaver Ploceus golandi E; Endangered
+c Juba Weaver Ploceus dichrocephalus
+c Yellow-backed Weaver Ploceus melanocephalus
+   Gill & Wright (2006) rather confusingly call this species the Black-headed Weaver (a direct translation of the
+   specific epithet) but this is the name quite often used for Ploceus cucullatus, here called the Village Weaver
+c Golden-backed Weaver Ploceus jacksoni
+   It was called Jackson’s Golden-backed Weaver in the 1996 list
+c Chestnut Weaver Ploceus rubiginosus am
+c Yellow-mantled Weaver Ploceus tricolor Ex
+   Last recorded in July 1972 in Kakamega Forest
+c Compact Weaver Ploceus superciliosus
+c Dark-backed Weaver Ploceus bicolor
+c Brown-capped Weaver Ploceus insignis
+c Red-headed Malimbe Malimbus rubricollis
+c Red-headed Weaver Anaplectes melanotis
+   It was called Anaplectes rubriceps in the 1996 list — rubriceps now correct, Oschadleus 2009
+c Cardinal Quelea Quelea cardinalis
+c Red-headed Quelea Quelea erythrops am
+   Few documented records in the last fifteen years
+c Red-billed Quelea Quelea quelea am
+c Yellow-crowned Bishop Euplectes afer
+
+                                                            Checklist of the birds of Kenya, 4th edition — 35
+Weavers, bishops and widowbirds; waxbills
+
+c Fire-fronted Bishop Euplectes diadematus
+c Black Bishop Euplectes gierowii
+c Zanzibar Red Bishop Euplectes nigroventris
+c Black-winged Red Bishop Euplectes hordeaceus
+c Southern Red Bishop Euplectes orix
+c Northern Red Bishop Euplectes franciscanus
+c Yellow Bishop Euplectes capensis
+c Fan-tailed Widowbird Euplectes axillaris
+c Yellow-mantled Widowbird Euplectes macroura
+    The race macrocerca is sometimes given the English name the Yellow-shouldered Widowbird
+c Marsh Widowbird Euplectes hartlaubi
+    It was called Hartlaub’s Marsh Widowbird in the 1996 list
+c White-winged Widowbird Euplectes albonotatus
+c Red-collared Widowbird Euplectes ardens
+c Long-tailed Widowbird Euplectes progne
+    Euplectes progne delamerei E
+c Jackson’s Widowbird Euplectes jacksoni Near Threatened
+
+Estrildidae: waxbills
+c White-breasted Negrofinch Nigrita fusconotus
+    This and the next species take the masculine -us ending following David & Gosselin (2002b)
+c Grey-headed Negrofinch Nigrita canicapillus
+c Yellow-bellied Waxbill Coccopygia quartinia
+    It was included in Estrilda in the 1996 list
+c Green-backed Twinspot Mandingoa nitidula
+c Abyssinian Crimsonwing Cryptospiza salvadorii
+c Fawn-breasted Waxbill Estrilda paludicola
+c Crimson-rumped Waxbill Estrilda rhodopyga
+c Black-rumped Waxbill Estrilda troglodytes
+c Common Waxbill Estrilda astrild
+c Black-crowned Waxbill Estrilda nonnula
+c Kandt’s Waxbill Estrilda kandti
+    Listed as the Black-headed Waxbill Estrilda atricapilla in the 1996 list (but see Fry & Keith (Eds) 2004)
+c Black-faced Waxbill Estrilda erythronotus
+c Black-cheeked Waxbill Estrilda charmosyna
+c Red-headed Bluebill Spermophaga ruficapilla
+c Black-bellied Seed-cracker Pyrenestes ostrinus
+c Red-cheeked Cordon-bleu Uraeginthus bengalus
+    Uraeginthus bengalus brunneigularis E
+c Blue-capped Cordon-bleu Uraeginthus cyanocephalus
+c Purple Grenadier Granatina ianthinogaster
+    It was included in Uraeginthus in the 1996 list
+c Peters’s Twinspot Hypargos niveoguttatus
+
+36 — Checklist of the birds of Kenya, 4th edition
+                 Waxbills; Parasitic Weaver, indigobirds and whydahs; wagtails, longclaws and pipits
+
+c Brown Twinspot Clytospiza monteiri
+c Orange-winged Pytilia Pytilia afra
+c Green-winged Pytilia Pytilia melba
+c Black-bellied Firefinch Lagonosticta rara
+c Bar-breasted Firefinch Lagonosticta rufopicta
+c Red-billed Firefinch Lagonosticta senegala
+c African Firefinch Lagonosticta rubricata
+c Jameson’s Firefinch Lagonosticta rhodopareia
+c Cut-throat Finch Amadina fasciata
+c African Quailfinch Ortygospiza fuscocrissa
+    The English name was the Quail-Finch in the 1996 list and its scientific name was O. atricollis
+c Orange-breasted Waxbill Amandava subflava
+    It was called the Zebra Waxbill in the 1996 list
+c Locust Finch Paludipasser locustella
+    It was included in Ortygospiza in the 1996 list
+c Grey-headed Silverbill Odontospiza griseicapilla
+    This and the next four species were included in Lonchura in the 1996 list
+c Bronze Mannikin Spermestes cucullatus
+c Black-and-white Mannikin Spermestes bicolor
+    The race nigriceps, the Rufous-backed Mannikin, has often been regarded as a separate species in the past
+c Magpie Mannikin Spermestes fringilloides
+c African Silverbill Euodice cantans
+
+Viduidae: Parasitic Weaver, indigobirds and whydahs
+This family was treated as a subfamily, Viduinae, within the Estrildidae in the 1996 list
+c Parasitic Weaver Anomalospiza imberbis
+    It was included in the Ploceidae in the 1996 list
+c Pin-tailed Whydah Vidua macroura
+c Broad-tailed Paradise Whydah Vidua obtusa
+    The last documented record was of a male collected at Chuka in February 1947
+c Eastern Paradise Whydah Vidua paradisaea
+    It was called simply the Paradise Whydah in the 1996 list
+c Steel-blue Whydah Vidua hypocherina
+c Straw-tailed Whydah Vidua fischeri
+c Village Indigobird Vidua chalybeata
+c Dusky Indigobird Vidua funerea
+    Tape recorded and collected in the early 1990s in the Kerio Valley alongside the other two Kenya indigobird
+    species (Payne et al. 1992). It was called the Variable Indigobird in the 1996 list
+c Purple Indigobird Vidua purpurascens
+
+Motacillidae: wagtails, longclaws and pipits
+c Yellow Wagtail Motacilla flava PM
+    It is called the Western Yellow Wagtail by Gill & Wright (2006) who split off the Alaskan and northeastern
+    Siberian races as the species M. tschutschensis, the Eastern Yellow Wagtail
+
+
+                                                            Checklist of the birds of Kenya, 4th edition — 37
+Wagtails, longclaws and pipits; canaries, citrils, seedeaters and relatives
+
+c Cape Wagtail Motacilla capensis
+c Grey Wagtail Motacilla cinerea PM
+c Mountain Wagtail Motacilla clara
+c White Wagtail Motacilla alba PM
+c African Pied Wagtail Motacilla aguimp
+c Golden Pipit Tmetothylacus tenellus AM
+c Sharpe’s Longclaw Macronyx sharpei E; Endangered
+c Yellow-throated Longclaw Macronyx croceus
+c Pangani Longclaw Macronyx aurantiigula
+c Rosy-breasted Longclaw Macronyx ameliae
+c Grassland Pipit Anthus cinnamomeus
+    The taxon latistriatus, described from Mumias in 1899, and not recorded in Kenya since, is sometimes
+    considered a race of A. cinnamomeus, and sometimes (e.g., by Clancey 1990) as a full species, A. latistriatus,
+    Jackson’s Pipit
+c Tawny Pipit Anthus campestris PM
+c Long-billed Pipit Anthus similis
+c Plain-backed Pipit Anthus leucophrys
+c Buffy Pipit Anthus vaalensis
+    The Kenyan race goodsoni was formerly treated within Anthus leucophrys in the 1996 list
+c Tree Pipit Anthus trivialis PM
+c Red-throated Pipit Anthus cervinus PM
+c Striped Pipit Anthus lineiventris
+c Bush Pipit Anthus caffer
+c Sokoke Pipit Anthus sokokensis Endangered
+c Malindi Pipit Anthus melindae Near Threatened
+
+Fringillidae: canaries, citrils, seedeaters and relatives
+The current arrangement of genera and species within this family follows Gill & Wright (2006), itself largely
+based on that of van den Elzen (1985)
+c Yellow-crowned Canary Serinus flavivertex
+    It was included within Serinus canicollis in the 1996 list
+The following fourteen Crithagra species were assigned to Serinus in the 1996 list where four species (mozambica,
+dorsostriata, sulphurata and striolata) had the masculine ending -us
+c African Citril Crithagra citrinelloides
+    Crithagra citrinelloides kikuyuensis E
+c Southern Citril Crithagra hyposticta
+    It was included in the African Citril in the 1996 list
+c Papyrus Canary Crithagra koliensis
+c Reichenow’s Seedeater Crithagra reichenowi
+    It was called the Yellow-rumped Seedeater in the 1996 list; however, that English name has now been given
+    to the Ethiopian and Eritrean species C. xanthopygia by Gill & Wright (2006)
+c Black-throated Seedeater Crithagra atrogularis
+    The most recent documented record was of a pair seen on 26 September 1991 near Sioport, western Kenya;
+    this was the first record for over fifty years
+c Yellow-fronted Canary Crithagra mozambica
+
+38 — Checklist of the birds of Kenya, 4th edition
+                                             Canaries, citrils, seedeaters and relatives; Old World buntings
+
+c Northern Grosbeak Canary Crithagra donaldsoni
+c Southern Grosbeak Canary Crithagra buchanani
+c White-bellied Canary Crithagra dorsostriata
+c Brimstone Canary Crithagra sulphurata
+c Stripe-breasted Seedeater Crithagra reichardi
+   It was called Serinus (reichardi) striatipectus in the 1996 list
+c Streaky-headed Seedeater Crithagra gularis
+   Only known from three records: the type, 14 June 1900, southern slopes of Mt Elgon; July 1973, Suam
+   River; September 1993, south of Kapenguria. It was called Serinus (gularis) elgonensis in the 1996 list
+c Streaky Seedeater Crithagra striolata
+c Thick-billed Seedeater Crithagra burtoni
+   Crithagra burtoni albifrons E
+c Oriole Finch Linurgus olivaceus
+   It was called the Oriole-Finch in the 1996 list
+
+
+Emberizidae: Old World buntings
+c Ortolan Bunting Emberiza hortulana PM
+c House Bunting Emberiza striolata
+c Cinnamon-breasted Bunting Emberiza tahapisi
+   It was called the Cinnamon-breasted Rock Bunting in the 1996 list
+c Somali Bunting Emberiza poliopleura
+   It was called the Somali Golden-breasted Bunting in the 1996 list
+c Golden-breasted Bunting Emberiza flaviventris
+c Brown-rumped Bunting Emberiza affinis
+   No documented records since 1988
+
+
+
+
+                                                              Checklist of the birds of Kenya, 4th edition — 39
+About this list
+With 1100 species, a rich variety of habitats, and relative ease of travel and access to
+its many National Parks and reserves, Kenya is one of the main countries in Africa
+for bird watching. For its many visitors and for increasing numbers of local enthusi-
+asts, an updated version of the country’s bird list has become essential.
+    More than a decade has passed since the Bird Committee (or Ornithological
+Sub-committee as it was then called) last revised this list. In the meantime, avian
+systematics and taxonomy have moved on rapidly, and species and genus changes
+are constantly being suggested from increasing numbers of molecular studies. Some
+surprising results are emerging from the DNA sequencing of more and more groups
+of birds. There will never be a perfect time for a review of the list, and the present
+offering is an attempt to keep up with the more generally accepted changes, bearing
+in mind that further revision will be needed in a few years’ time.
+    The starting point for species and genera was our own 1996 list. This was reviewed
+in the light of decisions made in the later volumes of Birds of Africa (e.g., Fry &
+Keith (Eds) 2004) and those of the third edition of ‘Howard & Moore’ (Dickinson
+2003). We have adopted a number of more recently suggested amendments, but
+have tended to take a cautious approach to new species-splits and generic arrange-
+ments. We have avoided changes where questions clearly remain or where we feel
+that wider acceptance is still needed. Our judgement of species limits has continued
+to be based on the biological species concept. The current total of 1100 accepted
+species may well be fewer than in some lists used by today’s birders.
+    The order of families differs from the traditional one used for the previous list.
+It follows the ‘gamebirds-and-ducks-first’ sequence of Howard & Moore, which
+was informed by up-to-date genetic studies, and is now being used increasingly.
+But even this order is bound to be modified as a result of the recent DNA work by
+Hackett et al. (2008).
+    Our approach to English names has been conservative. We have been reluctant
+to move away from well-established names, and have done so only in favour of an
+alternative which we regard as being clearly better or more appropriate, or where
+a species-split has made a new name necessary. In an attempt to standardize, the
+International Ornithological Congress has published a recommended list of world
+English bird names (Gill & Wright 2006). We have changed some of our names
+to conform with suggested ones in this list, but in other cases we have preferred
+to retain our own name; in some, but not all, cases, this has been noted. We have
+generally used as few hyphens in group names as possible.
+
+40 — Checklist of the birds of Kenya, 4th edition
+Omitted species
+The following species are not included in the checklist for the reasons given.
+Mascarene Shearwater Puffinus atrodorsalis
+   It was included in the 1996 list in square brackets, i.e., there was insufficient evidence. It is now considered a
+   race of Audubon’s Shearwater (Bretagnolle et al. 2000).
+Red-tailed Tropicbird Phaethon rubricauda
+   It was included in the 1996 list in square brackets. Although there have been unsubstantiated sightings from
+   Kenyan waters, there is no confirmed record to date.
+Eurasian Griffon Gyps fulvus
+   Although details of a January 2000 sighting from Amboseli National Park have appeared in the literature (Bul-
+   letin of the African Bird Club 8: 59), the details have not yet been submitted to the EARC. It was called the
+   Griffon Vulture by Gill & Wright (2006).
+Little Gull Hydrocoloeus minutus
+   The record of c. 60 at Lake Turkana in January 1979 (Groh 1979) has been rejected (see Zimmerman et al.
+   (1996) — where it is called Larus minutus — for more detail).
+Mediterranean Gull Larus melanocephalus
+   Lake Turkana and Lamu sightings are considered dubious, see Zimmerman et al. (1996).
+White-eyed Gull Larus leucophthalmus
+   It was included in the 1996 list in square brackets; the claimed record from Lake Turkana remains unsubstanti-
+   ated; see Zimmerman et al. (1996) for more detail.
+Arctic Tern Sterna paradisaea
+   Although details and photographs of one from the Sabaki River Mouth (6 July 2002) have appeared in the
+   literature (Bisschop 2002 and [Bisschop 2003]) this observation has not been submitted to the EARC.
+Catharacta skuas
+   There have been several coastal sightings of large brown skuas belonging to this genus, but none has been
+   substantiated (Zimmerman et al. 1996). Gill & Wright (2006) do not admit this genus.
+Pallid Swift Apus pallidus
+   The EARC’s decision on a claimed record has been put on hold pending “expert opinion”.
+Boubous Laniarius spp.
+   The Tropical Boubou Laniarius aethiopicus has recently been split by Nguembock et al. (2008) into several
+   taxa, including what they treat as three full species which occur in Kenya. It is possible that these three species
+   will find acceptance by the authors of the next edition of Dickinson (2003) due to be published in 2010. The
+   most widespread of these new taxa is the Tropical Boubou Laniarius major; in the far north of the country,
+   around Moyale, the Ethiopian Boubou L. aethiopicaus occurs, while the coastal lowlands are occupied by the
+   Dimorphic Boubou L. sublacteus. In the present list we remain conservative, retaining Laniarius aethiopicus,
+   the Tropical Boubou.
+Melodious Warbler Hippolais polyglotta
+   A bird identified as this species was caught, photographed and ringed at Ngulia, Tsavo on 19 November 1995
+   (Pearson et al. 1998). It was determined on plumage and biometric characters and, in addition, an analysis of
+   mitrochondrial DNA carried out in the laboratory of Dr Andreas Helbig confirmed its maternal identity. After
+   the death of Dr Helbig, information has come to hand that the information sent to David Pearson was incor-
+   rect (Gerhard Nikolaus in litt.). The species was not included in the 1996 list.
+Forest Robin Stiphrornis erythrothorax
+   It was included in the 1996 list in square brackets but the specimen labelled “Kipkabus, nr Eldoret 16 April
+   1966” collected by Brian Heath, is considered to have been labelled erroneously. The specimen is suspected to
+   have originated in western Uganda.
+
+
+                                                            Checklist of the birds of Kenya, 4th edition — 41
+Omitted species; References
+
+Rüppell’s Weaver Ploceus galbula
+    Inclusion in the 1996 list was based on a 1901 female specimen from the Kenya–Ethiopian border area (Ash
+    1988). However, John Miskell (pers. comm.) considers the record dubious as he believes Erlanger (1907) to
+    have been confused over the females of Rüppell’s and Juba Weavers, and further, that his specimens from
+    Southern Somalia and the Kenya–Ethiopian border may have been mis-identified.
+‘Nairobi Pipit’
+    From 1994, Brian Finch has noted pipits in Nairobi National Park which he, and others, believe to be an
+    undescribed species, the ‘Nairobi Pipit’. The bird is frequently mentioned in websites and an article on it has
+    been published (Finch 2002). However, this bird has not been scientifically described or named, nor has it
+    been submitted to the EARC.
+
+
+
+
+References
+Ash, J.S. 1988. Rüppell’s Weaver Ploceus galbula new to Kenya. Scopus 11: 94–95.
+Backhurst, G.C. 1985. Desert Wheatear Oenanthe deserti in Kenya. Scopus 9: 140–141.
+Backhurst, G.C. & Pearson, D.J. 1976. Savi’s Warbler in Tsavo, an addition to the Kenya list.
+    EANHS Bulletin 1976: 21–22.
+Bishop, R. & Bishop, A. 2001. Spotted Sandpiper Actitis macularia in Kenya: the first record in
+    sub-Saharan Africa. Bulletin of the African Bird Club 8: 48–49.
+Bisschop, J. 2002. Arctic Tern in Kenya in July 2002. Dutch Birding 24: 358–359.
+[Bisschop, J. 2003. Arctic Tern in Kenya in July 2002. Kenya Birds 10: 19. A shortened version of
+    the original paper in Dutch Birding.]
+Borghesio, L., Ndang’ang’a, K., Nalyanya, N., Kahindi, M. & Laiolo, P. 2004. Some inter-
+    esting bird observations from northern Kenya. Scopus 24: 33–39.
+Bowie, R.C.K., Fjeldså, J., Hackett, S.J. & Crowe, T.M. 2004. Systematics and bio­geography
+    of Double-collared Sunbirds from the Eastern Arc Mountains, Tanzania. Auk 121: 660–
+    681.
+Bowie, R.C.K., Voelker, G., Fjeldså, J., Lens., L., Hackett, S.J. & Crowe, T.M. 2005. Sys-
+    tematics of the Olive Thrush Turdus olivaceus species complex with reference to the taxonomic
+    status of the endangered Taita Thrush T. helleri. Journal of Avian Biology 36: 391–404.
+Bretagnolle, V., Attié, C. & Mougeot, F. 2000. Audubon’s Shearwaters Puffinus lherminieri
+    on Réunion Island, Indian Ocean: behaviour, census, distribution, biometrics and breeding
+    biology. Ibis 142: 399–412.
+Britton, P.L. (Ed.) 1980. Birds of East Africa. Nairobi: EANHS.
+Cabanis, J. 1868. [Neue ostafrikanische Vögel des Baron von der Decken]. Journal für Ornitholo-
+    gie 16: 411–415.
+Clancey, P.A. 1990. A review of the indigenous pipits of the Afrotropics. Durban Museum
+    Novitates. 15: 42–72.
+Clark, W.S. & Edelstam, C. 2001. First record of Cassin’s Hawk-Eagle [sic] Spizaetus africanus
+    for Kenya. Bulletin of the African Bird Club 8: 138–139.
+Clark, W.S. 2001. First record of European Griffon Gyps fulvus for Kenya. Bulletin of the African
+    Bird Club 8: 59–60.
+42 — Checklist of the birds of Kenya, 4th edition
+                                                                                      References
+
+David, N. & Gosselin, M. 2002a. Gender agreement of avian species names. Bulletin of the
+   British Ornithologists’ Club 122: 14–49.
+David, N. & Gosselin, M. 2002b. The grammatical gender of avian genera. Bulletin of the British
+   Ornithologists’ Club 122: 257–282.
+Dickinson, E.C. (ed.) 2003. The Howard & Moore Complete Checklist of the Birds of the World.
+   Revised & enlarged 3rd edition. London: A. & C. Black/Croom Helm.
+EARC [East African Rarities Committee] 2004. East African Rarities Committee [title].
+   Scopus 24: 53.
+EARC [East African Rarities Committee] 2005. East African Rarities Committee report.
+   Scopus 25: 69.
+EARC [East African Rarities Committee] 2007. East African Bird Rarities Committee re-
+   port. Scopus 26: 50.
+Elzen, R. van den 1985. Systematics and evolution of African canaries and seedeaters (Aves:
+   Carduelidae). Proceedings of the International Symposium on African Vertebrates, Bonn 1984.
+   pp. 435–451.
+Erlanger, C.F. 1907. Beiträge zur Vogelfauna Nordostafrikas. Journal für Ornithologie 1907:
+   1–158.
+Fayad, V.C. & Fayad, C.C. 1977. A Grasshopper Warbler Locustella naevia from Kenya. Scopus
+   1: 84–86.
+Finch, B. 2002. A ‘Nairobi Pipit’. Swara 25 (3): 18–20.
+Finch, B.W. 2005. River Prinia Prinia fluviatilis near Lokichokio: a new species for Kenya and
+   East Africa. Scopus 25: 55–60.
+Freitag, S. & Robinson, T.J. 1993. Phylogeographic patterns in mitochondrial DNA of the
+   ostrich (Struthio camelus). Auk 110: 614–622.
+Fry, C.H. & Keith, S. (Eds) 2004. The Birds of Africa Vol VII. London: Christopher Helm.
+Gill, F. & Wright, M. 2006. Birds of the World: Recommended English Names. Princeton NJ:
+   Princeton University Press.
+Groh, G. 1979. Little Gull Larus minutus at Lake Turkana: a new bird for Kenya. Scopus 3: 26.
+Hackett, S.J., Kimball, R.T., Reddy, S., Bowie, R.C.K., Braun, E.L., Braun, M.J.,
+   Chojnowski, J.L., Cox, W.A., Han, K.-L., Harshman, J., Huddleston, C.J., Marks,
+   B.D., Miglia, K.J., Moore, W.S., Sheldon, F.H., Steadman, D.W., Witt, C.C., Yuri,
+   T. 2008. Phylogenomic study of birds reveals their evolutionary history. Science 320: 1763–
+   1768.
+Harrison, P. 1983. Seabirds an identification guide. Beckenham: Croom Helm.
+International Commission on Zoological Nomenclature 1999. International code of
+   zoological nomenclature. 4th edition. London: ICZN.
+Irwin, M.P.S. 1999. The genus Nectarinia and the evolution and diversification of sunbirds: an
+   Afrotropical perspective. Honeyguide 45: 45–58.
+Jackson, C. 1997. First record of Northern Lapwing Vanellus vanellus in East Africa. Scopus 19:
+   113–114.
+
+                                                 Checklist of the birds of Kenya, 4th edition — 43
+References
+
+Jackson, C. & Valle, S. 2007. Sooty Shearwater Puffinus griseus: a new species for eastern Africa.
+   Scopus 26: 31–33.
+Oatley, T.B., Oschadleus, H.D., Navarro, R.A. & Underhill, L.G. 1998. Review of ring
+   recoveries of birds of prey in southern Africa: 1948–1998. Johannesburg: Endangered Wildlife
+   Trust.
+Ornithological Sub-committee, EANHS. 1981. East African Bird Report 1980. Scopus 4:
+   120.
+Ornithological Sub-committee, EANHS. 1996. Check-list of the birds of Kenya. 3rd edition.
+   Nairobi: OS-c, EANHS.
+Nguembok, B., Fjeldså, J., Couloux, A. & Pasquet, E. 2008. Phylogeny of Laniarius: Molec-
+   ular data reveal L. liberatus synonomous with L. erlangeri and “plumage coloration” as unreli-
+   able morphological characters for defining species and species groups. Molecular Phylogenics
+   and Evolution 48: 396–407.
+Parsons, B.T. 1969. A record of Oceanodroma leucorhoa from Kenya. Bulletin of the British
+   Ornithologists’ Club 89: 120–121.
+Payne, R.B., Payne, L.L., Nhlane, M.E.D. & Hustler, K. 1992. Species status and distribution
+   of the parasitic indigo-birds Vidua in east and southern Africa. In Proceedings 8th Pan-African
+   Ornithological Congress (Ed: R.T. Wilson). Umberleigh: Bartridge Partners.
+Pearson, D.J. 1998. Pied Flycatcher Ficedula hypoleuca at Kakamega Forest — a readmission to
+   the East African list. Scopus 20: 46–48.
+Pearson, D.J., Coverdale, M.A.C., Archer, A.L. & Forbes-Watson, A.D. 1989. Great Grey
+   Shrike Lanius excubitor in the Ilemi Triangle. Scopus 13: 134.
+Pearson, D.J., Finch, B.W. & Backhurst, D.E.G. 1988. A second Savi’s Warbler Locustella
+   luscinioides at Ngulia. Scopus 11: 94.
+Pearson, D.J., Jackson, C.H. & Backhurst, G.C. 1998. Melodious Warbler Hippolais poly-
+   glotta at Ngulia, Kenya—first record for East Africa. Scopus 20: 43–45.
+Sangster, G., Collinson, J.M., Knox, A.G., Parkin, D.T. & Svensson, L. 2007. Taxonomic
+   recommendations for British birds: Fourth report. Ibis 149: 853–857.
+Sheldon, F.H. & Winkler, D.W. 1993. Intergeneric phylogenetic relationships of swallows
+   estimated by DNA–DNA hybridization. Auk 110: 798–824.
+White, C.M.N. 1965. A revised check list of African non-passerine birds. Lusaka: Government
+   Printer.
+Zimmerman, D.A., Turner, D.A. & Pearson, D.J. 1996. Birds of Kenya and northern Tanzania.
+   Halfway House: Russel Friedman.
+
+
+
+
+44 — Checklist of the birds of Kenya, 4th edition
+Acknowledgements
+The Bird Committee thanks David Pearson and Don Turner for the initial drafting
+of the list; David Pearson for ‘About this list’; Graeme Backhurst for editing, layout
+and design. Fleur Ng’weno kept every­one connected.
+   Several other people gave valuable advice and input: Peter Usher for making a
+special trip to take the cover photo; Darcy Ogada for her meticulous proofread-
+ing; Mike Davidson for securing valuable sponsorship; Bob Dowsett for taxonomic
+advice and help with references; John Miskell and Nigel Redman for advice on
+names; Gerhard Nikolaus for investigating the ‘Melodious Warbler’ record; Amedeo
+Buonajuti for work on the map. Gordon Boy, Brian Finch, David Fisher, Marilda
+Gascoyne, Colin Jackson, Anthony Kuria, Simon Musila, Oliver Nasirwa, Cather-
+ine Ngarachu, Alfred Owino, Shailesh Patel, Itai Shanni, staff of the Ornithology
+Section of the National Museums of Kenya and the BirdLife International Africa
+secretariat helped in various ways. In additon, many others, too numerous to men-
+tion, gave encouragement and made useful comments.
+   The Bird Committee thanks the Kenya Wildlife Service for its financial help
+towards the printing costs and the Nature Kenya management and staff for their
+steadfast support.
+
+
+
+
+                                                             The East Africa Natural History Society
+
+
+
+
+Nature Kenya — the East Africa Natural History Society
+Nature Kenya is the East Africa Natural History Society (EANHS) in Kenya. It is a member-
+ship-based organization, founded in 1909. Nature Kenya invites all who are not members to
+join and be part of a strong and active society where members are encouraged to participate
+in the study of nature and help in the implementation of conservation activities.
+   Connecting nature and people to take action for biodiversity conservation is the Society’s mis-
+sion statement. Nature Kenya strives to:
+    • Build a strong network of people for conservation across the country
+    • Enhance knowledge of Kenya’s biodiversity
+    • Advocate policies favourable to biodiversity conservation
+    • Promote the conservation of key species, sites, and habitats
+    • Encourage community participation in conservation through the promotion of
+       sustainable benefits.
+
+                                                  Checklist of the birds of Kenya, 4th edition — 45
+Notes
+
+
+
+
+46 — Checklist of the birds of Kenya, 4th edition
+                                           Notes
+
+
+
+
+Checklist of the birds of Kenya, 4th edition — 47
+Index to English group names corrected 13 December
+Akalat 31           Crow 22                 Hyliota 28         Pipit 38            Sparrowhawk 7
+Albatross 2         Cuckoo 14               Ibis 3             Pitta 20            Spinetail 16
+Alethe 31           Cuckoo Hawk 6           Illadopsis 29      Plantain-eater 14   Spoonbill 3
+Ant Thrush 30       Cuckooshrike 21         Indigobird 37      Plover 9, 10        Sprosser 31
+Apalis 26           Curlew 10               Irania 31          Pochard 2           Spurfowl 1
+Avocet 9            Darter 5                                   Pratincole 11       Starling, 29, 30
+                                            Jacana 10          Prinia 25, 26
+Babbler 29          Dove 13                                                        Stilt 9
+Barbet 18           Drongo 22               Kestrel 5          Prion 2             Stint 11
+Bat Hawk 6          Duck 2                  Kingfisher 17      Puffback 21         Stone-curlew 9
+Batis 20                                    Kite 6             Pygmy Goose 2       Stonechat 31
+                    Eagle 6, 7              Knot 10            Pytilia 37
+Bee-eater 17        Egret 4                                                        Stork 3
+Bishop 35, 36       Eremomela 28            Lammergeier 6      Quailplover 9       Storm-petrel 3
+Bittern 4                                   Lapwing 9          Quailfinch 37       Sunbird 33, 34
+Blackcap 28         Falcon 5                Lark 24            Quail 1             Swallow 23, 24
+Bluebill 36         Finch 37                Leaflove 27        Quelea 35           Swamphen 8
+Booby 5             Finfoot 8               Longbill 28
+                    Firefinch 37                               Rail 8              Swift 16
+Boubou 21                                   Longclaw 38        Raven 23
+                    Fiscal 21                                                      Tchagra 21
+Bristlebill 27                              Lovebird 13        Redshank 10
+                    Flamingo 3                                                     Teal 2
+Broadbill 20                                Malimbe 35         Redstart 31
+                    Flufftail 8                                                    Tern 12
+Brownbul 27                                 Mallard 2          Robin 31
+Brubru 21           Flycatcher 20, 22, 32                                          Thick-knee 9
+                                            Mannikin 37        Robin Chat 31
+Buffalo Weaver 34   Francolin 1, 2                                                 Thrush 30, 31
+                                            Martin 23          Rock Chat 32
+Bulbul 26           Frigatebird 4                                                  Tinkerbird 18, 19
+                                            Moorhen 8          Rock Thrush 32
+Bunting 39          Gadwall 2                                                      Tit 23
+                                            Mousebird 16       Roller 16, 17
+Bush Chat 31        Gallinule 8                                Rook 22             Trogon 16
+                    Garganey 2              Negrofinch 36                          Tropicbird 4
+Bushshrike 20, 21                                              Ruff 11
+                    Go-away-bird 14         Nicator 27                             Turaco 14
+Bustard 7, 8                                                   Sanderling 10
+                    Godwit 10               Night Heron 4                          Turnstone 10
+Buttonquail 9                                                  Sandgrouse 13
+                    Gonolek 21              Nightingale 31                         Twinspot 36
+Buzzard 7                                                      Sandpiper 10, 11
+                    Goose 2                 Nightjar 15, 16
+Camaroptera 26                                                 Saw-wing 23         Vulture 6
+                    Goshawk 6               Noddy 12
+Canary 38                                                      Scimitarbill 18     Wagtail 37, 38
+Chat 32             Grassbird 27            Oriole 22
+                                                               Scrub Robin 31      Warbler 26, 27, 28, 29
+Chatterer 29        Grebe 3                 Osprey 6
+                                                               Secretarybird 5     Wattle-eye 20
+Chiffchaff 28       Greenbul 26, 27         Ostrich 1
+                                                               Seed-cracker 36     Waxbill 36, 37
+Cisticola 24, 25    Greenshank 10           Owlet 15
+                                                               Seedeater 38        Weaver 34, 35
+Citril 38           Grenadier 36            Owl 15
+                                                               Shearwater 2, 3     Wheatear 31, 32
+Cliff Chat 32       Ground Thrush 30        Oxpecker 30
+                                                               Shikra 7            Whimbrel 10
+Coot 8              Guineafowl 1            Oystercatcher 9
+                                                               Shoebill 4          Whinchat 31
+Cordon-bleu 36      Gull 11, 12             Painted-snipe 10   Shoveler 2          Whistling Duck 1
+Cormorant 5         Hamerkop 4              Palm Thrush 31     Shrike 21, 22       White-eye 29
+Corncrake 8         Harrier 6               Parisoma 29        Silverbill 37
+                                                                                   Whydah 37
+Coucal 14           Harrier Hawk 6          Parrot 13          Silverbird 32
+                                            Pelican 5                              Widowbird 36
+Courser 11          Helmetshrike 20                            Skimmer 12
+                    Heron 4                 Petrel 2, 3                            Wigeon 2
+Crab-plover 9                                                  Skua 12
+Crake 8             Hobby 5                 Petronia 34                            Wood-hoopoe 17, 18
+                                                               Snipe 10
+Crane 8             Honey Buzzard 6         Phalarope 11       Social Weaver 34    Woodpecker 19
+Creeper 29          Honeyguide 19           Piapiac 22         Sparrow 34          Wren Warbler 26
+Crimsonwing 36      Hoopoe 17               Pigeon 13          Sparrow Lark 24     Wryneck 19
+Crombec 28          Hornbill 18             Pintail 2          Sparrow Weaver 34   Yellowbill 14
+
+48 — Checklist of the birds of Kenya, 4th edition
+

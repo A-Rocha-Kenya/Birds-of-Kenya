@@ -1,0 +1,4 @@
+sort,field,before,after,reason,source_url
+775,avibaseid,avibase-E10D0809,avibase-2F9F81C9,Parent Grey-headed Sparrow includes the four printed child taxa; assign the broad griseus/swainsonii/gongonensis/suahelicus concept.,https://avibase.bsc-eoc.org/species.jsp?avibaseid=2F9F81C9&lang=EN
+775.1,avibaseid,avibase-2F9F81C9,avibase-E10D0809,"Northern Grey-headed Sparrow child uses the narrow species concept, preserving the printed ugandae name and the existing species-level ID convention.",https://avibase.bsc-eoc.org/species.jsp?avibaseid=E10D0809&lang=EN
+943,avibaseid,avibase-3F0EE474,avibase-5C17300B,"Eurasian Reed Warbler uses the scirpaceus/fuscus concept, excluding the separately listed African Reed Warbler. This is an explicit narrower interpretation; the PDF does not specify extralimital avicenniae boundaries.",https://avibase.bsc-eoc.org/species.jsp?avibaseid=5C17300B&lang=EN
