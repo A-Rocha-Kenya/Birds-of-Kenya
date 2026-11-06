@@ -29,7 +29,7 @@ const avibaseLink = id => {
 };
 
 const taxon = row => `<div class="taxon"><div class="taxon-row"><div class="taxon-names"><span class="english">${escapeHtml(row.english)}</span><span class="scientific">${escapeHtml(row.scientific)}</span><small>${escapeHtml([row.order, `${row.family_english} (${row.family})`.trim()].filter(Boolean).join(" · "))}</small></div><div class="source-links">${avibaseLink(row.id)}</div></div></div>`;
-const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map(taxon).join('') : '<p class="empty">No linked entry in this version</p>'}</div>`;
+const side = (rows, kind, note = '') => `<div class="side ${kind}">${rows.length ? rows.map(taxon).join('') : '<p class="empty">No linked entry in this version</p>'}${note}</div>`;
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
@@ -42,13 +42,13 @@ const card = group => {
     ? `<a class="badge earc-decision" href="${escapeHtml(reviewed.earc_url)}" target="_blank" rel="noopener">Accepted by EARC</a>`
     : reviewed?.earc_status === 'review' ? '<span class="badge pending-earc">EARC review</span>' : '';
   const sightings = (reviewed?.sighting_urls ?? []).map((url, i, urls) =>
-    `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">eBird sighting${urls.length > 1 ? ` ${i + 1}` : ''}</a>`).join(' ');
+    `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">eBird sighting${urls.length > 1 ? ` ${i + 1}` : ''}</a>`).join(' ');
   const older = reviewed && reviewed.status !== 'removal'
-    ? `<div class="side old"><p class="empty">${reviewed.entry_previous ? escapeHtml(reviewed.entry_previous) : `No checklist entry in ${fromYear}`}<small>${escapeHtml(reviewed.reason)}</small></p>${sightings ? `<div class="source-links">${sightings}</div>` : ''}</div>`
+    ? `<div class="side old"><p class="empty">${reviewed.entry_previous ? escapeHtml(reviewed.entry_previous) : `No checklist entry in ${fromYear}`}</p></div>`
     : side(group.old, 'old');
   const newer = reviewed?.status === 'removal'
     ? `<div class="side new"><p class="empty">No checklist entry in ${toYear}<small>${escapeHtml(reviewed.reason)}</small></p></div>`
-    : side(group.new, 'new');
+    : side(group.new, 'new', reviewed ? `<p class="review-note">${escapeHtml(reviewed.reason)}${sightings ? ` ${sightings}` : ''}</p>` : '');
   return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="badges"><span class="badge relationship">${escapeHtml(label)}</span>${earc}${concept}${tags}</div></div><div class="concept-grid">${older}<div class="arrow" aria-hidden="true">→</div>${newer}</div></article>`;
 };
 

@@ -559,6 +559,8 @@ footer a:hover { color: var(--green); text-decoration: underline; text-underline
 @media (max-width: 540px) {
   .comparison-selectors #comparisonCsv { margin-left: 0; }
 }
+.review-note { margin: .4rem 0 0; color: var(--muted); font-size: .8rem; }
+.review-note a { white-space: nowrap; }
 .change-card .empty small { display: block; margin-top: .35rem; }
 .taxon-names small {display:block;font-size:.8rem;opacity:.8}
 .pdf-archive h2 { margin: .25rem 0 1rem; color: var(--green-dark); font-family: Georgia, "Times New Roman", serif; }
