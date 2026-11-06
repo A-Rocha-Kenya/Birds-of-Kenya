@@ -12,8 +12,9 @@ fetch(resolveSitePath('data/site.json'), {cache: 'no-cache'})
       const notice = document.createElement('aside');
       notice.className = 'draft-notice';
       notice.setAttribute('role', 'status');
-      notice.textContent = 'Draft preview — this checklist is under review and is not yet a final publication.';
+      notice.textContent = `Draft preview — ${site.sources.avilist} and ${site.sources.ebird_taxonomy}, using EBD ${site.sources.ebd} with documented taxonomic reconciliation. Evidence counts and dates are provisional pending an updated EBD. This preview may change before release.`;
       document.body.prepend(notice);
+      document.querySelector('.citation-panel')?.setAttribute('hidden', '');
     }
 
     document.querySelectorAll('[data-site]').forEach(element => {
@@ -77,33 +78,34 @@ fetch(resolveSitePath('data/site.json'), {cache: 'no-cache'})
     });
   });
 
-fetch(resolveSitePath('data/releases.json'), {cache: 'no-cache'}).then(r => {
-  if (!r.ok) throw new Error('Archive unavailable');
-  return r.json();
-}).then(archive => {
-  document.querySelectorAll('[data-release-downloads]').forEach(list => {
-    archive.releases.forEach(release => {
+const pdfArchive = document.querySelector('[data-release-downloads]');
+if (pdfArchive) {
+  fetch(resolveSitePath('data/releases.json'), {cache: 'no-cache'}).then(response => {
+    if (!response.ok) throw new Error('Archive unavailable');
+    return response.json();
+  }).then(archive => {
+    const latest = new Set(Object.values(archive.latest_by_year));
+    const previous = archive.releases.filter(release =>
+      latest.has(release.id) && release.status === 'released' && release.id !== archive.active_release && release.pdf);
+    for (const release of previous.reverse()) {
       const item = document.createElement('li');
-      const label = document.createElement('span');
-      label.textContent = `${release.id}${release.status === 'draft' ? ' (preview)' : ''} — `;
-      item.append(label);
-      if (release.pdf) {
-        const link = document.createElement('a');
-        link.href = resolveSitePath(release.pdf);
-        link.textContent = release.pdf_label;
-        item.append(link);
-      } else {
-        item.append(document.createTextNode('No exact matching checklist PDF available'));
-      }
-      const csv = document.createElement('a');
-      csv.href = resolveSitePath(release.csv);
-      csv.textContent = ' · Checklist CSV';
-      item.append(csv);
-      list.append(item);
-    });
+      const details = document.createElement('div');
+      const version = document.createElement('strong');
+      const description = document.createElement('small');
+      version.textContent = release.id.slice(1, 5);
+      description.textContent = release.pdf_label.replace(/; CSV includes v\d{4}\.\d+ corrections| and revised digital IDs/g, "");
+      details.append(version, description);
+      const link = document.createElement('a');
+      link.href = resolveSitePath(release.pdf);
+      link.download = '';
+      link.textContent = 'PDF ↓';
+      link.setAttribute('aria-label', `Download ${version.textContent} checklist PDF`);
+      item.append(details, link);
+      pdfArchive.append(item);
+    }
+  }).catch(() => {
+    const item = document.createElement('li');
+    item.textContent = 'Previous checklist PDFs could not be loaded.';
+    pdfArchive.append(item);
   });
-}).catch(() => {
-  document.querySelectorAll('[data-release-downloads]').forEach(list => {
-    list.textContent = 'Checklist archive could not be loaded. Please reload the page.';
-  });
-});
+}

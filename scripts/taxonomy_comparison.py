@@ -1,8 +1,19 @@
 """Compare frozen taxonomies using reviewed concept relationships and legacy transitions."""
 
 from collections import defaultdict, Counter
+import re
 
 FIELDS = ("english", "scientific", "order", "family", "family_english")
+CHANGE_FIELDS = ("english", "scientific", "order", "family")
+APOSTROPHES = str.maketrans({"’": "'", "‘": "'"})
+
+
+def comparison_key(field, value):
+    value = " ".join(value.translate(APOSTROPHES).split()).casefold()
+    if field == "family":
+        # Historical checklists sometimes append a subfamily to the Latin family.
+        value = re.sub(r"\s*\([a-z]+inae\)$", "", value)
+    return value
 
 
 def snapshot(rows):
@@ -120,7 +131,12 @@ def compare_versions(versions, transitions, source, target, relationships=()):
         after.sort(key=lambda r: (r["sequence"], r["id"]))
         linked_old.update(r["id"] for r in before)
         linked_new.update(r["id"] for r in after)
-        changed = [f for f in FIELDS if f != "family_english" and all(r[f] for r in before + after) and {" ".join(r[f].split()).casefold() for r in before} != {" ".join(r[f].split()).casefold() for r in after}]
+        changed = []
+        for field in CHANGE_FIELDS:
+            old_values = {comparison_key(field, row[field]) for row in before}
+            new_values = {comparison_key(field, row[field]) for row in after}
+            if "" not in old_values | new_values and old_values != new_values:
+                changed.append(field)
         concept = {r["id"] for r in before} != {r["id"] for r in after}
         if not changed and not concept:
             continue

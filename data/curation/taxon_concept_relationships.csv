@@ -163,6 +163,9 @@ avibase-B97D4CBF,includes,avibase-ECFF22D2,https://avibase.bsc-eoc.org/species.j
 avibase-BA79EDB4,includes,avibase-72CAA64D,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BA79EDB4D6CECEFC
 avibase-BAA83B0C,intersects,avibase-D167A312,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2025.0/transition.json
 avibase-BADE0549,includes,avibase-AF75AC32,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BADE054976FCDBB4
+avibase-BB93D761,includes,avibase-1EEE86B8,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BB93D76127F8CD9C&lang=EN
+avibase-BB93D761,intersects,avibase-54A902B5,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BB93D76127F8CD9C&lang=EN
+avibase-BB93D761,includes,avibase-FC523946,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BB93D76127F8CD9C&lang=EN
 avibase-BD7C4F70,intersects,avibase-F8E7707C,https://avibase.bsc-eoc.org/species.jsp?avibaseid=F8E7707C&lang=EN
 avibase-BE3C45B5,includes,avibase-4D19099B,https://avibase.bsc-eoc.org/species.jsp?avibaseid=BE3C45B5BA5FD276&lang=EN
 avibase-BE3C45B5,intersects,avibase-ECE36984,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2025.0/transition.json
@@ -199,7 +202,10 @@ avibase-E83D45A6,includes,avibase-E79026DE,https://avibase.bsc-eoc.org/species.j
 avibase-E9A83FB4,includes,avibase-FB84DF4D,https://avibase.bsc-eoc.org/species.jsp?avibaseid=E9A83FB48C004220
 avibase-EAC8528E,includes,avibase-86F34425,https://avibase.bsc-eoc.org/species.jsp?avibaseid=EAC8528EA2849364&lang=EN
 avibase-EBDD4106,includes,avibase-92A772BB,https://avibase.bsc-eoc.org/species.jsp?avibaseid=EBDD410629FE11AC&lang=EN
+avibase-ECC3F122,intersects,avibase-ADCA7C7C,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2019.2/checklist.csv
+avibase-ECC3F122,intersects,avibase-BFDA253A,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2019.2/checklist.csv
 avibase-EE4207D4,intersects,avibase-F44BD4BE,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2025.0/transition.json
+avibase-F2858F9F,includes,avibase-A6E9EDE5,https://avibase.bsc-eoc.org/species.jsp?avibaseid=A6E9EDE5&lang=EN
 avibase-F4D0DB8E,intersects,avibase-FA2F9125,https://github.com/A-Rocha-Kenya/Birds-of-Kenya/blob/v2019.2/release-assets/v2025.0/transition.json
 avibase-F5740956,includes,avibase-26618AA1,https://avibase.bsc-eoc.org/species.jsp?avibaseid=F57409563E299DC9
 avibase-F5740956,includes,avibase-6A1F6033,https://avibase.bsc-eoc.org/species.jsp?avibaseid=F57409563E299DC9

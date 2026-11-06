@@ -41,8 +41,6 @@ def main():
         curate(ROOT, staging, manifest["sources"])
         shutil.copy2(ROOT / metadata["sources"]["policy"], staging / "policy.md")
         shutil.copy2(ROOT / metadata["sources"]["category_definitions"], staging / "category_definitions.csv")
-        if metadata["sources"].get("taxonomy_transition"):
-            shutil.copy2(ROOT / metadata["sources"]["taxonomy_transition"], staging / "transition.json")
         pending = pending_earc_ids(metadata, ROOT, source)
         seal(staging, metadata, metadata["status"], pending)
         verify(staging)

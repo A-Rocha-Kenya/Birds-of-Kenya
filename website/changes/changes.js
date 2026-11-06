@@ -33,16 +33,32 @@ const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
-  const label = {added: 'Unlinked in source edition', removed: 'Unlinked in target edition'}[group.relationship] || group.relationship_label;
-  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="badges"><span class="badge relationship">${escapeHtml(label)}</span>${concept}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true">→</div>${side(group.new, 'new')}</div></article>`;
+  const reviewed = group.membershipReview;
+  const fromYear = fromVersion.value.slice(1, 5);
+  const toYear = toVersion.value.slice(1, 5);
+  const reviewedLabel = {listed: `Already covered in ${fromYear}`, possible: `Possible ${fromYear} counterpart`, addition: `Added to the ${toYear} checklist`, removal: `Omitted from the ${toYear} checklist`};
+  const label = reviewed ? reviewedLabel[reviewed.status] : {added: 'Unlinked in source edition', removed: 'Unlinked in target edition'}[group.relationship] || group.relationship_label;
+  const earc = reviewed?.earc_status === 'accepted'
+    ? `<a class="badge earc-decision" href="${escapeHtml(reviewed.earc_url)}" target="_blank" rel="noopener">Accepted by EARC</a>`
+    : reviewed?.earc_status === 'review' ? '<span class="badge pending-earc">EARC review</span>' : '';
+  const sightings = (reviewed?.sighting_urls ?? []).map((url, i, urls) =>
+    `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">eBird sighting${urls.length > 1 ? ` ${i + 1}` : ''}</a>`).join(' ');
+  const older = reviewed && reviewed.status !== 'removal'
+    ? `<div class="side old"><p class="empty">${reviewed.entry_previous ? escapeHtml(reviewed.entry_previous) : `No checklist entry in ${fromYear}`}<small>${escapeHtml(reviewed.reason)}</small></p>${sightings ? `<div class="source-links">${sightings}</div>` : ''}</div>`
+    : side(group.old, 'old');
+  const newer = reviewed?.status === 'removal'
+    ? `<div class="side new"><p class="empty">No checklist entry in ${toYear}<small>${escapeHtml(reviewed.reason)}</small></p></div>`
+    : side(group.new, 'new');
+  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="badges"><span class="badge relationship">${escapeHtml(label)}</span>${earc}${concept}${tags}</div></div><div class="concept-grid">${older}<div class="arrow" aria-hidden="true">→</div>${newer}</div></article>`;
 };
 
 const renderChanges = () => {
-  const query = changeSearch.value.trim().toLowerCase();
+  const searchKey = value => value.toLowerCase().replace(/[‘’]/g, "'");
+  const query = searchKey(changeSearch.value.trim());
   const visible = groups.filter(group => {
     const namesMatch = !selected.names.size || [...selected.names].every(key => matchesField(group, key));
     const conceptMatch = !selected.concepts.size || selected.concepts.has(group.cardinality);
-    return namesMatch && conceptMatch && (!query || JSON.stringify(group).toLowerCase().includes(query));
+    return namesMatch && conceptMatch && (!query || searchKey(JSON.stringify(group)).includes(query));
   });
 
   let html = '';
@@ -86,11 +102,9 @@ const loadComparison = async () => {
   selected.concepts.clear();
   changeSearch.value = '';
   const pair = catalog.pairs.find(p => p.from_release === fromVersion.value && p.to_release === toVersion.value);
-  document.getElementById('comparisonHeading').textContent = `From ${fromVersion.value} to ${toVersion.value}`;
   document.getElementById('comparisonCsv').href = `../${pair.files.csv}?v=${pair.revision}`;
-  document.getElementById('comparisonSummary').hidden = false;
-  document.getElementById('comparisonSummary').textContent = 'Loading comparison…';
-  const params = new URLSearchParams({from: fromVersion.value, to: toVersion.value});
+  changeReport.setAttribute('aria-busy', 'true');
+  const params = new URLSearchParams({from: fromVersion.value.slice(1, 5), to: toVersion.value.slice(1, 5)});
   history.replaceState(null, '', `?${params}`);
   try {
     const response = await fetch(`../${pair.files.json}?v=${pair.revision}`);
@@ -98,13 +112,13 @@ const loadComparison = async () => {
     const data = await response.json();
     if (request !== requestNumber) return;
     groups = data.groups;
-    const editions = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id));
-    const excluded = editions.reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
-    const notes = editions.map(r => r.comparison_note).filter(Boolean);
-    if (excluded) notes.push(`${excluded} historical rows lack unique concept IDs and cannot be compared.`);
-    if (data.unlinked_old || data.unlinked_new) notes.push('Unlinked entries can reflect a missing concept relationship or a checklist membership change.');
-    document.getElementById('comparisonSummary').textContent = notes.join(' ');
-    document.getElementById('comparisonSummary').hidden = !notes.length;
+    const review = catalog.membership_reviews[`${data.from_release}/${data.to_release}`];
+    if (review) {
+      for (const group of groups) {
+        if (group.relationship === 'added') group.membershipReview = review[group.new[0].id];
+        if (group.relationship === 'removed') group.membershipReview = review[group.old[0].id];
+      }
+    }
     document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');
     document.getElementById('conceptFilters').innerHTML = '<span class="filter-label">Concept relationship</span>' + filterConfig.concepts.map(item => filterButton(item, 'concepts')).join('');
     bindFilters();
@@ -113,7 +127,8 @@ const loadComparison = async () => {
     if (request !== requestNumber) return;
     changeError.hidden = false;
     changeError.textContent = 'The selected taxonomy comparison could not be loaded.';
-    document.getElementById('comparisonSummary').textContent = '';
+  } finally {
+    if (request === requestNumber) changeReport.removeAttribute('aria-busy');
   }
 };
 
@@ -122,21 +137,15 @@ fetch('../data/releases.json', {cache: 'no-cache'}).then(response => {
   return response.json();
 }).then(data => {
   catalog = data;
-  const latestByYear = new Map();
-  data.releases.forEach(release => {
-    const year = release.id.match(/\d{4}/)[0];
-    const latest = latestByYear.get(year);
-    if (!latest || release.id.localeCompare(latest.id, undefined, {numeric: true}) > 0) latestByYear.set(year, release);
-  });
-  const releases = [...data.releases].sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true}));
+  const ids = Object.values(data.latest_by_year);
   for (const select of [fromVersion, toVersion]) {
-    releases.forEach(release => select.add(new Option(`${release.id}${release.status === 'draft' ? ' (preview)' : ''}`, release.id)));
+    for (const [year, id] of Object.entries(data.latest_by_year)) select.add(new Option(year, id));
   }
   const params = new URLSearchParams(location.search);
-  const ids = releases.map(r => r.id);
-  toVersion.value = ids.includes(params.get('to')) ? params.get('to') : (ids.includes(data.active_release) ? data.active_release : ids.at(-1));
-  const defaults = [...latestByYear.values()].map(r => r.id).sort((a, b) => a.localeCompare(b, undefined, {numeric: true}));
-  fromVersion.value = ids.includes(params.get('from')) ? params.get('from') : defaults[Math.max(0, defaults.indexOf(toVersion.value) - 1)];
+  const latestFor = id => data.latest_by_year[id] ??
+    (data.releases.some(release => release.id === id) ? data.latest_by_year[id.slice(1, 5)] : undefined);
+  toVersion.value = latestFor(params.get('to')) ?? latestFor(data.active_release) ?? ids.at(-1);
+  fromVersion.value = latestFor(params.get('from')) ?? ids[Math.max(0, ids.indexOf(toVersion.value) - 1)];
   fromVersion.addEventListener('change', loadComparison);
   toVersion.addEventListener('change', loadComparison);
   return loadComparison();

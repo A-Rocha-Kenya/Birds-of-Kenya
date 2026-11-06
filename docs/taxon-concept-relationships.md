@@ -27,8 +27,21 @@ Every assigned concept is included. The remaining unlinked entries in the main e
 | v2019.1 → v2019.2 | 0 | 0 |
 | v2009.0 → v2019.2 | 2 | 68 |
 | v2019.2 → v2025.0 | 5 | 24 |
-| v2025.0 → v2026.0 preview | 0 | 1 |
+| v2019.3 → v2025.0 | 3 | 22 |
+| v2025.0 → v2026.0 preview | 0 | 0 |
 
 Review an unlinked entry against the original checklist and Avibase concept definitions before adding an assertion. A confirmed addition or removal does not require a taxonomic edge. An incorrect printed-entry assignment belongs in the checklist's correction record.
 
-The two assigned 2009 entries with no link to v2019.2 are Matsudaira’s Storm-petrel and Brown-headed Apalis. Neither has a printed entry in the 2019 transcription. Of the five older unlinked entries in v2019.2 → v2025.0, the stork and sand plover need edition assignment review. The hybrid lovebird, Speckled Tinkerbird and Great Grey Shrike concepts have no corresponding supported entry in the v2025.0 species snapshot. The 49 unassigned 2009 rows remain available in the source checklist and its unresolved-concept table.
+The two assigned 2009 entries with no link to v2019.2 are Matsudaira’s Storm-petrel and Brown-headed Apalis. Neither has a printed entry in the 2019 transcription. Of the five older unlinked entries in v2019.2 → v2025.0, the stork and sand plover are linked after their edition assignments are corrected in v2019.3. The hybrid lovebird, Speckled Tinkerbird and Great Grey Shrike concepts have no corresponding supported entry in the v2025.0 species snapshot. The 49 unassigned 2009 rows remain available in the source checklist and its unresolved-concept table.
+
+## Checklist membership review
+
+The [membership review table](../data/curation/checklist_membership_reviews.csv) covers unlinked additions and omissions for consecutive checklist years using the latest revision of each year. The Changes page distinguishes additions to the checklist, earlier coverage under a different account, possible counterparts, and omissions. These notes describe checklist membership. The shared Avibase graph provides taxon concept links.
+
+| Editions | Already covered | Possible counterpart | Checklist addition | Omitted |
+| --- | ---: | ---: | ---: | ---: |
+| 2009 → 2019 | 5 | 2 | 8 | 2 |
+| 2019 → 2025 | 1 | 5 | 16 | 3 |
+| 2025 → 2026 preview | 0 | 0 | 0 | 0 |
+
+The notes draw on the printed checklists, [curated EARC decisions](../data/curation/earc_decisions.csv), the Kenya bird atlas digitization notes supplied for this review, and the August 2026 checklist review correspondence. Atlas decisions apply to the historical occurrences discussed there. The notes distinguish those decisions from the status of later reports and keep unresolved identifications provisional.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Taxonomic changes · Birds of Kenya</title>
-  <meta name="description" content="Compare the Birds of Kenya checklist {{FROM_RELEASE}} with {{RELEASE_ID}}.">
+  <meta name="description" content="Compare the Birds of Kenya checklist {{FROM_YEAR}} with {{CHECKLIST_YEAR}}.">
   <meta name="theme-color" content="#173e2e">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +22,8 @@
     <div>
       <p class="eyebrow">Birds of Kenya · Taxonomy review</p>
       <h1>Taxonomic changes</h1>
-      <p class="lede" id="comparisonHeading">Choose two checklist versions</p>
       <div class="comparison-selectors"><label>From <select id="fromVersion"></select></label><label>To <select id="toVersion"></select></label>
         <a class="hero-link primary" id="comparisonCsv" href="#">Download changes CSV <span aria-hidden="true">↓</span></a>
-        <a class="hero-link" href="../data/taxon-concept-graph.json" download>Download concept graph (JSON)</a>
       </div>
     </div>
   </header>
@@ -33,7 +31,6 @@
   <div class="changes-toolbar-wrap">
     <div class="changes-toolbar">
       <div class="top-controls"><label class="sr-only" for="changeSearch">Search taxonomy changes</label><input id="changeSearch" type="search" placeholder="Search names, families, or Avibase IDs"><button class="clear-filters" id="clearChangeFilters" type="button">Clear filters</button></div>
-      <p id="comparisonSummary" role="status" hidden></p>
       <div class="change-filter-strip">
       <div class="filter-row" id="nameFilters"><span class="filter-label">Changed field</span></div>
       <div class="filter-row" id="conceptFilters"><span class="filter-label">Concept change</span></div>
@@ -46,7 +43,7 @@
     <div id="changeReport"></div>
   </main>
 
-  <footer class="site-footer"><p class="footer-title">Birds of Kenya · <span data-site="release.id">{{RELEASE_ID}}</span></p><nav aria-label="Footer navigation"><a href="../checklist/">Checklist</a><a href="./">Changes</a><a href="../policy/">Policy</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav></footer>
-  <script src="../assets/site.js"></script><script src="changes.js?v=20261106-1"></script>
+  <footer class="site-footer"><p class="footer-title">Birds of Kenya · <span data-site="release.year">{{CHECKLIST_YEAR}}</span></p><nav aria-label="Footer navigation"><a href="../checklist/">Checklist</a><a href="./">Changes</a><a href="../policy/">Policy</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav></footer>
+  <script src="../assets/site.js"></script><script src="changes.js?v=20261106-3"></script>
 </body>
 </html>

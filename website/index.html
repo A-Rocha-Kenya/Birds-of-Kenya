@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Checklist of the Birds of Kenya · Bird Committee of EANHS</title>
-  <meta name="description" content="Version {{RELEASE_ID}} of the Checklist of the Birds of Kenya, published by the Bird Committee of the East Africa Natural History Society (Nature Kenya).">
+  <meta name="description" content="{{CHECKLIST_YEAR}} edition of the Checklist of the Birds of Kenya, published by the Bird Committee of the East Africa Natural History Society (Nature Kenya).">
   <meta name="theme-color" content="#173e2e">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
 
   <header class="hero home-hero">
     <div class="hero-inner">
-      <p class="eyebrow">Bird Committee of the East Africa Natural History Society · <span data-site="release.label">{{RELEASE_ID}}</span></p>
+      <p class="eyebrow">Bird Committee of the East Africa Natural History Society · <span data-site="release.year">{{CHECKLIST_YEAR}}</span></p>
       <h1>Checklist of the Birds of Kenya</h1>
       <p class="lede">Published by the Bird Committee of the East Africa Natural History Society (Nature Kenya). This version continues a checklist tradition dating to 1981—now updated as a reproducible, evidence-based account of the birds represented in Kenya.</p>
       <div class="hero-links">
@@ -44,7 +44,7 @@
       <div class="edition-copy">
         <p>This checklist follows those published in 1981, 1986, 1996, 2009, and 2019. It carries that national record forward while making the evidence, editorial decisions, and changes between versions easier to inspect.</p>
         <ol class="edition-history" aria-label="Publishing history">
-          <li><span>1981</span></li><li><span>1986</span></li><li><span>1996</span></li><li><span>2009</span></li><li><span>2019</span></li><li class="current"><span>{{PUBLICATION_YEAR}}</span><small>{{RELEASE_ID}}</small></li>
+          <li><span>1981</span></li><li><span>1986</span></li><li><span>1996</span></li><li><span>2009</span></li><li><span>2019</span></li><li class="current"><span>{{CHECKLIST_YEAR}}</span></li>
         </ol>
       </div>
     </section>
@@ -124,11 +124,15 @@
       </div>
     </section>
 
-  <section class="home-section"><h2>Checklist versions</h2><p>Download a version-specific checklist. Historical taxonomy snapshots without an exact matching PDF are labeled explicitly.</p><ul data-release-downloads></ul></section>
-</main>
+    <section class="home-section pdf-archive" aria-labelledby="pdf-archive-heading">
+      <p class="section-label">Archive</p>
+      <h2 id="pdf-archive-heading">Previous checklist PDFs</h2>
+      <ul data-release-downloads></ul>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <p class="footer-title">Birds of Kenya · <span data-site="release.id">{{RELEASE_ID}}</span></p>
+    <p class="footer-title">Birds of Kenya · <span data-site="release.year">{{CHECKLIST_YEAR}}</span></p>
     <nav aria-label="Footer navigation"><a href="checklist/">Checklist</a><a href="changes/">Changes</a><a href="policy/">Policy</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav>
   </footer>
   <script src="assets/site.js"></script>

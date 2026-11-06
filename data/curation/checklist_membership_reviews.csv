@@ -1,0 +1,43 @@
+from_release,to_release,avibase_id,name,status,sort_previous,entry_previous,reason,sighting_urls
+v2009.1,v2019.3,avibase-AB8E1D95,Black-shouldered Nightjar,listed,414,Fiery-necked Nightjar Caprimulgus pectoralis,The 2009 Fiery-necked Nightjar note explicitly includes nigriscapularis. Its assigned Avibase ID has a narrower scope.,
+v2009.1,v2019.3,avibase-A7F240E3,White-eyed Gull,addition,,,The 2009 edition explicitly excludes the unsubstantiated White-eyed Gull record in its omitted-species section.,
+v2009.1,v2019.3,avibase-BDC5CF80,Arctic Tern,addition,,,The 2009 edition discusses Arctic Tern in its omitted-species section and excludes it from checklist membership.,
+v2009.1,v2019.3,avibase-0F42F11A,Eurasian (Great) Bittern,addition,,,No Eurasian Great Bittern account in the 2009 checklist. Little Bittern is a different species.,
+v2009.1,v2019.3,avibase-67200E8E,Christmas Island Frigatebird,addition,,,EARC accepted the historical record in its 2016 report. Reviewers later recommended rechecking the original images.,
+v2009.1,v2019.3,avibase-1192205B,Crested (Oriental) Honey Buzzard,addition,,,No Crested Honey Buzzard account in the 2009 checklist. Its European Honey Buzzard is a different species.,
+v2009.1,v2019.3,avibase-0AC6CF82,Thick-billed Honeyguide,listed,521,Lesser Honeyguide Indicator minor,The 2009 Lesser Honeyguide note explicitly includes conirostris. The 2019 Avibase group has a wider stated scope.,
+v2009.1,v2019.3,avibase-BB456342,Racquet-tailed Roller,addition,,,No Racquet-tailed Roller or Coracias spatulatus account in the 2009 checklist.,
+v2009.1,v2019.3,avibase-2BD7F8B5,Rock Kestrel,listed,113,Common Kestrel Falco tinnunculus pm,The 2009 Common Kestrel account names the resident race rufescens and its Rock Kestrel name.,
+v2009.1,v2019.3,avibase-07F940AA,Tropical Boubou,listed,578,Tropical Boubou Laniarius aethiopicus,The 2009 omitted-species discussion explicitly retains major under Tropical Boubou.,
+v2009.1,v2019.3,avibase-341298B9,Weyn’s Weaver,addition,,,No Weyn’s Weaver or Ploceus weynsi account in the 2009 checklist.,
+v2009.1,v2019.3,avibase-126E0CFA,Shelley’s Sparrow,listed,955,Kenya Rufous Sparrow Passer rufocinctus,The 2009 Kenya Rufous Sparrow note includes race shelleyi.,
+v2009.1,v2019.3,avibase-5108E1D3,Western Citril,possible,1080,African Citril Crithagra citrinelloides,"The 2019 Western Citril was historically treated under citrinelloides. The 2009 African Citril account only names kikuyuensis, so inclusion of frontalis is uncertain.",
+v2009.1,v2019.3,avibase-0DCD05BE,Lesser Whitethroat,addition,,,No Lesser Whitethroat account in the 2009 checklist. Common Whitethroat is a different species.,
+v2009.1,v2019.3,avibase-086290D2,Mbulu White-eye,possible,818,Montane White-eye Zosterops poliogastrus,The Mbulu White-eye may have been included in the old Montane White-eye complex. Its 2009 coverage is uncertain.,
+v2009.1,v2019.3,avibase-6AA236DD,Matsudaira’s Storm-petrel,removal,,,"The 2009 list cites two 1981 sightings off Mombasa. The atlas digitization treats the records as uncertain (Taylor, 1982; Hunter, 2019).",
+v2009.1,v2019.3,avibase-D6C2BFD2,Brown-headed Apalis,removal,,,Listed in 2009 and absent from the 2019 checklist. The reason for omission is unconfirmed.,
+v2019.3,v2025.0,avibase-90AAE188,Cotton Pygmy Goose,addition,,,"Reported at Lake Baringo in 2026, apparently involving one bird.",https://ebird.org/checklist/S294852335
+v2019.3,v2025.0,avibase-1F9D883E,Ruddy Shelduck,addition,,,Historical report from Laikipia in 1986.,https://ebird.org/checklist/S112831852
+v2019.3,v2025.0,avibase-DDEF7228,Vinaceous Dove,addition,,,Kenyan record from May 2022.,
+v2019.3,v2025.0,avibase-4D5D2BC3,Brown Skua,addition,,,Historical report from August 1961.,https://ebird.org/checklist/S151411969
+v2019.3,v2025.0,avibase-F89FD6E3,Little Gull,addition,,,Kenyan sighting documented in eBird.,https://ebird.org/checklist/S67978527
+v2019.3,v2025.0,avibase-86182656,Sabine's Gull,addition,,,Kenyan record from January 2024.,
+v2019.3,v2025.0,avibase-93CA037F,Caspian Gull,addition,,,Multiple Kenyan sightings documented in eBird.,https://ebird.org/checklist/S45861474 https://ebird.org/checklist/S319871862 https://ebird.org/checklist/S318927363
+v2019.3,v2025.0,avibase-7EE005BD,Red-billed Tropicbird,addition,,,Kenyan record from March 2022.,
+v2019.3,v2025.0,avibase-C412CD62,Red-tailed Tropicbird,addition,,,An October 1982 report describes a conspicuous red tail.,https://ebird.org/checklist/S106406445 https://ebird.org/checklist/S71427634
+v2019.3,v2025.0,avibase-198120BB,Persian Shearwater,possible,286.1,Tropical Shearwater Puffinus bailloni IO,Reviewers consider Persian Shearwater the likely Kenyan form. The 2019 account gives no diagnostic details.,
+v2019.3,v2025.0,avibase-30238523,Böhm's Bee-eater,addition,,,Kenyan sighting documented in eBird.,https://ebird.org/checklist/S134100559
+v2019.3,v2025.0,avibase-D0C68FE0,Ethiopian Bee-eater,listed,488,Cinnamon-chested Bee-eater Merops lafresnayii,The 2019 row prints Merops lafresnayii under a different Avibase ID.,https://ebird.org/checklist/S135853157 https://ebird.org/checklist/S159365725
+v2019.3,v2025.0,avibase-AB507233,Melodious Lark,addition,,,Melodious Lark Mirafra cheniana is absent from the 2019 checklist. Rattling Cisticola Cisticola chiniana is unrelated.,
+v2019.3,v2025.0,avibase-3DF3F9B9,Ethiopian Cisticola,possible,897,Winding Cisticola Cisticola marginatus,The 2019 Winding Cisticola account gives no subspecies. eBird reports include multiple birds.,https://ebird.org/checklist/S318636614
+v2019.3,v2025.0,avibase-A630DB2C,Bamboo Warbler,possible,929,Cinnamon Bracken Warbler Bradypterus cinnamomeus,The 2019 account leaves coverage uncertain. eBird reports include several birds.,https://ebird.org/checklist/S309920996
+v2019.3,v2025.0,avibase-1D9175EA,Yellow-eyed Bristlebill,possible,966,Red-tailed Bristlebill Bleda syndactyla,The 2019 Red-tailed Bristlebill account does not name ugandae.,https://ebird.org/checklist/S21744793 https://ebird.org/checklist/S13655586
+v2019.3,v2025.0,avibase-33C35018,Green White-eye,possible,1005,Northern Yellow White-eye Zosterops senegalensis ,The 2019 account refers to the broader African Yellow White-eye.,https://ebird.org/checklist/S261493033
+v2019.3,v2025.0,avibase-A23B8E7A,Broad-ringed White-eye,addition,,,Kenyan record from May 2021. The 2019 Montane White-eye account names the Kulal form.,
+v2019.3,v2025.0,avibase-2455B82B,Yellow-breasted Forest Robin,addition,,,A historical specimen is documented. Its significance for the Kenyan checklist remains uncertain.,
+v2019.3,v2025.0,avibase-3380CFC5,Siberian Stonechat,addition,,,The 2019 stonechat account covers the African concept. Later Siberian Stonechat sightings are documented in eBird.,https://ebird.org/checklist/S154183934 https://ebird.org/checklist/S278273658
+v2019.3,v2025.0,avibase-535524BE,Arnot's Chat,addition,,,Kenyan record from December 2022.,
+v2019.3,v2025.0,avibase-17E7F90B,Gosling's Bunting,addition,,,Kenyan record from May 2022.,
+v2019.3,v2025.0,avibase-EEA161A8,Speckled Tinkerbird,removal,,,"The Kakamega sighting is unsubstantiated and the reported Kitale specimen is untraced (Zimmerman et al., 1996).",
+v2019.3,v2025.0,avibase-7B0E2F01,Hybrid Lovebird,removal,,,AviList does not list the Fischer’s × Yellow-collared Lovebird swarm as a species.,
+v2019.3,v2025.0,avibase-DB2501EE,Great Grey Shrike,removal,,,Reviewers traced the historical locality to what appears to be South Sudan.,

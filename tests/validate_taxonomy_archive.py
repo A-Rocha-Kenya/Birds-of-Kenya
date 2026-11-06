@@ -38,6 +38,8 @@ def main():
         group = compare_versions({"a": [original], "b": [changed]}, [], "a", "b")["groups"][0]
         assert group["old"][0][field] == original[field] and group["new"][0][field] == "Changed"
     assert compare_versions({"a": [row("same")], "b": [row("same", family_english="Different English family name")]}, [], "a", "b")["groups"] == []
+    assert compare_versions({"a": [row("same", english="Fischer’s Lovebird")], "b": [row("same", english="Fischer's Lovebird")]}, [], "a", "b")["groups"] == []
+    assert compare_versions({"a": [row("same", family="Vangidae (Prionopinae)", order=" ")], "b": [row("same", family="Vangidae", order="Passeriformes")]}, [], "a", "b")["groups"] == []
     family_change = compare_versions({"a": [row("same")], "b": [row("same", family="Otheridae", family_english="Other family")]}, [], "a", "b")["groups"][0]
     assert family_change["tags"] == ["family"]
     assert family_change["new"][0]["family_english"] == "Other family"

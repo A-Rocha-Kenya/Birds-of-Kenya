@@ -12,7 +12,7 @@ import tempfile
 import tomllib
 from pathlib import Path
 
-from site_archive import load_archive, export_archive, load_concept_relationships
+from site_archive import load_archive, export_archive, format_family_label, load_concept_relationships
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -120,6 +120,7 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
     return {
         "release": {
             "id": manifest["release_id"],
+            "year": manifest["release_id"][1:5],
             "label": metadata["document"]["version_label"],
             "publication_date": metadata["document"]["publication_date"],
             "status": metadata["status"],
@@ -180,7 +181,7 @@ def validate_publication(metadata, allow_draft):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "_site")
-    parser.add_argument("--preview-release", help="explicitly include and activate this draft locally")
+    parser.add_argument("--preview-release", help="explicitly include and activate this draft in the generated site")
     args = parser.parse_args()
     identifier, bundles = load_archive(ROOT, args.preview_release)
     release, descriptor = bundles[identifier]
@@ -203,6 +204,7 @@ def main():
     public_rows = [{field: value for field, value in row.items() if field not in hidden_category_codes} for row in rows]
     public_fields = [field for field in rows[0] if field not in hidden_category_codes]
     for row in public_rows:
+        row["family_english_name"] = format_family_label(row["family_english_name"])
         row["pending_earc"] = "TRUE" if row["avibase_id"] in descriptor["pending_earc"] else ""
     public_fields.append("pending_earc")
     downloads = {"checklist_pdf": f"downloads/{identifier}/{descriptor['pdf']}",
@@ -216,8 +218,9 @@ def main():
         shutil.copytree(WEBSITE, staging)
         replacements = {
             "{{RELEASE_ID}}": metadata["release_id"],
+            "{{CHECKLIST_YEAR}}": identifier[1:5],
             "{{PUBLICATION_YEAR}}": metadata["document"]["publication_date"][:4],
-            "{{FROM_RELEASE}}": comparison["from_release"],
+            "{{FROM_YEAR}}": comparison["from_release"][1:5],
         }
         for page in staging.rglob("*.html"):
             content = page.read_text(encoding="utf-8")
