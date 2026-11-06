@@ -27,11 +27,9 @@ def main():
     assert list(historical[0]) == list(corrected[0])
     assert "note" in historical[0] and not {"note_2009", "note_2019", "sort_1996", "sort_2009"} & historical[0].keys()
     assert [r["sort"] for r in historical] == [str(i) for i in range(1, 1101)]
-    matches = read_csv(ROOT / "data/legacy/2009.0/avibase/matches.csv")
-    assert [(r["sort"], r["avibaseid"]) for r in historical] == [(r["sort"], r["avibase_id"]) for r in matches]
-    assert len([r for r in historical if not r["avibaseid"]]) == 49
-    assert all(r["result"] == "PASS" for r in read_csv(ROOT / "data/legacy/2009.0/audit/pdf_entry_checks.csv"))
-    assert read_csv(ROOT / "data/legacy/2009.0/audit/pdf_failures.csv") == []
+    unresolved = read_csv(ROOT / "release-assets/v2009.0/taxonomy-unresolved.csv")
+    assert [r["sort"] for r in historical if not r["avibaseid"]] == [r["sort"] for r in unresolved]
+    assert len(unresolved) == 49
     active, bundles = load_archive(ROOT)
     assert active == "v2025.0"
     versions = {identifier: json.loads((path / "taxonomy.json").read_text()) for identifier, (path, _) in bundles.items()}

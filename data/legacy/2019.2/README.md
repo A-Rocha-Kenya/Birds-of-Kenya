@@ -8,7 +8,7 @@ This is a corrected digital transcription of the 2019 fifth edition, released on
 - Sort 775.1, Northern Grey-headed Sparrow: 2F9F81C9 → E10D0809, the narrow Northern species concept. The printed ugandae name is retained; the identifier follows the existing species-level matching convention rather than asserting a subspecies-specific ID.
 - Sort 943, Eurasian Reed Warbler: 3F0EE474 → 5C17300B, the scirpaceus/fuscus concept, excluding separately listed African Reed Warbler. This is an explicit narrower interpretation. The printed account does not establish the extralimital avicenniae boundary; the alternative historical 2D3FC761 includes avicenniae. No claim is made that the PDF itself spells out that distinction.
 
-No names, entry lines, membership, status flags or note values are changed. The notes column is now simply `note`. Cross-edition fields `sort_1996`, `sort_2009` and `note_2009` are removed. The old numbering remains in `../2019.1/numbering_crosswalk.csv`. Published v2019.0/v2019.1 bundles, Git tags and GitHub assets remain unchanged and retain their original schemas.
+No names, entry lines, membership, status flags or note values are changed. The notes column is now simply `note`. Cross-edition fields `sort_1996`, `sort_2009` and `note_2009` are removed. The old numbering remains in the sealed v2019.1 CSV. Published v2019.0/v2019.1 bundles, Git tags and GitHub assets remain unchanged and retain their original schemas.
 
 The source PDF is `../2019.1/source.pdf`. Rebuild the CSV and stage a new historical bundle with `python3 scripts/build_legacy_releases.py`. Existing sealed bundles are verified rather than overwritten. A further data edit requires another revision ID.
 

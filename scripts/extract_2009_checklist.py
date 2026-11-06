@@ -3,7 +3,6 @@
 
 import csv
 import re
-import runpy
 import subprocess
 from pathlib import Path
 
@@ -13,7 +12,6 @@ PDF = DIRECTORY / "source.pdf"
 
 # Extract the embedded text; OCR is unnecessary for this searchable PDF.
 text = subprocess.check_output(["pdftotext", "-layout", str(PDF), "-"], text=True)
-(DIRECTORY / "source_text.txt").write_text(text, encoding="utf-8")
 with (ROOT / "data" / "legacy" / "2019.1" / "checklist.csv").open(newline="", encoding="utf-8-sig") as handle:
     columns = next(csv.reader(handle))
 
@@ -68,9 +66,13 @@ assert len(rows) == 1100, f"Expected the PDF's stated 1,100 entries, found {len(
 assert len({row["scientific_name"] for row in rows}) == len(rows)
 assert all(row["family_scientific"] for row in rows)
 assert sum(line.startswith("c ") for line in text.splitlines()) == len(rows)
+# Reuse the reviewed IDs from the sealed edition by printed scientific name.
+with (ROOT / "release-assets/v2009.0/checklist.csv").open(newline="", encoding="utf-8") as handle:
+    identifiers = {row["scientific_name"]: row["avibaseid"] for row in csv.DictReader(handle)}
+for row in rows:
+    row["avibaseid"] = identifiers[row["scientific_name"]]
 with (DIRECTORY / "checklist.csv").open("w", newline="", encoding="utf-8") as handle:
     writer = csv.DictWriter(handle, fieldnames=columns, lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
-runpy.run_path(str(ROOT / "scripts" / "map_2009_avibase.py"), run_name="__main__")
 print(f"Extracted {len(rows):,} entries in {len({row['family_scientific'] for row in rows})} families to {DIRECTORY / 'checklist.csv'}")

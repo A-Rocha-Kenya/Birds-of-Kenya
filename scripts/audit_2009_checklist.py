@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Audit the PDF extraction independently and compare all five Excel sheets.
 
-Requires pdfplumber and openpyxl; writes read-only source comparisons to audit/.
+Requires pdfplumber and openpyxl; writes read-only source comparisons to tmp/audit-2009/.
 """
 
 import csv
 import hashlib
+import io
 import json
 import re
 import subprocess
@@ -18,10 +19,10 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "data" / "legacy" / "2009.0"
-AUDIT = DIRECTORY / "audit"
-AUDIT.mkdir(exist_ok=True)
+AUDIT = ROOT / "tmp/audit-2009"
+AUDIT.mkdir(parents=True, exist_ok=True)
 PDF = DIRECTORY / "source.pdf"
-EXCEL = DIRECTORY / "source.xlsx"
+EXCEL = subprocess.check_output(["git", "show", "v2009.0:data/legacy/2009.0/source.xlsx"], cwd=ROOT)
 
 
 def compact(text):
@@ -113,7 +114,7 @@ for row, source, raw_entry in zip(rows, pdf_rows, raw_entries):
 
 # Excel's 977 is Rüppell's Weaver, explicitly omitted on PDF page 42.
 # Keep original Excel numbers distinct from the PDF's contiguous row positions.
-workbook = load_workbook(EXCEL, data_only=True)
+workbook = load_workbook(io.BytesIO(EXCEL), data_only=True)
 excel_sheets = {}
 sheet_summary = []
 for sheet in workbook.worksheets[:4]:
@@ -179,7 +180,7 @@ summary = {
     "pdf_entries": len(rows), "pdf_families": len(pdf_families), "pdf_species_notes": sum(bool(row["note"]) for row in rows),
     "schema_columns": len(columns), "pdf_failures": len(failures), "excel_sheets": sheet_summary,
     "differences_by_sheet_and_field": {sheet.title: dict(Counter(d["field"] for d in differences if d["sheet"] == sheet.title)) for sheet in workbook},
-    "source_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in [PDF, EXCEL, DIRECTORY / "checklist.csv"]},
+    "source_sha256": {**{path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in [PDF, DIRECTORY / "checklist.csv"]}, "source.xlsx": hashlib.sha256(EXCEL).hexdigest()},
 }
 (AUDIT / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 assert not failures, f"Found {len(failures)} discrepancies against the PDF"
