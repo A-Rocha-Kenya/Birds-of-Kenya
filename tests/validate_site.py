@@ -25,7 +25,12 @@ def main():
         assert (site / release["csv"]).is_file()
         if release["pdf"]:
             assert (site / release["pdf"]).is_file()
-        assert len(list((site / "downloads" / release["id"]).glob("*.pdf"))) == bool(release["pdf"])
+        directory = site / "downloads" / release["id"]
+        assert (directory / "checklist.csv").read_bytes() == (site / release["csv"]).read_bytes()
+        if release["pdf"]:
+            assert all(pdf.read_bytes() == (site / release["pdf"]).read_bytes() for pdf in directory.glob("*.pdf"))
+            assert Path(release["pdf"]).name == f"Checklist-of-the-Birds-of-Kenya-{release['id']}.pdf"
+        assert Path(release["csv"]).name == f"Checklist-of-the-Birds-of-Kenya-{release['id']}.csv"
     forbidden = {"observations", "earc_decisions", "pending_earc", "exotic_status", "HIST", "RAR", "record_count"}
     pair_counts = {(p["from_release"], p["to_release"]): p["group_count"] for p in archive["pairs"]}
     assert all(count == pair_counts[(b, a)] for (a, b), count in pair_counts.items())
@@ -63,7 +68,7 @@ def main():
     html = (site / "changes/index.html").read_text()
     assert 'id="fromVersion"' in html and 'id="toVersion"' in html
     assert 'comparison_pdf' not in html
-    print(f"Validated {len(versions)} archived versions, {len(archive['pairs'])} comparison pairs and one PDF per downloadable edition")
+    print(f"Validated {len(versions)} archived versions, {len(archive['pairs'])} comparison pairs, standard download names and identical legacy URL aliases")
 
 
 if __name__ == "__main__":

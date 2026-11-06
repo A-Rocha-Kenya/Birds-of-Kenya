@@ -19,6 +19,7 @@ jobs:
           python tests/validate_ebird_taxonomy.py
           python tests/validate_stage_release_assets.py
           python tests/validate_taxonomy_archive.py
+          python tests/validate_historical_releases.py
       - name: Build and validate the published site
         run: |
           python scripts/build_site.py --output _site

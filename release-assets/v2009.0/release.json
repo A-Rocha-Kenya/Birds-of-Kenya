@@ -1,0 +1,24 @@
+{
+  "id": "v2009.0",
+  "status": "released",
+  "publication": {
+    "release_id": "v2009.0",
+    "archive_date": "2026-11-06",
+    "render": {
+      "output_filename": "Checklist-of-the-Birds-of-Kenya-v2009.0.pdf"
+    }
+  },
+  "pdf": "Checklist-of-the-Birds-of-Kenya-v2009.0.pdf",
+  "pending_earc": [],
+  "checksums": {
+    "Checklist-of-the-Birds-of-Kenya-v2009.0.pdf": "2e86e574fc69e2953aa06b48d453e1dfdf88766eb790a09ce94671635aa12129",
+    "README.md": "92f4980d28ea15b45b88d809ac86bb00665b41eb07b0a63b1a000aa7570b4367",
+    "checklist.csv": "2e657a0a12f999e0e3ad47581cdc0540a63fdc8f81bc26d0b3bd93816d7d75f2",
+    "taxonomy-exclusions.json": "ff6e739975012304da01c59ead927bef571d9c23dc60554cad6d45ef28c2327d",
+    "taxonomy-unresolved.csv": "38cf8eda4209b0ab87cebc61d1a0b8c7c50fbef326fe73ec85a3959699b34195",
+    "taxonomy.json": "cb7d46ea05348d86140f01b275322cc2c0b4acd0420460949e14bc4139aacbd2"
+  },
+  "pdf_label": "Fourth edition, 2009 with corrections of 13 December 2017",
+  "taxonomy_excluded_rows": 49,
+  "comparison_note": "The 2009 source includes minor corrections dated 13 December 2017."
+}

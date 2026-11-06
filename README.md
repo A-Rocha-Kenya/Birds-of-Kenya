@@ -64,6 +64,10 @@ Follow [the future-release guide](docs/future-releases.md) and [release architec
 | Public website | GitHub Pages | Builds the live website from the active, versioned public asset bundle. |
 
 
+## Historical checklists
+
+The archive now includes the audited v2009.0 transcription and the corrected v2019.2 transcription alongside v2019.0, v2019.1 and v2025.0. The 2009 source incorporates corrections dated 13 December 2017; 49 unresolved historical Avibase concepts remain in the CSV but are excluded from comparisons. v2019.2 corrects three Avibase identifier cells and uses a single `note` column. Published older bundles remain unchanged. See [historical sources, corrections and reproduction](docs/historical-checklists.md).
+
 ## Data use and licensing
 
 The new checklist data and publication material are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), matching the GBIF checklist dataset. The repository code is licensed under MIT. The 2019 edition, raw eBird data, AviList source files, and other third-party material retain their own terms; see [`LICENSE`](LICENSE).

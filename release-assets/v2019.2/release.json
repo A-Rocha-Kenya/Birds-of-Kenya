@@ -1,0 +1,24 @@
+{
+  "id": "v2019.2",
+  "status": "released",
+  "publication": {
+    "release_id": "v2019.2",
+    "archive_date": "2026-11-06",
+    "render": {
+      "output_filename": "Checklist-of-the-Birds-of-Kenya-v2019.2.pdf"
+    }
+  },
+  "pdf": "Checklist-of-the-Birds-of-Kenya-v2019.2.pdf",
+  "pending_earc": [],
+  "checksums": {
+    "Checklist-of-the-Birds-of-Kenya-v2019.2.pdf": "41afdd06b550c983f50ccfea03892e8048bdebf7da7fa1eb88a6b5a25e056816",
+    "README.md": "1728c97472b779d84acd7f3383608dbc7ff0de744de3f2594147be6b5b446253",
+    "checklist.csv": "8e9894a0c324641519104c6ad7e9a6f77f866d511543614c558aba67cfb86391",
+    "corrections.csv": "876d2f6732d20248c685ae500a119f858f7a0785153e63a5af15927a920b6be7",
+    "taxonomy.json": "3cda6a9167013cfaf2ac776695d33602958061c35926d99adfa8d82bb9bb76f8",
+    "transitions.json": "5a865745728bbd971dbe9a64e0bcc32694ddf485e669905f802364b4c81f1314"
+  },
+  "pdf_label": "Original printed 2019 edition; CSV includes v2019.2 corrections",
+  "taxonomy_excluded_rows": 0,
+  "comparison_note": "v2019.2 corrects three digital identifiers; printed names and checklist membership are unchanged from v2019.1."
+}

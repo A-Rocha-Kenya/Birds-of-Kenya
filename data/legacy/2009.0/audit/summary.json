@@ -1,0 +1,67 @@
+{
+  "pdf_entries": 1100,
+  "pdf_families": 90,
+  "pdf_species_notes": 313,
+  "schema_columns": 33,
+  "pdf_failures": 0,
+  "excel_sheets": [
+    {
+      "sheet": "combined common+Latin",
+      "entries": 1101
+    },
+    {
+      "sheet": "Separate common-Latin",
+      "entries": 1101
+    },
+    {
+      "sheet": "common+Latin, no families",
+      "entries": 1101
+    },
+    {
+      "sheet": "Separate common-Latin, no fam",
+      "entries": 1101
+    },
+    {
+      "sheet": "Family names only",
+      "families": 89
+    }
+  ],
+  "differences_by_sheet_and_field": {
+    "combined common+Latin": {
+      "note": 471,
+      "family_english": 266,
+      "scientific_name": 11,
+      "common_name": 6,
+      "family_scientific": 5,
+      "membership": 1
+    },
+    "Separate common-Latin": {
+      "note": 480,
+      "scientific_name": 14,
+      "common_name": 11,
+      "family_english": 20,
+      "family_scientific": 17,
+      "membership": 1
+    },
+    "common+Latin, no families": {
+      "note": 471,
+      "scientific_name": 11,
+      "common_name": 6,
+      "membership": 1
+    },
+    "Separate common-Latin, no fam": {
+      "note": 473,
+      "scientific_name": 14,
+      "common_name": 10,
+      "membership": 1
+    },
+    "Family names only": {
+      "family_heading": 2
+    }
+  },
+  "source_sha256": {
+    "source.pdf": "2e86e574fc69e2953aa06b48d453e1dfdf88766eb790a09ce94671635aa12129",
+    "source.xlsx": "aa270d0256574812ee46d6bcb657fcebf63588fbbddd5c5b3d2b9cf1b031a306",
+    "checklist.csv": "2e657a0a12f999e0e3ad47581cdc0540a63fdc8f81bc26d0b3bd93816d7d75f2"
+  }
+}

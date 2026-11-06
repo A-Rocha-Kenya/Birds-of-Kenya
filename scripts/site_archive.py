@@ -31,21 +31,35 @@ def load_archive(root, preview=None):
     return active, bundles
 
 
-def export_archive(staging, active, bundles):
-    versions, transitions, releases = {}, [], []
-    for identifier, (path, descriptor) in bundles.items():
-        versions[identifier] = json.loads((path / "taxonomy.json").read_text())
+def load_transitions(bundles):
+    transitions = []
+    for path, _ in bundles.values():
         if (path / "transition.json").exists():
             transitions.append(json.loads((path / "transition.json").read_text()))
+        if (path / "transitions.json").exists():
+            transitions.extend(json.loads((path / "transitions.json").read_text()))
+    return transitions
+
+
+def export_archive(staging, active, bundles):
+    versions, releases = {}, []
+    transitions = load_transitions(bundles)
+    for identifier, (path, descriptor) in bundles.items():
+        versions[identifier] = json.loads((path / "taxonomy.json").read_text())
         destination = staging / "downloads" / identifier
         destination.mkdir(parents=True)
-        for name in ["checklist.csv", descriptor["pdf"]]:
-            if name:
-                shutil.copy2(path / name, destination / name)
+        basename = f"Checklist-of-the-Birds-of-Kenya-{identifier}"
+        shutil.copy2(path / "checklist.csv", destination / f"{basename}.csv")
+        shutil.copy2(path / "checklist.csv", destination / "checklist.csv")
+        if descriptor["pdf"]:
+            shutil.copy2(path / descriptor["pdf"], destination / f"{basename}.pdf")
+            if descriptor["pdf"] != f"{basename}.pdf":
+                shutil.copy2(path / descriptor["pdf"], destination / descriptor["pdf"])
         releases.append({"id": identifier, "status": descriptor["status"],
-                         "pdf": f'downloads/{identifier}/{descriptor["pdf"]}' if descriptor["pdf"] else "",
-                         "csv": f"downloads/{identifier}/checklist.csv",
+                         "pdf": f'downloads/{identifier}/{basename}.pdf' if descriptor["pdf"] else "",
+                         "csv": f"downloads/{identifier}/{basename}.csv",
                          "taxonomy_excluded_rows": descriptor.get("taxonomy_excluded_rows", 0),
+                         "comparison_note": descriptor.get("comparison_note", ""),
                          "pdf_label": descriptor.get("pdf_label", "Checklist PDF")})
     pairs = []
     for source in versions:

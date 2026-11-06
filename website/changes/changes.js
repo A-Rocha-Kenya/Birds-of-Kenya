@@ -33,7 +33,7 @@ const side = (rows, kind) => `<div class="side ${kind}">${rows.length ? rows.map
 const card = group => {
   const tags = group.tags.map(tag => `<span class="badge">${escapeHtml(dictionary[tag])}</span>`).join('');
   const concept = group.concept_changed ? '<span class="badge">Taxon concept</span>' : '';
-  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="card-title">${escapeHtml(group.title)}</div><div class="badges"><span class="badge relationship">${escapeHtml(group.relationship_label)}</span>${concept}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true">→</div>${side(group.new, 'new')}</div></article>`;
+  return `<article class="change-card" id="${escapeHtml(group.id)}"><div class="card-head"><div class="badges"><span class="badge relationship">${escapeHtml(group.relationship_label)}</span>${concept}${tags}</div></div><div class="concept-grid">${side(group.old, 'old')}<div class="arrow" aria-hidden="true">→</div>${side(group.new, 'new')}</div></article>`;
 };
 
 const renderChanges = () => {
@@ -97,9 +97,12 @@ const loadComparison = async () => {
     const data = await response.json();
     if (request !== requestNumber) return;
     groups = data.groups;
-    const excluded = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id)).reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
-    document.getElementById('comparisonSummary').textContent = excluded ? `${excluded} historical rows lack unique concept IDs and cannot be compared.` : '';
-    document.getElementById('comparisonSummary').hidden = !excluded;
+    const editions = catalog.releases.filter(r => [fromVersion.value, toVersion.value].includes(r.id));
+    const excluded = editions.reduce((n, r) => n + r.taxonomy_excluded_rows, 0);
+    const notes = editions.map(r => r.comparison_note).filter(Boolean);
+    if (excluded) notes.push(`${excluded} historical rows lack unique concept IDs and cannot be compared.`);
+    document.getElementById('comparisonSummary').textContent = notes.join(' ');
+    document.getElementById('comparisonSummary').hidden = !notes.length;
     document.getElementById('nameFilters').innerHTML = '<span class="filter-label">Changed field</span>' + filterConfig.names.map(item => filterButton(item, 'names')).join('');
     document.getElementById('conceptFilters').innerHTML = '<span class="filter-label">Concept relationship</span>' + filterConfig.concepts.map(item => filterButton(item, 'concepts')).join('');
     bindFilters();
@@ -117,13 +120,21 @@ fetch('../data/releases.json', {cache: 'no-cache'}).then(response => {
   return response.json();
 }).then(data => {
   catalog = data;
+  const latestByYear = new Map();
+  data.releases.forEach(release => {
+    const year = release.id.match(/\d{4}/)[0];
+    const latest = latestByYear.get(year);
+    if (!latest || release.id.localeCompare(latest.id, undefined, {numeric: true}) > 0) latestByYear.set(year, release);
+  });
+  const releases = [...data.releases].sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true}));
   for (const select of [fromVersion, toVersion]) {
-    data.releases.forEach(release => select.add(new Option(`${release.id}${release.status === 'draft' ? ' (preview)' : ''}`, release.id)));
+    releases.forEach(release => select.add(new Option(`${release.id}${release.status === 'draft' ? ' (preview)' : ''}`, release.id)));
   }
   const params = new URLSearchParams(location.search);
-  const ids = data.releases.map(r => r.id);
-  toVersion.value = ids.includes(params.get('to')) ? params.get('to') : data.active_release;
-  fromVersion.value = ids.includes(params.get('from')) ? params.get('from') : ids[Math.max(0, ids.indexOf(toVersion.value) - 1)];
+  const ids = releases.map(r => r.id);
+  toVersion.value = ids.includes(params.get('to')) ? params.get('to') : (ids.includes(data.active_release) ? data.active_release : ids.at(-1));
+  const defaults = [...latestByYear.values()].map(r => r.id).sort((a, b) => a.localeCompare(b, undefined, {numeric: true}));
+  fromVersion.value = ids.includes(params.get('from')) ? params.get('from') : defaults[Math.max(0, defaults.indexOf(toVersion.value) - 1)];
   fromVersion.addEventListener('change', loadComparison);
   toVersion.addEventListener('change', loadComparison);
   return loadComparison();
