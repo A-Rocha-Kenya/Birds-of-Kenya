@@ -5,7 +5,7 @@ import argparse
 import json
 from pathlib import Path
 
-from site_archive import load_archive, load_transitions, write_comparison
+from site_archive import load_archive, load_concept_relationships, write_comparison
 from taxonomy_comparison import compare_versions
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,8 +20,7 @@ def main():
     args = parser.parse_args()
     _, bundles = load_archive(ROOT, args.preview_release)
     versions = {identifier: json.loads((path / "taxonomy.json").read_text()) for identifier, (path, _) in bundles.items()}
-    transitions = load_transitions(bundles)
-    pair = compare_versions(versions, transitions, args.source, args.target)
+    pair = compare_versions(versions, (), args.source, args.target, load_concept_relationships(ROOT))
     write_comparison(args.output, pair)
     print(f"Exported {pair['group_count']} taxonomic changes: {args.source} → {args.target}")
 

@@ -6,8 +6,13 @@ import csv
 import json
 import re
 import hashlib
+import sys
 from urllib.parse import urlsplit, parse_qs
 from pathlib import Path
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from taxonomy_comparison import compare_versions
 
 
 def main():
@@ -31,6 +36,22 @@ def main():
             assert all(pdf.read_bytes() == (site / release["pdf"]).read_bytes() for pdf in directory.glob("*.pdf"))
             assert Path(release["pdf"]).name == f"Checklist-of-the-Birds-of-Kenya-{release['id']}.pdf"
         assert Path(release["csv"]).name == f"Checklist-of-the-Birds-of-Kenya-{release['id']}.csv"
+    graph = json.loads((site / "data/taxon-concept-graph.json").read_text())
+    for release in archive["releases"]:
+        identifier = release["id"]
+        with (site / release["csv"]).open(encoding="utf-8-sig", newline="") as f:
+            expected_rows = len(list(csv.DictReader(f)))
+        assert sum(identifier in editions for editions in graph["concepts"].values()) + len(graph["excluded_entries"].get(identifier, [])) == expected_rows
+    assert all(edge[key] in graph["concepts"] for edge in graph["relationships"] for key in ("subject_id", "object_id"))
+    assert "legacy_transitions" not in graph
+    snapshots = {
+        release["id"]: sorted(
+            ({"id": concept, **editions[release["id"]]} for concept, editions in graph["concepts"].items()
+             if release["id"] in editions),
+            key=lambda row: (row["sequence"], row["id"]),
+        )
+        for release in archive["releases"]
+    }
     forbidden = {"observations", "earc_decisions", "pending_earc", "exotic_status", "HIST", "RAR", "record_count"}
     pair_counts = {(p["from_release"], p["to_release"]): p["group_count"] for p in archive["pairs"]}
     assert all(count == pair_counts[(b, a)] for (a, b), count in pair_counts.items())
@@ -39,6 +60,8 @@ def main():
         comparison = json.loads((site / entry["files"]["json"]).read_text())
         assert comparison["from_release"] == entry["from_release"] and comparison["to_release"] == entry["to_release"]
         assert len(comparison["groups"]) == entry["group_count"]
+        expected = compare_versions(snapshots, (), entry["from_release"], entry["to_release"], graph["relationships"])
+        assert comparison == expected, "Website comparison differs from the shared concept graph"
         for group in comparison["groups"]:
             assert group["old"] or group["new"]
             assert not forbidden & set(group)
