@@ -18,6 +18,12 @@ on:
       - "tests/validate_site.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
+    inputs:
+      preview_release:
+        description: "Optional draft to deploy at /preview/ alongside the published website"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: read
@@ -41,6 +47,14 @@ jobs:
       - name: Validate website
         run: |
           python3 tests/validate_site.py _site
+
+      - name: Build and validate optional public preview
+        if: github.event_name == 'workflow_dispatch' && inputs.preview_release != ''
+        env:
+          PREVIEW_RELEASE: ${{ inputs.preview_release }}
+        run: |
+          python3 scripts/build_site.py --preview-release "$PREVIEW_RELEASE" --output _site/preview
+          python3 tests/validate_site.py _site/preview
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
