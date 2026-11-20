@@ -21,6 +21,26 @@ PUBLICATION = ROOT / "publication" / "publication.toml"
 EARC_DECISIONS = ROOT / "data" / "curation" / "earc_decisions.csv"
 HIDDEN_CATEGORY_GROUPS = {"Regular movement", "Regional visitors", "Regional vagrants"}
 HIDDEN_CATEGORY_CODES = {"E", "ES"}
+ORDER_NAMES = ROOT / "data" / "curation" / "order_english_names.csv"
+# Pinned commit so illustrations cannot change under a published release.
+STICKER_CDN = "https://cdn.jsdelivr.net/gh/alchaincyf/huashu-bird-sticker@01264126448bd3d5d3bf69102abbfe98d9e3b489/"
+STICKER_CREDIT = {
+    "name": "huashu-bird-sticker",
+    "url": "https://github.com/alchaincyf/huashu-bird-sticker",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "note": "AI-generated illustrations, not verified by experts.",
+}
+# Website-only rarity classes from the release's clustered eBird observations. "Very rare" matches the
+# release RAR threshold (fewer than five observations). This reflects how often a species is recorded,
+# not its population size or conservation status.
+RARITY_CLASSES = [
+    {"id": "very-rare", "label": "Very rare", "min": 0, "max": 4},
+    {"id": "rare", "label": "Rare", "min": 5, "max": 49},
+    {"id": "scarce", "label": "Scarce", "min": 50, "max": 299},
+    {"id": "common", "label": "Common", "min": 300, "max": 1999},
+    {"id": "very-common", "label": "Very common", "min": 2000, "max": None},
+]
 POLICY_CONTENT_MARKER = "<!-- POLICY_CONTENT -->"
 INLINE_MARKDOWN = re.compile(r"(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)")
 
@@ -164,6 +184,132 @@ def public_metadata(metadata, manifest, rows, comparison, downloads):
     }
 
 
+def taxonomy_tree(rows, release_id):
+    """Group checklist rows into AviList order > family > species, in checklist sequence."""
+    # English order names are copied from AviList; styled like the family labels on the site.
+    order_names = {row["order"]: format_family_label(row["english_name"]) for row in read_csv(require(ORDER_NAMES))}
+    missing = sorted({row["order"] for row in rows} - set(order_names))
+    if missing:
+        raise ValueError(f"orders missing an English name in {ORDER_NAMES.name}: {', '.join(missing)}")
+
+    def rarity(row):
+        if row["sensitive"] == "TRUE" or row["observations"] == "":
+            return "not-assessed"
+        count = int(row["observations"])
+        return next(item["id"] for item in RARITY_CLASSES if count >= item["min"] and (item["max"] is None or count <= item["max"]))
+
+    def representative(species):
+        # The most observed species stands for its group; sensitive species carry no evidence.
+        return max(species, key=lambda item: item["observations"])["id"]
+
+    orders = {}
+    for row in sorted(rows, key=lambda item: int(item["sequence"])):
+        order = orders.setdefault(row["order"], {
+            "order": row["order"], "english_name": order_names[row["order"]], "families": {},
+        })
+        family = order["families"].setdefault(row["family"], {
+            "family": row["family"], "english_name": row["family_english_name"], "species": [],
+        })
+        family["species"].append({
+            "id": row["avibase_id"],
+            "english_name": row["english_name"],
+            "scientific_name": row["scientific_name"],
+            "sticker": f"stickers/{row['order']}/{row['family']}/{row['scientific_name'].replace(' ', '_')}.webp",
+            "rarity": rarity(row),
+            "iucn": row["iucn_red_list_category"],
+            "naturalized": row["exotic_status"] == "naturalized",
+            "pending_earc": row["pending_earc"] == "TRUE",
+            "historical": row.get("HIST") == "TRUE",
+            "rare": row.get("RAR") == "TRUE",
+            "waterbird": row.get("water_bird") == "TRUE",
+            "sensitive": row["sensitive"] == "TRUE",
+            "observations": int(row["observations"] or 0) if row["sensitive"] != "TRUE" else 0,
+            "first_observation": row["first_observation_date"],
+            "last_observation": row["last_observation_date"],
+            "earc_decision": row["earc_decision"],
+            "taxonomy_comment": row["taxonomy_comment"],
+            "birds_of_the_world_url": row["birds_of_the_world_url"],
+            "birdlife_datazone_url": row["birdlife_datazone_url"],
+        })
+
+    tree = []
+    for order in orders.values():
+        families = list(order["families"].values())
+        for family in families:
+            family["representative"] = representative(family["species"])
+        tree.append({**order, "families": families,
+                     "representative": representative([s for f in families for s in f["species"]])})
+    return {
+        "release_id": release_id,
+        "sticker_cdn": STICKER_CDN,
+        "sticker_credit": STICKER_CREDIT,
+        "rarity_classes": RARITY_CLASSES,
+        "counts": {
+            "orders": len(tree),
+            "families": sum(len(order["families"]) for order in tree),
+            "species": len(rows),
+        },
+        "orders": tree,
+    }
+
+
+PHYLOGENY = ROOT / "data" / "phylogeny"
+
+
+def parse_newick(text):
+    """Parse a Newick tree into nested [branch_length, label] leaves and [branch_length, children] clades."""
+    text = text.strip().rstrip(";")
+    position = 0
+
+    def node():
+        nonlocal position
+        children = None
+        if text[position] == "(":
+            position += 1
+            children = [node()]
+            while text[position] == ",":
+                position += 1
+                children.append(node())
+            if text[position] != ")":
+                raise ValueError(f"malformed Newick tree near character {position}")
+            position += 1
+        label = re.match(r"[^:,()]*", text[position:]).group()
+        position += len(label)
+        length = 0.0
+        if position < len(text) and text[position] == ":":
+            number = re.match(r":([0-9.eE+-]+)", text[position:]).group(1)
+            position += len(number) + 1
+            length = float(number)
+        return [length, children if children is not None else label]
+
+    return node()
+
+
+def phylogeny_tree(rows):
+    """Dated tree of the release's species from clootl, with tips renamed to Avibase IDs."""
+    source = json.loads(require(PHYLOGENY / "source.json").read_text())
+    tips = {row["tip"]: row["avibase_id"] for row in read_csv(require(PHYLOGENY / "tips.csv"))}
+    tree = parse_newick(require(PHYLOGENY / "kenya.tre").read_text())
+    seen = []
+
+    def convert(node):
+        length, content = node
+        if isinstance(content, list):
+            return [round(length, 3), [convert(child) for child in content]]
+        seen.append(tips[content])
+        return [round(length, 3), tips[content]]
+
+    tree = convert(tree)
+    expected = {row["avibase_id"] for row in rows}
+    if len(seen) != len(set(seen)) or set(seen) != expected:
+        missing = sorted(expected - set(seen))
+        raise ValueError(
+            f"data/phylogeny does not match the active release ({len(missing)} species missing); "
+            "rerun `Rscript scripts/build_phylogeny.R`"
+        )
+    return {**source, "tree": tree}
+
+
 def validate_publication(metadata, allow_draft):
     if metadata["status"] != "draft":
         required = {
@@ -239,6 +385,14 @@ def main():
         (staging / "data" / "category-definitions.json").write_text(
             json.dumps(category_definitions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+        (staging / "data" / "taxonomy.json").write_text(
+            json.dumps(taxonomy_tree(public_rows, identifier), ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+        (staging / "data" / "phylogeny.json").write_text(
+            json.dumps(phylogeny_tree(public_rows), ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8"
+        )
+        copy(PHYLOGENY / "citations.csv", staging / "data" / "phylogeny-citations.csv")
         copy(release / "manifest.json", staging / "data" / "manifest.json")
         catalog = export_archive(staging, identifier, bundles, load_concept_relationships(ROOT))
         site_metadata = public_metadata(metadata, manifest, rows, comparison, downloads)

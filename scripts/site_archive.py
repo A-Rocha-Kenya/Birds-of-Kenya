@@ -71,14 +71,16 @@ def load_concept_relationships(root):
 def format_family_label(label):
     """Use one capitalization style for English family labels on the website."""
     connectors = {"and", "or", "of", "the", "in", "with"}
-    words = list(re.finditer(r"[^\W\d_]+(?:['’][^\W\d_]+)*", label, flags=re.UNICODE))
+    # Hyphenated names count as one word, so "Bee-eaters" keeps a lowercase second part.
+    word_pattern = r"[^\W\d_]+(?:[-'’][^\W\d_]+)*"
+    words = list(re.finditer(word_pattern, label, flags=re.UNICODE))
     first = words[0].start() if words else 0
 
     def capitalize(match):
         word = match.group().lower()
         return word if match.start() != first and word in connectors else word.capitalize()
 
-    return re.sub(r"[^\W\d_]+(?:['’][^\W\d_]+)*", capitalize, label)
+    return re.sub(word_pattern, capitalize, label)
 
 
 def export_archive(staging, active, bundles, relationships=()):

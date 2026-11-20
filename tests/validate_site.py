@@ -92,6 +92,52 @@ def main():
         rows = list(csv.DictReader(f))
     assert len(rows) == manifest["counts"]["species"]
     assert not any(p.name.startswith('Taxonomy-changes-') for p in site.rglob('*.pdf'))
+    taxonomy = json.loads((site / "data/taxonomy.json").read_text())
+    assert all((site / name).is_file() for name in ["tree/index.html", "explore/index.html", "assets/taxonomy.js"])
+    assert taxonomy["release_id"] == archive["active_release"]
+    assert re.fullmatch(r"https://cdn\.jsdelivr\.net/gh/alchaincyf/huashu-bird-sticker@[0-9a-f]{40}/", taxonomy["sticker_cdn"])
+    taxonomy_species = [
+        (order["order"], family["family"], species)
+        for order in taxonomy["orders"] for family in order["families"] for species in family["species"]
+    ]
+    assert [species["id"] for *_, species in taxonomy_species] == [row["avibase_id"] for row in rows]
+    assert taxonomy["counts"] == {
+        "orders": len({row["order"] for row in rows}),
+        "families": len({row["family"] for row in rows}),
+        "species": len(rows),
+    }
+    for (order, family, species), row in zip(taxonomy_species, rows):
+        assert (order, family, species["scientific_name"]) == (row["order"], row["family"], row["scientific_name"])
+        assert species["sticker"] == f"stickers/{order}/{family}/{species['scientific_name'].replace(' ', '_')}.webp"
+        assert species["english_name"] == row["english_name"]
+        if row["sensitive"] == "TRUE" or row["observations"] == "":
+            assert species["rarity"] == "not-assessed"
+        else:
+            rarity = next(item for item in taxonomy["rarity_classes"] if item["id"] == species["rarity"])
+            count = int(row["observations"])
+            assert rarity["min"] <= count and (rarity["max"] is None or count <= rarity["max"])
+            # "Very rare" is the release's RAR category (fewer than five observations).
+            assert (species["rarity"] == "very-rare") == (row["RAR"] == "TRUE")
+    assert all(order["english_name"] and order["representative"] for order in taxonomy["orders"])
+    phylogeny = json.loads((site / "data/phylogeny.json").read_text())
+    tips = []
+
+    def walk(node):
+        length, content = node
+        assert length >= 0
+        if isinstance(content, list):
+            assert len(content) >= 2
+            for child in content:
+                walk(child)
+        else:
+            tips.append(content)
+
+    walk(phylogeny["tree"])
+    assert sorted(tips) == sorted(row["avibase_id"] for row in rows), "phylogeny tips must be exactly the checklist species"
+    assert phylogeny["species"] == len(rows) and phylogeny["citations"] and (site / "data/phylogeny-citations.csv").is_file()
+    for page in ["index.html", "checklist/index.html", "tree/index.html", "explore/index.html", "changes/index.html", "policy/index.html"]:
+        nav = re.search(r'<div class="nav-links">(.*?)</div>', (site / page).read_text(), re.S).group(1)
+        assert re.findall(r'>(Home|Table|Tree|Explore|Changes|Policy)</a>', nav) == ["Home", "Table", "Tree", "Explore", "Changes", "Policy"], page
     for page in site.rglob("*.html"):
         for url in re.findall(r'(?:src|href)="([^\"]+\.(?:js|css)\?[^\"]+)"', page.read_text()):
             parsed = urlsplit(url)
