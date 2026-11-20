@@ -308,7 +308,6 @@
     },
     "sources": {
       "pending_earc": "data/curation/releases/v2026.0/pending_earc.csv",
-      "taxonomy_transition": "data/curation/releases/v2026.0/transition.json",
       "release_directory": "dist/v2026.0",
       "policy": "docs/policy.md",
       "introduction": "",
@@ -345,7 +344,6 @@
     "avibase-30238523",
     "avibase-3380CFC5",
     "avibase-33C35018",
-    "avibase-3BC778CE",
     "avibase-3DF3F9B9",
     "avibase-90AAE188",
     "avibase-93CA037F",
@@ -356,20 +354,20 @@
     "avibase-F89FD6E3"
   ],
   "checksums": {
-    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "1413cac1adedd6cd67d30b653c3af58f3d634c4c00089ee74a4fcf6c59e8bb68",
+    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "cd48092dad7edcad28c3932db82ed8b4dca2f5c0e3bfe6146382f98275980f9a",
     "category_definitions.csv": "e579ef3a8408db446599e3fa771012f539032dd3a5661ccf0a81c26a369d09b7",
-    "checklist.csv": "571194dbae9c5f03c4af5d12f997d2aa8123c60160d44bbd1681bbc7119688fe",
+    "checklist.csv": "f416f5be80af2bed3cabb8886372f249398bf19f5b66dafb9de0f2d37527e2ab",
     "curation/categories.csv": "537797902348e024ac961670fb8a674e55cf67ba4c28caa1b0b4c9cf367e0d5a",
+    "curation/checklist_exclusions.csv": "aa7644822cb505982ebf3edfb48319b02c4b606591b32aca15652d516bdf8b64",
     "curation/curated_species.csv": "ff7c84271470d2d13ec87914655482b98350f0926ca8eb2eb4ca63189c3d16c5",
     "curation/earc_decisions.csv": "d89a7824cb0b299f37440e3679cd9e881e2501d2cadb0acd7a594f05f5c0848d",
     "curation/ebird_avilist_overrides.csv": "7b23198bef516991e59597830aedc751055632cceda351e96db27ca69c4abdb2",
     "curation/ebird_exotic_overrides.csv": "01747fb9d44801f362ca3b5009a37f39f84235250d3728baf52c1849558aee1c",
     "curation/ebird_taxon_corrections.csv": "c87427a4c5c4753d411e72d4f546262f8590d8da4251773e2bf958cb651df0e1",
-    "curation/pending_earc.csv": "8572dafe64803b0c3d36489c3557534220d7e0d4e5be55fd2f7798d62dc16a3d",
+    "curation/pending_earc.csv": "83b8792045b694a2af07d894a86655ae386f91d1cc18f8ddeb2a302a3f951228",
     "curation/sensitive_species.csv": "b453e8d441a155d856393be827ff8e7442b3bc7c19be72877601e8de88f41728",
-    "manifest.json": "5da8ec192c154f00b390033d900c421b80efc2ba1ee7eb65df3057ec982be5ef",
+    "manifest.json": "7226b2bb154ca9fa708d6f5f7461b3aae0e070b6ed770e1e3a165cd7b86805ab",
     "policy.md": "e697be809d121ef038a32c87952c12a5824aa3edb1f8a1ec5bbaaeb929dcd289",
-    "taxonomy.json": "c0cef73555e8bfc24be47de245a58be6aaea529b1efba9f3ae3f3742c37463ad",
-    "transition.json": "fe002d9c13c2fb62ecbd573298de5b48dc5302399be968565ff8b5d70e27695e"
+    "taxonomy.json": "f7263ade6ec7ce20f35f3a0d2c93f547dc8eb97b946c965972d1ec4ab0643991"
   }
 }

@@ -238,7 +238,6 @@ description = "Bounding box of all supporting EBD records matched through the re
 
 [sources]
 pending_earc = "data/curation/releases/v2026.0/pending_earc.csv"
-taxonomy_transition = "data/curation/releases/v2026.0/transition.json"
 release_directory = "dist/v2026.0"
 policy = "docs/policy.md"
 introduction = ""

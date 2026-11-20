@@ -53,14 +53,18 @@
     },
     "pending_earc_path": {
       "path": "data/curation/releases/v2026.0/pending_earc.csv",
-      "sha256": "8572dafe64803b0c3d36489c3557534220d7e0d4e5be55fd2f7798d62dc16a3d"
+      "sha256": "83b8792045b694a2af07d894a86655ae386f91d1cc18f8ddeb2a302a3f951228"
+    },
+    "checklist_exclusions_path": {
+      "path": "data/curation/releases/v2026.0/checklist_exclusions.csv",
+      "sha256": "aa7644822cb505982ebf3edfb48319b02c4b606591b32aca15652d516bdf8b64"
     }
   },
   "counts": {
-    "species": 1149,
+    "species": 1148,
     "species_records": 4919970,
-    "species_observations": 895561,
-    "latest_records": 5455,
+    "species_observations": 895556,
+    "latest_records": 5450,
     "taxonomic_entities": 13,
     "taxonomic_entity_records": 4901,
     "taxonomic_entity_observations": 852,
@@ -74,7 +78,7 @@
     "curated_species": 6,
     "curated_sensitive_species_without_ebd_records": 2,
     "species_by_exotic_status": {
-      "native": 1144,
+      "native": 1143,
       "naturalized": 5
     },
     "taxonomic_entities_by_exotic_status": {

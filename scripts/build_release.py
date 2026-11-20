@@ -172,12 +172,16 @@ def release_id(config):
 
 
 def source_paths(config):
-    return {key: ROOT / config[key] for key in [
+    paths = {key: ROOT / config[key] for key in [
         "ebd_path", "avilist_path", "ebird_taxonomy_path", "categories_path",
         "kbm_species_list_path",
         "ebird_avilist_overrides_path", "ebird_exotic_overrides_path", "ebird_taxon_corrections_path",
         "sensitive_species_path", "curated_species_path", "earc_decisions_path", "pending_earc_path",
     ]}
+
+    if "checklist_exclusions_path" in config:
+        paths["checklist_exclusions_path"] = ROOT / config["checklist_exclusions_path"]
+    return paths
 
 
 def derived_paths(ebd_path):
@@ -841,10 +845,15 @@ def build(config_path, force_compaction=False):
                 "sensitive": "FALSE",
             }
 
+    checklist_exclusions = read_csv(paths["checklist_exclusions_path"]) if "checklist_exclusions_path" in paths else []
+    for row in checklist_exclusions:
+        evidence = observations.pop(row["avibase_id"], None)
+        row["record_count"] = evidence["count"] if evidence else 0
+
     latest = defaultdict(list)
     for row in reported_latest:
         identifier = code_to_avilist.get(row["REPORTED_SPECIES_CODE"])
-        if identifier:
+        if identifier in observations:
             push_latest(latest[identifier], row)
 
     checklist = []
@@ -912,6 +921,10 @@ def build(config_path, force_compaction=False):
     ])
     write_csv(output / "audit" / "exotic_code_overrides.csv", EXOTIC_OVERRIDE_FIELDS, exotic_override_audit)
     write_csv(output / "audit" / "sensitive_species.csv", SENSITIVE_AUDIT_FIELDS, sensitive_audit)
+    if "checklist_exclusions_path" in paths:
+        write_csv(output / "audit" / "checklist_exclusions.csv", [
+            "avibase_id", "name", "reason", "record_count",
+        ], checklist_exclusions)
     corrections_audit = read_csv(derived["taxon_corrections"])
     write_csv(output / "audit" / "ebird_taxon_corrections.csv", TAXON_CORRECTION_FIELDS, corrections_audit)
 
