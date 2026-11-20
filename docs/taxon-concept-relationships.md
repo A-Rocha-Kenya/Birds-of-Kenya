@@ -28,7 +28,7 @@ Every assigned concept is included. The remaining unlinked entries in the main e
 | v2009.0 → v2019.2 | 2 | 68 |
 | v2019.2 → v2025.0 | 5 | 24 |
 | v2019.3 → v2025.0 | 3 | 22 |
-| v2025.0 → v2026.0 preview | 0 | 0 |
+| v2025.0 → v2026.0 | 0 | 0 |
 
 Review an unlinked entry against the original checklist and Avibase concept definitions before adding an assertion. A confirmed addition or removal does not require a taxonomic edge. An incorrect printed-entry assignment belongs in the checklist's correction record.
 

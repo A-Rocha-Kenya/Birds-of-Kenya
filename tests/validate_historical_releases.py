@@ -36,7 +36,7 @@ def main():
     assert [r["sort"] for r in historical if not r["avibaseid"]] == [r["sort"] for r in unresolved]
     assert len(unresolved) == 49
     active, bundles = load_archive(ROOT)
-    assert active == "v2025.0"
+    assert active == "v2026.0"
     versions = {identifier: json.loads((path / "taxonomy.json").read_text()) for identifier, (path, _) in bundles.items()}
     assert len(versions["v2009.0"]) == 1051
     for identifier, rows in [("v2009.0", historical), ("v2019.2", corrected), ("v2019.3", revised)]:

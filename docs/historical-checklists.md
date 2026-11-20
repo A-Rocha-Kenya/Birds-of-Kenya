@@ -1,6 +1,6 @@
 # Historical checklist archive
 
-The public archive includes v2009.0, v2009.1, v2019.0, v2019.1, v2019.2, v2019.3 and v2025.0. The active national checklist remains v2025.0. Any separately prepared 2026 candidate remains outside the public released archive.
+The public archive includes v2009.0, v2009.1, v2019.0, v2019.1, v2019.2, v2019.3, v2025.0 and v2026.0. The active national checklist is v2026.0.
 
 v2009.0 transcribes the fourth edition of September 2009 with minor corrections dated 13 December 2017. It contains 1,100 entries. A complete source audit passes; 49 historical Avibase concepts remain unresolved and are excluded from taxonomy comparisons, with a warning on the Changes page. They remain in the full checklist download. The public PDF includes the front matter and all 48 main-source pages.
 

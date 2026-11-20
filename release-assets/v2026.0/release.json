@@ -1,10 +1,10 @@
 {
   "id": "v2026.0",
-  "status": "draft",
+  "status": "released",
   "publication": {
     "schema_version": 1,
     "release_id": "v2026.0",
-    "status": "draft",
+    "status": "released",
     "language": "en-KE",
     "document": {
       "title": "Checklist of the Birds of Kenya",
@@ -12,7 +12,7 @@
       "edition": "",
       "corporate_author": "Bird Committee of the East Africa Natural History Society (Nature Kenya)",
       "version_label": "v2026.0",
-      "publication_date": "2026-11-03",
+      "publication_date": "2026-11-20",
       "editorial_cutoff_date": "2026-11-03",
       "recommended_citation": "Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0). https://doi.org/10.15468/mehwcx"
     },
@@ -354,7 +354,7 @@
     "avibase-F89FD6E3"
   ],
   "checksums": {
-    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "cd48092dad7edcad28c3932db82ed8b4dca2f5c0e3bfe6146382f98275980f9a",
+    "Checklist-of-the-Birds-of-Kenya-v2026.0.pdf": "75fdf36b6bdecb98d284b71d6cdd1b64b945a124b7e5cf17e29808a87d9da9cd",
     "category_definitions.csv": "e579ef3a8408db446599e3fa771012f539032dd3a5661ccf0a81c26a369d09b7",
     "checklist.csv": "f416f5be80af2bed3cabb8886372f249398bf19f5b66dafb9de0f2d37527e2ab",
     "curation/categories.csv": "537797902348e024ac961670fb8a674e55cf67ba4c28caa1b0b4c9cf367e0d5a",
@@ -367,7 +367,7 @@
     "curation/pending_earc.csv": "83b8792045b694a2af07d894a86655ae386f91d1cc18f8ddeb2a302a3f951228",
     "curation/sensitive_species.csv": "b453e8d441a155d856393be827ff8e7442b3bc7c19be72877601e8de88f41728",
     "manifest.json": "7226b2bb154ca9fa708d6f5f7461b3aae0e070b6ed770e1e3a165cd7b86805ab",
-    "policy.md": "e697be809d121ef038a32c87952c12a5824aa3edb1f8a1ec5bbaaeb929dcd289",
+    "policy.md": "e167674071562fa3559eb1f5d77606cb5e8d040ceb2978d5efa37aebc31fce5a",
     "taxonomy.json": "f7263ade6ec7ce20f35f3a0d2c93f547dc8eb97b946c965972d1ec4ab0643991"
   }
 }

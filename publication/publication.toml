@@ -1,6 +1,6 @@
 schema_version = 1
 release_id = "v2026.0"
-status = "draft"
+status = "released"
 language = "en-KE"
 
 [document]
@@ -9,7 +9,7 @@ short_title = "Birds of Kenya"
 edition = ""
 corporate_author = "Bird Committee of the East Africa Natural History Society (Nature Kenya)"
 version_label = "v2026.0"
-publication_date = "2026-11-03"
+publication_date = "2026-11-20"
 editorial_cutoff_date = "2026-11-03"
 recommended_citation = "Bird Committee of the East Africa Natural History Society (Nature Kenya). (2026). Checklist of the Birds of Kenya (version v2026.0). https://doi.org/10.15468/mehwcx"
 
