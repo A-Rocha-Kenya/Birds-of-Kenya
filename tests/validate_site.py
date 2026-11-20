@@ -137,7 +137,9 @@ def main():
     assert phylogeny["species"] == len(rows) and phylogeny["citations"] and (site / "data/phylogeny-citations.csv").is_file()
     for page in ["index.html", "checklist/index.html", "tree/index.html", "explore/index.html", "changes/index.html", "policy/index.html"]:
         nav = re.search(r'<div class="nav-links">(.*?)</div>', (site / page).read_text(), re.S).group(1)
-        assert re.findall(r'>(Home|Table|Tree|Explore|Changes|Policy)</a>', nav) == ["Home", "Table", "Tree", "Explore", "Changes", "Policy"], page
+        assert re.findall(r'>(\w+)</a>', nav) == ["Home", "Table", "Tree", "Explore", "Changes"], page
+        footer = re.search(r'<nav aria-label="Footer navigation">(.*?)</nav>', (site / page).read_text(), re.S).group(1)
+        assert ">Policy</a>" in footer and "github.com/A-Rocha-Kenya/Birds-of-Kenya" in footer, page
     for page in site.rglob("*.html"):
         for url in re.findall(r'(?:src|href)="([^\"]+\.(?:js|css)\?[^\"]+)"', page.read_text()):
             parsed = urlsplit(url)
