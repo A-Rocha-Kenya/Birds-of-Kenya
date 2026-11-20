@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore · Birds of Kenya</title>
+  <meta name="description" content="Browse every species on the Checklist of the Birds of Kenya, family by family.">
+  <meta name="theme-color" content="#173e2e">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-release-id="{{RELEASE_ID}}" class="taxonomy-page explore-page" data-taxonomy-page="explore" data-site-root="../">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="../">Birds of Kenya</a>
+    <div class="nav-links"><a href="../">Home</a><a href="../checklist/">Table</a><a href="../tree/">Tree</a><a href="./" aria-current="page">Explore</a><a href="../changes/">Changes</a></div>
+  </nav>
+
+  <header class="page-hero">
+    <div>
+      <h1>Explore the birds of Kenya</h1>
+      <p class="lede">Every species on the checklist, family by family.</p>
+    </div>
+  </header>
+
+  <div class="taxonomy-toolbar-wrap">
+    <div class="explore-toolbar" aria-label="Search and filter species">
+      <div class="explore-search">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+        <label class="sr-only" for="speciesSearch">Search species</label>
+        <input id="speciesSearch" type="search" placeholder="Search species, families or orders" autocomplete="off" spellcheck="false">
+        <kbd class="search-key" aria-hidden="true">/</kbd>
+        <button id="clearSpeciesSearch" class="clear-search" type="button" hidden>Clear</button>
+      </div>
+      <div class="explore-filters">
+        <div class="filter-row" id="rarityFilters" role="group" aria-label="Filter by rarity"><span class="filter-label">Rarity</span></div>
+        <div class="filter-row" id="flagFilters" role="group" aria-label="Filter by status"><span class="filter-label">Status</span></div>
+      </div>
+      <div class="explore-meta">
+        <span id="exploreCount" role="status" aria-live="polite"></span>
+        <button id="clearExploreFilters" class="clear-filters" type="button" hidden>Clear all</button>
+        <button id="rarityInfoButton" class="info-link" type="button" aria-expanded="false" aria-controls="rarityInfo">How rarity is defined</button>
+        <label class="sci-toggle"><input id="showScientific" type="checkbox"> Scientific names</label>
+      </div>
+      <div id="rarityInfo" class="rarity-info" hidden></div>
+    </div>
+  </div>
+
+  <div id="loader" class="taxonomy-loader" role="status" aria-live="polite"><span class="spinner" aria-hidden="true"></span>Loading…</div>
+  <div id="error" class="message error" role="alert" hidden></div>
+
+  <main id="exploreView" class="explore-view" aria-label="Species by family" hidden>
+    <div id="plates" class="plates"></div>
+    <p id="exploreEmpty" class="explore-empty" hidden>No species match. Try another name or clear the filters.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="illustration-credit" id="illustrationCredit"></p>
+    <p class="footer-title">Birds of Kenya · <span data-site="release.year">{{CHECKLIST_YEAR}}</span></p><nav aria-label="Footer navigation"><a href="../">Home</a><a href="../checklist/">Table</a><a href="../tree/">Tree</a><a href="./">Explore</a><a href="../changes/">Changes</a><a href="../policy/">Policy</a><a href="https://github.com/A-Rocha-Kenya/Birds-of-Kenya" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a></nav>
+  </footer>
+  <script src="../assets/site.js"></script><script src="../assets/taxonomy.js"></script>
+</body>
+</html>

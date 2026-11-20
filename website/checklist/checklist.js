@@ -413,6 +413,8 @@ Papa.parse('../data/checklist.csv?v=20260813-1', {
     exportPlugin = hot.getPlugin('exportFile');
     exportButton.disabled = false;
     loader.hidden = true;
+    const linkedQuery = new URLSearchParams(window.location.search).get('q');
+    if (linkedQuery) searchInput.value = linkedQuery;
     renderView();
     window.addEventListener('resize', () => hot.updateSettings({ height: tableHeight() }));
   },
