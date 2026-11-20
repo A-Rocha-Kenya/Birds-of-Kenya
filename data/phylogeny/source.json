@@ -1,0 +1,11 @@
+{
+  "release": "v2026.0",
+  "source": "clootl",
+  "clootl_package": "0.1.5",
+  "tree_version": "1.7",
+  "taxonomy_year": 2025,
+  "species": 1148,
+  "root_age_mya": 98.99,
+  "studies": 152,
+  "citations": ["Miller E, McTavish E, Sanchez-Reyes L (2025). clootl: Fetch and Explore the Cornell Lab of Ornithology Open Tree of Life Avian Phylogeny. <https://github.com/eliotmiller/clootl>.", "McTavish E, Gerbracht J, Holder M, Iliff M, Lepage D, Rasmussen P, Redelings B, Sanchez-Reyes L, Miller E (2025). A complete and dynamic tree of birds. Proceedings of the National Academy of Sciences."]
+}
