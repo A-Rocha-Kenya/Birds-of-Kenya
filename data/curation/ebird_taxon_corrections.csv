@@ -1,0 +1,5 @@
+ebd_version,source_taxon_concept_id,source_category,taxon_concept_id,reason
+2026-09,avibase-EE8206E7,species,avibase-EE8206E7,Same concept is now the Spotted/Mediterranean Flycatcher slash; broad records remain unidentified and cannot support either descendant species.
+2026-09,avibase-B142856F,issf,avibase-B142856F,The explicitly identified striata-group concept is now Spotted Flycatcher species; retain only these identified records as species evidence.
+2026-09,avibase-D209A90C,species,avibase-4D28A0CD,Retired Little Swift concept is contained within the 2026 Little/House Swift lump (AviList decision 2026-051).
+2026-09,avibase-4E923B31,species,avibase-EB9CE6A2,"Explicit Kenyan assignment to Rufous-naped Lark; Athi was already separate in the EBD. Newly separated Plateau, Highland and Plain larks have AviList ranges outside Kenya. Regional assignment, not global concept equivalence."

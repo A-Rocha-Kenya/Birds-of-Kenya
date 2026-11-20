@@ -1,6 +1,6 @@
 # Birds of Kenya
 
-**Version v2025.0 of the *Checklist of the Birds of Kenya*** uses AviList v2025b, eBird taxonomy 2025 and the June 2026 EBD. The release year identifies its taxonomic baseline, independently of the observation dataset month and publication date. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
+**Version v2026.0 of the *Checklist of the Birds of Kenya* is the current release**, using AviList/eBird taxonomy 2026 and the September 2026 EBD. The release year identifies its taxonomic baseline, independently of the observation dataset month and publication date. The checklist continues a national publishing tradition established by editions in 1981, 1986, 1996, 2009, and 2019.
 
 The corporate author is the **Bird Committee of Nature Kenya—the East Africa Natural History Society**. Nature Kenya is the official publisher and institutional home of the checklist.
 
@@ -33,7 +33,7 @@ does not describe publication or website deployment.
 
 ## Release and publication workflow
 
-The editable candidate is separate from the public website version. `config/release.toml` and `publication/publication.toml` prepare a release; `publication/releases.toml` explicitly selects the active published version. The active published release is v2025.0. Future candidates can be prepared without changing the public website.
+The editable candidate is separate from the public website version. `config/release.toml` and `publication/publication.toml` prepare a release; `publication/releases.toml` explicitly selects the active published version. The active published release is v2026.0. Future candidates can be prepared without changing the public website.
 
 Each archived release has its own checklist CSV, taxonomic snapshot, curated decisions, publication metadata and one canonical checklist PDF. Older checklists remain downloadable on the website. The original printed 2019 PDF is labeled separately from its corrected 2019.1 CSV transcription. Comparison PDFs are retired.
 
@@ -74,4 +74,4 @@ The new checklist data and publication material are licensed under [CC BY 4.0](h
 
 ## Current source versions
 
-The published v2025.0 archive retains the accepted 2025 taxonomy and June 2026 EBD evidence. The 2026 taxonomy/data upgrade is separate work and is not registered or shipped in this branch.
+v2026.0 follows AviList v2026 and the official eBird 2026 taxonomy, with September 2026 EBD evidence reconciled through four documented source corrections. The previous v2025.0 release (AviList v2025b, June 2026 EBD) remains available in the archive.
